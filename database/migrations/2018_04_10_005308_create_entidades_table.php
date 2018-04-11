@@ -18,9 +18,9 @@ class CreateEntidadesTable extends Migration
             $table->string('nome', 100);
             $table->string('email', 50);
             $table->string('senha', 50);
-            $table->integer('cpf');
-            $table->integer('cnpj');
-            $table->integer('fone');
+            $table->bigInteger('cpf')->nullable();
+            $table->bigInteger('cnpj')->nullable();
+            $table->bigInteger('fone')->nullable();
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
                 ->references('id')->on('enderecos')

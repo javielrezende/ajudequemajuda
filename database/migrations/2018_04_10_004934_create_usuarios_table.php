@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email', 50);
             $table->string('senha', 50);
             $table->bigInteger('cpf');
-            $table->integer('fone');
+            $table->bigInteger('fone')->nullable();
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
                 ->references('id')->on('enderecos')

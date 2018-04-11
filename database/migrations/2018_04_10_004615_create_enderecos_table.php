@@ -17,10 +17,10 @@ class CreateEnderecosTable extends Migration
             $table->increments('id');
             $table->string('rua', 100);
             $table->integer('numero');
-            $table->string('complemento', 100);
-            $table->string('cidade', 100);
-            $table->integer('cep');
-            $table->string('estado', 50);
+            $table->string('complemento', 100)->nullable();
+            $table->string('cidade', 100)->default('Pelotas');
+            $table->bigInteger('cep');
+            $table->string('estado', 50)->default('Rio Grande do Sul');
             $table->timestamps();
         });
     }

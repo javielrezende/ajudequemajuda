@@ -15,14 +15,14 @@ class CreateCampanhasTable extends Migration
     {
         Schema::create('campanhas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 45);
+            $table->string('nome', 100);
             $table->text('descricao');
             $table->text('urgencia');
             $table->unsignedInteger('entidades_id');
             $table->foreign('entidades_id')
                 ->references('id')->on('entidades')
                 ->onDelete('cascade');
-            $table->unsignedInteger('usuarios_id');
+            $table->unsignedInteger('usuarios_id')->nullable();
             $table->foreign('usuarios_id')
                 ->references('id')->on('usuarios')
                 ->onDelete('cascade');
