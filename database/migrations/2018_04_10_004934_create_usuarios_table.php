@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nome', 100);
             $table->string('email', 50);
             $table->string('senha', 50);
-            $table->integer('cpf');
+            $table->bigInteger('cpf');
             $table->integer('fone');
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
