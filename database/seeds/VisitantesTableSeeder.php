@@ -11,7 +11,7 @@ class VisitantesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('entidades')->insert([
+        DB::table('visitantes')->insert([
             'nome' => 'Rogerio Flausino',
             'email' => 'rogerio@gmail.com',
             'mensagem' => 'Desejo ser uma entidade cadastada no sistema',
