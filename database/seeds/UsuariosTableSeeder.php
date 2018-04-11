@@ -28,7 +28,7 @@ class UsuariosTableSeeder extends Seeder
             'senha' => '234',
             'cpf' => 11111111111,
             'fone' => 5391823774,
-            'endereco_id' => 2,
+            'enderecos_id' => 2,
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
@@ -39,7 +39,7 @@ class UsuariosTableSeeder extends Seeder
             'senha' => '345',
             'cpf' => 22222222222,
             'fone' => 5332273344,
-            'endereco_id' => 3,
+            'enderecos_id' => 3,
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
