@@ -22,9 +22,9 @@ class CreateCampanhasTable extends Migration
             $table->foreign('entidades_id')
                 ->references('id')->on('entidades')
                 ->onDelete('cascade');
-            $table->unsignedInteger('usuarios_id')->nullable();
-            $table->foreign('usuarios_id')
-                ->references('id')->on('usuarios')
+            $table->unsignedInteger('users_id')->nullable();
+            $table->foreign('users_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->timestamps();
         });
