@@ -39,6 +39,78 @@
                             </div>
                         </div>
 
+
+
+
+
+                        <div class="form-group">
+                            <label for="cpf" class="col-md-4 control-label">CPF</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fone" class="col-md-4 control-label">Fone</label>
+
+                            <div class="col-md-6">
+                                <input id="fone" type="text" class="form-control" name="fone" value="{{ old('fone') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rua" class="col-md-4 control-label">Rua</label>
+
+                            <div class="col-md-6">
+                                <input id="rua" type="text" class="form-control" name="rua" value="{{ old('rua') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numero" class="col-md-4 control-label">Número</label>
+
+                            <div class="col-md-6">
+                                <input id="numero" type="text" class="form-control" name="numero" value="{{ old('numero') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complemento" class="col-md-4 control-label">Complemento</label>
+
+                            <div class="col-md-6">
+                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cidade" class="col-md-4 control-label">Cidade</label>
+
+                            <div class="col-md-6">
+                                <input id="cidade" type="text" class="form-control" name="cidade" value="{{ old('cidade') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cep" class="col-md-4 control-label">Cep</label>
+
+                            <div class="col-md-6">
+                                <input id="cep" type="text" class="form-control" name="cep" value="{{ old('cep') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado" class="col-md-4 control-label">Estado</label>
+
+                            <div class="col-md-6">
+                                <input id="estado" type="text" class="form-control" name="estado" value="{{ old('estado') }}" required>
+                            </div>
+                        </div>
+
+
+
+
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
