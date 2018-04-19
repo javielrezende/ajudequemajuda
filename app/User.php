@@ -15,8 +15,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cpf', 'enderecos_id', 'fone',
     ];
+
+    public function endereco(){
+        return $this->belongsTo('App\Endereco');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

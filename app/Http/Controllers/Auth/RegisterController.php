@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Endereco;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,6 +52,14 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            //'cpf' => 'required|numeric|min:11|max:11',
+            //'fone' => 'numeric|min:11|max:11',
+            //'rua' => 'required|string|max:100',
+            //'numero' => 'required|numeric|max:6',
+            //'complemento' => 'string|max:100',
+            //'cidade' => 'required|string|max:100',
+            //'cep' => 'required|numeric|min:8|max:8',
+            //'estado' => 'required|string|max:50',
         ]);
     }
 
@@ -62,10 +71,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $endereco = Endereco::create([
+            'rua' => $data['rua'],
+            'numero' => $data['numero'],
+            'complemento' => $data['complemento'],
+            'cidade' => $data['cidade'],
+            'cep' => $data['cep'],
+            'estado' => $data['estado'],
+        ]);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'cpf' => $data['cpf'],
+            'fone' => $data['fone'],
+            'enderecos_id' => $endereco->id,
         ]);
     }
 }
