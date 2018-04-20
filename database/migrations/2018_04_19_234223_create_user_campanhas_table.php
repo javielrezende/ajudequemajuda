@@ -17,11 +17,11 @@ class CreateUserCampanhasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')
-                ->references('id')->on('users_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
-                ->references('id')->on('campanhas_id')
+                ->references('id')->on('campanhas')
                 ->onDelete('cascade');
             $table->timestamps();
         });
