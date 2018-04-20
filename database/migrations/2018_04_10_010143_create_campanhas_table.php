@@ -17,15 +17,7 @@ class CreateCampanhasTable extends Migration
             $table->increments('id');
             $table->string('nome', 100);
             $table->text('descricao');
-            $table->text('urgencia');
-            $table->unsignedInteger('entidades_id');
-            $table->foreign('entidades_id')
-                ->references('id')->on('entidades')
-                ->onDelete('cascade');
-            $table->unsignedInteger('users_id')->nullable();
-            $table->foreign('users_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->text('urgencia')->nullable();
             $table->timestamps();
         });
     }

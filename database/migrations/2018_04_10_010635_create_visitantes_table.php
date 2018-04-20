@@ -15,8 +15,8 @@ class CreateVisitantesTable extends Migration
     {
         Schema::create('visitantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 100);
-            $table->string('email', 50);
+            $table->string('nome', 191);
+            $table->string('email', 191);
             $table->text('mensagem');
             $table->boolean('solicitacao_entidade')->nullable();
             $table->timestamps();

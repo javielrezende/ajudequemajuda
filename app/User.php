@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'cpf', 'enderecos_id', 'fone',
+        'name', 'email', 'password', 'cpf', 'enderecos_id', 'fone', 'entidade',
     ];
 
     public function endereco(){

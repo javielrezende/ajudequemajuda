@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Visitante extends Model
+class UserCampanha extends Model
 {
     protected $fillable = [
-        'nome', 'email', 'mensagem', 'solicitacao_entidade',
+        'users_id', 'campanhas_id',
     ];
 }
