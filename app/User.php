@@ -19,7 +19,7 @@ class User extends Authenticatable
     ];
 
     public function endereco(){
-        return $this->belongsTo('App\Endereco');
+        return $this->belongsToMany('App\Endereco', 'users_has_campanhas', 'users_id', 'campanhas_id');
     }
 
     /**
