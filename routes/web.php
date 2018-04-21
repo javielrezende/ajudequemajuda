@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Controllers\EntidadeController;
 use Illuminate\Routing\Route;
 
 Route::get('/', function () {
@@ -22,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::ressource('/entidades', 'EntidadeController');
+Route::resource('/entidades', 'EntidadeController');
