@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->bigInteger('cpf')->unique()->nullable();
-            $table->bigInteger('cnpf')->unique()->nullable();
+            $table->bigInteger('cnpj')->unique()->nullable();
             $table->bigInteger('fone')->nullable();
             $table->boolean('entidade')->default(0);
             $table->unsignedInteger('enderecos_id');

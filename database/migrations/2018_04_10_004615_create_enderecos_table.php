@@ -19,6 +19,7 @@ class CreateEnderecosTable extends Migration
             $table->integer('numero');
             $table->string('complemento', 100)->nullable();
             $table->string('cidade', 100)->default('Pelotas');
+            $table->string('bairro', 50);
             $table->bigInteger('cep');
             $table->string('estado', 50)->default('Rio Grande do Sul');
             $table->timestamps();

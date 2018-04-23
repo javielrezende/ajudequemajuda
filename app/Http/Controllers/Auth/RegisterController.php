@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'numero' => $data['numero'],
             'complemento' => $data['complemento'],
             'cidade' => $data['cidade'],
+            'bairro' => $data['bairro'],
             'cep' => $data['cep'],
             'estado' => $data['estado'],
         ]);
@@ -84,7 +85,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'cpf' => $data['cpf'],
-            'cpf' => null,
+            'cnpj' => null,
             'entidade' => 0,
             'fone' => $data['fone'],
             'enderecos_id' => $endereco->id,

@@ -52,6 +52,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="cnpj" class="col-md-4 control-label">CNPJ</label>
+
+                            <div class="col-md-6">
+                                <input id="cnpj" type="text" class="form-control" name="cnpj" value="{{ old('cnpj') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="fone" class="col-md-4 control-label">Fone</label>
 
                             <div class="col-md-6">
@@ -88,6 +96,14 @@
 
                             <div class="col-md-6">
                                 <input id="cidade" type="text" class="form-control" name="cidade" value="{{ old('cidade') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bairro" class="col-md-4 control-label">Bairro</label>
+
+                            <div class="col-md-6">
+                                <input id="bairro" type="text" class="form-control" name="bairro" value="{{ old('bairro') }}" required>
                             </div>
                         </div>
 

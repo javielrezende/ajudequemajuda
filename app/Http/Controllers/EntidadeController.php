@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Endereco;
+use Illuminate\View\View;
 
 class EntidadeController extends Controller
 {
@@ -15,9 +17,10 @@ class EntidadeController extends Controller
     public function index()
     {
         $entidades = User::where('entidade', 1)
-                          ->orderBy('name')
+                          ->orderBy('id')
                           ->get();
-        return view('entidades_list', compact('entidades'));
+        //$entidades = User::all();
+        return view('entidades/entidades_list', compact('entidades'));
     }
 
     /**
@@ -27,7 +30,9 @@ class EntidadeController extends Controller
      */
     public function create()
     {
-        //
+        $acao = 1;
+
+        return view('entidades/entidades_form', compact('acao'));
     }
 
     /**
@@ -38,7 +43,30 @@ class EntidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $endereco = Endereco::create([
+            'rua' => $request['rua'],
+            'numero' => $request['numero'],
+            'complemento' => $request['complemento'],
+            'cidade' => $request['cidade'],
+            'bairro' => $request['bairro'],
+            'cep' => $request['cep'],
+            'estado' => $request['estado'],
+        ]);
+        $resultado = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'cpf' => $request['cpf'],
+            'cnpj' => $request['cnpj'],
+            'entidade' => 1,
+            'fone' => $request['fone'],
+            'enderecos_id' => $endereco->id,
+        ]);
+
+        if ($resultado) {
+            return redirect()->route('entidades.index')
+                ->with('status', 'Entidade incluída!');
+        }
     }
 
     /**
@@ -60,7 +88,12 @@ class EntidadeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = User::find($id);
+
+        $acao = 2;
+
+        return view('entidades/entidades_form', compact('registro', 'acao'));
+
     }
 
     /**
@@ -72,7 +105,15 @@ class EntidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+
+        $registro = User::find($id);
+
+        $alteracao = $registro->update($dados);
+
+        if ($alteracao) {
+            return redirect()->route('entidades.index')->with('status', 'Entidade Alterada!');
+        }
     }
 
     /**
