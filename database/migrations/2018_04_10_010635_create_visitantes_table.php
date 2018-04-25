@@ -30,6 +30,8 @@ class CreateVisitantesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('visitantes');
+        Schema::enableForeignKeyConstraints();
     }
 }

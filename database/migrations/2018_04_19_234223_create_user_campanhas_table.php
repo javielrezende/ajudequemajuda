@@ -34,6 +34,8 @@ class CreateUserCampanhasTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('user_campanhas');
+        Schema::enableForeignKeyConstraints();
     }
 }
