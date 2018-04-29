@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCampanhasTable extends Migration
+class CreateItemDoacaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateCampanhasTable extends Migration
      */
     public function up()
     {
-        Schema::create('campanhas', function (Blueprint $table) {
+        Schema::create('item_doacaos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 100);
-            $table->text('descricao');
-            $table->binary('status')->nullable()->default(0);
-            $table->date('dataInicio')->nullable();
-            $table->date('dataFim')->nullable();
+            $table->unsignedInteger('itens_id');
+            $table->foreign('itens_id')
+                ->references('id')->on('item')
+                ->onDelete('cascade');
+            $table->unsignedInteger('doacoes_id');
+            $table->foreign('doacoes_id')
+                ->references('id')->on('doacao')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,7 +35,7 @@ class CreateCampanhasTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('campanhas');
+        Schema::dropIfExists('item_doacaos');
         Schema::enableForeignKeyConstraints();
     }
 }
