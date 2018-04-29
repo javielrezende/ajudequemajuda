@@ -19,7 +19,7 @@ class CreateDoacaosTable extends Migration
             $table->boolean('confirmacao')->nullable()->default(0);
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')
-                ->references('id')->on('user')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
