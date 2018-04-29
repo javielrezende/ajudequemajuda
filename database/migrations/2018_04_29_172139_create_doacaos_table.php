@@ -23,7 +23,7 @@ class CreateDoacaosTable extends Migration
                 ->onDelete('cascade');
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
-                ->references('id')->on('campanha')
+                ->references('id')->on('campanhas')
                 ->onDelete('cascade');
             $table->timestamps();
         });
