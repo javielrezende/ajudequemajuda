@@ -21,10 +21,10 @@ class CreateUsersTable extends Migration
             $table->bigInteger('cpf')->unique()->nullable();
             $table->bigInteger('cnpj')->unique()->nullable();
             $table->bigInteger('fone')->nullable();
-            $table->binary('entidade')->default(0);
+            $table->boolean('entidade')->default(0);
             $table->text('mensagem')->nullable();
-            $table->binary('solicitacao_entidade')->nullable()->default(0);
-            $table->binary('status')->nullable()->default(0);
+            $table->boolean('solicitacao_entidade')->nullable()->default(0);
+            $table->boolean('status')->nullable()->default(0);
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
                 ->references('id')->on('enderecos')

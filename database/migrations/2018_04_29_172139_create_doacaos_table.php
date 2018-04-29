@@ -16,7 +16,7 @@ class CreateDoacaosTable extends Migration
         Schema::create('doacaos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantidade');
-            $table->binary('confirmacao')->nullable()->default(0);
+            $table->boolean('confirmacao')->nullable()->default(0);
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')
                 ->references('id')->on('user')

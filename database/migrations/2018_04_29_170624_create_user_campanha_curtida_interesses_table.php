@@ -15,8 +15,8 @@ class CreateUserCampanhaCurtidaInteressesTable extends Migration
     {
         Schema::create('user_campanha_curtida_interesses', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('curtidas')->nullable()->default(0);
-            $table->binary('interesse')->nullable()->default(0);
+            $table->boolean('curtidas')->nullable()->default(0);
+            $table->boolean('interesse')->nullable()->default(0);
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')
                 ->references('id')->on('users')

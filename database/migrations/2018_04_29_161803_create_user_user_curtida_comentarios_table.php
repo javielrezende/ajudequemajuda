@@ -15,9 +15,9 @@ class CreateUserUserCurtidaComentariosTable extends Migration
     {
         Schema::create('user_user_curtida_comentarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('curtidas')->nullable()->default(0);
+            $table->boolean('curtidas')->nullable()->default(0);
             $table->text('comentarios')->nullable();
-            $table->binary('denuncia')->nullable()->default(0);
+            $table->boolean('denuncia')->nullable()->default(0);
             $table->text('emnsagem_denuncia')->nullable();
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')

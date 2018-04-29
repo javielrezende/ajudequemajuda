@@ -17,7 +17,7 @@ class CreateCampanhasTable extends Migration
             $table->increments('id');
             $table->string('nome', 100);
             $table->text('descricao');
-            $table->binary('status')->nullable()->default(0);
+            $table->boolean('status')->nullable()->default(0);
             $table->date('dataInicio')->nullable();
             $table->date('dataFim')->nullable();
             $table->timestamps();
