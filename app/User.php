@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade',
+        'name', 'email', 'password', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'status',
     ];
 
     public function endereco(){
@@ -25,6 +25,7 @@ class User extends Authenticatable
     public function campanha(){
         return $this->belongsToMany('App\Campanha', 'users_has_campanhas', 'users_id', 'campanhas_id');
     }
+
 
     /**
      * The attributes that should be hidden for arrays.
