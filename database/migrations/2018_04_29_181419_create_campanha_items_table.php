@@ -17,11 +17,11 @@ class CreateCampanhaItemsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
-                ->references('id')->on('campanha')
+                ->references('id')->on('campanhas')
                 ->onDelete('cascade');
             $table->unsignedInteger('itens_id');
             $table->foreign('itens_id')
-                ->references('id')->on('item')
+                ->references('id')->on('items')
                 ->onDelete('cascade');
             $table->timestamps();
         });

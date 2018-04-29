@@ -17,11 +17,11 @@ class CreateItemDoacaosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('itens_id');
             $table->foreign('itens_id')
-                ->references('id')->on('item')
+                ->references('id')->on('items')
                 ->onDelete('cascade');
             $table->unsignedInteger('doacoes_id');
             $table->foreign('doacoes_id')
-                ->references('id')->on('doacao')
+                ->references('id')->on('doacaos')
                 ->onDelete('cascade');
             $table->timestamps();
         });
