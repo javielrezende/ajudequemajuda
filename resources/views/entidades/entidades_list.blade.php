@@ -42,7 +42,9 @@
                 <th>Complemento</th>
                 <th>Cidade</th>
                 <th>Estado</th>
+                <th>Bairro</th>
                 <th>CEP</th>
+                <th>Mensagem</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -59,9 +61,10 @@
                     <td>{{$entidade->endereco->numero}}</td>
                     <td>{{$entidade->endereco->complemento}}</td>
                     <td>{{$entidade->endereco->cidade}}</td>
-                    <td>{{$entidade->endereco->bairro}}</td>
                     <td>{{$entidade->endereco->estado}}</td>
+                    <td>{{$entidade->endereco->bairro}}</td>
                     <td>{{$entidade->endereco->cep}}</td>
+                    <td>{{$entidade->mensagem}}</td>
                     <td>
                         <a href="{{route('entidades.edit', $entidade->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

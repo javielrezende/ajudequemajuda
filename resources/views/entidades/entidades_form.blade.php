@@ -120,6 +120,14 @@
                     </div>
 
                     <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <input type="text" class="form-control" id="mensagem" name="mensagem"
+                                   value="{{$registro->mensagem or old('mensagem')}}">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
                         <button type="submit" class="btn btn-default">Enviar</button>
                         <button type="reset" class="btn btn-default">Limpar</button>
                     </div>

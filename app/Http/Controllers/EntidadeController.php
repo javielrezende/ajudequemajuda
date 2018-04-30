@@ -108,10 +108,12 @@ class EntidadeController extends Controller
         $dados = $request->all();
 
         $registro = User::find($id);
+        $registro1 = Endereco::find($id);
 
         $alteracao = $registro->update($dados);
+        $alteracao1 = $registro1->update($dados);
 
-        if ($alteracao) {
+        if ($alteracao && $alteracao1) {
             return redirect()->route('entidades.index')->with('status', 'Entidade Alterada!');
         }
     }
