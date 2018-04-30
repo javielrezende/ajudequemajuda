@@ -71,6 +71,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $confirmacaoEntidade = 0;
+        if(isset($data['solicitacao_entidade'])){
+            $confirmacaoEntidade = 1;
+        };
+
         $endereco = Endereco::create([
             'rua' => $data['rua'],
             'numero' => $data['numero'],
@@ -85,9 +90,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'cpf' => $data['cpf'],
-            'cnpj' => null,
-            'entidade' => 0,
+            'cnpj' => $data['cnpj'],
+            'entidade' => $confirmacaoEntidade,
             'fone' => $data['fone'],
+            'status' => 1,
+            'mensagem' => $data['mensagem'],
             'enderecos_id' => $endereco->id,
         ]);
     }

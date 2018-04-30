@@ -47,7 +47,15 @@
                             <label for="cpf" class="col-md-4 control-label">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required>
+                                <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cnpj" class="col-md-4 control-label">CNPJ</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf" type="text" class="form-control" name="cnpj" value="{{ old('cnpj') }}">
                             </div>
                         </div>
 
@@ -56,7 +64,7 @@
                             <label for="fone" class="col-md-4 control-label">Fone</label>
 
                             <div class="col-md-6">
-                                <input id="fone" type="text" class="form-control" name="fone" value="{{ old('fone') }}" required>
+                                <input id="fone" type="text" class="form-control" name="fone" value="{{ old('fone') }}">
                             </div>
                         </div>
 
@@ -80,7 +88,7 @@
                             <label for="complemento" class="col-md-4 control-label">Complemento</label>
 
                             <div class="col-md-6">
-                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}" required>
+                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}">
                             </div>
                         </div>
 
@@ -141,6 +149,29 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label for="solicitacao_entidade" class="col-md-4 control-label">Solicitar Cadastro como Entidade</label>
+
+                            <div class="col-md-6">
+                                <input id="solicitacao_entidade" type="checkbox" class="form-control" name="solicitacao_entidade" value={{1}}>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem" class="col-md-4 control-label">Explique o motivo de seu pedido</label>
+
+                            <div class="col-md-6">
+                                <textarea id="mensagem" class="form-control" name="mensagem"></textarea>
+                            </div>
+                        </div>
+
+
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
