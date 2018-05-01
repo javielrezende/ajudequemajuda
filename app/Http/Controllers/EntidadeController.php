@@ -65,7 +65,7 @@ class EntidadeController extends Controller
 
         if ($resultado) {
             return redirect()->route('entidades.index')
-                ->with('status', 'Entidade incluída!');
+                ->with('status', 'Entidade Cadastrada!');
         }
     }
 
