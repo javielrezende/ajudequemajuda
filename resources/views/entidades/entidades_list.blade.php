@@ -7,6 +7,7 @@
     </div>
     <div class='col-sm-4'>
         <a href="{{route('entidades.create')}}" class="btn btn-default">Novo</a>
+        <a href="{{url('/')}}" class="btn btn-default">Voltar</a>
     </div>
 
     <div class='col-sm-12'>
