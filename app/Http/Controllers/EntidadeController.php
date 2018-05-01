@@ -17,6 +17,7 @@ class EntidadeController extends Controller
     public function index()
     {
         $entidades = User::where('entidade', 1)
+                          -> where('status', 1)
                           ->orderBy('id')
                           ->get();
         //$entidades = User::all();
@@ -124,8 +125,15 @@ class EntidadeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
+    public function destroy($id)
     {
-        //
+        $dados = User::find($id);
+        $alteracao = $dados->update([
+            'status' => 0
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('entidades.index')->with('status', 'Entidade Deletada!');
+        }
     }
 }
