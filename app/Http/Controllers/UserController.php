@@ -16,6 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('entidade', 0)
+            ->where('status', 1)
             ->orderBy('id')
             ->get();
         return view('users/users_list', compact('users'));
@@ -124,6 +125,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dados = User::find($id);
+        $alteracao = $dados->update([
+            'status' => 0
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('users.index')->with('status', 'Usuário Deletado!');
+        }
     }
 }
