@@ -14,12 +14,11 @@ class CampanhaController extends Controller
      */
     public function index()
     {
-        $campanhas = Campanha::where('entidade', 1)
-            -> where('status', 1)
-            ->orderBy('id')
-            ->get();
+        $campanhas = Campanha::where('status', 1)
+                             ->orderBy('id')
+                            ->get();
         //$entidades = User::all();
-        return view('entidades/entidades_list', compact('entidades'));
+        return view('campanhas/campanhas_list', compact('campanhas'));
     }
 
     /**
