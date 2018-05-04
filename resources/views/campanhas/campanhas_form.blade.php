@@ -24,16 +24,17 @@
 
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                   value="{{$registro->name or old('name')}}">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                   value="{{$registro->nome or old('nome')}}">
                         </div>
                     </div>
 
                     <div class="col-sm-12">
                         <label for="descricao" class="col-md-4 control-label">Descrição</label>
                         <div class="col-md-6">
-                            <textarea id="descricao" class="form-control" name="descricao"></textarea>
+                            <textarea id="descricao" class="form-control" name="descricao"
+                                      >{{$registro->descricao or old('descricao')}}</textarea>
                         </div>
                     </div>
 

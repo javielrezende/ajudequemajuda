@@ -37,7 +37,7 @@
             @foreach($campanhas as $campanha)
                 <tr>
                     <td>{{$campanha->id}}</td>
-                    <td>{{$campanha->name}}</td>
+                    <td>{{$campanha->nome}}</td>
                     <td>{{$campanha->descricao}}</td>
                     <td>
                         <a href="{{route('campanhas.edit', $campanha->id)}}"

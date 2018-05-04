@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CampanhaController extends Controller
 {
@@ -41,29 +43,29 @@ class CampanhaController extends Controller
      */
     public function store(Request $request)
     {
-        $endereco = Endereco::create([
-            'rua' => $request['rua'],
-            'numero' => $request['numero'],
-            'complemento' => $request['complemento'],
-            'cidade' => $request['cidade'],
-            'bairro' => $request['bairro'],
-            'cep' => $request['cep'],
-            'estado' => $request['estado'],
-        ]);
-        $resultado = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-            'cpf' => $request['cpf'],
-            'cnpj' => $request['cnpj'],
-            'entidade' => 1,
-            'fone' => $request['fone'],
-            'enderecos_id' => $endereco->id,
-        ]);
+        if (!Auth::check()) {
+            return redirect('/');
+        }
 
-        if ($resultado) {
-            return redirect()->route('entidades.index')
-                ->with('status', 'Entidade Cadastrada!');
+        $usuario = Auth::user();
+        $usuarioId = $usuario->id;
+
+        if($usuario->entidade == 1){
+            $resultado = Campanha::create([
+                'nome' => $request['nome'],
+                'descricao' => $request['descricao'],
+                'status' => 1,
+                'dataInicio' => null,
+                'dataFim' => null,
+                'user_id' => $usuarioId
+            ]);
+            if ($resultado) {
+                return redirect()->route('campanhas.index')
+                    ->with('status', 'Campanha Cadastrada!');
+            }
+        } else{
+            return redirect()->route('campanhas.index')
+                ->with('status', 'Permissão negada para este Usuário!');
         }
     }
 
@@ -86,7 +88,11 @@ class CampanhaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = Campanha::find($id);
+
+        $acao = 2;
+
+        return view('campanhas/campanhas_form', compact('registro', 'acao'));
     }
 
     /**
@@ -98,7 +104,15 @@ class CampanhaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+
+        $registro = Campanha::find($id);
+
+        $alteracao = $registro->update($dados);
+
+        if ($alteracao) {
+            return redirect()->route('campanhas.index')->with('status', 'Campanha Alterada!');
+        }
     }
 
     /**
@@ -109,6 +123,13 @@ class CampanhaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dados = Campanha::find($id);
+        $alteracao = $dados->update([
+            'status' => 0
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('campanhas.index')->with('status', 'Campanha Deletada!');
+        }
     }
 }
