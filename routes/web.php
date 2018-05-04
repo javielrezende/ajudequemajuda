@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/entidades', 'EntidadeController');
 Route::resource('/users', 'UserController');
+Route::resource('/campanhas', 'CampanhaController');
