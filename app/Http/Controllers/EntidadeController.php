@@ -60,6 +60,7 @@ class EntidadeController extends Controller
             'cpf' => $request['cpf'],
             'cnpj' => $request['cnpj'],
             'entidade' => 1,
+            'status' => 1,
             'fone' => $request['fone'],
             'enderecos_id' => $endereco->id,
         ]);
