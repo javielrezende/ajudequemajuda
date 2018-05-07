@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
 use App\Endereco;
-use Illuminate\View\View;
+use App\User;
+use Illuminate\Http\Request;
 
-class EntidadeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,11 @@ class EntidadeController extends Controller
      */
     public function index()
     {
-        $entidades = User::where('entidade', 1)
-                          -> where('status', 1)
-                          ->orderBy('id')
-                          ->get();
-        //$entidades = User::all();
-        return view('entidades/entidades_list', compact('entidades'));
+        $users = User::where('entidade', 0)
+            ->where('status', 1)
+            ->orderBy('id')
+            ->get();
+        return view('users/users_list', compact('users'));
     }
 
     /**
@@ -33,7 +31,7 @@ class EntidadeController extends Controller
     {
         $acao = 1;
 
-        return view('entidades/entidades_form', compact('acao'));
+        return view('users/users_form', compact('acao'));
     }
 
     /**
@@ -58,16 +56,16 @@ class EntidadeController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
             'cpf' => $request['cpf'],
-            'cnpj' => $request['cnpj'],
-            'entidade' => 1,
-            'status' => 1,
+            'cnpj' => null,
+            'entidade' => 0,
             'fone' => $request['fone'],
+            'status' => 1,
             'enderecos_id' => $endereco->id,
         ]);
 
         if ($resultado) {
-            return redirect()->route('entidades.index')
-                ->with('status', 'Entidade Cadastrada!');
+            return redirect()->route('users.index')
+                ->with('status', 'Usuário Cadastrado!');
         }
     }
 
@@ -94,8 +92,7 @@ class EntidadeController extends Controller
 
         $acao = 2;
 
-        return view('entidades/entidades_form', compact('registro', 'acao'));
-
+        return view('users/users_form', compact('registro', 'acao'));
     }
 
     /**
@@ -116,7 +113,7 @@ class EntidadeController extends Controller
         $alteracao1 = $registro1->update($dados);
 
         if ($alteracao && $alteracao1) {
-            return redirect()->route('entidades.index')->with('status', 'Entidade Alterada!');
+            return redirect()->route('users.index')->with('status', 'Cadastro Alterado!');
         }
     }
 
@@ -134,7 +131,7 @@ class EntidadeController extends Controller
         ]);
 
         if ($alteracao) {
-            return redirect()->route('entidades.index')->with('status', 'Entidade Deletada!');
+            return redirect()->route('users.index')->with('status', 'Usuário Deletado!');
         }
     }
 }

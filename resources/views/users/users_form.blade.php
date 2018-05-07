@@ -4,20 +4,20 @@
 
     <div class='col-sm-11'>
         @if ($acao == 1)
-            <h2> Cadastro de Entidades </h2>
+            <h2> Cadastro de Usuários </h2>
         @else
             <h2> Alteração de dados cadastrados </h2>
         @endif
     </div>
     <div class='col-sm-1'>
-        <a href="{{route('entidades.index')}}" class="btn btn-default">Voltar</a>
+        <a href="{{route('users.index')}}" class="btn btn-default">Voltar</a>
     </div>
 
 
     @if ($acao == 1)
-        <form method="post" action="{{route('entidades.store')}}">
+        <form method="post" action="{{route('users.store')}}">
             @else
-                <form method="post" action="{{route('entidades.update', $registro->id)}}">
+                <form method="post" action="{{route('users.update', $registro->id)}}">
                     {!! method_field('put') !!}
                     @endif
                     {{ csrf_field() }}
@@ -45,15 +45,6 @@
                                    value="{{$registro->cpf or old('cpf')}}">
                         </div>
                     </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="cnpj">CNPJ</label>
-                            <input type="text" class="form-control" id="cnpj" name="cnpj"
-                                   value="{{$registro->cnpj or old('cpnj')}}">
-                        </div>
-                    </div>
-
 
                     <div class="col-sm-12">
                         <div class="form-group">
@@ -95,14 +86,6 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-5">
-                        <div class="form-group">
-                            <label for="bairro">Bairro:</label>
-                            <input type="text" class="form-control" id="bairro" name="bairro"
-                                   value="{{$registro->endereco->bairro or old('bairro')}}">
-                        </div>
-                    </div>
-
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="cidade">Cidade:</label>
@@ -111,19 +94,19 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="bairro">Bairro:</label>
+                            <input type="text" class="form-control" id="bairro" name="bairro"
+                                   value="{{$registro->endereco->bairro or old('bairro')}}">
+                        </div>
+                    </div>
+
                     <div class="col-sm-1">
                         <div class="form-group">
                             <label for="estado">Estado:</label>
                             <input type="text" class="form-control" id="estado" name="estado"
                                    value="{{$registro->endereco->estado or old('estado')}}">
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <input type="text" class="form-control" id="mensagem" name="mensagem"
-                                   value="{{$registro->mensagem or old('mensagem')}}">
                         </div>
                     </div>
 
