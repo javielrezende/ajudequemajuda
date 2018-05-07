@@ -23,6 +23,10 @@ class CreateEventosTable extends Migration
             $table->foreign('campanhas_id')
                 ->references('id')->on('campanhas')
                 ->onDelete('cascade');
+            $table->unsignedInteger('enderecos_id');
+            $table->foreign('enderecos_id')
+                ->references('id')->on('enderecos')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

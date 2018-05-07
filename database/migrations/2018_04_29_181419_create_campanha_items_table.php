@@ -23,6 +23,7 @@ class CreateCampanhaItemsTable extends Migration
             $table->foreign('itens_id')
                 ->references('id')->on('items')
                 ->onDelete('cascade');
+            $table->boolean('urgencia')->default(0);
             $table->timestamps();
         });
     }

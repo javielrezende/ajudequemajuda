@@ -17,7 +17,6 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->text('descricao');
             $table->integer('quantidade');
-            $table->boolean('urgencia')->default(0);
             $table->timestamps();
         });
     }
