@@ -104,6 +104,10 @@ class CampanhaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
         $dados = $request->all();
 
         $registro = Campanha::find($id);
@@ -123,6 +127,10 @@ class CampanhaController extends Controller
      */
     public function destroy($id)
     {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
         $dados = Campanha::find($id);
         $alteracao = $dados->update([
             'status' => 0
