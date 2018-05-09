@@ -62,6 +62,7 @@ class EntidadeController extends Controller
             'entidade' => 1,
             'status' => 1,
             'fone' => $request['fone'],
+            'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
 
@@ -110,11 +111,11 @@ class EntidadeController extends Controller
 
         $dados = $request->all();
 
-        $registro = User::find($id);
-        $registro1 = Endereco::find($id);
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
 
         $alteracao = $registro->update($dados);
-        $alteracao1 = $registro1->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
 
         if ($alteracao && $alteracao1) {
             return redirect()->route('entidades.index')->with('status', 'Entidade Alterada!');
