@@ -41,6 +41,7 @@
                 <th>Bairro</th>
                 <th>CEP</th>
                 <th>Mensagem</th>
+                <th>Descrição da entidade</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -61,6 +62,7 @@
                     <td>{{$entidade->endereco->bairro}}</td>
                     <td>{{$entidade->endereco->cep}}</td>
                     <td>{{$entidade->mensagem}}</td>
+                    <td>{{$entidade->descricao_entidade}}</td>
                     <td>
                         <a href="{{route('entidades.edit', $entidade->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

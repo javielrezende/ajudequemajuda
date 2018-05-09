@@ -44,10 +44,6 @@ class EntidadeController extends Controller
      */
     public function store(Request $request)
     {
-        if (!Auth::check()) {
-            return redirect('/');
-        }
-
         $endereco = Endereco::create([
             'rua' => $request['rua'],
             'numero' => $request['numero'],
@@ -111,9 +107,6 @@ class EntidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!Auth::check()) {
-            return redirect('/');
-        }
 
         $dados = $request->all();
 
@@ -136,9 +129,6 @@ class EntidadeController extends Controller
      */
     public function destroy($id)
     {
-        if (!Auth::check()) {
-            return redirect('/');
-        }
 
         $dados = User::find($id);
         $alteracao = $dados->update([

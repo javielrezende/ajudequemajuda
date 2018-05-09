@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('fone')->nullable();
             $table->boolean('entidade')->nullable()->default(0);
             $table->text('mensagem')->nullable();
+            $table->text('descricao_entidade')->nullable();
             $table->boolean('solicitacao_entidade')->nullable()->default(0);
             $table->boolean('status')->nullable()->default(0);
             $table->unsignedInteger('enderecos_id');
