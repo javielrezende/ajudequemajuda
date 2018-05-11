@@ -37,7 +37,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -72,7 +72,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -83,7 +83,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -98,19 +98,19 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $dados = $request->all();
 
-        $registro = User::find($id);
-        $registro1 = Endereco::find($id);
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
 
         $alteracao = $registro->update($dados);
-        $alteracao1 = $registro1->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
 
         if ($alteracao && $alteracao1) {
             return redirect()->route('users.index')->with('status', 'Cadastro Alterado!');
@@ -120,7 +120,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
