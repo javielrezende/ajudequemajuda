@@ -29,6 +29,12 @@
             <tr>
                 <th>Nº de Cadastro</th>
                 <th>Descrição</th>
+                <th>Rua</th>
+                <th>Número</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -37,6 +43,12 @@
                 <tr>
                     <td>{{$evento->id}}</td>
                     <td>{{$evento->descricao}}</td>
+                    <td>{{$entidade->endereco->rua}}</td>
+                    <td>{{$entidade->endereco->numero}}</td>
+                    <td>{{$entidade->endereco->complemento}}</td>
+                    <td>{{$entidade->endereco->bairro}}</td>
+                    <td>{{$entidade->endereco->cidade}}</td>
+                    <td>{{$entidade->endereco->estado}}</td>
                     <td>
                         <a href="{{route('eventos.edit', $evento->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
+use App\Endereco;
+use App\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventoController extends Controller
 {
@@ -13,7 +17,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = User::where('status', 1)
+        $eventos = Evento::where('status', 1)
             ->orderBy('id')
             ->get();
         //$entidades = User::all();
@@ -40,7 +44,50 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
+        $usuario = Auth::user();
+        $usuarioId = $usuario->id;
+
+        $campanha = Campanha::where('users_id', $usuarioId)->get();
+        dd($campanha);
+
+        //$campanhaUser = $campanha->get('id');
+        //$campanhaId = $campanha->id;
+
+        //$campanhaId = Campanha::with('user')->find('id');
+
+
+
+        $endereco = Endereco::create([
+            'rua' => $request['rua'],
+            'numero' => $request['numero'],
+            'complemento' => $request['complemento'],
+            'bairro' => $request['bairro'],
+            'cidade' => $request['cidade'],
+            'estado' => $request['estado'],
+            'cep' => $request['cep'],
+        ]);
+
+        if($usuario->entidade == 1){
+            $resultado = Evento::create([
+                'descricao' => $request['descricao'],
+                'status' => 1,
+                'dataInicio' => null,
+                'dataFim' => null,
+                'enderecos_id' => $endereco->id,
+                'campanha_id' => $campanha->id,
+            ]);
+            if ($resultado) {
+                return redirect()->route('eventos.index')
+                    ->with('status', 'Evento Cadastrado!');
+            }
+        } else{
+            return redirect()->route('campanhas.index')
+                ->with('status', 'Permissão negada para este Usuário!');
+        }
     }
 
     /**

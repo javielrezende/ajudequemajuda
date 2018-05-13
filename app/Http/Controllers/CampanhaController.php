@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\User;
+use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,8 @@ class CampanhaController extends Controller
         $usuario = Auth::user();
         $usuarioId = $usuario->id;
 
+
+
         if($usuario->entidade == 1){
             $resultado = Campanha::create([
                 'nome' => $request['nome'],
@@ -57,12 +60,16 @@ class CampanhaController extends Controller
                 'status' => 1,
                 'dataInicio' => null,
                 'dataFim' => null,
-                'user_id' => $usuarioId
+                //'user_id' => $usuarioId
             ]);
             if ($resultado) {
                 return redirect()->route('campanhas.index')
                     ->with('status', 'Campanha Cadastrada!');
             }
+
+            UserCampanhaCurtidaInteresse::create([
+                'users_id' => $usuarioId,
+            ]);
         } else{
             return redirect()->route('campanhas.index')
                 ->with('status', 'Permissão negada para este Usuário!');
