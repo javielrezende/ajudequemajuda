@@ -10,11 +10,11 @@ class Campanha extends Model
         'nome', 'descricao', 'status', 'dataInicio', 'dataFim',
     ];
 
-    public function user(){
+    public function users(){
         return $this->belongsToMany('App\User', 'user_campanha_curtida_interresses', 'campanhas_id', 'users_id');
     }
 
-    public function item(){
+    public function itens(){
         return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id');
     }
 }

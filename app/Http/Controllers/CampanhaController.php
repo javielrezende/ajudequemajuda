@@ -59,9 +59,11 @@ class CampanhaController extends Controller
                 'descricao' => $request['descricao'],
                 'status' => 1,
                 'dataInicio' => null,
-                'dataFim' => null,
-                //'user_id' => $usuarioId
+                'dataFim' => null
             ]);
+            $campanha = new Campanha();
+            $campanha->users()->sync($request->users);
+
             if ($resultado) {
                 return redirect()->route('campanhas.index')
                     ->with('status', 'Campanha Cadastrada!');

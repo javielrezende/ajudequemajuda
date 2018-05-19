@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
                 ->references('id')->on('enderecos')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
