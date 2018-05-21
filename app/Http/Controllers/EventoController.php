@@ -20,7 +20,6 @@ class EventoController extends Controller
         $eventos = Evento::where('status', 1)
             ->orderBy('id')
             ->get();
-        //$entidades = User::all();
         return view('eventos/eventos_list', compact('eventos'));
     }
 

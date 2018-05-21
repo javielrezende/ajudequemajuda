@@ -11,7 +11,7 @@ class Campanha extends Model
     ];
 
     public function users(){
-        return $this->belongsToMany('App\User', 'user_campanha_curtida_interresses', 'campanhas_id', 'users_id');
+        return $this->belongsToMany('App\User', 'user_campanha_curtida_interesses', 'campanhas_id', 'users_id');
     }
 
     public function itens(){

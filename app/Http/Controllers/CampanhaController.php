@@ -51,27 +51,22 @@ class CampanhaController extends Controller
         $usuario = Auth::user();
         $usuarioId = $usuario->id;
 
-
-
         if($usuario->entidade == 1){
-            $resultado = Campanha::create([
-                'nome' => $request['nome'],
-                'descricao' => $request['descricao'],
-                'status' => 1,
-                'dataInicio' => null,
-                'dataFim' => null
-            ]);
-            $campanha = new Campanha();
-            $campanha->users()->sync($request->users);
+            $campanha = new Campanha;
+            $campanha->nome = $request->nome;
+            $campanha->descricao = $request->descricao;
+            $campanha->status = 1;
+            $campanha->dataInicio = null;
+            $campanha->dataFim = null;
+            $resultado = $campanha->save();
+
+            $campanha->users()->sync($usuarioId);
+
 
             if ($resultado) {
                 return redirect()->route('campanhas.index')
                     ->with('status', 'Campanha Cadastrada!');
             }
-
-            UserCampanhaCurtidaInteresse::create([
-                'users_id' => $usuarioId,
-            ]);
         } else{
             return redirect()->route('campanhas.index')
                 ->with('status', 'Permissão negada para este Usuário!');
