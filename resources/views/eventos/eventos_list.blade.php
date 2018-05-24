@@ -43,12 +43,12 @@
                 <tr>
                     <td>{{$evento->id}}</td>
                     <td>{{$evento->descricao}}</td>
-                    <td>{{$entidade->endereco->rua}}</td>
-                    <td>{{$entidade->endereco->numero}}</td>
-                    <td>{{$entidade->endereco->complemento}}</td>
-                    <td>{{$entidade->endereco->bairro}}</td>
-                    <td>{{$entidade->endereco->cidade}}</td>
-                    <td>{{$entidade->endereco->estado}}</td>
+                    <td>{{$evento->enderecos->rua}}</td>
+                    <td>{{$evento->enderecos->numero}}</td>
+                    <td>{{$evento->enderecos->complemento}}</td>
+                    <td>{{$evento->enderecos->bairro}}</td>
+                    <td>{{$evento->enderecos->cidade}}</td>
+                    <td>{{$evento->enderecos->estado}}</td>
                     <td>
                         <a href="{{route('eventos.edit', $evento->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

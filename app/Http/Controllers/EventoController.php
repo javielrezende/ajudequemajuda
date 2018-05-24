@@ -17,8 +17,9 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::where('status', 1)
-            ->orderBy('id')
+        $eventos = Evento::with('campanhas')
+            ->where('status', 1)
+            ->orderBy('campanhas_id')
             ->get();
         return view('eventos/eventos_list', compact('eventos'));
     }
@@ -48,10 +49,13 @@ class EventoController extends Controller
         }
 
         $usuario = Auth::user();
-        $usuarioId = $usuario->id;
+        //$usuarioId = $usuario->id;
 
-        $campanha = Campanha::where('users_id', $usuarioId)->get();
-        dd($campanha);
+        $campanha = $usuario->campanhas()->get()->first();
+        //dd($campanha->id);
+        //$campanha = Campanha::with('users')
+        //->where('users_id', $usuarioId)->get();
+        //dd($campanha);
 
         //$campanhaUser = $campanha->get('id');
         //$campanhaId = $campanha->id;
@@ -77,7 +81,7 @@ class EventoController extends Controller
                 'dataInicio' => null,
                 'dataFim' => null,
                 'enderecos_id' => $endereco->id,
-                'campanha_id' => $campanha->id,
+                'campanhas_id' => $campanha->id,
             ]);
             if ($resultado) {
                 return redirect()->route('eventos.index')
