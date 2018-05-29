@@ -24,6 +24,17 @@ class EntidadeController extends Controller
         return view('entidades/entidades_list', compact('entidades'));
     }
 
+    public function indexJson()
+    {
+        $entidades = User::where('entidade', 1)
+            -> where('status', 1)
+            ->orderBy('id')
+            ->get();
+        //$entidades = User::all();
+        return response($entidades, 200);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

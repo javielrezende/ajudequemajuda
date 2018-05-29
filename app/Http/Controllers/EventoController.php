@@ -7,6 +7,7 @@ use App\Endereco;
 use App\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class EventoController extends Controller
 {
@@ -49,20 +50,9 @@ class EventoController extends Controller
         }
 
         $usuario = Auth::user();
-        //$usuarioId = $usuario->id;
 
         $campanha = $usuario->campanhas()->get()->first();
         //dd($campanha->id);
-        //$campanha = Campanha::with('users')
-        //->where('users_id', $usuarioId)->get();
-        //dd($campanha);
-
-        //$campanhaUser = $campanha->get('id');
-        //$campanhaId = $campanha->id;
-
-        //$campanhaId = Campanha::with('user')->find('id');
-
-
 
         $endereco = Endereco::create([
             'rua' => $request['rua'],
@@ -112,7 +102,11 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = Evento::find($id);
+
+        $acao = 2;
+
+        return view('eventos/eventos_form', compact('registro', 'acao'));
     }
 
     /**
@@ -124,7 +118,18 @@ class EventoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+
+        $registro = Evento::with('enderecos')->find($id);
+        //$registro = Evento::with(Endereco::class)->find($id);
+        //dd($registro);
+
+        $alteracao = $registro->update($dados);
+        $alteracao1 = $registro->enderecos->update($dados);
+
+        if ($alteracao && $alteracao1) {
+            return redirect()->route('eventos.index')->with('status', 'Evento Alterado!');
+        }
     }
 
     /**
@@ -135,6 +140,13 @@ class EventoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dados = Evento::find($id);
+        $alteracao = $dados->update([
+            'status' => 0
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('eventos.index')->with('status', 'Evento Deletado!');
+        }
     }
 }
