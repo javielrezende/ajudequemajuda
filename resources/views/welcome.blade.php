@@ -69,6 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
+                        <a href="{{ url('/eventos') }}">Eventos</a>
                         <a href="{{ url('/campanhas') }}">Campanhas</a>
                         <a href="{{ url('/users') }}">Usuários</a>
                         <a href="{{ url('/entidades') }}">Entidades</a>

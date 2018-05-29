@@ -22,10 +22,12 @@ class CreateEventosTable extends Migration
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
                 ->references('id')->on('campanhas')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->unsignedInteger('enderecos_id');
             $table->foreign('enderecos_id')
                 ->references('id')->on('enderecos')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });

@@ -14,16 +14,18 @@ class CreateUserCampanhaCurtidaInteressesTable extends Migration
     public function up()
     {
         Schema::create('user_campanha_curtida_interesses', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('users_id');
+            $table->unsignedInteger('campanhas_id');
+            $table->primary(['users_id', 'campanhas_id']);
             $table->boolean('curtidas')->nullable()->default(0);
             $table->boolean('interesse')->nullable()->default(0);
-            $table->unsignedInteger('users_id');
             $table->foreign('users_id')
                 ->references('id')->on('users')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')
                 ->references('id')->on('campanhas')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });

@@ -14,18 +14,20 @@ class CreateUserUserCurtidaComentariosTable extends Migration
     public function up()
     {
         Schema::create('user_user_curtida_comentarios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('users_id');
+            $table->unsignedInteger('users_id1');
+            $table->primary(['users_id', 'users_id1']);
             $table->boolean('curtidas')->nullable()->default(0);
             $table->text('comentarios')->nullable();
             $table->boolean('denuncia')->nullable()->default(0);
             $table->text('emnsagem_denuncia')->nullable();
-            $table->unsignedInteger('users_id');
             $table->foreign('users_id')
                 ->references('id')->on('users')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unsignedInteger('users_id1');
             $table->foreign('users_id1')
                 ->references('id')->on('users')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });

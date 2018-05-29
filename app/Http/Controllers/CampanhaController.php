@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\User;
+use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,14 +52,17 @@ class CampanhaController extends Controller
         $usuarioId = $usuario->id;
 
         if($usuario->entidade == 1){
-            $resultado = Campanha::create([
-                'nome' => $request['nome'],
-                'descricao' => $request['descricao'],
-                'status' => 1,
-                'dataInicio' => null,
-                'dataFim' => null,
-                'user_id' => $usuarioId
-            ]);
+            $campanha = new Campanha;
+            $campanha->nome = $request->nome;
+            $campanha->descricao = $request->descricao;
+            $campanha->status = 1;
+            $campanha->dataInicio = null;
+            $campanha->dataFim = null;
+            $resultado = $campanha->save();
+
+            $campanha->users()->sync($usuarioId);
+
+
             if ($resultado) {
                 return redirect()->route('campanhas.index')
                     ->with('status', 'Campanha Cadastrada!');
