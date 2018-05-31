@@ -7,8 +7,10 @@ use App\User;
 use App\Endereco;
 use Illuminate\View\View;
 
+
 class EntidadeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -73,6 +75,7 @@ class EntidadeController extends Controller
             'entidade' => 1,
             'status' => 1,
             'fone' => $request['fone'],
+            'mensagem' => null,
             'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
