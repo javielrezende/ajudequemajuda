@@ -10,9 +10,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<div class="container" style="margin-top: 30px; margin-bottom: 30px">
 
-@yield('content')
+    @yield('content')
 
+</div>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
