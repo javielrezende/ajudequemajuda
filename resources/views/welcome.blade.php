@@ -13,7 +13,7 @@
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #fff;
+            /*background-color: #fff;*/
             color: #636b6f;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
@@ -83,7 +83,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Ajude quem Ajuda
+            <h1>Ajude quem Ajuda<h1>
         </div>
 
     </div>
