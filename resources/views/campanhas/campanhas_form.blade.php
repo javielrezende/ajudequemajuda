@@ -41,16 +41,18 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="dataInicio">Data inicial</label>
-                            <input type="date" class="form-control" id="dataInicio" name="dataInicio"
-                                   value="{{$registro->dataInicio or old('dataInicio')}}">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" id="dataInicio" name="dataInicio"
+                                       value="{{$registro->dataInicio or old('dataInicio')}}"></div>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="dataFim">Data final</label>
-                            <input type="date" class="form-control" id="dataFim" name="dataFim"
-                                   value="{{$registro->dataFim or old('dataFim')}}">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" id="dataFim" name="dataFim"
+                                       value="{{$registro->dataFim or old('dataFim')}}"></div>
                         </div>
                     </div>
 
@@ -61,5 +63,4 @@
                     </div>
 
                 </form>
-
 @endsection
