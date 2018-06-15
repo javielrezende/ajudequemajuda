@@ -18,15 +18,43 @@ class CampanhaController extends Controller
      */
     public function index()
     {
-        $dataInicial = Campanha::where('id', 2)->get([
-                'dataInicio'
-            ]);
+        //$dataInicial = Campanha::get([
+        //            'dataInicio'
+        //       ]);
         //dd($dataInicial);
-        if (isset($dataInicial)){
+        //if(isset($dataInicial)){
+        //  $data_sem_barra = array_reverse(explode('-', $dataInicial));
+        // dd($data_sem_barra);
+        //};
+
+        //$dataInicialString = (string) $dataInicial;
+        //dd(gettype($dataInicialString));
+        //dd($dataInicialString);
+        //$data = date('d/m/Y', strtotime($dataInicialString));
+        //dd($data);
+        //$data = date_create_immutable_from_format('Y-m-d', $dataInicial, date_timezone_get(1));
+         //   dd($data);
+
+        //Carbon::setLocale('pt_BR');
+        //setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        //echo $dt->formatLocalized('%A %d %B %Y');
+        //$dataInicial = date('d/m/Y', strtotime(Campanha::where('id', 2)->get([
+        //            'dataInicio'
+        //        ])));
+        //$dataInicial = Campanha::where('id', 2)->get([
+        //        'dataInicio'
+        //    ]);
+        //$dataInicialPhp = date_create($dataInicial);
+        //dd($dataInicial);
+        //dd($dataInicial);
+        //if (isset($dataInicial)){
             //dd($dataInicial);
-        $data = Carbon::createFromFormat("Y-m-d", $dataInicial);
-        dd($data);
-        }
+        //$data->formatLocalized('%d %m %Y');
+        //$dataInicial->format("d/m/Y");
+            //$dataInicial = date('d/m/Y', strtotime($dataInicial));
+         //   $data = $dataInicial->strftime('d/m/Y');
+         //   dd($data);
+       // }
         //$dataInicialFormatada = Carbon::parse($data)->format('d/m/Y');
         //$dataInicialFormatada = $data->format('d/m/Y');
         //$dataInicialFormatada = $data->formatLocalized('d/m/Y');
@@ -137,16 +165,40 @@ class CampanhaController extends Controller
             return redirect('/');
         }
 
-        $dados = $request->all();
+        $dataInicial = $request['dataInicio'];
+        $dataFinal = $request['dataFim'];
+        $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
+        $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+
+        //$dados = $request->all();
+        $nome = $request['nome'];
+        $descricao = $request['descricao'];
 
         $registro = Campanha::find($id);
+        $alteracoes = ['nome' => $nome, 'descricao' => $descricao, 'dataInicio' => $dataInicialFormatada, 'dataFim' => $dataFinalFormatada];
 
-        $alteracao = $registro->update($dados);
-
+        $alteracao = $registro->update($alteracoes);
+        //dd($alteracoes);
+        //dd($registro);
         if ($alteracao) {
             return redirect()->route('campanhas.index')->with('status', 'Campanha Alterada!');
         }
     }
+//        if (!Auth::check()) {
+//            return redirect('/');
+//        }
+//
+//        $dados = $request->all();
+//        $dados = $request->all();
+//
+//        $registro = Campanha::find($id);
+//
+//        $alteracao = $registro->update($dados);
+//
+//        if ($alteracao) {
+//            return redirect()->route('campanhas.index')->with('status', 'Campanha Alterada!');
+//        }
+
 
     /**
      * Remove the specified resource from storage.

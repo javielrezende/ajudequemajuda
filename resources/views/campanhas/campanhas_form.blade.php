@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label for="dataInicio">Data inicial</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" id="dataInicio" name="dataInicio"
+                                <input autocomplete="off" type="text" class="form-control" id="dataInicio" name="dataInicio"
                                        value="{{$registro->dataInicio or old('dataInicio')}}"></div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label for="dataFim">Data final</label>
                             <div class="input-group date">
-                                <input type="text" class="form-control" id="dataFim" name="dataFim"
+                                <input autocomplete="off" type="text" class="form-control" id="dataFim" name="dataFim"
                                        value="{{$registro->dataFim or old('dataFim')}}"></div>
                         </div>
                     </div>

@@ -17,4 +17,23 @@ class Campanha extends Model
     public function itens(){
         return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id');
     }
+
+    public function getDataInicioAttribute(){
+        $dataInicio = explode('-', $this->attributes['dataInicio']);
+        if(count($dataInicio) != 3){
+            return"Data não formatada corretamente";
+        }
+        $dataInicio = $dataInicio[2] . '/' . $dataInicio[1] . '/' . $dataInicio[0];
+        return $dataInicio;
+    }
+
+    public function getDataFimAttribute(){
+        $dataFim = explode('-', $this->attributes['dataFim']);
+        if(count($dataFim) != 3){
+            return"Data não formatada corretamente";
+        }
+        $dataFim = $dataFim[2] . '/' . $dataFim[1] . '/' . $dataFim[0];
+        return $dataFim;
+    }
+
 }
