@@ -30,6 +30,8 @@
                 <th>Nº de Cadastro</th>
                 <th>Nome da Campanha</th>
                 <th>Descrição</th>
+                <th>Data inicial</th>
+                <th>Data final</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -39,6 +41,8 @@
                     <td>{{$campanha->id}}</td>
                     <td>{{$campanha->nome}}</td>
                     <td>{{$campanha->descricao}}</td>
+                    <td>{{$campanha->dataInicio}}</td>
+                    <td>{{$campanha->dataFim}}</td>
                     <td>
                         <a href="{{route('campanhas.edit', $campanha->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

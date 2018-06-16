@@ -14,14 +14,16 @@ class CreateItemDoacaosTable extends Migration
     public function up()
     {
         Schema::create('item_doacaos', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('itens_id');
+            $table->unsignedInteger('doacoes_id');
+            $table->primary(['itens_id', 'doacoes_id']);
             $table->foreign('itens_id')
                 ->references('id')->on('items')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unsignedInteger('doacoes_id');
             $table->foreign('doacoes_id')
                 ->references('id')->on('doacaos')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });

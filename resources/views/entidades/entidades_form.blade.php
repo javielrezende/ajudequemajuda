@@ -40,6 +40,14 @@
 
                     <div class="col-sm-12">
                         <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   value="{{$registro->password or old('password')}}">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
                             <label for="cpf">CPF</label>
                             <input type="text" class="form-control" id="cpf" name="cpf"
                                    value="{{$registro->cpf or old('cpf')}}">
@@ -120,10 +128,10 @@
                     </div>
 
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <input type="text" class="form-control" id="mensagem" name="mensagem"
-                                   value="{{$registro->mensagem or old('mensagem')}}">
+                        <label for="descricao" class="col-md-4 control-label">Descreva sobre sua entidade</label>
+                        <div class="col-md-6">
+                            <textarea id="descricao_entidade" class="form-control" name="descricao_entidade"
+                            >{{$registro->descricao_entidade or old('descricao_entidade')}}</textarea>
                         </div>
                     </div>
 

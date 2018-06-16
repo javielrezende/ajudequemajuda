@@ -15,19 +15,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'status',
+        'name', 'email', 'password', 'imagem', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'descricao_entidade', 'status',
     ];
 
     public function endereco(){
         return $this->belongsTo('App\Endereco', 'enderecos_id');
     }
 
-    public function campanha(){
-        return $this->belongsToMany('App\Campanha', 'users_campanha_curtida_interesses', 'users_id', 'campanhas_id');
+    public function campanhas(){
+        return $this->belongsToMany('App\Campanha', 'user_campanha_curtida_interesses', 'users_id', 'campanhas_id');
     }
 
-    public function user(){
-        return $this->belongsToMany('App\User', 'user_user_curtida_comentario', 'users_id', 'users_id1');
+    public function users(){
+        return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1');
     }
 
     /*public function user(){

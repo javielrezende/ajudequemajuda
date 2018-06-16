@@ -39,7 +39,6 @@
                 <th>Estado</th>
                 <th>Bairro</th>
                 <th>CEP</th>
-                <th>Mensagem</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -58,7 +57,6 @@
                     <td>{{$user->endereco->estado}}</td>
                     <td>{{$user->endereco->bairro}}</td>
                     <td>{{$user->endereco->cep}}</td>
-                    <td>{{$user->mensagem}}</td>
                     <td>
                         <a href="{{route('users.edit', $user->id)}}"
                            class="btn btn-default">Alterar</a> &nbsp;&nbsp;

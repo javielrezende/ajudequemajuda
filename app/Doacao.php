@@ -18,7 +18,7 @@ class Doacao extends Model
         return $this->belongsTo('App\Campanha', 'campanhas_id');
     }
 
-    public function item(){
+    public function itens(){
         return $this->belongsToMany('App\Item', 'item_doacaos', 'doacoes_id', 'itens_id');
     }
 }

@@ -7,8 +7,10 @@ use App\User;
 use App\Endereco;
 use Illuminate\View\View;
 
+
 class EntidadeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +25,17 @@ class EntidadeController extends Controller
         //$entidades = User::all();
         return view('entidades/entidades_list', compact('entidades'));
     }
+
+    public function indexJson()
+    {
+        $entidades = User::where('entidade', 1)
+            -> where('status', 1)
+            ->orderBy('id')
+            ->get();
+        //$entidades = User::all();
+        return response($entidades, 200);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -62,6 +75,8 @@ class EntidadeController extends Controller
             'entidade' => 1,
             'status' => 1,
             'fone' => $request['fone'],
+            'mensagem' => null,
+            'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
 
@@ -107,13 +122,14 @@ class EntidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $dados = $request->all();
 
-        $registro = User::find($id);
-        $registro1 = Endereco::find($id);
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
 
         $alteracao = $registro->update($dados);
-        $alteracao1 = $registro1->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
 
         if ($alteracao && $alteracao1) {
             return redirect()->route('entidades.index')->with('status', 'Entidade Alterada!');
@@ -128,6 +144,7 @@ class EntidadeController extends Controller
      */
     public function destroy($id)
     {
+
         $dados = User::find($id);
         $alteracao = $dados->update([
             'status' => 0

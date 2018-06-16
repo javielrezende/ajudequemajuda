@@ -130,7 +130,6 @@
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
-
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
@@ -144,7 +143,6 @@
 
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
@@ -156,15 +154,20 @@
 
                         <div class="form-group">
                             <label for="solicitacao_entidade" class="col-md-4 control-label">Solicitar Cadastro como Entidade</label>
-
                             <div class="col-md-6">
                                 <input id="solicitacao_entidade" type="checkbox" class="form-control" name="solicitacao_entidade" value={{1}}>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="mensagem" class="col-md-4 control-label">Explique o motivo de seu pedido</label>
+                            <label for="descricao_entidade" class="col-md-4 control-label">Fale um pouco sobre sua entidade</label>
+                            <div class="col-md-6">
+                                <textarea id="descricao_entidade" class="form-control" name="descricao_entidade"></textarea>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="mensagem" class="col-md-4 control-label">Explique o motivo de seu pedido</label>
                             <div class="col-md-6">
                                 <textarea id="mensagem" class="form-control" name="mensagem"></textarea>
                             </div>

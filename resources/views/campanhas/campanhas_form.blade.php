@@ -34,10 +34,27 @@
                         <label for="descricao" class="col-md-4 control-label">Descrição</label>
                         <div class="col-md-6">
                             <textarea id="descricao" class="form-control" name="descricao"
-                                      >{{$registro->descricao or old('descricao')}}</textarea>
+                            >{{$registro->descricao or old('descricao')}}</textarea>
                         </div>
                     </div>
 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="dataInicio">Data inicial</label>
+                            <div class="input-group date">
+                                <input autocomplete="off" type="text" class="form-control" id="dataInicio" name="dataInicio"
+                                       value="{{$registro->dataInicio or old('dataInicio')}}"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="dataFim">Data final</label>
+                            <div class="input-group date">
+                                <input autocomplete="off" type="text" class="form-control" id="dataFim" name="dataFim"
+                                       value="{{$registro->dataFim or old('dataFim')}}"></div>
+                        </div>
+                    </div>
 
 
                     <div class="col-sm-12">
@@ -46,5 +63,4 @@
                     </div>
 
                 </form>
-
 @endsection
