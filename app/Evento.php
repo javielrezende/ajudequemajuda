@@ -17,4 +17,22 @@ class Evento extends Model
     public function enderecos(){
         return $this->belongsTo('App\Endereco', 'enderecos_id');
     }
+
+    public function getDataInicioAttribute(){
+        $dataInicio = explode('-', $this->attributes['dataInicio']);
+        if(count($dataInicio) != 3){
+            return"Data não formatada corretamente";
+        }
+        $dataInicio = $dataInicio[2] . '/' . $dataInicio[1] . '/' . $dataInicio[0];
+        return $dataInicio;
+    }
+
+    public function getDataFimAttribute(){
+        $dataFim = explode('-', $this->attributes['dataFim']);
+        if(count($dataFim) != 3){
+            return"Data não formatada corretamente";
+        }
+        $dataFim = $dataFim[2] . '/' . $dataFim[1] . '/' . $dataFim[0];
+        return $dataFim;
+    }
 }

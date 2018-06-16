@@ -83,7 +83,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            <h1>Ajude quem Ajuda<h1>
+            Ajude quem Ajuda
         </div>
 
     </div>

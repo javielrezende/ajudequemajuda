@@ -6,4 +6,6 @@
  */
 
 require('./bootstrap');
-require('bootstrap');
+require('bootstrap-datepicker');
+require('bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min');
+require('./datapicker');
