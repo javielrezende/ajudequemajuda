@@ -28,7 +28,8 @@ class EntidadeController extends Controller
 
     public function indexJson()
     {
-        $entidades = User::where('entidade', 1)
+        $entidades = User::with('endereco')
+            ->where('entidade', 1)
             -> where('status', 1)
             ->orderBy('id')
             ->get();

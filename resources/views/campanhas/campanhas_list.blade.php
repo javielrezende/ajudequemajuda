@@ -28,6 +28,7 @@
             <thead>
             <tr>
                 <th>Nº de Cadastro</th>
+                <th>Nome da Entidade</th>
                 <th>Nome da Campanha</th>
                 <th>Descrição</th>
                 <th>Data inicial</th>
@@ -39,6 +40,7 @@
             @foreach($campanhas as $campanha)
                 <tr>
                     <td>{{$campanha->id}}</td>
+                    <td>{{$campanha->users[0]->name}}</td>
                     <td>{{$campanha->nome}}</td>
                     <td>{{$campanha->descricao}}</td>
                     <td>{{$campanha->dataInicio}}</td>

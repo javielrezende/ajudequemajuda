@@ -33,7 +33,7 @@ class CampanhaController extends Controller
         //$data = date('d/m/Y', strtotime($dataInicialString));
         //dd($data);
         //$data = date_create_immutable_from_format('Y-m-d', $dataInicial, date_timezone_get(1));
-         //   dd($data);
+        //   dd($data);
 
         //Carbon::setLocale('pt_BR');
         //setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -48,24 +48,28 @@ class CampanhaController extends Controller
         //dd($dataInicial);
         //dd($dataInicial);
         //if (isset($dataInicial)){
-            //dd($dataInicial);
+        //dd($dataInicial);
         //$data->formatLocalized('%d %m %Y');
         //$dataInicial->format("d/m/Y");
-            //$dataInicial = date('d/m/Y', strtotime($dataInicial));
-         //   $data = $dataInicial->strftime('d/m/Y');
-         //   dd($data);
-       // }
+        //$dataInicial = date('d/m/Y', strtotime($dataInicial));
+        //   $data = $dataInicial->strftime('d/m/Y');
+        //   dd($data);
+        // }
         //$dataInicialFormatada = Carbon::parse($data)->format('d/m/Y');
         //$dataInicialFormatada = $data->format('d/m/Y');
         //$dataInicialFormatada = $data->formatLocalized('d/m/Y');
         //$dataInicialFormatada = $data->year;
         //dd($dataInicialFormatada);
 
-        $campanhas = Campanha::where('status', 1)
-                             ->orderBy('id')
-                            ->get([
-                                'id', 'nome', 'descricao', 'dataInicio', 'dataFim'
-                            ]);
+        $campanhas = Campanha::with('users')
+            ->where('status', 1)
+            ->orderBy('id')
+            ->get([
+                'id', 'nome', 'descricao', 'dataInicio', 'dataFim'
+            ]);
+
+        //return $campanhas;
+
         //$entidades = User::all();
         return view('campanhas/campanhas_list', compact('campanhas'));
     }
@@ -79,13 +83,17 @@ class CampanhaController extends Controller
     {
         $acao = 1;
 
-        return view('campanhas/campanhas_form', compact('acao'));
+        $entidades = User::where('entidade', 1)
+            ->orderBy('name')->get();
+        //dd($entidades);
+
+        return view('campanhas/campanhas_form', compact('acao', 'entidades'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -94,42 +102,42 @@ class CampanhaController extends Controller
             return redirect('/');
         }
 
-        $usuario = Auth::user();
-        $usuarioId = $usuario->id;
-
+        $usuario = $request['entidade'];
+        //
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
         //dd($dataInicial);
-        $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-        //dd($dataInicialFormatada);
-        $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
 
-        if($usuario->entidade == 1){
-            $campanha = new Campanha;
-            $campanha->nome = $request->nome;
-            $campanha->descricao = $request->descricao;
-            $campanha->status = 1;
-            $campanha->dataInicio = $dataInicialFormatada;
-            $campanha->dataFim = $dataFinalFormatada;
-            $resultado = $campanha->save();
+        if (isset($dataInicial)) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
+            //dd($dataInicialFormatada);
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+        } else {
+            $dataInicialFormatada = null;
+            $dataFinalFormatada = null;
+        }
 
-            $campanha->users()->sync($usuarioId);
+        $campanha = new Campanha;
+        $campanha->nome = $request->nome;
+        $campanha->descricao = $request->descricao;
+        $campanha->status = 1;
+        $campanha->dataInicio = $dataInicialFormatada;
+        $campanha->dataFim = $dataFinalFormatada;
+        $resultado = $campanha->save();
+
+        $campanha->users()->sync($usuario);
 
 
-            if ($resultado) {
-                return redirect()->route('campanhas.index')
-                    ->with('status', 'Campanha Cadastrada!');
-            }
-        } else{
+        if ($resultado) {
             return redirect()->route('campanhas.index')
-                ->with('status', 'Permissão negada para este Usuário!');
+                ->with('status', 'Campanha Cadastrada!');
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -140,23 +148,26 @@ class CampanhaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $registro = Campanha::find($id);
 
+        $entidades = User::where('entidade', 1)
+            ->orderBy('name')->get();
+
         $acao = 2;
 
-        return view('campanhas/campanhas_form', compact('registro', 'acao'));
+        return view('campanhas/campanhas_form', compact('registro', 'entidades', 'acao'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -167,20 +178,44 @@ class CampanhaController extends Controller
 
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
-        $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-        $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
 
+        //$dataInicialFormatada = null;
+        //$dataFinalFormatada = null;
+
+        //dd($dataInicial);
         //$dados = $request->all();
         $nome = $request['nome'];
+        $entidade = $request['entidade'];
         $descricao = $request['descricao'];
 
         $registro = Campanha::find($id);
-        $alteracoes = ['nome' => $nome, 'descricao' => $descricao, 'dataInicio' => $dataInicialFormatada, 'dataFim' => $dataFinalFormatada];
+
+        $alteracoes = ['nome' => $nome, 'entidade' => $entidade, 'descricao' => $descricao];
+
+        if ($dataInicial != "Sem data determinada" && $dataInicial != null) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
+            $alteracoes1 = ['dataInicio' => $dataInicialFormatada];
+        } else {
+            $alteracoes1 = ['dataInicio' => null];
+        }
+
+        if ($dataFinal != "Sem data determinada" && $dataFinal != null) {
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+            $alteracoes2 = ['dataFim' => $dataFinalFormatada];
+        } else {
+            $alteracoes2 = ['dataFim' => null];
+        }
 
         $alteracao = $registro->update($alteracoes);
+        $alteracao1 = $registro->update($alteracoes1);
+        $alteracao2 = $registro->update($alteracoes2);
         //dd($alteracoes);
         //dd($registro);
-        if ($alteracao) {
+
+        $ent = User::find($entidade);
+        $registro->users()->sync($ent);
+
+        if ($alteracao && $alteracao1 && $alteracao2) {
             return redirect()->route('campanhas.index')->with('status', 'Campanha Alterada!');
         }
     }
@@ -203,7 +238,7 @@ class CampanhaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

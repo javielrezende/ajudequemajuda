@@ -15,8 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'imagem', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'descricao_entidade', 'status',
-    ];
+    'name', 'email', 'password', 'imagem', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'descricao_entidade', 'status',
+];
 
     public function endereco(){
         return $this->belongsTo('App\Endereco', 'enderecos_id');

@@ -31,6 +31,20 @@
                     </div>
 
                     <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="entidade">Entidade</label>
+                            <select class="form-control" id="entidade" name="entidade">
+                                @foreach($entidades as $e)
+                                    <option value="{{$e->id}}"
+                                            @if ((isset($registro) and $registro->user_id == $e->id) or
+                                                 old('user_id') == $e->id) selected @endif>
+                                        {{$e->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
                         <label for="descricao" class="col-md-4 control-label">Descrição</label>
                         <div class="col-md-6">
                             <textarea id="descricao" class="form-control" name="descricao"
@@ -42,7 +56,8 @@
                         <div class="form-group">
                             <label for="dataInicio">Data inicial</label>
                             <div class="input-group date">
-                                <input autocomplete="off" type="text" class="form-control" id="dataInicio" name="dataInicio"
+                                <input autocomplete="off" type="text" class="form-control" id="dataInicio"
+                                       name="dataInicio"
                                        value="{{$registro->dataInicio or old('dataInicio')}}"></div>
                         </div>
                     </div>
