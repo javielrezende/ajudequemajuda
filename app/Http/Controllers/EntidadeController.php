@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\SocketClient;
 use Illuminate\Http\Request;
 use App\User;
 use App\Endereco;
@@ -79,6 +80,8 @@ class EntidadeController extends Controller
             'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
+
+        SocketClient::send('/entidadesocket', ['status' => 'Ok']);
 
         if ($resultado) {
             return redirect()->route('entidades.index')

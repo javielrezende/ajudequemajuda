@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "barryvdh/laravel-ide-helper": "^2.4",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "orchid/socket": "^1.6",
+        "ratchet/pawl": "^0.3.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",
