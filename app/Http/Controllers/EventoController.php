@@ -35,7 +35,11 @@ class EventoController extends Controller
     {
         $acao = 1;
 
-        return view('eventos/eventos_form', compact('acao'));
+        $campanhas = Campanha::where('status', 1)
+            ->orderBy('nome')->get();
+
+        //dd($campanhas);
+        return view('eventos/eventos_form', compact('acao', 'campanhas'));
     }
 
     /**
@@ -53,13 +57,19 @@ class EventoController extends Controller
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
         //dd($dataInicial);
-        $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-        //dd($dataInicialFormatada);
-        $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
 
-        $usuario = Auth::user();
+        if (isset($dataInicial)) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
+            //dd($dataInicialFormatada);
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+        } else {
+            $dataInicialFormatada = null;
+            $dataFinalFormatada = null;
+        }
 
-        $campanha = $usuario->campanhas()->get()->first();
+        //$usuario = Auth::user();
+        //$campanha = $usuario->campanhas()->get()->first();
+        $campanha = $request['campanha'];
         //dd($campanha->id);
 
         $endereco = Endereco::create([
@@ -72,24 +82,20 @@ class EventoController extends Controller
             'cep' => $request['cep'],
         ]);
 
-        if ($usuario->entidade == 1) {
             $resultado = Evento::create([
                 'descricao' => $request['descricao'],
                 'status' => 1,
                 'dataInicio' => $dataInicialFormatada,
                 'dataFim' => $dataFinalFormatada,
                 'enderecos_id' => $endereco->id,
-                'campanhas_id' => $campanha->id,
+                'campanhas_id' => $campanha,
             ]);
             if ($resultado) {
                 return redirect()->route('eventos.index')
                     ->with('status', 'Evento Cadastrado!');
             }
-        } else {
-            return redirect()->route('campanhas.index')
-                ->with('status', 'Permissão negada para este Usuário!');
         }
-    }
+
 
     /**
      * Display the specified resource.
@@ -112,9 +118,12 @@ class EventoController extends Controller
     {
         $registro = Evento::find($id);
 
+        $campanhas = Campanha::where('status', 1)
+            ->orderBy('nome')->get();
+
         $acao = 2;
 
-        return view('eventos/eventos_form', compact('registro', 'acao'));
+        return view('eventos/eventos_form', compact('registro', 'campanhas', 'acao'));
     }
 
     /**
@@ -132,8 +141,6 @@ class EventoController extends Controller
 
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
-        $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-        $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
 
         $descricao = $request['descricao'];
         $cep = $request['cep'];
@@ -143,19 +150,38 @@ class EventoController extends Controller
         $bairro = $request['bairro'];
         $cidade = $request['cidade'];
         $estado = $request['estado'];
+        $campanha = $request['campanha'];
+
 
         $registro = Evento::with('enderecos')->find($id);
 
-        $dados = ['descricao' => $descricao, 'dataInicio' => $dataInicialFormatada,
-            'dataFim' => $dataFinalFormatada];
+        if ($dataInicial != "Sem data determinada" && $dataInicial != null) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
+            $alteracoes1 = ['dataInicio' => $dataInicialFormatada];
+        } else {
+            $alteracoes1 = ['dataInicio' => null];
+        }
+
+        if ($dataFinal != "Sem data determinada" && $dataFinal != null) {
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+            $alteracoes2 = ['dataFim' => $dataFinalFormatada];
+        } else {
+            $alteracoes2 = ['dataFim' => null];
+        }
+
+
+        $dados = ['descricao' => $descricao, '$campanha' => $campanha];
         $dados1 = ['cep' => $cep,
             'rua' => $rua, 'numero' => $numero, 'complemento' => $complemento,
             'bairro' => $bairro, 'cidade' => $cidade, 'estado' => $estado];
 
+
         $alteracao = $registro->update($dados);
         $alteracao1 = $registro->enderecos->update($dados1);
+        $alteracao3 = $registro->update($alteracoes1);
+        $alteracoes4 = $registro->update($alteracoes2);
 
-        if ($alteracao && $alteracao1) {
+        if ($alteracao && $alteracao1 && $alteracao3 && $alteracoes4) {
             return redirect()->route('eventos.index')->with('status', 'Evento Alterado!');
         }
     }

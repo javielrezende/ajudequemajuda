@@ -30,6 +30,20 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="campanha">Campanha</label>
+                            <select class="form-control" id="campanha" name="campanha">
+                                @foreach($campanhas as $c)
+                                    <option value="{{$c->id}}"
+                                            @if ((isset($registro) and $registro->campanha_id == $c->id) or
+                                                 old('campanha_id') == $c->id) selected @endif>
+                                        {{$c->nome}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="dataInicio">Data inicial</label>

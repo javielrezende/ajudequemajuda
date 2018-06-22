@@ -28,6 +28,7 @@
             <thead>
             <tr>
                 <th>Nº de Cadastro</th>
+                <th>Pertence a campanha</th>
                 <th>Descrição</th>
                 <th>Data inicial</th>
                 <th>Data final</th>
@@ -44,6 +45,7 @@
             @foreach($eventos as $evento)
                 <tr>
                     <td>{{$evento->id}}</td>
+                    <td>{{'--'}}</td>
                     <td>{{$evento->descricao}}</td>
                     <td>{{$evento->dataInicio}}</td>
                     <td>{{$evento->dataFim}}</td>
