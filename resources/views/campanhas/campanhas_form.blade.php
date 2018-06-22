@@ -26,14 +26,14 @@
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nome"
-                                   value="{{$registro->nome or old('nome')}}">
+                                   value="{{$registro->nome or old('nome')}}" required autofocus>
                         </div>
                     </div>
 
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="entidade">Entidade</label>
-                            <select class="form-control" id="entidade" name="entidade">
+                            <select class="form-control" id="entidade" name="entidade" required>
                                 @foreach($entidades as $e)
                                     <option value="{{$e->id}}"
                                             @if ((isset($registro) and $registro->user_id == $e->id) or
@@ -47,7 +47,7 @@
                     <div class="col-sm-12">
                         <label for="descricao" class="col-md-4 control-label">Descrição</label>
                         <div class="col-md-6">
-                            <textarea id="descricao" class="form-control" name="descricao"
+                            <textarea id="descricao" class="form-control" name="descricao" required
                             >{{$registro->descricao or old('descricao')}}</textarea>
                         </div>
                     </div>

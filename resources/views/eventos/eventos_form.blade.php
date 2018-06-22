@@ -26,14 +26,14 @@
                         <div class="form-group">
                             <label for="descricao">Descrição</label>
                             <input type="text" class="form-control" id="descricao" name="descricao"
-                                   value="{{$registro->descricao or old('descricao')}}">
+                                   value="{{$registro->descricao or old('descricao')}}" required autofocus>
                         </div>
                     </div>
 
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="campanha">Campanha</label>
-                            <select class="form-control" id="campanha" name="campanha">
+                            <select class="form-control" id="campanha" name="campanha" required>
                                 @foreach($campanhas as $c)
                                     <option value="{{$c->id}}"
                                             @if ((isset($registro) and $registro->campanha_id == $c->id) or
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label for="cep">CEP</label>
                             <input type="text" class="form-control" id="cep" name="cep"
-                                   value="{{$registro->enderecos->cep or old('cep')}}">
+                                   value="{{$registro->enderecos->cep or old('cep')}}" required>
                         </div>
                     </div>
 
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label for="rua">Rua</label>
                             <input type="text" class="form-control" id="rua" name="rua"
-                                   value="{{$registro->enderecos->rua or old('rua')}}">
+                                   value="{{$registro->enderecos->rua or old('rua')}}" required>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label for="numero">Nº</label>
                             <input type="text" class="form-control" id="numero" name="numero"
-                                   value="{{$registro->enderecos->numero or old('numero')}}">
+                                   value="{{$registro->enderecos->numero or old('numero')}}" required>
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@
                         <div class="form-group">
                             <label for="complemento">Complemento</label>
                             <input type="text" class="form-control" id="complemento" name="complemento"
-                                   value="{{$registro->enderecos->complemento or old('complemento')}}">
+                                   value="{{$registro->enderecos->complemento or old('complemento')}}" required>
                         </div>
                     </div>
 
@@ -98,7 +98,7 @@
                         <div class="form-group">
                             <label for="bairro">Bairro:</label>
                             <input type="text" class="form-control" id="bairro" name="bairro"
-                                   value="{{$registro->enderecos->bairro or old('bairro')}}">
+                                   value="{{$registro->enderecos->bairro or old('bairro')}}" required>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                         <div class="form-group">
                             <label for="cidade">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" name="cidade"
-                                   value="{{$registro->enderecos->cidade or old('cidade')}}">
+                                   value="{{$registro->enderecos->cidade or old('cidade')}}" required>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@
                         <div class="form-group">
                             <label for="estado">Estado:</label>
                             <input type="text" class="form-control" id="estado" name="estado"
-                                   value="{{$registro->enderecos->estado or old('estado')}}">
+                                   value="{{$registro->enderecos->estado or old('estado')}}" required>
                         </div>
                     </div>
 

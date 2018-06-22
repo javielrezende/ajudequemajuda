@@ -24,6 +24,7 @@ class EventoController extends Controller
             ->orderBy('campanhas_id')
             ->get();
         return view('eventos/eventos_list', compact('eventos'));
+        //return $eventos;
     }
 
     /**

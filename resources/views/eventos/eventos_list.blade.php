@@ -45,7 +45,7 @@
             @foreach($eventos as $evento)
                 <tr>
                     <td>{{$evento->id}}</td>
-                    <td>{{'--'}}</td>
+                    <td>{{$evento->campanhas->nome}}</td>
                     <td>{{$evento->descricao}}</td>
                     <td>{{$evento->dataInicio}}</td>
                     <td>{{$evento->dataFim}}</td>
