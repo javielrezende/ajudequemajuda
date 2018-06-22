@@ -84,6 +84,7 @@ class CampanhaController extends Controller
         $acao = 1;
 
         $entidades = User::where('entidade', 1)
+            ->where('status', 1)
             ->orderBy('name')->get();
         //dd($entidades);
 
@@ -156,6 +157,7 @@ class CampanhaController extends Controller
         $registro = Campanha::find($id);
 
         $entidades = User::where('entidade', 1)
+            ->where('status', 1)
             ->orderBy('name')->get();
 
         $acao = 2;
