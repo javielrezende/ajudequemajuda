@@ -9411,7 +9411,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   margin-right: -5px;
 }
 body {
-  background-color: #843534;
+  /*background-color: #843534;*/
 }
 
 .body html {
@@ -9449,7 +9449,6 @@ body {
 
 .centro {
   text-align: center;
-  height: 100vh;
 }
 
 .title {
