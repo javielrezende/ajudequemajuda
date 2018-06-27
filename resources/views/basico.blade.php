@@ -14,36 +14,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="body">
-    <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a href="{{ url('/eventos') }}">Eventos</a>
-                    <a href="{{ url('/campanhas') }}">Campanhas</a>
-                    <a href="{{ url('/users') }}">Usuários</a>
-                    <a href="{{ url('/entidades') }}">Entidades</a>
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
+<div class="container-fluid">
+    <div class="body">
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/eventos') }}">Eventos</a>
+                        <a href="{{ url('/campanhas') }}">Campanhas</a>
+                        <a href="{{ url('/users') }}">Usuários</a>
+                        <a href="{{ url('/entidades') }}">Entidades</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
-                        Sair
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                          style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                    <span>{{ Auth::user()->name }}</span>
-                    @else
-                        <a href="{{ route('login') }}">Entrar</a>
-                        <a href="{{ route('register') }}">Cadastrar</a>
-            </div>
-            @endauth
-        @endif
+                            Sair
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                        <span>{{ Auth::user()->name }}</span>
+                        @else
+                            <a href="{{ route('login') }}">Entrar</a>
+                            <a href="{{ route('register') }}">Cadastrar</a>
+                </div>
+                @endauth
+            @endif
+        </div>
     </div>
 </div>
 
-<div class="container" style="margin-top: 30px; margin-bottom: 30px">
+<div class="container-fluid" style="margin-top: 30px; margin-bottom: 30px">
 
     @yield('content')
 
