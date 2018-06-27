@@ -8,7 +8,6 @@
 
 namespace App\Facades;
 
-use Config;
 use Ratchet\Client;
 
 class SocketClient
@@ -21,8 +20,8 @@ class SocketClient
      */
     public static function send($route, array $arg)
     {
-        $config = config('socket');
-        Client\connect('ws://' . $config['httpHost'] . ':' . $config['port'] . '/' . $route)->then(function ($conn) use (
+
+        Client\connect('ws://localhost:8080/'. $route)->then(function ($conn) use (
             $arg
         ) {
             $conn->send(json_encode($arg));
