@@ -136,7 +136,7 @@
                     </div>
 
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-default" onclick="socket.send('oi')">Enviar</button>
+                        <button type="submit" class="btn btn-default">Enviar</button>
                         <button type="reset" class="btn btn-default">Limpar</button>
                     </div>
 
