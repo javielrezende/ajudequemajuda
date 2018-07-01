@@ -1,8 +1,6 @@
 @extends('basico')
 @section('content')
-<div class="centro">
-    <div class="title box">
+    <div class="title">
         Ajude quem Ajuda
     </div>
-</div>
 @endsection
