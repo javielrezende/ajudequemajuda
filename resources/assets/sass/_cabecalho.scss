@@ -9,6 +9,7 @@ $height: 47.5px;
   height: $height;
   top: 0;
   position: fixed;
+  z-index: 9999;
 }
 
 .navbar html{
@@ -22,6 +23,11 @@ $height: 47.5px;
   right: 0px;
   //top: 0;
   //vertical-align: middle;
+}
+
+.top-left {
+  position: absolute;
+  left: 0px;
 }
 
 .links {
@@ -49,5 +55,11 @@ $height: 47.5px;
   text-align: center;
   //vertical-align: middle;
   margin-top: 150px;
+}
+
+.subtitle {
+  font-size: 50px;
+  text-align: center;
+  //vertical-align: middle;
 }
 
