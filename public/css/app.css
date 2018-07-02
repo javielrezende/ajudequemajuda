@@ -10785,3 +10785,14 @@ body {
   width: 300px;
 }
 
+.cadastro {
+  margin-top: 80px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cadastro .form-group {
+  width: 300px;
+}
+
