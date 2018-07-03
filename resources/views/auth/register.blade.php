@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="row cadastro">
-        <form method="POST" action="{{ route('register') }}">
+        <form class="row" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name">Nome</label>
+                <label for="name">Nome <span class="obr">*</span></label>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required
                        autofocus>
                 @if ($errors->has('name'))
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="email">E-mail</label>
+                <label for="email">E-mail <span class="obr">*</span></label>
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -42,12 +42,12 @@
             </div>
 
             <div class="form-group">
-                <label for="rua">Rua</label>
+                <label for="rua">Rua <span class="obr">*</span></label>
                 <input id="rua" type="text" class="form-control" name="rua" value="{{ old('rua') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="numero">Número</label>
+                <label for="numero">Número <span class="obr">*</span></label>
                 <input id="numero" type="text" class="form-control" name="numero" value="{{ old('numero') }}" required>
             </div>
 
@@ -58,27 +58,27 @@
             </div>
 
             <div class="form-group">
-                <label for="cidade">Cidade</label>
+                <label for="cidade">Cidade <span class="obr">*</span></label>
                 <input id="cidade" type="text" class="form-control" name="cidade" value="{{ old('cidade') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="bairro">Bairro</label>
+                <label for="bairro">Bairro <span class="obr">*</span></label>
                 <input id="bairro" type="text" class="form-control" name="bairro" value="{{ old('bairro') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="cep">Cep</label>
+                <label for="cep">Cep <span class="obr">*</span></label>
                 <input id="cep" type="text" class="form-control" name="cep" value="{{ old('cep') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="estado">Estado</label>
+                <label for="estado">Estado <span class="obr">*</span></label>
                 <input id="estado" type="text" class="form-control" name="estado" value="{{ old('estado') }}" required>
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password">Password</label>
+                <label for="password">Senha <span class="obr">*</span></label>
                 <input id="password" type="password" class="form-control" name="password" required>
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -88,12 +88,12 @@
             </div>
 
             <div class="form-group">
-                <label for="password-confirm">Confirm Password</label>
+                <label for="password-confirm">Confirmar senha <span class="minsenha">(Mínimo 6 caracteres)</span><span class="obr">*</span></label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
             </div>
 
             <div class="form-group">
-                <label for="solicitacao_entidade">Solicitar Cadastro como Entidade</label>
+                <label for="solicitacao_entidade">Marque para solicitar o cadastro como Entidade</label>
                 <input id="solicitacao_entidade" type="checkbox" class="form-control" name="solicitacao_entidade"
                        value={{1}}>
             </div>

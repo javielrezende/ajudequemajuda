@@ -10790,9 +10790,24 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .cadastro .form-group {
   width: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cadastro .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.cadastro .minsenha {
+  font-size: 10px;
 }
 

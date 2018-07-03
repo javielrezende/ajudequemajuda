@@ -2,11 +2,22 @@
   margin-top: 80px;
   justify-content: center;
   //align-items: center;
-  //flex-direction: row;
+  flex-direction: row;
   //height: calc(100vh - 47.5px);
 
   .form-group {
     width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .obr {
+    color: red;
+    font-size: 20px;
+  }
+
+  .minsenha {
+    font-size: 10px;
   }
 }
 
