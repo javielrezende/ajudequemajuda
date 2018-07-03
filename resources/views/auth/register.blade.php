@@ -1,6 +1,8 @@
 @extends('basico')
 
 @section('content')
+    <div class="row center"><h3>Cadaste-se</h3></div>
+
     <div class="row cadastro">
         <form class="row" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
@@ -100,12 +102,12 @@
 
             <div class="form-group">
                 <label for="descricao_entidade">Fale um pouco sobre sua entidade</label>
-                <textarea id="descricao_entidade" class="form-control" name="descricao_entidade"></textarea>
+                <textarea id="descricao_entidade" rows="6" class="form-control" name="descricao_entidade"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="mensagem">Explique o motivo de seu pedido</label>
-                <textarea id="mensagem" class="form-control" name="mensagem"></textarea>
+                <textarea id="mensagem" rows="6" class="form-control" name="mensagem"></textarea>
             </div>
 
             <div class="form-group">
