@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label for="cnpj">CNPJ</label>
-                <input id="cpf" type="text" class="form-control" name="cnpj" value="{{ old('cnpj') }}">
+                <input id="cnpj" type="text" class="form-control" name="cnpj" value="{{ old('cnpj') }}">
             </div>
 
             <div class="form-group">
