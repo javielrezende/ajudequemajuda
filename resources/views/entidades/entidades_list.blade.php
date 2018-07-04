@@ -1,16 +1,16 @@
 @extends('basico')
 
 @section('content')
-
-    <div class='col-sm-8'>
+<div class="row">
+    <div>
         <h2> Entidades Cadastradas </h2>
     </div>
-    <div class='col-sm-4'>
-        <a href="{{route('entidades.create')}}" class="btn btn-default">Novo</a>
-        <a href="{{url('/')}}" class="btn btn-default">Voltar</a>
+    <div>
+        &nbsp;&nbsp;&nbsp;<a href="{{route('entidades.create')}}" class="btn btn-outline-primary btn-sm">Novo</a>
+        &nbsp;&nbsp;&nbsp;<a href="{{url('/')}}" class="btn btn-outline-warning btn-sm">Voltar</a>
     </div>
 
-    <div class='col-sm-12'>
+    <div class='row centerentidade'>
 
         @if (session('status'))
             <div class="alert alert-success">
@@ -80,4 +80,5 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection

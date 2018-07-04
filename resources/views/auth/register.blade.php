@@ -1,9 +1,9 @@
 @extends('basico')
 
 @section('content')
-    <div class="row center"><h3>Cadaste-se</h3></div>
 
     <div class="row cadastro">
+        <div class="row center titulo">Cadastre-se</div>
         <form class="row" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 

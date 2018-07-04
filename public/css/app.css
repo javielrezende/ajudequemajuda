@@ -10767,6 +10767,15 @@ body {
   padding: 0;
 }
 
+body .principal {
+  margin-top: 67.5px;
+}
+
+body .row {
+  margin: 0;
+  padding: 0;
+}
+
 .centro {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -10783,6 +10792,11 @@ body {
 
 .form-group {
   width: 300px;
+}
+
+.titulo {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .cadastro {
@@ -10809,5 +10823,10 @@ body {
 
 .cadastro .minsenha {
   font-size: 10px;
+}
+
+.cadastro .titulo {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 

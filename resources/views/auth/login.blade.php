@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="row centro">
+        <div class="row center titulo">Login</div>
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
