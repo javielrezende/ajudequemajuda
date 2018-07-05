@@ -80,7 +80,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password">Senha <span class="obr">*</span></label>
+                <label for="password">Senha <span class="minsenha">(Mínimo 6 caracteres)</span><span class="obr">*</span></label>
                 <input id="password" type="password" class="form-control" name="password" required>
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -90,7 +90,7 @@
             </div>
 
             <div class="form-group">
-                <label for="password-confirm">Confirmar senha <span class="minsenha">(Mínimo 6 caracteres)</span><span class="obr">*</span></label>
+                <label for="password-confirm">Confirmar senha</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
             </div>
 

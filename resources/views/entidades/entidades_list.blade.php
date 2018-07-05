@@ -6,11 +6,11 @@
         <h2> Entidades Cadastradas </h2>
     </div>
     <div>
-        &nbsp;&nbsp;&nbsp;<a href="{{route('entidades.create')}}" class="btn btn-outline-primary btn-sm">Novo</a>
-        &nbsp;&nbsp;&nbsp;<a href="{{url('/')}}" class="btn btn-outline-warning btn-sm">Voltar</a>
+        &nbsp;&nbsp;&nbsp;<a href="{{route('entidades.create')}}" class="btn btn-outline-success btn-sm">Novo</a>
+        &nbsp;&nbsp;&nbsp;<a href="{{url('/')}}" class="btn btn-outline-primary btn-sm">Voltar</a>
     </div>
 
-    <div class='row centerentidade'>
+    <div class='row'>
 
         @if (session('status'))
             <div class="alert alert-success">
@@ -65,14 +65,14 @@
                     <td>{{$entidade->descricao_entidade}}</td>
                     <td>
                         <a href="{{route('entidades.edit', $entidade->id)}}"
-                           class="btn btn-default">Alterar</a> &nbsp;&nbsp;
+                           class="btn btn-outline-info btn-sm">Alterar</a> &nbsp;&nbsp;
                         <form style="display: inline-block"
                               method="post"
                               action="{{route('entidades.destroy', $entidade->id)}}"
                               onsubmit="return confirm('Confirma Exclusão?')">
                             {{method_field('delete')}}
                             {{csrf_field()}}
-                            <button type="submit" class="btn btn-default">Excluir</button>
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
                         </form>
                     </td>
                 </tr>
