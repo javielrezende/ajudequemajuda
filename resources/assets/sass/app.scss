@@ -1,6 +1,6 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,600");
 
 // Variables
 @import "variables";
@@ -9,7 +9,10 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // Bootstrap Date-picker
-@import "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker";
+@import "datepicker";
 
 // scss
-@import "index";
+@import "cabecalho";
+@import "geral";
+@import "login";
+@import "cadastro";

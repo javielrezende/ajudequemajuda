@@ -1,16 +1,16 @@
 @extends('basico')
 
 @section('content')
-
-    <div class='col-sm-8'>
+<div class="row">
+    <div>
         <h2> Eventos Cadastrados </h2>
     </div>
-    <div class='col-sm-4'>
-        <a href="{{route('eventos.create')}}" class="btn btn-default">Novo</a>
-        <a href="{{url('/')}}" class="btn btn-default">Voltar</a>
+    <div>
+        &nbsp;&nbsp;&nbsp;<a href="{{route('eventos.create')}}" class="btn btn-outline-success btn-sm">Novo</a>
+        &nbsp;&nbsp;&nbsp;<a href="{{url('/')}}" class="btn btn-outline-primary btn-sm">Voltar</a>
     </div>
 
-    <div class='col-sm-12'>
+    <div class='row'>
 
         @if (session('status'))
             <div class="alert alert-success">
@@ -45,7 +45,7 @@
             @foreach($eventos as $evento)
                 <tr>
                     <td>{{$evento->id}}</td>
-                    <td>{{'--'}}</td>
+                    <td>{{$evento->campanhas->nome}}</td>
                     <td>{{$evento->descricao}}</td>
                     <td>{{$evento->dataInicio}}</td>
                     <td>{{$evento->dataFim}}</td>
@@ -57,14 +57,14 @@
                     <td>{{$evento->enderecos->estado}}</td>
                     <td>
                         <a href="{{route('eventos.edit', $evento->id)}}"
-                           class="btn btn-default">Alterar</a> &nbsp;&nbsp;
+                           class="btn btn-outline-info btn-sm">Alterar</a> &nbsp;&nbsp;
                         <form style="display: inline-block"
                               method="post"
                               action="{{route('eventos.destroy', $evento->id)}}"
                               onsubmit="return confirm('Confirma Exclusão?')">
                             {{method_field('delete')}}
                             {{csrf_field()}}
-                            <button type="submit" class="btn btn-default">Excluir</button>
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
                         </form>
                     </td>
                 </tr>
@@ -72,4 +72,5 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection
