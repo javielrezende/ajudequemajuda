@@ -13,7 +13,8 @@
 <body>
 <nav class="navbar">
     <div class="top-left links">
-        <a href="{{ url('/') }}">Home</a>
+        <a href="{{ url('/') }}"><img src="/public/imagens/logo_p.png" alt="Logo Ajude Quem Ajuda"></a>
+        {{--}}<a href="{{ url('/') }}">Inicial</a>--}}
     </div>
     @if (Route::has('login'))
         <div class="top-right links">
@@ -42,6 +43,8 @@
 </nav>
 
 <div class="container-fluid principal">
+
+    <img src="/public/imagens/logo_p.png" alt="Logo Ajude Quem Ajuda">
 
     @yield('content')
 

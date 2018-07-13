@@ -10830,3 +10830,15 @@ body .row {
   margin-bottom: 20px;
 }
 
+.width {
+  width: 100vw;
+}
+
+th {
+  font-size: 12px;
+}
+
+tr {
+  font-size: 10px;
+}
+
