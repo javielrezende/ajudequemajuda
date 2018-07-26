@@ -41,13 +41,18 @@ $height: 47.5px;
   padding-right: 7px;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   margin: 0;
   margin-left: 5px;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   vertical-align: middle;
+}
+
+.logo {
+  width: 100px;
+  height: 35px;
 }
 
 .title {
