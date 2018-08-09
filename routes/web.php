@@ -15,17 +15,24 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcomesite');
 });
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+Route::get('/admin', function () {
+    return view('welcome');
+});
+Route::group(['prefix' => '/admin'], function (){
 Route::resource('/eventos', 'EventoController');
 Route::resource('/itens', 'ItemController');
 Route::resource('/entidades', 'EntidadeController');
 Route::resource('/users', 'UserController');
 Route::resource('/campanhas', 'CampanhaController');
-
-Route::resource('/admin', 'AdminController');
+});
+//Route::resource('/admin', 'AdminController');

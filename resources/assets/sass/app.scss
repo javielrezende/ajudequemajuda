@@ -11,9 +11,13 @@
 // Bootstrap Date-picker
 @import "datepicker";
 
-// scss
+// scss admin
 @import "cabecalho";
 @import "geral";
 @import "login";
 @import "cadastro";
 @import "lists";
+
+// scss site
+@import "site/cabecalhosite";
+@import "site/geralsite";

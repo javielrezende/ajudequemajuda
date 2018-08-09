@@ -11,18 +11,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar">
-    <div class="top-left links">
-        <a href="{{ url('/') }}"><img class="logo" src="{{ asset('imagens/logo_p.png') }}" alt="Logo Ajude Quem Ajuda"></a>
+<nav class="navbarsite">
+    <div class="top-leftsite linkssite">
+        <a href="{{ url('/') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}" alt="Logo Ajude Quem Ajuda"></a>
     </div>
     @if (Route::has('login'))
-        <div class="top-right links">
+        <div class="top-rightsite linkssite">
             @auth
-                <a href="{{ url('/admin/itens') }}">Itens</a>
-                <a href="{{ url('/admin/eventos') }}">Eventos</a>
-                <a href="{{ url('/admin/campanhas') }}">Campanhas</a>
-                <a href="{{ url('/admin/users') }}">Usuários</a>
-                <a href="{{ url('/admin/entidades') }}">Entidades</a>
+                {{--<a href="{{ url('/itens') }}">Itens</a>--}}
+                {{--<a href="{{ url('/eventos') }}">Eventos</a>--}}
+                {{--<a href="{{ url('/campanhas') }}">Campanhas</a>--}}
+                {{--<a href="{{ url('/users') }}">Usuários</a>--}}
+                {{--<a href="{{ url('/entidades') }}">Entidades</a>--}}
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
@@ -42,7 +42,7 @@
     @endif
 </nav>
 
-<div class="container-fluid principal">
+<div class="container-fluid principalsite">
 
     @yield('content')
 

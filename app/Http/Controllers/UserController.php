@@ -19,7 +19,7 @@ class UserController extends Controller
             ->where('status', 1)
             ->orderBy('id')
             ->get();
-        return view('users/users_list', compact('users'));
+        return view('admin/users/users_list', compact('users'));
     }
 
     /**
@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $acao = 1;
 
-        return view('users/users_form', compact('acao'));
+        return view('admin/users/users_form', compact('acao'));
     }
 
     /**
@@ -92,7 +92,7 @@ class UserController extends Controller
 
         $acao = 2;
 
-        return view('users/users_form', compact('registro', 'acao'));
+        return view('admin/users/users_form', compact('registro', 'acao'));
     }
 
     /**

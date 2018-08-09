@@ -71,7 +71,7 @@ class CampanhaController extends Controller
         //return $campanhas;
 
         //$entidades = User::all();
-        return view('campanhas/campanhas_list', compact('campanhas'));
+        return view('admin/campanhas/campanhas_list', compact('campanhas'));
     }
 
     /**
@@ -88,7 +88,7 @@ class CampanhaController extends Controller
             ->orderBy('name')->get();
         //dd($entidades);
 
-        return view('campanhas/campanhas_form', compact('acao', 'entidades'));
+        return view('admin/campanhas/campanhas_form', compact('acao', 'entidades'));
     }
 
     /**
@@ -162,7 +162,7 @@ class CampanhaController extends Controller
 
         $acao = 2;
 
-        return view('campanhas/campanhas_form', compact('registro', 'entidades', 'acao'));
+        return view('admin/campanhas/campanhas_form', compact('registro', 'entidades', 'acao'));
     }
 
     /**

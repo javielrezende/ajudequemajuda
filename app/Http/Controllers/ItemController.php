@@ -17,7 +17,7 @@ class ItemController extends Controller
     {
         $itens = Item::orderBy('descricao')->get();
 
-        return view('itens/itens_list', compact('itens'));
+        return view('admin/itens/itens_list', compact('itens'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ItemController extends Controller
 
         $itens = Item::orderBy('descricao')->get();
 
-        return view('itens/itens_form', compact('acao', 'itens'));
+        return view('admin/itens/itens_form', compact('acao', 'itens'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ItemController extends Controller
 
         $acao = 2;
 
-        return view('itens/itens_form', compact('registro', 'itens', 'acao'));
+        return view('admin/itens/itens_form', compact('registro', 'itens', 'acao'));
     }
 
     /**

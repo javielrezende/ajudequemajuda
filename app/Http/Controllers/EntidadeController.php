@@ -23,7 +23,7 @@ class EntidadeController extends Controller
                           ->orderBy('name')
                           ->get();
         //$entidades = User::all();
-        return view('entidades/entidades_list', compact('entidades'));
+        return view('admin/entidades/entidades_list', compact('entidades'));
     }
 
     public function indexJson()
@@ -47,7 +47,7 @@ class EntidadeController extends Controller
     {
         $acao = 1;
 
-        return view('entidades/entidades_form', compact('acao'));
+        return view('admin/entidades/entidades_form', compact('acao'));
     }
 
     /**
@@ -110,7 +110,7 @@ class EntidadeController extends Controller
 
         $acao = 2;
 
-        return view('entidades/entidades_form', compact('registro', 'acao'));
+        return view('admin/entidades/entidades_form', compact('registro', 'acao'));
 
     }
 

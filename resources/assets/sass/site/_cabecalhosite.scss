@@ -1,0 +1,71 @@
+$height: 47.5px;
+
+.navbarsite {
+  //background-color: #843534;
+  //background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: $height;
+  top: 0;
+  position: fixed;
+  z-index: 9999;
+}
+
+.navbarsite html{
+  color: #636b6f;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+.top-rightsite {
+  position: absolute;
+  right: 100px;
+  //top: 0;
+  //vertical-align: middle;
+}
+
+.top-leftsite {
+  position: absolute;
+  left: 0px;
+}
+
+.linkssite {
+  margin: 0;
+  margin-top: 9px;
+}
+
+.linkssite > a {
+  color: #000000;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0;
+  margin-left: 5px;
+  //text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.logosite {
+  margin-left: 100px;
+  width: 150px;
+  height: 50px;
+}
+
+.titlesite {
+  font-size: 84px;
+  text-align: center;
+  //vertical-align: middle;
+  margin-top: 150px;
+}
+
+.subtitlesite {
+  font-size: 50px;
+  text-align: center;
+  //vertical-align: middle;
+}
+

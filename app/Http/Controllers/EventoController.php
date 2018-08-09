@@ -23,7 +23,7 @@ class EventoController extends Controller
             ->where('status', 1)
             ->orderBy('campanhas_id')
             ->get();
-        return view('eventos/eventos_list', compact('eventos'));
+        return view('admin/eventos/eventos_list', compact('eventos'));
         //return $eventos;
     }
 
@@ -40,7 +40,7 @@ class EventoController extends Controller
             ->orderBy('nome')->get();
 
         //dd($campanhas);
-        return view('eventos/eventos_form', compact('acao', 'campanhas'));
+        return view('admin/eventos/eventos_form', compact('acao', 'campanhas'));
     }
 
     /**
@@ -124,7 +124,7 @@ class EventoController extends Controller
 
         $acao = 2;
 
-        return view('eventos/eventos_form', compact('registro', 'campanhas', 'acao'));
+        return view('admin/eventos/eventos_form', compact('registro', 'campanhas', 'acao'));
     }
 
     /**
