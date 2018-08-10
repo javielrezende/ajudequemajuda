@@ -1,11 +1,10 @@
 @extends('basicosite')
 @section('content')
-    <div class=" col-12 titlesite">
-        *****SITE*****
-
-        Ajude quem Ajuda
+    <div class=" col-4 titlesite">
+        Ajude as <br/>instituições <br/>de caridade <br/>em Pelotas
     </div>
-    <div class="col-12 subtitlesite">
-        Sistema Web integrado a Redes Sociais para divulgação e apoio das ações de grupos filantrópicos
+
+    <div class="col-8 imagemwelcome">
+        <img src="" alt="">
     </div>
 @endsection

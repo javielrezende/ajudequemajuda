@@ -1,4 +1,4 @@
-$height: 47.5px;
+$height: 70px;
 
 .navbarsite {
   //background-color: #843534;
@@ -10,62 +10,99 @@ $height: 47.5px;
   top: 0;
   position: fixed;
   z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.navbarsite html{
+.navbarsite html {
   color: #636b6f;
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
 }
 
-.top-rightsite {
-  position: absolute;
-  right: 100px;
-  //top: 0;
-  //vertical-align: middle;
-}
-
-.top-leftsite {
-  position: absolute;
-  left: 0px;
-}
-
 .linkssite {
+  margin: 0;
+  margin-right: 50px;
+  //margin-top: 9px;
+}
+
+.menu {
+  margin: 0;
+  margin-top: 28px;
+}
+
+.linkssitelogo {
   margin: 0;
   margin-top: 9px;
 }
 
-.linkssite > a {
-  color: #000000;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 15px;
+.menu a {
+  color: #4D4F5C;
+  //padding-left: 7px;
+  //padding-right: 7px;
+  //padding-top: 50px;
+  font-size: 14px;
+  //font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
+
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  //box-shadow: 3px 3px rgba(0, 0, 0, .16);
+}
+
+.linkssite a {
+  color: #ffffff;
+  //padding-left: 7px;
+  //padding-right: 7px;
+  //padding-top: 50px;
+  font-size: 10px;
   font-weight: 500;
   text-decoration: none;
-  margin: 0;
   margin-left: 5px;
-  //text-transform: uppercase;
-  vertical-align: middle;
 }
 
 .logosite {
   margin-left: 100px;
   width: 150px;
-  height: 50px;
+  height: 52px;
 }
 
 .titlesite {
-  font-size: 84px;
-  text-align: center;
-  //vertical-align: middle;
   margin-top: 150px;
+  margin-left: 100px;
+  font-size: 60px;
+  color: #4D4F5C;
+  text-align: left;
+  font-weight: bold;
 }
 
 .subtitlesite {
   font-size: 50px;
   text-align: center;
   //vertical-align: middle;
+}
+
+.stylelogin {
+  background-color: #439AFF;
+  padding: 7px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 15px;
+  box-shadow: 3px 3px rgba(0, 0, 0, .16);
+}
+
+.stylecadastro {
+  background-color: #00CEA0;
+  padding: 7px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 15px;
+  box-shadow: 3px 3px rgba(0, 0, 0, .13);
+
 }
 
