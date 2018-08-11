@@ -6,8 +6,15 @@
         </div>
 
         <div class="">
-        <span><img class="imagemwelcome" src="{{ asset('imagens/imagem_welcome.png') }}"
-                   alt="Imagem Menino feliz"></span>
+        <img class="imagemwelcome" src="{{ asset('imagens/imagem_welcome2.png') }}"
+                   alt="Imagem Menino feliz">
         </div>
+    </div>
+    <div class="row instrucoes">
+        <p class="align-middle">Como funciona?</p>
+    </div>
+    <div class="row instrucoes2">
+        <img class="imagemwelcome" src="{{ asset('imagens/imagem_welcome2.png') }}"
+             alt="Imagem Menino feliz">
     </div>
 @endsection
