@@ -25,7 +25,7 @@
         </div>
         <div class="top-rightsite linkssite">
             {{--@auth--}}
-                <a href="{{ route('logout') }}"
+                {{--<a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
                     Sair
@@ -33,7 +33,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                       style="display: none;">
                     {{ csrf_field() }}
-                </form>
+                </form>--}}
                 {{--<span style="margin-left: 10px; margin-right: 10px">{{ Auth::user()->name }}</span>--}}
         {{--</div>--}}
     {{--@else--}}
