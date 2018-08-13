@@ -40,7 +40,7 @@
         <p class="row col-12 titulodestaques">Campanhas em destaque</p>
         <div class="row imgdestaques">
             <div class="row col-6 divdestaques">
-                <div class="imagemdestaque"></div>
+                <img class="imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
                 <h4 class="nomecampanhadestaque">Campanha 1</h4>
                 <p class="datacampanhadestaque"> 22/03/2018 </p>
                 <p class="descricaocampanhadestaque"> Lorem ipsum dolor sit amet, con... </p>
