@@ -10847,8 +10847,6 @@ tr {
 }
 
 .navbarsite {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 70px;
   top: 0;
@@ -10972,7 +10970,7 @@ body .row {
   margin-left: 100px;
 }
 
-.imginstrucoes {
+.instrucoes {
   background-image: linear-gradient(120deg, #ffffff 0%, #ebedee 100%);
   -webkit-clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
   clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
@@ -10980,7 +10978,7 @@ body .row {
   height: 523px;
 }
 
-.imginstrucoes p {
+.instrucoes p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -11000,5 +10998,77 @@ body .row {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.imginstrucoes {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.sitedestaques .titulodestaques {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.sitedestaques .divdestaques {
+  width: 470px;
+  height: 259px;
+}
+
+.rodape {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+}
+
+.rodape a {
+  text-decoration: none;
+}
+
+.rodape p {
+  font-size: 14px;
+  color: #9f9f9f;
+  margin: 0;
+}
+
+.direitos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.faq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.faq .faqcentro {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 

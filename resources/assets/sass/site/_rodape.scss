@@ -1,0 +1,33 @@
+.rodape {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+
+  a{
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 14px;
+    color: #9f9f9f;
+    margin: 0;
+  }
+}
+
+.direitos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .faqcentro {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
