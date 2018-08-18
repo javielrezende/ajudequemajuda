@@ -31514,7 +31514,7 @@ $('#dataFim').datepicker({
 /* 37 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n    height: calc (100vh - 70px);\r\n                ^\r\n      Incompatible units: 'px' and 'vh'.\r\n      in C:\\xampp\\htdocs\\ajudequemajuda\\resources\\assets\\sass\\site\\_evento.scss (line 22, column 18)\n    at runLoaders (C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.done [as callback] (C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\neo-async\\async.js:7974:18)\n    at options.error (C:\\xampp\\htdocs\\ajudequemajuda\\node_modules\\node-sass\\lib\\index.js:294:32)");
 
 /***/ })
 /******/ ]);

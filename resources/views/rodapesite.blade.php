@@ -1,4 +1,5 @@
 <div class="row rodape">
+    <hr>
     <div class="direitos col-6">
         <p>2018. AjudeQuemAjuda - Todos direitos reservados</p>
     </div>

@@ -19,9 +19,12 @@
     {{--@if (Route::has('login'))--}}
         <div class="menu text-center">
             <a href="{{ url('/') }}">Home</a>
-            <a href="{{ url('/entidades') }}">Entidades</a>
-            <a href="{{ url('/campanhas') }}">Campanhas</a>
-            <a href="{{ url('/eventos') }}">Eventos</a>
+            <a href="#">Entidades</a>
+            {{--<a href="{{ url('/entidades') }}">Entidades</a>--}}
+            <a href="#">Campanhas</a>
+            {{--<a href="{{ url('/campanhas') }}">Campanhas</a>--}}
+            <a href="{{ url('site/eventos')  }}">Eventos</a>
+           {{-- <a href="{{ url('/eventos') }}">Eventos</a>--}}
         </div>
         <div class="top-rightsite linkssite">
             {{--@auth--}}
@@ -37,8 +40,10 @@
                 {{--<span style="margin-left: 10px; margin-right: 10px">{{ Auth::user()->name }}</span>--}}
         {{--</div>--}}
     {{--@else--}}
-        <a class="stylelogin" href="{{ route('login') }}">LOGIN</a>
-        <a class="stylecadastro" href="{{ route('register') }}">CADASTRO</a>
+        <a class="stylelogin" href="#">LOGIN</a>
+        {{--<a class="stylelogin" href="{{ route('login') }}">LOGIN</a>--}}
+        <a class="stylecadastro" href="#">CADASTRO</a>
+        {{--<a class="stylecadastro" href="{{ route('register') }}">CADASTRO</a>--}}
         </div>
         {{--@endauth--}}
     {{--@endif--}}

@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar">
     <div class="top-left links">
-        <a href="{{ url('/') }}"><img class="logo" src="{{ asset('imagens/logo_p.png') }}" alt="Logo Ajude Quem Ajuda"></a>
+        <a href="{{ url('/admin') }}"><img class="logo" src="{{ asset('imagens/logo_p.png') }}" alt="Logo Ajude Quem Ajuda"></a>
     </div>
     @if (Route::has('login'))
         <div class="top-right links">

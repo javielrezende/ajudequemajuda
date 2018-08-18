@@ -28,6 +28,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function () {
     return view('welcome');
 });
+Route::get('/site/eventos', function () {
+    return view('site/eventos');
+});
+Route::get('/site/evento', function () {
+    return view('site/evento');
+});
+
+
+
 Route::group(['prefix' => '/admin'], function (){
 Route::resource('/eventos', 'EventoController');
 Route::resource('/itens', 'ItemController');

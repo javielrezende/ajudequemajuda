@@ -1,102 +1,33 @@
-.welcome {
-  display: flex;
-  justify-content: space-between;
-  height: calc(100vh - 70px);
-}
+.siteevento {
 
-.titlesite {
-  margin-top: 70px;
-  margin-left: 100px;
-  font-size: 60px;
-  color: #4D4F5C;
-  text-align: left;
-  font-weight: bold;
-}
 
-.imagemwelcome {
-  margin-left: 100px;
-}
-
-.instrucoes {
-  background-image: linear-gradient(120deg, #ffffff 0%, #ebedee 100%);
-  -webkit-clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
-  clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
-  width: auto;
-  height: 523px;
-
-  p {
-    justify-content: center;
-    color: #4D4F5C;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 40px;
-  }
-}
-
-.circulos {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-
-  .cir {
-    position: relative;
-
-    img:nth-child(2){
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  .num {
-    width: 67px;
-    height: 80px;
-    font-size: 60px;
-    font-weight: bold;
-    color: #4D4F5C;
-  }
-}
-
-.imginstrucoes {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-.sitedestaques {
   //background-image: linear-gradient(120deg, #ffffff 0%, #ebedee 100%);
   //-webkit-clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
   //clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
   //width: auto;
   //height: 523px;
 
-
-  .titulodestaques {
+  /*.tituloeventos {
+    margin-top: 50px;
     justify-content: center;
     color: #4D4F5C;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 40px;
-  }
+  }*/
 
-  .imgdestaques {
-
-  }
-
-  .divdestaques {
+  .divevento {
+    //margin-top: 50px;
     width: 475px;
-    height: 264px;
+    height: calc (100vh - 70px);
     border-width: 1px;
     border-color: rgba(202, 206, 213, 0);
     border-style: solid;
 
-    margin-left: auto;
+    //margin-left: auto;
   }
 
-  .divdestaques:hover {
+  .divevento:hover {
     border-radius: 3px;
     //width: 100px;
     //height: 100px;
@@ -106,7 +37,7 @@
     //display: inline-block
   }
 
-  .observacoes {
+  .observacoesevento {
     margin-left: 20px;
     display: flex;
     justify-content: flex-start;
@@ -124,20 +55,20 @@
       color: #8A8A8A;
     }
 
-    h4{
+    h4 {
       margin: 0;
       font-size: 18px;
       font-weight: 400;
       color: #4D4F5C;
     }
 
-    .descricaocampanhadestaque {
+    .descricaoevento {
       font-size: 12px;
       width: 280px;
       height: 130px;
     }
 
-    .saibamaiscampanhadestaque {
+    .saibamaisevento {
       font-size: 10px;
       margin-top: 5px;
       margin-left: auto;
@@ -152,12 +83,11 @@
       border-radius: 15px;
     }
 
-    .datacampanhadestaque{
+    .dataevento {
       font-size: 12px;
       font-style: italic;
       margin: 10px 0;
     }
-
 
   }
 }

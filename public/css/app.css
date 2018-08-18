@@ -11000,6 +11000,26 @@ body .row {
           align-items: flex-start;
 }
 
+.circulos .cir {
+  position: relative;
+}
+
+.circulos .cir img:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.circulos .num {
+  width: 67px;
+  height: 80px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #4D4F5C;
+}
+
 .imginstrucoes {
   width: 100%;
   display: -webkit-box;
@@ -11019,11 +11039,84 @@ body .row {
   color: #4D4F5C;
   font-size: 28px;
   font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .sitedestaques .divdestaques {
-  width: 470px;
-  height: 259px;
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0);
+  border-style: solid;
+  margin-left: auto;
+}
+
+.sitedestaques .divdestaques:hover {
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #CACED5;
+  border-style: solid;
+}
+
+.sitedestaques .observacoes {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.sitedestaques .observacoes p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.sitedestaques .observacoes a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.sitedestaques .observacoes h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.sitedestaques .observacoes .descricaocampanhadestaque {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.sitedestaques .observacoes .saibamaiscampanhadestaque {
+  font-size: 10px;
+  margin-top: 5px;
+  margin-left: auto;
+  color: #4D4F5C;
+  float: right;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.sitedestaques .observacoes .datacampanhadestaque {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
 }
 
 .rodape {
@@ -11070,5 +11163,180 @@ body .row {
 .faq .faqcentro {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.siteevento {
+  /*.tituloeventos {
+    margin-top: 50px;
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }*/
+}
+
+.siteevento .divevento {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0);
+  border-style: solid;
+}
+
+.siteevento .divevento:hover {
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #CACED5;
+  border-style: solid;
+}
+
+.siteevento .observacoesevento {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.siteevento .observacoesevento p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteevento .observacoesevento a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteevento .observacoesevento h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.siteevento .observacoesevento .descricaoevento {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.siteevento .observacoesevento .saibamaisevento {
+  font-size: 10px;
+  margin-top: 5px;
+  margin-left: auto;
+  color: #4D4F5C;
+  float: right;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.siteevento .observacoesevento .dataevento {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.siteeventos .tituloeventos {
+  margin-top: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.siteeventos .diveventos {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0);
+  border-style: solid;
+  margin-left: auto;
+}
+
+.siteeventos .diveventos:hover {
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #CACED5;
+  border-style: solid;
+}
+
+.siteeventos .observacoeseventos {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.siteeventos .observacoeseventos p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteeventos .observacoeseventos a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteeventos .observacoeseventos h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.siteeventos .observacoeseventos .descricaoeventos {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.siteeventos .observacoeseventos .saibamaiseventos {
+  font-size: 10px;
+  margin-top: 5px;
+  margin-left: auto;
+  color: #4D4F5C;
+  float: right;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.siteeventos .observacoeseventos .dataeventos {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
 }
 
