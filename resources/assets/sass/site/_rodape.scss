@@ -7,24 +7,30 @@
   a{
     text-decoration: none;
   }
-
   p {
     font-size: 14px;
-    color: #9f9f9f;
     margin: 0;
   }
+
 }
 
 .direitos {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  p {
+    color: #9f9f9f;
+  }
 }
 
 .faq {
   display: flex;
   justify-content: center;
   align-items: center;
+  p {
+  color: white;
+  }
 
   .faqcentro {
     margin-left: 20px;

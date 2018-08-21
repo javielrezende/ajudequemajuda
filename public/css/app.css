@@ -11132,7 +11132,6 @@ body .row {
 
 .rodape p {
   font-size: 14px;
-  color: #9f9f9f;
   margin: 0;
 }
 
@@ -11148,6 +11147,10 @@ body .row {
           align-items: center;
 }
 
+.direitos p {
+  color: #9f9f9f;
+}
+
 .faq {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11158,6 +11161,10 @@ body .row {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.faq p {
+  color: white;
 }
 
 .faq .faqcentro {
@@ -11178,7 +11185,7 @@ body .row {
 
 .siteevento .divevento {
   width: 475px;
-  height: 264px;
+  height: calc(100vh - 70px);
   border-width: 1px;
   border-color: rgba(202, 206, 213, 0);
   border-style: solid;
