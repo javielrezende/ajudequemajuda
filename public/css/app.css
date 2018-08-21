@@ -11126,6 +11126,10 @@ body .row {
   background-color: #333333;
 }
 
+.rodape .logorodape {
+  margin-right: 10px;
+}
+
 .rodape a {
   text-decoration: none;
 }
