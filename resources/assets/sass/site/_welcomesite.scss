@@ -1,7 +1,7 @@
 .welcome {
   display: flex;
   justify-content: space-between;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .titlesite {
@@ -24,13 +24,7 @@
   width: auto;
   height: 523px;
 
-  p {
-    justify-content: center;
-    color: #4D4F5C;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 40px;
-  }
+
 }
 
 .circulos {
@@ -38,6 +32,15 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+
+  .circulobloco {
+
+    .ins {
+
+      width: 155px;
+    }
+  }
+
 
   .cir {
     position: relative;
@@ -52,10 +55,19 @@
 
   .num {
     width: 67px;
-    height: 80px;
+    height: 30px;
     font-size: 60px;
     font-weight: bold;
     color: #4D4F5C;
+
+    p {
+      justify-content: center;
+      color: #4D4F5C;
+      font-weight: bold;
+      position: relative;
+      top: -60px;
+    }
+
   }
 }
 
@@ -83,28 +95,21 @@
   }
 
   .imgdestaques {
-
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    display: grid;
   }
 
   .divdestaques {
     width: 475px;
     height: 264px;
     border-width: 1px;
-    border-color: rgba(202, 206, 213, 0);
+    border-color: rgba(202, 206, 213, .21);
     border-style: solid;
-
-    margin-left: auto;
+    box-shadow: 3px 3px rgba(0, 0, 0, .03);
+    margin: 15px;
   }
 
-  .divdestaques:hover {
-    border-radius: 3px;
-    //width: 100px;
-    //height: 100px;
-    border-width: 1px;
-    border-color: #CACED5;
-    border-style: solid;
-    //display: inline-block
-  }
 
   .observacoes {
     margin-left: 20px;

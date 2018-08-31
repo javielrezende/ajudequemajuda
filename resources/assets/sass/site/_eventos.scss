@@ -1,5 +1,4 @@
 .siteeventos {
-
   //background-image: linear-gradient(120deg, #ffffff 0%, #ebedee 100%);
   //-webkit-clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
   //clip-path: polygon(0 9%, 100% 0, 100% 90%, 0% 100%);
@@ -7,7 +6,6 @@
   //height: 523px;
 
   .tituloeventos {
-    margin-top: 50px;
     justify-content: center;
     color: #4D4F5C;
     font-size: 28px;
@@ -15,77 +13,73 @@
     margin-bottom: 40px;
   }
 
+  .imgeventos {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    display: grid;
+  }
+
   .diveventos {
     width: 475px;
     height: 264px;
     border-width: 1px;
-    border-color: rgba(202, 206, 213, 0);
+    border-color: rgba(202, 206, 213, .21);
     border-style: solid;
+    box-shadow: 3px 3px rgba(0, 0, 0, .03);
+    margin: 15px;
 
-    margin-left: auto;
-  }
+    .observacoeseventos {
+      margin-left: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px 0;
 
-  .diveventos:hover {
-    border-radius: 3px;
-    //width: 100px;
-    //height: 100px;
-    border-width: 1px;
-    border-color: #CACED5;
-    border-style: solid;
-    //display: inline-block
-  }
+      p {
+        margin: 0;
+        color: #8A8A8A;
+      }
 
-  .observacoeseventos {
-    margin-left: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 20px 0;
+      a {
+        margin: 0;
+        color: #8A8A8A;
+      }
 
-    p {
-      margin: 0;
-      color: #8A8A8A;
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4D4F5C;
+      }
+
+      .descricaoeventos {
+        font-size: 12px;
+        width: 280px;
+        height: 130px;
+      }
+
+      .saibamaiseventos {
+        font-size: 10px;
+        margin-top: 5px;
+        margin-left: auto;
+        color: #4D4F5C;
+        //margin-left: 150px;
+        float: right;
+        text-decoration: none;
+        background-color: #F1F1F1;
+        padding: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+      }
+
+      .dataeventos {
+        font-size: 12px;
+        font-style: italic;
+        margin: 10px 0;
+      }
+
     }
-
-    a {
-      margin: 0;
-      color: #8A8A8A;
-    }
-
-    h4 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 400;
-      color: #4D4F5C;
-    }
-
-    .descricaoeventos {
-      font-size: 12px;
-      width: 280px;
-      height: 130px;
-    }
-
-    .saibamaiseventos {
-      font-size: 10px;
-      margin-top: 5px;
-      margin-left: auto;
-      color: #4D4F5C;
-      //margin-left: 150px;
-      float: right;
-      text-decoration: none;
-      background-color: #F1F1F1;
-      padding: 4px;
-      padding-left: 20px;
-      padding-right: 20px;
-      border-radius: 15px;
-    }
-
-    .dataeventos {
-      font-size: 12px;
-      font-style: italic;
-      margin: 10px 0;
-    }
-
   }
 }

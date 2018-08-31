@@ -10954,7 +10954,7 @@ body .row {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 }
 
 .titlesite {
@@ -10978,16 +10978,6 @@ body .row {
   height: 523px;
 }
 
-.instrucoes p {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #4D4F5C;
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 40px;
-}
-
 .circulos {
   width: 100%;
   display: -webkit-box;
@@ -10998,6 +10988,10 @@ body .row {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.circulos .circulobloco .ins {
+  width: 155px;
 }
 
 .circulos .cir {
@@ -11014,10 +11008,20 @@ body .row {
 
 .circulos .num {
   width: 67px;
-  height: 80px;
+  height: 30px;
   font-size: 60px;
   font-weight: bold;
   color: #4D4F5C;
+}
+
+.circulos .num p {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-weight: bold;
+  position: relative;
+  top: -60px;
 }
 
 .imginstrucoes {
@@ -11042,20 +11046,21 @@ body .row {
   margin-bottom: 40px;
 }
 
+.sitedestaques .imgdestaques {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
 .sitedestaques .divdestaques {
   width: 475px;
   height: 264px;
   border-width: 1px;
-  border-color: rgba(202, 206, 213, 0);
+  border-color: rgba(202, 206, 213, 0.21);
   border-style: solid;
-  margin-left: auto;
-}
-
-.sitedestaques .divdestaques:hover {
-  border-radius: 3px;
-  border-width: 1px;
-  border-color: #CACED5;
-  border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
 }
 
 .sitedestaques .observacoes {
@@ -11177,42 +11182,63 @@ body .row {
 }
 
 .siteevento {
-  /*.tituloeventos {
-    margin-top: 50px;
-    justify-content: center;
-    color: #4D4F5C;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }*/
+  min-height: calc(100vh - 70px);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .siteevento .divevento {
-  width: 475px;
-  height: calc(100vh - 70px);
+  width: 700px;
+  height: 400px;
   border-width: 1px;
-  border-color: rgba(202, 206, 213, 0);
+  border-color: rgba(202, 206, 213, 0.21);
   border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
 }
 
-.siteevento .divevento:hover {
-  border-radius: 3px;
-  border-width: 1px;
-  border-color: #CACED5;
-  border-style: solid;
+.siteevento .divevento .diamesevento {
+  color: #439AFF;
+  margin: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.siteevento .observacoesevento {
-  margin-left: 20px;
+.siteevento .divevento .diamesevento .diaevento {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.siteevento .divevento .diamesevento .mesevento {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.siteevento .divevento .observacoesevento {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -11220,51 +11246,55 @@ body .row {
   padding: 20px 0;
 }
 
-.siteevento .observacoesevento p {
+.siteevento .divevento .observacoesevento p {
   margin: 0;
-  color: #8A8A8A;
 }
 
-.siteevento .observacoesevento a {
-  margin: 0;
-  color: #8A8A8A;
-}
-
-.siteevento .observacoesevento h4 {
-  margin: 0;
-  font-size: 18px;
+.siteevento .divevento .observacoesevento .nomeevento {
+  font-size: 20px;
   font-weight: 400;
   color: #4D4F5C;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
-.siteevento .observacoesevento .descricaoevento {
-  font-size: 12px;
-  width: 280px;
-  height: 130px;
+.siteevento .divevento .observacoesevento .localhora {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 30px 0;
 }
 
-.siteevento .observacoesevento .saibamaisevento {
+.siteevento .divevento .observacoesevento .localhora p {
   font-size: 10px;
-  margin-top: 5px;
-  margin-left: auto;
   color: #4D4F5C;
-  float: right;
-  text-decoration: none;
-  background-color: #F1F1F1;
-  padding: 4px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 15px;
 }
 
-.siteevento .observacoesevento .dataevento {
+.siteevento .divevento .observacoesevento .localhora .local {
+  font-weight: bold;
+}
+
+.siteevento .divevento .observacoesevento .localhora .hora {
+  font-weight: bold;
+}
+
+.siteevento .divevento .observacoesevento .descricaoevento p {
+  color: #8A8A8A;
+  font-size: 12px;
+  width: 250px;
+  height: 140px;
+}
+
+.siteevento .divevento .observacoesevento .dataevento {
   font-size: 12px;
   font-style: italic;
-  margin: 10px 0;
 }
 
 .siteeventos .tituloeventos {
-  margin-top: 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -11274,23 +11304,24 @@ body .row {
   margin-bottom: 40px;
 }
 
+.siteeventos .imgeventos {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
 .siteeventos .diveventos {
   width: 475px;
   height: 264px;
   border-width: 1px;
-  border-color: rgba(202, 206, 213, 0);
+  border-color: rgba(202, 206, 213, 0.21);
   border-style: solid;
-  margin-left: auto;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
 }
 
-.siteeventos .diveventos:hover {
-  border-radius: 3px;
-  border-width: 1px;
-  border-color: #CACED5;
-  border-style: solid;
-}
-
-.siteeventos .observacoeseventos {
+.siteeventos .diveventos .observacoeseventos {
   margin-left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11308,30 +11339,30 @@ body .row {
   padding: 20px 0;
 }
 
-.siteeventos .observacoeseventos p {
+.siteeventos .diveventos .observacoeseventos p {
   margin: 0;
   color: #8A8A8A;
 }
 
-.siteeventos .observacoeseventos a {
+.siteeventos .diveventos .observacoeseventos a {
   margin: 0;
   color: #8A8A8A;
 }
 
-.siteeventos .observacoeseventos h4 {
+.siteeventos .diveventos .observacoeseventos h4 {
   margin: 0;
   font-size: 18px;
   font-weight: 400;
   color: #4D4F5C;
 }
 
-.siteeventos .observacoeseventos .descricaoeventos {
+.siteeventos .diveventos .observacoeseventos .descricaoeventos {
   font-size: 12px;
   width: 280px;
   height: 130px;
 }
 
-.siteeventos .observacoeseventos .saibamaiseventos {
+.siteeventos .diveventos .observacoeseventos .saibamaiseventos {
   font-size: 10px;
   margin-top: 5px;
   margin-left: auto;
@@ -11345,7 +11376,7 @@ body .row {
   border-radius: 15px;
 }
 
-.siteeventos .observacoeseventos .dataeventos {
+.siteeventos .diveventos .observacoeseventos .dataeventos {
   font-size: 12px;
   font-style: italic;
   margin: 10px 0;
