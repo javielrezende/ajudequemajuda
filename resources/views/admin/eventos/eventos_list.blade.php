@@ -29,6 +29,7 @@
             <tr>
                 <th>Nº de Cadastro</th>
                 <th>Pertence a campanha</th>
+                <th>Nome</th>
                 <th>Descrição</th>
                 <th>Data inicial</th>
                 <th>Data final</th>
@@ -46,6 +47,7 @@
                 <tr>
                     <td>{{$evento->id}}</td>
                     <td>{{$evento->campanhas->nome}}</td>
+                    <td>{{$evento->nome}}</td>
                     <td>{{$evento->descricao}}</td>
                     <td>{{$evento->dataInicio}}</td>
                     <td>{{$evento->dataFim}}</td>

@@ -60,8 +60,8 @@ class EventoController extends Controller
         //dd($dataInicial);
 
         if (isset($dataInicial)) {
-            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-            //dd($dataInicialFormatada);
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y H:i', $dataInicial)->toDateTimeString();
+            dd($dataInicialFormatada);
             $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
         } else {
             $dataInicialFormatada = null;
@@ -84,6 +84,7 @@ class EventoController extends Controller
         ]);
 
             $resultado = Evento::create([
+                'nome' => $request['nome'],
                 'descricao' => $request['descricao'],
                 'status' => 1,
                 'dataInicio' => $dataInicialFormatada,
@@ -143,6 +144,7 @@ class EventoController extends Controller
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
 
+        $nome = $request['nome'];
         $descricao = $request['descricao'];
         $cep = $request['cep'];
         $rua = $request['rua'];
@@ -171,7 +173,7 @@ class EventoController extends Controller
         }
 
 
-        $dados = ['descricao' => $descricao, '$campanha' => $campanha];
+        $dados = ['nome' => $nome, 'descricao' => $descricao, '$campanha' => $campanha];
         $dados1 = ['cep' => $cep,
             'rua' => $rua, 'numero' => $numero, 'complemento' => $complemento,
             'bairro' => $bairro, 'cidade' => $cidade, 'estado' => $estado];

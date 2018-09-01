@@ -12,7 +12,8 @@ class EventosTableSeeder extends Seeder
     public function run()
     {
         DB::table('eventos')->insert([
-            'descricao' => 'Evento entrega cobertores Tecon',
+            'nome' => 'Entrega de cobertores Tecon',
+            'descricao' => 'Evento para entrega de cobertores da empresa Tecon',
             'dataInicio' => null,
             'dataFim' => null,
             'status' => 1,
