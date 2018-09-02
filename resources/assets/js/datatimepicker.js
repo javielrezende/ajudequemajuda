@@ -1,6 +1,5 @@
 $(function () {
     $('#dataHoraInicio').datetimepicker({
-        debug: true
     });
 });
 
