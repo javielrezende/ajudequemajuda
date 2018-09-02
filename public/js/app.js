@@ -50927,6 +50927,20 @@ $('#dataFim').datepicker({
     autoclose: 'true'
 });
 
+$('#dataHoraInicio').datepicker({
+    format: 'dd/mm/yyyy',
+    language: 'pt-BR',
+    startDate: '+0d',
+    autoclose: 'true'
+});
+
+$('#dataHoraFim').datepicker({
+    format: 'dd/mm/yyyy',
+    language: 'pt-BR',
+    startDate: '+0d',
+    autoclose: 'true'
+});
+
 /***/ }),
 /* 163 */
 /***/ (function(module, exports) {

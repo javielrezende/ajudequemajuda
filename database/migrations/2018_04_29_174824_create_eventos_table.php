@@ -17,8 +17,10 @@ class CreateEventosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->text('descricao');
-            $table->dateTime('dataHoraInicio')->nullable();
-            $table->dateTime('dataHoraFim')->nullable();
+            $table->date('dataHoraInicio')->nullable();
+            $table->time('dataHoraInicio1')->nullable();
+            $table->date('dataHoraFim')->nullable();
+            $table->time('dataHoraFim1')->nullable();
             $table->boolean('status')->default(0);
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')

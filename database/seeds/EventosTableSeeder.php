@@ -15,6 +15,8 @@ class EventosTableSeeder extends Seeder
             'nome' => 'Entrega de cobertores Tecon',
             'descricao' => 'Evento para entrega de cobertores da empresa Tecon',
             'dataHoraInicio' => null,
+            'dataHoraInicio' => null,
+            'dataHoraFim' => null,
             'dataHoraFim' => null,
             'status' => 1,
             'campanhas_id' => 1,

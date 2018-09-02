@@ -1,8 +1,5 @@
-$(function () {
-    $('#dataHoraInicio').datetimepicker({
-    });
+$('#dataHoraInicio').datetimepicker({
 });
 
-$(function () {
-    $('#dataHoraFim').datetimepicker();
+$('#dataHoraFim').datetimepicker({
 });

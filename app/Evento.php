@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evento extends Model
 {
     protected $fillable = [
-        'nome', 'descricao', 'dataHoraInicio', 'dataHoraFim', 'campanhas_id', 'status', 'enderecos_id',
+        'nome', 'descricao', 'dataHoraInicio', 'dataHoraInicio1', 'dataHoraFim', 'dataHoraFim1', 'campanhas_id', 'status', 'enderecos_id',
     ];
 
     public function campanhas(){
@@ -32,7 +32,7 @@ class Evento extends Model
         if(count($dataHoraFim) != 3){
             return"Sem data determinada";
         }
-        $dataHoraFim = $dataHoraFim[2] . '/' . $dataHoraFim[1] . '/' . $dataHoraFim[0];
+        $dataHoraFim = $dataHoraFim[2] . '/' . $dataHoraFim[1] . '/' . $dataHoraFim[0] . '';
         return $dataHoraFim;
     }
 }

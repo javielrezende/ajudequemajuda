@@ -23,6 +23,7 @@ class EventoController extends Controller
             ->where('status', 1)
             ->orderBy('campanhas_id')
             ->get();
+        //dd($eventos);
         return view('admin/eventos/eventos_list', compact('eventos'));
         //return $eventos;
     }
@@ -59,10 +60,15 @@ class EventoController extends Controller
         $dataHoraFinal = $request['dataHoraFim'];
         //dd($dataInicial);
 
+        $dataHoraInicial1 = $request['dataHoraInicio1'];
+        $dataHoraFinal1 = $request['dataHoraFim1'];
+
         if (isset($dataHoraInicial)) {
-            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y H:i', $dataHoraInicial)->toDateTimeString();
-            dd($dataInicialFormatada);
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraInicial)->toDateString();
+            //dd($dataInicialFormatada);
             $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraFinal)->toDateString();
+            //dd($dataInicialFormatada);
+            //dd($dataFinalFormatada);
         } else {
             $dataInicialFormatada = null;
             $dataFinalFormatada = null;
@@ -89,6 +95,8 @@ class EventoController extends Controller
                 'status' => 1,
                 'dataHoraInicio' => $dataInicialFormatada,
                 'dataHoraFim' => $dataFinalFormatada,
+                'dataHoraInicio1' => $dataHoraInicial1,
+                'dataHoraFim1' => $dataHoraFinal1,
                 'enderecos_id' => $endereco->id,
                 'campanhas_id' => $campanha,
             ]);
