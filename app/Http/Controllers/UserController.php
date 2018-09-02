@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $users = User::where('entidade', 0)
             ->where('status', 1)
-            ->orderBy('id')
+            ->orderBy('id', 'desc')
             ->get();
         return view('admin/users/users_list', compact('users'));
     }

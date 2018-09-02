@@ -1,5 +1,9 @@
-$('#dataHoraInicio').datetimepicker({
+$(function () {
+    $('#dataHoraInicio1').datetimepicker({
+        format: 'HH-mm'
+    });
 });
 
-$('#dataHoraFim').datetimepicker({
-});
+$('#dataHoraFim1').datetimepicker({});
+
+
