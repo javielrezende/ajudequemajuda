@@ -49,8 +49,7 @@
                         <div class="form-group col-2">
                             <label for="dataHoraInicio">Data inicial</label>
                             <div class="input-group date">
-                                <input autocomplete="off" type="text" class="form-control datetimepicker-input"
-                                       data-toggle="datetimepicker" data-target="#dataHoraInicio" id="dataHoraInicio"
+                                <input autocomplete="off" type="text" class="form-control" id="dataHoraInicio"
                                        name="dataHoraInicio"
                                        value="{{$registro->dataHoraInicio or old('dataHoraInicio')}}"></div>
                         </div>
@@ -67,8 +66,7 @@
                         <div class="form-group col-2">
                             <label for="dataHoraFim">Data final</label>
                             <div class="input-group date">
-                                <input autocomplete="off" type="text" class="form-control datetimepicker-input"
-                                       data-toggle="datetimepicker" data-target="#dataHoraFim" id="dataHoraFim"
+                                <input autocomplete="off" type="text" class="form-control" id="dataHoraFim"
                                        name="dataHoraFim"
                                        value="{{$registro->dataHoraFim or old('dataHoraFim')}}">
                             </div>

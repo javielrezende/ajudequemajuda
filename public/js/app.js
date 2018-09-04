@@ -27503,7 +27503,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(134);
-module.exports = __webpack_require__(163);
+module.exports = __webpack_require__(164);
 
 
 /***/ }),
@@ -27530,6 +27530,7 @@ __webpack_require__(159);
 __webpack_require__(160);
 __webpack_require__(161);
 __webpack_require__(162);
+__webpack_require__(163);
 
 /***/ }),
 /* 135 */
@@ -50943,6 +50944,18 @@ $('#dataHoraFim').datepicker({
 
 /***/ }),
 /* 163 */
+/***/ (function(module, exports) {
+
+$('#dataHoraInicio1').datetimepicker({
+    format: 'LT'
+});
+
+$('#dataHoraFim1').datetimepicker({
+    format: 'LT'
+});
+
+/***/ }),
+/* 164 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

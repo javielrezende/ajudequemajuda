@@ -61,7 +61,9 @@ class EventoController extends Controller
         //dd($dataInicial);
 
         $dataHoraInicial1 = $request['dataHoraInicio1'];
+        //dd($dataHoraInicial1);
         $dataHoraFinal1 = $request['dataHoraFim1'];
+        //dd($dataHoraFinal1);
 
         if (isset($dataHoraInicial)) {
             $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraInicial)->toDateString();
@@ -100,6 +102,7 @@ class EventoController extends Controller
                 'enderecos_id' => $endereco->id,
                 'campanhas_id' => $campanha,
             ]);
+            //dd($resultado);
             if ($resultado) {
                 return redirect()->route('eventos.index')
                     ->with('status', 'Evento Cadastrado!');
@@ -151,6 +154,9 @@ class EventoController extends Controller
 
         $dataHoraInicial = $request['dataHoraInicio'];
         $dataHoraFinal = $request['dataHoraFim'];
+
+        $dataHoraInicial1 = $request['dataHoraInicio1'];
+        $dataHoraFinal1 = $request['dataHoraFim1'];
 
         $nome = $request['nome'];
         $descricao = $request['descricao'];

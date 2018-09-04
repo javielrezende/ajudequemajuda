@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evento extends Model
 {
     protected $fillable = [
-        'nome', 'descricao', 'dataHoraInicio', 'dataHoraInicio1', 'dataHoraFim',  'campanhas_id', 'status', 'enderecos_id',
+        'nome', 'descricao', 'dataHoraInicio', 'dataHoraInicio1', 'dataHoraFim', 'dataHoraFim1',  'campanhas_id', 'status', 'enderecos_id',
     ];
 
     public function campanhas(){
@@ -18,7 +18,7 @@ class Evento extends Model
         return $this->belongsTo('App\Endereco', 'enderecos_id');
     }
 
-    public function getDataInicioAttribute(){
+    public function getDataHoraInicioAttribute(){
         $dataHoraInicio = explode('-', $this->attributes['dataHoraInicio']);
         if(count($dataHoraInicio) != 3){
             return"Sem data determinada";
@@ -27,7 +27,7 @@ class Evento extends Model
         return $dataHoraInicio;
     }
 
-    public function getDataFimAttribute(){
+    public function getDataHoraFimAttribute(){
         $dataHoraFim = explode('-', $this->attributes['dataHoraFim']);
         if(count($dataHoraFim) != 3){
             return"Sem data determinada";

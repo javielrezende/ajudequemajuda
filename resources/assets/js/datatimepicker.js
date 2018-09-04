@@ -1,6 +1,9 @@
 $('#dataHoraInicio1').datetimepicker({
+    format: 'LT'
     });
 
-$('#dataHoraFim1').datetimepicker({});
+$('#dataHoraFim1').datetimepicker({
+    format: 'LT'
+});
 
 
