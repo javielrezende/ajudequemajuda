@@ -23,6 +23,7 @@ class EventoController extends Controller
             ->where('status', 1)
             ->orderBy('campanhas_id')
             ->get();
+        //dd($eventos);
         return view('admin/eventos/eventos_list', compact('eventos'));
         //return $eventos;
     }
@@ -55,14 +56,21 @@ class EventoController extends Controller
             return redirect('/');
         }
 
-        $dataInicial = $request['dataInicio'];
-        $dataFinal = $request['dataFim'];
+        $dataHoraInicial = $request['dataHoraInicio'];
+        $dataHoraFinal = $request['dataHoraFim'];
         //dd($dataInicial);
 
-        if (isset($dataInicial)) {
-            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y H:i', $dataInicial)->toDateTimeString();
-            dd($dataInicialFormatada);
-            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
+        $dataHoraInicial1 = $request['dataHoraInicio1'];
+        //dd($dataHoraInicial1);
+        $dataHoraFinal1 = $request['dataHoraFim1'];
+        //dd($dataHoraFinal1);
+
+        if (isset($dataHoraInicial)) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraInicial)->toDateString();
+            //dd($dataInicialFormatada);
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraFinal)->toDateString();
+            //dd($dataInicialFormatada);
+            //dd($dataFinalFormatada);
         } else {
             $dataInicialFormatada = null;
             $dataFinalFormatada = null;
@@ -87,11 +95,14 @@ class EventoController extends Controller
                 'nome' => $request['nome'],
                 'descricao' => $request['descricao'],
                 'status' => 1,
-                'dataInicio' => $dataInicialFormatada,
-                'dataFim' => $dataFinalFormatada,
+                'dataHoraInicio' => $dataInicialFormatada,
+                'dataHoraFim' => $dataFinalFormatada,
+                'dataHoraInicio1' => $dataHoraInicial1,
+                'dataHoraFim1' => $dataHoraFinal1,
                 'enderecos_id' => $endereco->id,
                 'campanhas_id' => $campanha,
             ]);
+            //dd($resultado);
             if ($resultado) {
                 return redirect()->route('eventos.index')
                     ->with('status', 'Evento Cadastrado!');
@@ -141,8 +152,11 @@ class EventoController extends Controller
             return redirect('/');
         }
 
-        $dataInicial = $request['dataInicio'];
-        $dataFinal = $request['dataFim'];
+        $dataHoraInicial = $request['dataHoraInicio'];
+        $dataHoraFinal = $request['dataHoraFim'];
+
+        $dataHoraInicial1 = $request['dataHoraInicio1'];
+        $dataHoraFinal1 = $request['dataHoraFim1'];
 
         $nome = $request['nome'];
         $descricao = $request['descricao'];
@@ -158,18 +172,18 @@ class EventoController extends Controller
 
         $registro = Evento::with('enderecos')->find($id);
 
-        if ($dataInicial != "Sem data determinada" && $dataInicial != null) {
-            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
-            $alteracoes1 = ['dataInicio' => $dataInicialFormatada];
+        if ($dataHoraInicial != "Sem data determinada" && $dataHoraInicial != null) {
+            $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraInicial)->toDateString();
+            $alteracoes1 = ['dataHoraInicio' => $dataInicialFormatada];
         } else {
-            $alteracoes1 = ['dataInicio' => null];
+            $alteracoes1 = ['dataHoraInicio' => null];
         }
 
-        if ($dataFinal != "Sem data determinada" && $dataFinal != null) {
-            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
-            $alteracoes2 = ['dataFim' => $dataFinalFormatada];
+        if ($dataHoraFinal != "Sem data determinada" && $dataHoraFinal != null) {
+            $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraFinal)->toDateString();
+            $alteracoes2 = ['dataHoraFim' => $dataFinalFormatada];
         } else {
-            $alteracoes2 = ['dataFim' => null];
+            $alteracoes2 = ['dataHoraFim' => null];
         }
 
 

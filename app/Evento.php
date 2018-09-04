@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evento extends Model
 {
     protected $fillable = [
-        'nome', 'descricao', 'dataInicio', 'dataFim', 'campanhas_id', 'status', 'enderecos_id',
+        'nome', 'descricao', 'dataHoraInicio', 'dataHoraInicio1', 'dataHoraFim', 'dataHoraFim1',  'campanhas_id', 'status', 'enderecos_id',
     ];
 
     public function campanhas(){
@@ -18,21 +18,21 @@ class Evento extends Model
         return $this->belongsTo('App\Endereco', 'enderecos_id');
     }
 
-    public function getDataInicioAttribute(){
-        $dataInicio = explode('-', $this->attributes['dataInicio']);
-        if(count($dataInicio) != 3){
+    public function getDataHoraInicioAttribute(){
+        $dataHoraInicio = explode('-', $this->attributes['dataHoraInicio']);
+        if(count($dataHoraInicio) != 3){
             return"Sem data determinada";
         }
-        $dataInicio = $dataInicio[2] . '/' . $dataInicio[1] . '/' . $dataInicio[0];
-        return $dataInicio;
+        $dataHoraInicio = $dataHoraInicio[2] . '/' . $dataHoraInicio[1] . '/' . $dataHoraInicio[0];
+        return $dataHoraInicio;
     }
 
-    public function getDataFimAttribute(){
-        $dataFim = explode('-', $this->attributes['dataFim']);
-        if(count($dataFim) != 3){
+    public function getDataHoraFimAttribute(){
+        $dataHoraFim = explode('-', $this->attributes['dataHoraFim']);
+        if(count($dataHoraFim) != 3){
             return"Sem data determinada";
         }
-        $dataFim = $dataFim[2] . '/' . $dataFim[1] . '/' . $dataFim[0];
-        return $dataFim;
+        $dataHoraFim = $dataHoraFim[2] . '/' . $dataHoraFim[1] . '/' . $dataHoraFim[0] . '';
+        return $dataHoraFim;
     }
 }

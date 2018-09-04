@@ -20,7 +20,7 @@ class EntidadeController extends Controller
     {
         $entidades = User::where('entidade', 1)
                           -> where('status', 1)
-                          ->orderBy('name')
+                          ->orderBy('id', 'desc')
                           ->get();
         //$entidades = User::all();
         return view('admin/entidades/entidades_list', compact('entidades'));

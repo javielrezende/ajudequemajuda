@@ -32,7 +32,9 @@
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Data inicial</th>
+                <th>Hora inicial</th>
                 <th>Data final</th>
+                <th>Hora final</th>
                 <th>Rua</th>
                 <th>Número</th>
                 <th>Complemento</th>
@@ -49,8 +51,10 @@
                     <td>{{$evento->campanhas->nome}}</td>
                     <td>{{$evento->nome}}</td>
                     <td>{{$evento->descricao}}</td>
-                    <td>{{$evento->dataInicio}}</td>
-                    <td>{{$evento->dataFim}}</td>
+                    <td>{{$evento->dataHoraInicio}}</td>
+                    <td>{{$evento->dataHoraInicio1}}</td>
+                    <td>{{$evento->dataHoraFim}}</td>
+                    <td>{{$evento->dataHoraFim1}}</td>
                     <td>{{$evento->enderecos->rua}}</td>
                     <td>{{$evento->enderecos->numero}}</td>
                     <td>{{$evento->enderecos->complemento}}</td>
