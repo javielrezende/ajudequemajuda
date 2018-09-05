@@ -14,6 +14,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+/*Route::get('/', function () {
+    return view('welcomesite');
+})->middleware('can:usuario');*/
+
 Route::get('/', function () {
     return view('welcomesite');
 });
@@ -25,9 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::get('/admin', function () {
-    return view('welcome');
-});
 Route::get('/site/eventos', function () {
     return view('site/eventos');
 });
@@ -36,8 +37,11 @@ Route::get('/site/evento', function () {
 });
 
 
+Route::get('/admin', function () {
+    return view('welcome');
+});
 
-Route::group(['prefix' => '/admin'], function (){
+Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
 Route::resource('/eventos', 'EventoController');
 Route::resource('/itens', 'ItemController');
 Route::resource('/entidades', 'EntidadeController');

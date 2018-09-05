@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('cpf')->unique()->nullable();
             $table->bigInteger('cnpj')->unique()->nullable();
             $table->bigInteger('fone')->nullable();
-            $table->boolean('entidade')->nullable()->default(0);
+            $table->smallInteger('funcao')->default(\App\User::USUARIO);
             $table->text('mensagem')->nullable();
             $table->text('descricao_entidade')->nullable();
             $table->boolean('solicitacao_entidade')->nullable()->default(0);

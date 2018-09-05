@@ -9,13 +9,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const USUARIO = 0;
+    const ENTIDADE = 1;
+    const ADMIN = 2;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-    'name', 'email', 'password', 'imagem', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'entidade', 'mensagem', 'solicitacao_entidade', 'descricao_entidade', 'status',
+    'name', 'email', 'password', 'imagem', 'cpf', 'cnpj', 'enderecos_id', 'fone', 'funcao', 'mensagem', 'solicitacao_entidade', 'descricao_entidade', 'status',
 ];
 
     public function endereco(){

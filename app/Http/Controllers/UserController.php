@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('entidade', 0)
+        $users = User::where('funcao', 0)
             ->where('status', 1)
             ->orderBy('id', 'desc')
             ->get();
@@ -57,7 +57,7 @@ class UserController extends Controller
             'password' => bcrypt($request['password']),
             'cpf' => $request['cpf'],
             'cnpj' => null,
-            'entidade' => 0,
+            'funcao' => User::USUARIO,
             'fone' => $request['fone'],
             'status' => 1,
             'enderecos_id' => $endereco->id,

@@ -18,7 +18,7 @@ class EntidadeController extends Controller
      */
     public function index()
     {
-        $entidades = User::where('entidade', 1)
+        $entidades = User::where('funcao', 1)
                           -> where('status', 1)
                           ->orderBy('id', 'desc')
                           ->get();
@@ -29,7 +29,7 @@ class EntidadeController extends Controller
     public function indexJson()
     {
         $entidades = User::with('endereco')
-            ->where('entidade', 1)
+            ->where('funcao', 1)
             -> where('status', 1)
             ->orderBy('name')
             ->get();
@@ -73,7 +73,7 @@ class EntidadeController extends Controller
             'password' => bcrypt($request['password']),
             'cpf' => $request['cpf'],
             'cnpj' => $request['cnpj'],
-            'entidade' => 1,
+            'funcao' => User::ENTIDADE,
             'status' => 1,
             'fone' => $request['fone'],
             'mensagem' => null,
