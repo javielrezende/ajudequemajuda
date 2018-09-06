@@ -49,3 +49,5 @@ Route::resource('/users', 'UserController');
 Route::resource('/campanhas', 'CampanhaController');
 });
 //Route::resource('/admin', 'AdminController');
+
+Route::resource('/faleconosco', 'FaleConoscoController');

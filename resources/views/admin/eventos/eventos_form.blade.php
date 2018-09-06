@@ -23,7 +23,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="descricao">Nome <span class="obr">*</span></label>
+                            <label for="nome">Nome <span class="obr">*</span></label>
                             <input type="text" class="form-control" id="nome" name="nome"
                                    value="{{$registro->nome or old('nome')}}" required autofocus>
                         </div>

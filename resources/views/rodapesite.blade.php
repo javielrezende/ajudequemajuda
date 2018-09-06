@@ -6,7 +6,7 @@
     </div>
     <div class="faq col-6">
         <a href="#"><p>SOBRE</p></a>
-        <a href=""><p class="faqcentro">CONTATO</p></a>
+        <a href="{{ url('faleconosco') }}"><p class="faqcentro">FALE CONOSCO</p></a>
         <a href=""><p>FAQ</p></a>
 
     </div>

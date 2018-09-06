@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'cpf' => $data['cpf'],
             'cnpj' => $data['cnpj'],
-            'entidade' => $confirmacaoEntidade,
+            'funcao' => $confirmacaoEntidade,
             'fone' => $data['fone'],
             'status' => 1,
             'mensagem' => $data['mensagem'],
