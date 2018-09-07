@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -46,10 +48,12 @@ class LoginController extends Controller
         $userSocial = Socialite::driver('facebook')->user();
         //dd($userSocial);
 
-        if(!$userSocial){
+        $user = User::where('email', $userSocial->email)->first();
+        if(!$user){
             return redirect()->route('register');
         }
 
+        Auth::login($user);
         return redirect()->intended($this->redirectPath());
 
     }
