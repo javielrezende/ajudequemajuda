@@ -41,5 +41,6 @@
                 <a class="btn btn-link" href="{{ route('password.request') }}">Esqueceu sua senha?</a>
             </div>
         </form>
+        <a href="{{ url('login/social') }}" class="btn btn-outline-primary">Login com Facebook</a>
     </div>
 @endsection

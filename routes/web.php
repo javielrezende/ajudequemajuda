@@ -51,3 +51,6 @@ Route::resource('/campanhas', 'CampanhaController');
 //Route::resource('/admin', 'AdminController');
 
 Route::resource('/faleconosco', 'FaleConoscoController');
+
+Route::get('/login/social', 'Auth\LoginController@loginSocial');
+Route::get('/login/callback', 'Auth\LoginController@loginCallback');
