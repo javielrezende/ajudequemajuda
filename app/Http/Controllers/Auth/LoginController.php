@@ -44,7 +44,14 @@ class LoginController extends Controller
 
     public function loginCallback(){
         $userSocial = Socialite::driver('facebook')->user();
-        dd($userSocial);
+        //dd($userSocial);
+
+        if(!$userSocial){
+            return redirect()->route('register');
+        }
+
+        return redirect()->intended($this->redirectPath());
+
     }
 
 }
