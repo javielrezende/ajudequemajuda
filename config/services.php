@@ -36,8 +36,8 @@ return [
     ],
 
     'facebook'=> [
-        'client_id' => '284804839006644',
-        'client_secret' => '4cb39c8622e509bd9a954f167a4bf809',
+        'client_id' => '2191446141141309',
+        'client_secret' => '14a6e31ecf0f7d18bd96650e8d59d9cb',
         'redirect' => 'https://ajudequemajudapelotas.herokuapp.com/login/callback',
     ],
 
