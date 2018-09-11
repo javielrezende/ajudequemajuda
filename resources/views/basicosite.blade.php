@@ -45,7 +45,7 @@
     {{--@else--}}
         <a class="stylelogin" href="#">LOGIN</a>
         {{--<a class="stylelogin" href="{{ route('login') }}">LOGIN</a>--}}
-        <a class="stylecadastro" href="#">CADASTRO</a>
+        <a class="stylecadastro" href="{{ route('pre-cadastro') }}">CADASTRO</a>
         {{--<a class="stylecadastro" href="{{ route('register') }}">CADASTRO</a>--}}
         </div>
         {{--@endauth--}}

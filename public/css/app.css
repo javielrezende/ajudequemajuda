@@ -11641,13 +11641,14 @@ body .row {
   font-style: italic;
 }
 
-.siteeventos .tituloeventos {
+.siteeventos .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   color: #4D4F5C;
   font-size: 28px;
   font-weight: bold;
+  margin-top: 15px;
   margin-bottom: 40px;
 }
 
@@ -11711,7 +11712,83 @@ body .row {
 
 .siteeventos .diveventos .observacoeseventos .saibamaiseventos {
   font-size: 10px;
-  margin-top: 5px;
+  margin-left: auto;
+  color: #4D4F5C;
+  float: right;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.siteeventos .diveventos .observacoeseventos .dataeventos {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.siteeventos .imgeventos {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
+.siteeventos .diveventos {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0.21);
+  border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
+}
+
+.siteeventos .diveventos .observacoeseventos {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.siteeventos .diveventos .observacoeseventos p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteeventos .diveventos .observacoeseventos a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.siteeventos .diveventos .observacoeseventos h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.siteeventos .diveventos .observacoeseventos .descricaoeventos {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.siteeventos .diveventos .observacoeseventos .saibamaiseventos {
+  font-size: 10px;
   margin-left: auto;
   color: #4D4F5C;
   float: right;

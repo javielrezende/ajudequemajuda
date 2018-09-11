@@ -52,5 +52,10 @@ Route::resource('/campanhas', 'CampanhaController');
 
 Route::resource('/faleconosco', 'FaleConoscoController');
 
+Route::get('/pre-cadastro', function (){
+    return view('site.pre-cadastro');
+    //return 'teste';
+})->name('pre-cadastro');
+
 Route::get('/login/social', 'Auth\LoginController@loginSocial');
 Route::get('/login/callback', 'Auth\LoginController@loginCallback');
