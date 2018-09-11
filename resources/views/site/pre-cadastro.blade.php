@@ -2,32 +2,24 @@
 @extends('basicosite')
 
 @section('content')
+    <div class="row precadastrogeral">
 
-    <div class="row siteeventos">
         <p class="row col-md-12 titulosPrincipais">Cadastro</p>
-        <div class="row imgeventos">
-            <div class="row diveventos">
-                <img class="row imagemeventos" src="{{ asset('imagens/campanhadestaque.png') }}"
-                     alt="Imagem destaque">
-                <div class="col-6 row observacoeseventos">
-                    <h4 class="nomeeventos">Evento 1</h4>
-                    <p class="dataeventos">22/03/2018</p>
-                    <p class="descricaoeventos">Lorem ipsum dolor sit amet, con...</p>
-                    <a href="{{ url('site/evento') }}" class=" align-content-end saibamaiseventos">Saiba mais</a>
-                </div>
-            </div>
+        <div class="row precadastro">
 
-
-            <div class="row diveventos">
-                <img class="row imagemeventos" src="{{ asset('imagens/campanhadestaque.png') }}"
-                     alt="Imagem destque">
-                <div class="col-6 row observacoeseventos">
-                    <h4 class="nomeeventos">Evento 1</h4>
-                    <p class="dataeventos">22/03/2018</p>
-                    <p class="descricaoeventos">Lorem ipsum dolor sit amet, con...</p>
-                    <a href="{{ url('site/evento') }}" class=" align-content-end saibamaiseventos">Saiba mais</a>
+            <a href="#" class="precadastrolink">
+                <div class="row doarimg">
+                    <h4 class="nomeopcao">Quero doar</h4>
+                    <p class="mensagemopcao">Ajude instituições com suprimentos</p>
                 </div>
-            </div>
+            </a>
+
+            <a href="#" class="precadastrolink">
+                <div class="row cadastroimg">
+                    <h4 class="nomeopcao">Preciso de doações</h4>
+                    <p class="mensagemopcao">Cadastre sua entidade e receba auxílio</p>
+                </div>
+            </a>
         </div>
     </div>
 
