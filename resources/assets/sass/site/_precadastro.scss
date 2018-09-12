@@ -1,21 +1,63 @@
 .precadastrogeral {
 
+  min-height: calc(100vh - 130px);
+
   .titulosPrincipais {
     justify-content: center;
     color: #4D4F5C;
     font-size: 28px;
     font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 40px;
+    margin-top: 25px;
+    //margin-bottom: 0px;
   }
 
-  a {
-    background-image: url("/public/imagens/doar.png");
-    //background-image: url("/resources/assets/imagens/doar.png");
+  .precadastro {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    display: grid;
+
+    a {
+      text-decoration: none;
+      margin: 15px;
+    }
+
+    .precadastrolink {
+      width: 498px;
+      height: 271px;
+    }
+
+    .doarimg {
+      //background-image: url("/public/imagens/doar.png");
+      //background-image: url("/resources/assets/imagens/doar.png");
+      background-color: #636b6f;
+      width: 498px;
+      height: 271px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .cadastroimg {
+      background-color: #636b6f;
+      width: 498px;
+      height: 271px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .nomeopcao {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      margin-left: 30px;
+    }
+
+    .mensagemopcao {
+      color: white;
+      font-size: 10px;
+      margin-left: 30px;
+    }
+
   }
-
-  .doarimg {
-
-  }
-
 }

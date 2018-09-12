@@ -11729,6 +11729,10 @@ body .row {
   margin: 10px 0;
 }
 
+.precadastrogeral {
+  min-height: calc(100vh - 130px);
+}
+
 .precadastrogeral .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -11736,11 +11740,67 @@ body .row {
   color: #4D4F5C;
   font-size: 28px;
   font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 40px;
+  margin-top: 25px;
 }
 
-.precadastrogeral a {
-  background-image: url("/public/imagens/doar.png");
+.precadastrogeral .precadastro {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
+.precadastrogeral .precadastro a {
+  text-decoration: none;
+  margin: 15px;
+}
+
+.precadastrogeral .precadastro .precadastrolink {
+  width: 498px;
+  height: 271px;
+}
+
+.precadastrogeral .precadastro .doarimg {
+  background-color: #636b6f;
+  width: 498px;
+  height: 271px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.precadastrogeral .precadastro .cadastroimg {
+  background-color: #636b6f;
+  width: 498px;
+  height: 271px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.precadastrogeral .precadastro .nomeopcao {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+.precadastrogeral .precadastro .mensagemopcao {
+  color: white;
+  font-size: 10px;
+  margin-left: 30px;
 }
 
