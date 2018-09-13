@@ -7,7 +7,7 @@
         <p class="row col-md-12 titulosPrincipais">Cadastro</p>
         <div class="row precadastro">
 
-            <a href="#" class="precadastrolink">
+            <a href="/cadastrodoador" class="precadastrolink">
                 <div class="row doarimg">
                     <h4 class="nomeopcao">Quero doar</h4>
                     <p class="mensagemopcao">Ajude instituições com suprimentos</p>

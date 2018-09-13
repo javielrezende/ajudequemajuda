@@ -11760,7 +11760,7 @@ body .row {
 }
 
 .precadastrogeral .precadastro .doarimg {
-  background-color: #636b6f;
+  background-image: url(/images/doar.png?1ba5561e9db356fbe58337c020daf901);
   width: 498px;
   height: 271px;
   display: -webkit-box;
@@ -11776,7 +11776,7 @@ body .row {
 }
 
 .precadastrogeral .precadastro .cadastroimg {
-  background-color: #636b6f;
+  background-image: url(/images/receber.png?188fc4ad33a713590cd2f69030a7cb8f);
   width: 498px;
   height: 271px;
   display: -webkit-box;

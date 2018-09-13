@@ -29,7 +29,8 @@
     .doarimg {
       //background-image: url("/public/imagens/doar.png");
       //background-image: url("/resources/assets/imagens/doar.png");
-      background-color: #636b6f;
+      background-image: url("../../imagens/doar.png");
+      //background-color: #636b6f;
       width: 498px;
       height: 271px;
       display: flex;
@@ -38,7 +39,9 @@
     }
 
     .cadastroimg {
-      background-color: #636b6f;
+      //background-color: #636b6f;
+      background-image: url("../../imagens/receber.png");
+
       width: 498px;
       height: 271px;
       display: flex;

@@ -52,10 +52,21 @@ Route::resource('/campanhas', 'CampanhaController');
 
 Route::resource('/faleconosco', 'FaleConoscoController');
 
+//------ CADASTROS DO SITE--------------------------------------------------------------------------
 Route::get('/pre-cadastro', function (){
-    return view('site.pre-cadastro');
+    return view('site.cadastro.pre-cadastro');
     //return 'teste';
 })->name('pre-cadastro');
 
+Route::get('/cadastrodoador', function (){
+    return view('site.cadastro.cadastrodoador');
+    //return 'teste';
+})->name('cadastrodoador');
+//---------------------------------------------------------------------------------------------------
+
 Route::get('/login/social', 'Auth\LoginController@loginSocial');
 Route::get('/login/callback', 'Auth\LoginController@loginCallback');
+
+Route::get('/testecep', function (){
+    return view('site.cadastro.testecep');
+})->name('testecep');
