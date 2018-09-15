@@ -11583,6 +11583,7 @@ body .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 238px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -11802,5 +11803,94 @@ body .row {
   color: white;
   font-size: 10px;
   margin-left: 30px;
+}
+
+.cadastrodoador .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.cadastrodoador .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.cadastrodoador .explicacao {
+  color: #8A8A8A;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.cadastrodoador .formcadastro {
+  width: 620px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.cadastrodoador .formcadastro label {
+  font-size: 14px;
+}
+
+.cadastrodoador .formcadastro .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.cadastrodoador .formcadastro .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.cadastrodoador .formcadastro .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.cadastrodoador .formcadastro .form-control::placeholder {
+  font-size: 14px;
+}
+
+.cadastrodoador .formcadastro .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.cadastrodoador .formcadastro .form-group {
+  padding: 0;
+}
+
+.cadastrodoador .formcadastro .e {
+  margin-right: 8px;
+}
+
+.cadastrodoador .formcadastro .d {
+  margin-left: 8px;
+}
+
+.cadastrodoador .formcadastro .m {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.cadastrodoador .formcadastro .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
 }
 
