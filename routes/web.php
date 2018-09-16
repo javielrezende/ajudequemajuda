@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //------SITE--------------------------------------------------------------------------
-Route::resource('/', 'UserSiteController');
+Route::resource('/aqa', 'UserSiteController');
 
 //------CADASTROS SITE--------------------------------------------------------------------------
 Route::get('/pre-cadastro', function (){

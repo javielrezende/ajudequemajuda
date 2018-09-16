@@ -16,7 +16,7 @@
 <body>
 <nav class="navbarsite">
     <div class="top-leftsite linkssitelogo">
-        <a href="{{ url('/') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
+        <a href="{{ url('/aqa') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
                                       alt="Logo Ajude Quem Ajuda"></a>
     </div>
     @if (Route::has('login'))
@@ -34,18 +34,22 @@
             {{--------------------------------------------------------------------  --}}
 
             @auth
-                <img src="" alt="Foto de perfil">
+                <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}" alt="Foto de perfil">
 
-                <a href="{{ route('logout') }}"
+                <span class="ola">Olá, </span>
+                <span class="nomeperfil">{{ Auth::user()->name }}</span>
+                    {{--style="margin-left: 10px; margin-right: 10px"--}}
+
+                <a class="sair" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
-                    Sair
+                    [Sair]
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                       style="display: none;">
                     {{ csrf_field() }}
                 </form>
-                <span style="margin-left: 10px; margin-right: 10px">{{ Auth::user()->name }}</span>
+
         </div>
     @else
 

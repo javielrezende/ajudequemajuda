@@ -11242,11 +11242,7 @@ tr {
 }
 
 .linkssite a {
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 500;
   text-decoration: none;
-  margin-left: 5px;
 }
 
 .logosite {
@@ -11268,6 +11264,15 @@ tr {
   border-radius: 15px;
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.16);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.16);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.stylelogin:hover {
+  color: #ffffff;
 }
 
 .stylecadastro {
@@ -11278,6 +11283,41 @@ tr {
   border-radius: 15px;
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.13);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.13);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.stylecadastro:hover {
+  color: #ffffff;
+}
+
+.imgperfil {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.ola .nomeperfil {
+  font-size: 14px;
+  color: #4D4F5C;
+}
+
+.nomeperfil {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4D4F5C;
+}
+
+.sair {
+  color: #00CEA0;
+  font-size: 8px;
+}
+
+.sair:hover {
+  color: #00CEA0;
 }
 
 body {
@@ -11734,6 +11774,14 @@ body .row {
   min-height: calc(100vh - 130px);
 }
 
+.precadastrogeral .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto -10px;
+}
+
 .precadastrogeral .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -11741,7 +11789,6 @@ body .row {
   color: #4D4F5C;
   font-size: 28px;
   font-weight: bold;
-  margin-top: 25px;
 }
 
 .precadastrogeral .precadastro {

@@ -4,6 +4,8 @@
 @section('content')
     <div class="row precadastrogeral">
 
+        <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
+
         <p class="row col-md-12 titulosPrincipais">Cadastro</p>
         <div class="row precadastro">
 

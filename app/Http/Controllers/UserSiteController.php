@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Endereco;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserSiteController extends Controller
@@ -34,7 +36,32 @@ class UserSiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $endereco = Endereco::create([
+            'rua' => $request['rua'],
+            'numero' => $request['numero'],
+            'complemento' => $request['complemento'],
+            'cidade' => $request['cidade'],
+            'bairro' => $request['bairro'],
+            'cep' => $request['cep'],
+            'estado' => $request['estado'],
+        ]);
+        $resultado = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'cpf' => $request['cpf'],
+            'cnpj' => null,
+            'funcao' => User::USUARIO,
+            'fone' => $request['fone'],
+            'status' => 1,
+            'enderecos_id' => $endereco->id,
+        ]);
+            //dd($resultado);
+
+        if ($resultado) {
+            return redirect()->route('aqa.index');
+                //->with('status', 'Usuário Cadastrado!');
+        }
     }
 
     /**

@@ -2,12 +2,20 @@
 
   min-height: calc(100vh - 130px);
 
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto -10px;
+  }
+
   .titulosPrincipais {
     justify-content: center;
     color: #4D4F5C;
     font-size: 28px;
     font-weight: bold;
-    margin-top: 25px;
+    //margin-top: 25px;
     //margin-bottom: 0px;
   }
 

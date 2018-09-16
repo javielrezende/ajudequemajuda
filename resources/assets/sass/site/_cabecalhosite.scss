@@ -56,14 +56,14 @@ $height: 70px;
 }
 
 .linkssite a {
-  color: #ffffff;
+  //color: #ffffff;
   //padding-left: 7px;
   //padding-right: 7px;
   //padding-top: 50px;
-  font-size: 10px;
-  font-weight: 500;
+  //font-size: 10px;
+  //font-weight: 500;
   text-decoration: none;
-  margin-left: 5px;
+  //margin-left: 5px;
 }
 
 .logosite {
@@ -85,6 +85,19 @@ $height: 70px;
   padding-right: 25px;
   border-radius: 15px;
   box-shadow: 3px 3px rgba(0, 0, 0, .16);
+
+  color: #ffffff;
+  //padding-left: 7px;
+  //padding-right: 7px;
+  //padding-top: 50px;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.stylelogin:hover {
+  color: #ffffff;
 }
 
 .stylecadastro {
@@ -95,9 +108,45 @@ $height: 70px;
   border-radius: 15px;
   box-shadow: 3px 3px rgba(0, 0, 0, .13);
 
+  color: #ffffff;
+  //padding-left: 7px;
+  //padding-right: 7px;
+  //padding-top: 50px;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
 }
 
-.destaque {
+.stylecadastro:hover {
+  color: #ffffff;
+}
 
- }
+.imgperfil {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.ola {
+  .nomeperfil {
+    font-size: 14px;
+    color: #4D4F5C;
+  }
+}
+
+.nomeperfil {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4D4F5C;
+}
+
+.sair {
+  color: #00CEA0;
+  font-size: 8px;
+}
+
+.sair:hover {
+  color: #00CEA0;
+}
 

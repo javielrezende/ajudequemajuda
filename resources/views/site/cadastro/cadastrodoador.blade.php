@@ -4,7 +4,7 @@
 @section('content')
     <div class="row cadastrodoador">
 
-        <a href="{{url('/')}}" class="linkReturn">HOME</a>
+        <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
 
         <p class="row col-md-12 titulosPrincipais">Cadastro de Doador</p>
 
@@ -12,7 +12,7 @@
             nossa base de dados. Fique tranquilo, <br/>seus dados estão protegidos ;)</p>
 
 
-        <form class="row formcadastro" method="post" action="{{route('userssite.store')}}">
+        <form class="row formcadastro" method="post" action="{{route('aqa.store')}}">
             {{ csrf_field() }}
 
             <div class="container">
