@@ -6,7 +6,7 @@ use App\Endereco;
 use App\User;
 use Illuminate\Http\Request;
 
-class UserSiteController extends Controller
+class SiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,7 +31,7 @@ class UserSiteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,18 +56,52 @@ class UserSiteController extends Controller
             'status' => 1,
             'enderecos_id' => $endereco->id,
         ]);
-            //dd($resultado);
+        //dd($resultado);
 
         if ($resultado) {
             return redirect()->route('aqa.index');
-                //->with('status', 'Usuário Cadastrado!');
+            //->with('status', 'Usuário Cadastrado!');
+        }
+    }
+
+    /*
+     * Cadastra entidades pela rota do site
+     */
+    public function storeentidade(Request $request)
+    {
+        $endereco = Endereco::create([
+            'rua' => $request['rua'],
+            'numero' => $request['numero'],
+            'complemento' => $request['complemento'],
+            'cidade' => $request['cidade'],
+            'bairro' => $request['bairro'],
+            'cep' => $request['cep'],
+            'estado' => $request['estado'],
+        ]);
+        $resultado = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'cpf' => $request['cpf'],
+            'cnpj' => $request['cnpj'],
+            'funcao' => User::ENTIDADE,
+            'status' => 1,
+            'fone' => $request['fone'],
+            'mensagem' => $request['mensagem'],
+            'descricao_entidade' => $request['descricao_entidade'],
+            'enderecos_id' => $endereco->id,
+        ]);
+
+        if ($resultado) {
+            return redirect()->route('aqa.index');
+                //->with('status', 'Entidade Cadastrada!');
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,7 +112,7 @@ class UserSiteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,8 +123,8 @@ class UserSiteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -101,7 +135,7 @@ class UserSiteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

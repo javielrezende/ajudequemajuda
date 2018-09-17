@@ -1,0 +1,87 @@
+.login {
+
+  min-height: calc(100vh - 130px);
+
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto -10px;
+  }
+
+  .titulosPrincipais {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    //margin-bottom: 25px;
+  }
+
+  .explicacao {
+    color: #8A8A8A;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .formcadastro {
+    width: 620px;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+    label {
+      font-size: 14px;
+    }
+
+    .form-control::placeholder{
+      font-size: 14px ;
+    }
+
+    .obr {
+      color: red;
+      font-size: 20px;
+    }
+
+    .form-group {
+      padding: 0;
+    }
+
+    .e {
+      margin-right: 8px;
+    }
+
+    .d {
+      margin-left: 8px;
+    }
+
+    .m {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    .cad {
+      background-color: #439AFF;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .facebotao{
+      background-color: #4267B2;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+  }
+
+}

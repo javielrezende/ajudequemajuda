@@ -16,7 +16,7 @@
                 </div>
             </a>
 
-            <a href="#" class="precadastrolink">
+            <a href="/cadastroentidade" class="precadastrolink">
                 <div class="row cadastroimg">
                     <h4 class="nomeopcao">Preciso de doações</h4>
                     <p class="mensagemopcao">Cadastre sua entidade e receba auxílio</p>

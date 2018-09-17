@@ -18,26 +18,41 @@ use Illuminate\Support\Facades\Route;
     return view('welcomesite');
 })->middleware('can:usuario');*/
 
-/*Route::get('/', function () {
-    return view('welcomesite');
-});*/
-
 
 
 //------SITE--------------------------------------------------------------------------
-Route::resource('/aqa', 'UserSiteController');
+Route::get('/', function () {
+    return redirect()->to(url('/aqa'));
+});
+
+Route::resource('/aqa', 'SiteController');
 
 //------CADASTROS SITE--------------------------------------------------------------------------
+//------PRE CADASTRO--------------------------------------------------------------------------
 Route::get('/pre-cadastro', function (){
     return view('site.cadastro.pre-cadastro');
     //return 'teste';
 })->name('pre-cadastro');
 
+//------CADASTRO DE USUARIOS--------------------------------------------------------------------------
 Route::get('/cadastrodoador', function (){
     return view('site.cadastro.cadastrodoador');
     //return 'teste';
 })->name('cadastrodoador');
 
+//------CADASTRO DE ENTIDADES--------------------------------------------------------------------------
+Route::get('/cadastroentidade', function (){
+    return view('site.cadastro.cadastroentidade');
+    //return 'teste';
+})->name('cadastroentidade');
+
+Route::post('cadastroentidade', 'SiteController@storeentidade')->name('storeentidade');
+
+//------LOGIN--------------------------------------------------------------------------
+Route::get('/aqa-login', function (){
+    return view('site.cadastro.loginsite');
+    //return 'teste';
+})->name('aqa-login');
 
 //---------------------------------------------------------------------------------------------------
 
