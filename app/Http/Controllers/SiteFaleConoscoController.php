@@ -6,7 +6,7 @@ use App\FaleConosco;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FaleConoscoController extends Controller
+class SiteFaleConoscoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class FaleConoscoController extends Controller
 //        return view('admin/faleconosco/mensagens', compact('mensagens'));
 
 
-        //return view('site/faleconosco/index');
+        return view('site.faleconosco.faleconosco');
     }
 
     /**

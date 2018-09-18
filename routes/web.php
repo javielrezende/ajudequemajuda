@@ -14,6 +14,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 //------SITE--------------------------------------------------------------------------
 Route::get('/', function () {
     return redirect()->to(url('/aqa'));
@@ -45,7 +46,9 @@ Route::get('/site/entidade', function () {
     return view('site/entidade/entidade');
 });
 
-Route::resource('/faleconosco', 'FaleConoscoController');
+Route::resource('/faleconosco', 'SiteFaleConoscoController');
+
+
 
 //------CADASTROS E LOGIN DO SITE--------------------------------------------------------------------------
 //------PRE CADASTRO--------------------------------------------------------------------------
@@ -93,7 +96,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
     Route::resource('/entidades', 'EntidadeController');
     Route::resource('/users', 'UserController');
     Route::resource('/campanhas', 'CampanhaController');
-    Route::resource('/faleconosco', 'FaleConoscoController');
+    Route::resource('/faleconoscoadmin', 'FaleConoscoController');
 });
 //---------------------------------------------------------------------------------------------------
 
