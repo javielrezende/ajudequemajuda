@@ -21,6 +21,7 @@ class CreateFaleConoscosTable extends Migration
             $table->string('estado');
             $table->bigInteger('fone')->nullable();
             $table->text('mensagem');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

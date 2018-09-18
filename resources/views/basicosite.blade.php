@@ -22,9 +22,9 @@
     @if (Route::has('login'))
         <div class="menu text-center">
             <a href="{{ url('/') }}">Home</a>
-            <a href="#">Entidades</a>
+            <a href="{{ url('site/entidades')  }}">Entidades</a>
             {{--<a href="{{ url('/entidades') }}">Entidades</a>--}}
-            <a href="#">Campanhas</a>
+            <a href="{{ url('site/campanhas')  }}">Campanhas</a>
             {{--<a href="{{ url('/campanhas') }}">Campanhas</a>--}}
             <a href="{{ url('site/eventos')  }}">Eventos</a>
             <a class="fas fa-search"></a>

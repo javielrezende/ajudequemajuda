@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\FaleConosco;
 use Illuminate\Http\Request;
 
-class FaleConoscoController extends Controller
+class SiteCampanhaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class FaleConoscoController extends Controller
      */
     public function index()
     {
-        return view('site/faleconosco/index');
+        //
     }
 
     /**
@@ -35,20 +34,7 @@ class FaleConoscoController extends Controller
      */
     public function store(Request $request)
     {
-        $resultado = FaleConosco::create([
-            'nome' => $request['nome'],
-            'email' => $request['email'],
-            'cidade' => $request['cidade'],
-            'estado' => $request['estado'],
-            'fone' => $request['fone'],
-            'mensagem' => $request['mensagem'],
-            'status' => 1,
-        ]);
-        //dd($resultado);
-        if ($resultado) {
-            return redirect()->route('faleconosco.index')
-                ->with('status', 'Obrigado por entrar em contato conosco. Sua mensagem foi enviada!');
-        }
+        //
     }
 
     /**

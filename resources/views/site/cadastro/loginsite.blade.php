@@ -32,6 +32,7 @@
 
             <div class="container">
                 <div class="row justify-content-end">
+                    <a class="btn btn-link esqueci" href="{{ route('password.request') }}">Esqueci minha senha</a>
                     <a href="{{ url('login/social') }}" class="btn facebotao">Login com Facebook</a>
                     &nbsp;&nbsp;&nbsp;<button type="submit" class="btn cad">Entrar</button>
                 </div>
