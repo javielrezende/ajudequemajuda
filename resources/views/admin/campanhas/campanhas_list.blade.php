@@ -7,7 +7,7 @@
     </div>
     <div>
         &nbsp;&nbsp;&nbsp;<a href="{{route('campanhas.create')}}" class="btn btn-outline-success btn-sm">Novo</a>
-        &nbsp;&nbsp;&nbsp;<a href="{{url('/')}}" class="btn btn-outline-primary btn-sm">Voltar</a>
+        &nbsp;&nbsp;&nbsp;<a href="{{url('/admin')}}" class="btn btn-outline-primary btn-sm">Voltar</a>
     </div>
 
     <div class='row centerentidade'>

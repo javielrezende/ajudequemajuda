@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FaleConosco;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FaleConoscoController extends Controller
 {
@@ -14,6 +15,13 @@ class FaleConoscoController extends Controller
      */
     public function index()
     {
+        $mensagens = DB::table('fale_conoscos')
+            ->orderBy('status', 'desc')
+            ->get();
+        //$entidades = User::all();
+        return view('admin/faleconosco/mensagens', compact('mensagens'));
+
+
         return view('site/faleconosco/index');
     }
 
@@ -42,7 +50,7 @@ class FaleConoscoController extends Controller
             'estado' => $request['estado'],
             'fone' => $request['fone'],
             'mensagem' => $request['mensagem'],
-            'status' => 1,
+            'status' => 0,
         ]);
         //dd($resultado);
         if ($resultado) {
