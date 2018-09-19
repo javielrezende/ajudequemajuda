@@ -10,8 +10,14 @@
         <p class="row col-md-12 titulosPrincipais">Fale Conosco</p>
 
         @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    </div>
+                </div>
             </div>
         @endif
 
@@ -22,8 +28,8 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label for="name">Nome <span class="obr">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name"
+                        <label for="nome">Nome <span class="obr">*</span></label>
+                        <input type="text" class="form-control" id="nome" name="nome"
                                placeholder="Insira seu nome completo" autofocus required>
                     </div>
                 </div>
@@ -54,7 +60,7 @@
                     </div>
 
                     <div class="form-group col">
-                        <label for="fone">Fone</label>
+                        <label for="fone">Fone <span class="obrinv">*</span></label>
                         <input type="tel" class="form-control" id="fone" name="fone"
                                placeholder="(DDD) 00000-0000">
                     </div>

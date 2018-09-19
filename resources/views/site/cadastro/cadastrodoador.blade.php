@@ -48,7 +48,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label for="fone">Fone</label>
+                        <label for="fone">Fone <span class="obrinv">*</span></label>
                         <input type="tel" class="form-control" id="fone" name="fone"
                                placeholder="(DDD) 00000-0000">
                     </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group col d">
-                        <label for="complemento">Complemento</label>
+                        <label for="complemento">Complemento <span class="obrinv">*</span></label>
                         <input type="text" class="form-control" id="complemento" name="complemento"
                                placeholder="ex.: Apto. 102">
                     </div>

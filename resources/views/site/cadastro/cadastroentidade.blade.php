@@ -48,7 +48,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label for="fone">Fone</label>
+                        <label for="fone">Fone <span class="obrinv">*</span></label>
                         <input type="tel" class="form-control" id="fone" name="fone"
                                placeholder="(DDD) 00000-0000">
                     </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group col d">
-                        <label for="complemento">Complemento</label>
+                        <label for="complemento">Complemento <span class="obrinv">*</span></label>
                         <input type="text" class="form-control" id="complemento" name="complemento"
                                placeholder="ex.: Apto. 102">
                     </div>
@@ -134,14 +134,14 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col e">
-                        <label for="descricao_entidade">Fale sobre sua entidade</label>
+                        <label for="descricao_entidade">Fale sobre sua entidade <span class="obrinv">*</span></label>
                         <textarea id="descricao_entidade" rows="6" class="form-control"
                                  placeholder="O que for digitado neste campo estará disponível para os usuários no seu perfil..."
                                   name="descricao_entidade"></textarea>
                     </div>
 
                     <div class="form-group col d">
-                        <label for="mensagem">Explique o motivo de seu pedido</label>
+                        <label for="mensagem">Explique o motivo de seu pedido <span class="obrinv">*</span></label>
                         <textarea id="mensagem" rows="6" class="form-control"
                                   placeholder="Este campo não será visível para os usuários do sistema..." name="mensagem"></textarea>
                     </div>

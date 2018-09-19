@@ -11913,6 +11913,12 @@ body .row {
   font-size: 20px;
 }
 
+.cadastrodoador .formcadastro .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
 .cadastrodoador .formcadastro .form-group {
   padding: 0;
 }
