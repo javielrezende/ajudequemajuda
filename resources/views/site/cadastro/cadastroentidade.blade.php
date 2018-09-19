@@ -97,15 +97,21 @@
                     </div>
 
                     <div class="form-group col m">
-                        <label for="cidade">Cidade <span class="obr">*</span></label>
-                        <input type="text" class="form-control" id="cidade" name="cidade"
-                               placeholder="Insira sua cidade" required>
+                        <label for="estado">Estado <span class="obr">*</span></label>
+                        {{--<input type="text" class="form-control" id="estado" name="estado"
+                               placeholder="Escolha seu estado" required>--}}
+                        <select  class="custom-select" name="estado" id="estado">
+                            <option value="#" disabled selected>Escolha seu estado</option>
+                        </select>
                     </div>
 
                     <div class="form-group col">
-                        <label for="estado">Estado <span class="obr">*</span></label>
-                        <input type="text" class="form-control" id="estado" name="estado"
-                               placeholder="Escolha seu estado" required>
+                        <label for="cidade">Cidade <span class="obr">*</span></label>
+                        {{--<input type="text" class="form-control" id="cidade" name="cidade"
+                               placeholder="Insira sua cidade" required>--}}
+                        <select class="custom-select" name="cidade" id="cidade">
+                            <option value="#" disabled selected>Insira sua cidade</option>
+                        </select>
                     </div>
                 </div>
             </div>

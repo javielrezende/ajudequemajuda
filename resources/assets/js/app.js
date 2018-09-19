@@ -19,3 +19,4 @@ require('bootstrap-datepicker');
 require('bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min');
 require('./datapicker');
 require('./datatimepicker');
+require('./estadocidade');
