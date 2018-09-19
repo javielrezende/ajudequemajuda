@@ -31,7 +31,7 @@
                         <th>Ações</th>
                     </tr>
                     </thead>
-                    {{--<tbody>
+                    <tbody>
                     @foreach($mensagens as $mensagem)
                         <tr>
                             <td>{{$mensagem->id}}</td>
@@ -56,7 +56,7 @@
                             </td>
                         </tr>
                     @endforeach
-                    </tbody>--}}
+                    </tbody>
                 </table>
             </div>
         {{--</div>--}}

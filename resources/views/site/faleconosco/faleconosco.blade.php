@@ -3,52 +3,82 @@
 
 @section('content')
 
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
+    <div class="row cadastrodoador">
+
+        <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
+
+        <p class="row col-md-12 titulosPrincipais">Fale Conosco</p>
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 
 
-    <form class="row" method="post" action="{{route('faleconosco.store')}}">
-        {{ csrf_field() }}
+        <form class="row formcadastro" method="post" action="{{route('faleconosco.store')}}">
+            {{ csrf_field() }}
 
-        <div class="form-group">
-            <label for="nome">Nome <span class="obr">*</span></label>
-            <input type="text" class="form-control" id="nome" name="nome" required autofocus>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="name">Nome <span class="obr">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name"
+                               placeholder="Insira seu nome completo" autofocus required>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label for="email">E-mail <span class="obr">*</span></label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="email">E-mail <span class="obr">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="email@provedor.com" required>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label for="cidade">Cidade <span class="obr">*</span></label>
-            <input type="text" class="form-control" id="cidade" name="cidade" required>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="estado">Estado <span class="obr">*</span></label>
+                        <input type="text" class="form-control" id="estado" name="estado"
+                               placeholder="Escolha seu estado" required>
+                    </div>
 
-        <div class="form-group">
-            <label for="estado">Estado <span class="obr">*</span></label>
-            <input type="text" class="form-control" id="estado" name="estado" required>
-        </div>
+                    <div class="form-group col m">
+                        <label for="cidade">Cidade <span class="obr">*</span></label>
+                        <input type="text" class="form-control" id="cidade" name="cidade"
+                               placeholder="Insira sua cidade" required>
+                    </div>
 
-        <div class="form-group">
-            <label for="fone">Telefone</label>
-            <input type="text" class="form-control" id="fone" name="fone">
-        </div>
+                    <div class="form-group col">
+                        <label for="fone">Fone</label>
+                        <input type="tel" class="form-control" id="fone" name="fone"
+                               placeholder="(DDD) 00000-0000">
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label for="mensagem">Digite sua mensagem</label>
-            <textarea id="mensagem" rows="6" class="form-control" name="mensagem"></textarea>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="mensagem">Digite sua mensagem</label>
+                        <textarea id="mensagem" rows="6" class="form-control" name="mensagem"></textarea>
 
-        <div>
-            &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-success btn-sm">Enviar
-            </button>
-            &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-outline-warning btn-sm">Limpar
-            </button>
-        </div>
-    </form>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 35px" class="container">
+                <div class="row justify-content-end">
+                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-success btn-sm">Enviar
+                    </button>
+                    &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-outline-warning btn-sm">Limpar
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection

@@ -15,14 +15,12 @@ class FaleConoscoController extends Controller
      */
     public function index()
     {
-//        $mensagens = DB::table('fale_conoscos')
-//        ->orderBy('status', 'desc')
-//        ->get();
-//        //$entidades = User::all();
-//        return view('admin/faleconosco/mensagens', compact('mensagens'));
-
-
-        //return view('site/faleconosco/index');
+        $mensagens = DB::table('fale_conoscos')
+        ->orderBy('status', 'desc')
+        ->get();
+        //dd($mensagens);
+        //$entidades = User::all();
+        return view('admin.faleconosco.mensagens', compact('mensagens'));
     }
 
     /**
