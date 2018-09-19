@@ -21,13 +21,12 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Nº da mensagem</th>
+                        <th>Id</th>
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Cidade</th>
                         <th>Estado</th>
                         <th>Fone</th>
-                        <th>Mensagem</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -40,18 +39,9 @@
                             <td>{{$mensagem->cidade}}</td>
                             <td>{{$mensagem->estado}}</td>
                             <td>{{$mensagem->fone}}</td>
-                            <td>{{$mensagem->mensagem}}</td>
                             <td class="row">
-                                <div><a href="{{route('faleconosco.edit', $mensagem->id)}}"
-                                        class="btn btn-outline-info btn-sm">Marcar como lida</a></div> &nbsp;&nbsp;
-                                <div>
-                                    <form method="post"
-                                          action="{{route('faleconosco.destroy', $mensagem->id)}}"
-                                          onsubmit="return confirm('Confirma Exclusão?')">
-                                        {{method_field('delete')}}
-                                        {{csrf_field()}}
-                                        <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
-                                    </form>
+                                <div><a href="{{route('faleconoscoadmin.edit', $mensagem->id)}}"
+                                        class="btn btn-outline-warning btn-sm m-2">Ver mensagem</a>
                                 </div>
                             </td>
                         </tr>

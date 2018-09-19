@@ -11193,6 +11193,12 @@ tr {
   font-size: 10px;
 }
 
+.faleconosco {
+  word-break: break-word;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
 .navbarsite {
   width: 100%;
   height: 70px;

@@ -16,7 +16,7 @@ class FaleConoscoController extends Controller
     public function index()
     {
         $mensagens = DB::table('fale_conoscos')
-        ->orderBy('status', 'desc')
+        ->orderBy('status')
         ->get();
         //dd($mensagens);
         //$entidades = User::all();
@@ -68,6 +68,7 @@ class FaleConoscoController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,7 +77,9 @@ class FaleConoscoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mensagem = FaleConosco::find($id);
+
+        return view('admin.faleconosco.mensagem', compact('mensagem'));
     }
 
     /**
@@ -86,9 +89,19 @@ class FaleConoscoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        //dd('oi');
+        $registro = FaleConosco::find($id);
+
+        $alteracao = $registro->update([
+            'status' => 1
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('faleconoscoadmin.index')
+                ->with('status', 'Mensagem marcada como lida!');
+        }
     }
 
     /**
@@ -99,6 +112,10 @@ class FaleConoscoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mensagem = FaleConosco::find($id);
+        if ($mensagem->delete()) {
+            return redirect()->route('faleconoscoadmin.index')
+                ->with('status', 'Mensagem excluída!');
+        }
     }
 }
