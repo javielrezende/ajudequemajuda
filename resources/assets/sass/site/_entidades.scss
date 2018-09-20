@@ -61,13 +61,26 @@
         height: 130px;
       }
 
+      .like {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .numlike {
+        margin-left: -30px;
+        font-size: 12px;
+        color: #4D4F5C;
+      }
+
+
       .saibamaisentidades {
         font-size: 10px;
         //margin-top: 5px;
-        margin-left: auto;
+        //margin-left: auto;
         color: #4D4F5C;
         //margin-left: 150px;
-        float: right;
+        //float: right;
         text-decoration: none;
         background-color: #F1F1F1;
         padding: 4px;
