@@ -79,11 +79,8 @@
 
             <div style="margin-bottom: 35px" class="container">
                 <div class="row justify-content-end">
-                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-success btn-sm">Enviar
-                    </button>
-                    &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-outline-warning btn-sm">Limpar
-                    </button>
-                </div>
+                        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn env">Enviar</button>
+                    </div>
             </div>
         </form>
     </div>

@@ -3,32 +3,169 @@
 
 @section('content')
 
+    <div class="text-center returnsite"><span class="homelinkreturn">HOME / </span><a href="{{url('/site/entidades')}}"
+                                                                                      class="linkReturn">ENTIDADES</a>
+    </div>
+
     <div class="row siteentidade">
 
         <div class="row diventidade">
             <img class="row imagementidade" src="{{ asset('imagens/evento.png') }}"
                  alt="Imagem entidade">
-            <div class="diamesentidade">
-                <h4 class="diaentidade">19</h4>
-                <h4 class="mesentidade">ABR</h4>
-            </div>
 
             <div class="row observacoesentidade">
                 <h4 class="nomeentidade">Campanha 1</h4>
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localentidade">Estádio Boca do Lobo</p>
-                    </div>
-                    <div>
-                        <p class="hora">Horário:</p>
-                        <p class="horaentidade">20 h</p>
+                        <p class="localentidade">Estádio Boca do Lobo, 14 - Bairro Fragata</p>
                     </div>
                 </div>
-                <p class="descricaoentidade">Lorem ipsum dolor sit amet, con...</p>
+                <p class="descricaoentidade">LOREM LORELOREM LORELOREM LORELOREM LORELOREM LORELOREM LO</p>
+                <div class="row like">
+                    <i class="far fa-thumbs-up"></i>
+                    <p class="numlike">999</p>
+                    <i class="far fa-thumbs-down"></i>
+                    <p class="numlike">999</p>
+                    <a href="{{ url('site/entidade') }}" class="saibamaisentidades">Compartilhar</a>
+                </div>
             </div>
         </div>
+
+        <p class="row col-md-12 titulosPrincipais">Campanhas ativas</p>
+
+
+        <div class="campanhasentidade">
+            <div class="camp">
+                <p class="campnome">Campanha 1</p>
+                <p class="campdescricao">Campanha nome</p>
+                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="camp">
+                <p class="campnome">Campanha 1</p>
+                <p class="campdescricao">Campanha nome</p>
+                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="camp">
+                <p class="campnome">Campanha 1</p>
+                <p class="campdescricao">Campanha nome</p>
+                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="camp">
+                <p class="campnome">Campanha 1</p>
+                <p class="campdescricao">Campanha nome</p>
+                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+        </div>
+
+        <p class="row col-md-12 titulosPrincipais">Eventos ativos</p>
+
+
+        <div class="eventosentidade">
+            <div class="event">
+                <p class="eventnome">Campanha 1</p>
+                <p class="eventdescricao">Campanha nome</p>
+                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="event">
+                <p class="eventnome">Campanha 1</p>
+                <p class="eventdescricao">Campanha nome</p>
+                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="event">
+                <p class="eventnome">Campanha 1</p>
+                <p class="eventdescricao">Campanha nome</p>
+                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+
+            <div class="event">
+                <p class="eventnome">Campanha 1</p>
+                <p class="eventdescricao">Campanha nome</p>
+                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
+            </div>
+        </div>
+
+        <p class="row col-md-12 titulosPrincipais">Deixe seu comentário sobre a entidade</p>
+
+        <form class="row formescrevercomentario" method="post" action="#">
+            {{ csrf_field() }}
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="form-group primletra">
+                        R
+                    </div>
+
+                    <div class="form-group col">
+                        <textarea id="comentarios" rows="4" class="form-control"
+                                  placeholder="Escreva sua mensagem..."
+                                  name="comentarios"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-end">
+                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn com">COMENTAR</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="rpts">
+            <div class="container">
+                <div class="row">
+                    <div class="col rpt">
+                        <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="primletra">
+                    R
+                </div>
+
+                <div class="col">
+                        <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper, nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a condimentum.</div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+
+        <div class="rpts">
+            <div class="container">
+                <div class="row">
+                    <div class="col rpt">
+                        <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="primletra">
+                    R
+                </div>
+
+                <div class="col">
+                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper, nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a condimentum.</div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
     </div>
+
+
+
+
 
 
 
