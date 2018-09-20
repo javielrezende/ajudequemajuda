@@ -27,7 +27,7 @@
                     <p class="numlike">999</p>
                     <i class="far fa-thumbs-down"></i>
                     <p class="numlike">999</p>
-                    <a href="{{ url('site/entidade') }}" class="saibamaisentidades">Compartilhar</a>
+                    <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com" data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
                 </div>
             </div>
         </div>
@@ -131,7 +131,13 @@
                 </div>
 
                 <div class="col">
-                        <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper, nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a condimentum.</div>
+                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu
+                        nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies
+                        arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit
+                        purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper,
+                        nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a
+                        condimentum.
+                    </div>
                 </div>
             </div>
 
@@ -154,7 +160,13 @@
                 </div>
 
                 <div class="col">
-                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper, nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a condimentum.</div>
+                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu
+                        nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies
+                        arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit
+                        purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper,
+                        nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a
+                        condimentum.
+                    </div>
                 </div>
             </div>
 
@@ -167,6 +179,14 @@
 
 
 
-
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.1&appId=2191446141141309&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
 @endsection
