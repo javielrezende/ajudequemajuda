@@ -11586,7 +11586,7 @@ body .row {
 }
 
 .siteevento {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 214px);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11607,7 +11607,7 @@ body .row {
   border-style: solid;
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
-  margin: 15px;
+  margin-top: 0;
 }
 
 .siteevento .divevento .diamesevento {
@@ -11697,6 +11697,14 @@ body .row {
 .siteevento .divevento .observacoesevento .dataevento {
   font-size: 12px;
   font-style: italic;
+}
+
+.siteeventos .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto -10px;
 }
 
 .siteeventos .titulosPrincipais {
@@ -12077,6 +12085,14 @@ body .row {
   margin-top: 60px;
 }
 
+.sitecampanhas .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto -10px;
+}
+
 .sitecampanhas .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -12166,7 +12182,7 @@ body .row {
 }
 
 .sitecampanha {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 214px);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12187,7 +12203,7 @@ body .row {
   border-style: solid;
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
-  margin: 15px;
+  margin-top: 0;
 }
 
 .sitecampanha .divcampanha .diamescampanha {
@@ -12413,7 +12429,7 @@ body .row {
 }
 
 .siteentidade .diventidade .observacoesentidade .numlike {
-  margin-left: -80px;
+  margin-left: -65px;
   font-size: 12px;
   color: #4D4F5C;
 }
@@ -12638,6 +12654,14 @@ body .row {
 .siteentidade .rpts .coments {
   font-size: 12px;
   color: #949494;
+}
+
+.siteentidades .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto -10px;
 }
 
 .siteentidades .titulosPrincipais {

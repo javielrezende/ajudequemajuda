@@ -27,7 +27,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Nº de Cadastro</th>
+                    <th>Número de Cadastro</th>
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>CPF</th>

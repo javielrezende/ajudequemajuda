@@ -27,7 +27,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Nº de Cadastro</th>
+                <th>Número de Cadastro</th>
                 <th>Pertence a campanha</th>
                 <th>Nome</th>
                 <th>Descrição</th>

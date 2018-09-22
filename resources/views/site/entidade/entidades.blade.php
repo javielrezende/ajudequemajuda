@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="row siteentidades">
+        <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
         <p class="row col-md-12 titulosPrincipais">Entidades</p>
         <div class="row imgentidades">
             <div class="row diventidades">

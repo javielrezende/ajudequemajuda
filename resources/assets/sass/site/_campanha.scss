@@ -1,6 +1,6 @@
 .sitecampanha {
 
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 214px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -13,7 +13,8 @@
     border-color: rgba(202, 206, 213, .21);
     border-style: solid;
     box-shadow: 3px 3px rgba(0, 0, 0, .03);
-    margin: 15px;
+    margin-top: 0;
+    //margin: 15px;
 
     .diamescampanha {
       color: #439AFF;

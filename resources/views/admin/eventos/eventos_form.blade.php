@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="form-group col-1">
-                            <label for="numero">Nº <span class="obr">*</span></label>
+                            <label for="numero">Número <span class="obr">*</span></label>
                             <input type="text" class="form-control" id="numero" name="numero"
                                    value="{{$registro->enderecos->numero or old('numero')}}" required>
                         </div>
