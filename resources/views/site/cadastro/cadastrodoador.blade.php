@@ -101,7 +101,7 @@
                         <label for="estado">Estado <span class="obr">*</span></label>
                         {{--<input type="text" class="form-control" id="estado" name="estado"
                                placeholder="Escolha seu estado" required>--}}
-                        <select  class="custom-select" name="estado" id="estado">
+                        <select class="custom-select" name="estado" id="estado">
                             <option value="#" disabled selected>Escolha seu estado</option>
                         </select>
                     </div>
@@ -116,7 +116,6 @@
                     </div>
                 </div>
             </div>
-
 
 
             <div class="container">
@@ -149,8 +148,16 @@
         </form>
     </div>
 
+
+
     <!-- Adicionando Javascript -->
     <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            $('#cpf').mask('000.000.000-00', {reverse: true});
+        });
+
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
