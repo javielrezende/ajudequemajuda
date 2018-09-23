@@ -2,6 +2,7 @@
 @extends('basicosite')
 
 @section('content')
+
     <div class="row cadastrodoador">
 
         <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
