@@ -27534,6 +27534,7 @@ __webpack_require__(161);
 __webpack_require__(162);
 __webpack_require__(163);
 __webpack_require__(164);
+__webpack_require__(177);
 
 /***/ }),
 /* 135 */
@@ -51152,6 +51153,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery v3.3.
 module.exports = __webpack_amd_options__;
 
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    $('#cpf').mask('000.000.000-00', { reverse: true });
+    $('#cep').mask('00000-000');
+    $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
+});
 
 /***/ })
 /******/ ]);

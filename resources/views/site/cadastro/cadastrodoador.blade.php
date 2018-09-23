@@ -154,11 +154,6 @@
     <script type="text/javascript">
 
 
-        $(document).ready(function () {
-            $('#cpf').mask('000.000.000-00', {reverse: true});
-        });
-
-
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value = ("");
