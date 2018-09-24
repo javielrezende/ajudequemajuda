@@ -14,6 +14,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::resource('/s', 'SiteUserController');
+
 
 //------SITE--------------------------------------------------------------------------
 Route::get('/', function () {
