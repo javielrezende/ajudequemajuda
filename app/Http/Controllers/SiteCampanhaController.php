@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
 use Illuminate\Http\Request;
 
 class SiteCampanhaController extends Controller
@@ -45,7 +46,10 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
-        //
+        $registro = Campanha::find($id);
+        //dd($registro);
+
+        return view('site.campanha.campanha', compact('registro'));
     }
 
     /**

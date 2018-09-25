@@ -1,4 +1,4 @@
-<div class="row rodape">
+<div class="row rodape" style="margin-top: 60px">
     <hr>
     <div class="direitos col-6">
         <a href="{{ url('/') }}"><img class="logorodape" alt="logo cinza" src="{{ asset('imagens/logo_cinza.png') }}"></a>

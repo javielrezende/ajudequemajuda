@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
 use App\Endereco;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,12 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('welcomesite');
+        $campanhas = Campanha::where('destaque', 1)
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('welcomesite', compact('campanhas'));
     }
 
     /**
@@ -31,6 +37,7 @@ class SiteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * Cadastra usuario doador
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -94,7 +101,7 @@ class SiteController extends Controller
 
         if ($resultado) {
             return redirect()->route('aqa.index');
-                //->with('status', 'Entidade Cadastrada!');
+            //->with('status', 'Entidade Cadastrada!');
         }
     }
 

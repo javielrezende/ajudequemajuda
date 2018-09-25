@@ -28,6 +28,8 @@ Route::get('/site/eventos', function () {
     return view('site/evento/eventos');
 });
 
+Route::resource('/site/campanha', 'SiteCampanhaController');
+
 Route::get('/site/evento', function () {
     return view('site/evento/evento');
 });
@@ -36,9 +38,9 @@ Route::get('/site/campanhas', function () {
     return view('site/campanha/campanhas');
 });
 
-Route::get('/site/campanha', function () {
+/*Route::get('/site/campanha', function () {
     return view('site/campanha/campanha');
-});
+});*/
 
 Route::get('/site/entidades', function () {
     return view('site/entidade/entidades');

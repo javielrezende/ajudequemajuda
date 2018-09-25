@@ -83,7 +83,23 @@
     <div class="row sitedestaques">
         <p class="row col-md-12 titulodestaques">Campanhas em destaque</p>
         <div class="row imgdestaques">
+
+            @foreach($campanhas as $campanha)
+
             <div class="row divdestaques">
+                <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
+                <div class="col-6 row observacoes">
+                    <h4 class="nomecampanhadestaque">{{$campanha->nome}}</h4>
+                    <h6 class="nomeentidadesite">Por: {{$campanha->users[0]->name}}</h6>
+                    <p class="descricaocampanhadestaque">{{$campanha->descricao}}</p>
+                    <a href="{{route('campanha.show', $campanha->id)}}" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
+                </div>
+            </div>
+
+            @endforeach
+
+
+            {{--<div class="row divdestaques">
                 <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
                 <div class="col-6 row observacoes">
                     <h4 class="nomecampanhadestaque">Campanha 1</h4>
@@ -101,17 +117,7 @@
                     <p class="descricaocampanhadestaque">Lorem ipsum dolor sit amet, con...</p>
                     <a href="#" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
                 </div>
-            </div>
-
-            <div class="row divdestaques">
-                <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
-                <div class="col-6 row observacoes">
-                    <h4 class="nomecampanhadestaque">Campanha 1</h4>
-                    <h6 class="nomeentidadesite">Por: Entidade 0</h6>
-                    <p class="descricaocampanhadestaque">Lorem ipsum dolor sit amet, con...</p>
-                    <a href="#" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
-                </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 

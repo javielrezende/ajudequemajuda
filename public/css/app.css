@@ -12306,6 +12306,10 @@ body .row {
   font-weight: bold;
 }
 
+.sitecampanha .divcampanha .observacoescampanha .localhora .hora {
+  font-weight: bold;
+}
+
 .sitecampanha .divcampanha .observacoescampanha .descricaocampanha {
   margin-top: -20px;
   color: #8A8A8A;

@@ -14,14 +14,18 @@
                  alt="Imagem campanha">
 
             <div class="row observacoescampanha">
-                <h4 class="nomecampanha">Campanha 1</h4>
+                <h4 class="nomecampanha">{{$registro->nome}}</h4>
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
                         <p class="localcampanha">Estádio Boca do Lobo, 14 - Bairro Fragata</p>
                     </div>
+                    <div>
+                        <p class="hora">Data Final:</p>
+                        <p class="horacampanha">{{$registro->dataFim}}</p>
+                    </div>
                 </div>
-                <p class="descricaocampanha">LOREM LORELOREM LORELOREM LORELOREM LORELOREM LORELOREM LO</p>
+                <p class="descricaocampanha">{{$registro->descricao}}</p>
                 <div class="row like">
                     <i class="far fa-thumbs-up"></i>
                     <p class="numlike">999</p>

@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'yara@gmail.com',
             'password' => bcrypt(123123),
             'cpf' => null,
-            'cnpj' => 1111111111111,
+            'cnpj' => 1111111111112,
             'fone' => 53991000000,
             'funcao' => 1,
             'mensagem' => 'Quero ser a entidade Yara',

@@ -21,7 +21,7 @@ class Campanha extends Model
     public function getDataInicioAttribute(){
         $dataInicio = explode('-', $this->attributes['dataInicio']);
         if(count($dataInicio) != 3){
-            return"Sem data determinada";
+            return"Não há!";
         }
         $dataInicio = $dataInicio[2] . '/' . $dataInicio[1] . '/' . $dataInicio[0];
         return $dataInicio;
@@ -30,7 +30,7 @@ class Campanha extends Model
     public function getDataFimAttribute(){
         $dataFim = explode('-', $this->attributes['dataFim']);
         if(count($dataFim) != 3){
-            return"Sem data determinada";
+            return"Não há!";
         }
         $dataFim = $dataFim[2] . '/' . $dataFim[1] . '/' . $dataFim[0];
         return $dataFim;
