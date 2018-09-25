@@ -17,7 +17,7 @@
 <nav class="navbarsite">
     <div class="top-leftsite linkssitelogo">
         <a href="{{ url('/aqa') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
-                                      alt="Logo Ajude Quem Ajuda"></a>
+                                         alt="Logo Ajude Quem Ajuda"></a>
     </div>
     @if (Route::has('login'))
         <div class="menu text-center">
@@ -34,11 +34,24 @@
             {{--------------------------------------------------------------------  --}}
 
             @auth
-                <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}" alt="Foto de perfil">
+                <div class="dropdown" style="display: inline">
+                    <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}"
+                             alt="Foto de perfil"></a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Meu cadastro</a>
+                        <a class="dropdown-item" href="#">Trocar senha</a>
+                        <a class="dropdown-item" href="#">Campanhas interessantes</a>
+                        <a class="dropdown-item" href="#">Doações efetuadas</a>
+                    </div>
+
+                </div>
 
                 <span class="ola">Olá, </span>
                 <span class="nomeperfil">{{ Auth::user()->name }}</span>
-                    {{--style="margin-left: 10px; margin-right: 10px"--}}
+                {{--style="margin-left: 10px; margin-right: 10px"--}}
 
                 <a class="sair" href="{{ route('logout') }}"
                    onclick="event.preventDefault();

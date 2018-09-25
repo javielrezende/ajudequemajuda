@@ -56,7 +56,11 @@ class SiteUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = User::find($id);
+
+        $acao = 2;
+
+        return view('admin/users/users_form', compact('registro', 'acao'));
     }
 
     /**
@@ -68,7 +72,17 @@ class SiteUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
+
+        $alteracao = $registro->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
+
+        if ($alteracao && $alteracao1) {
+            return redirect()->route('users.index')->with('status', 'Cadastro Alterado!');
+        }
     }
 
     /**

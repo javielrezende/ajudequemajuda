@@ -25,11 +25,11 @@ Route::get('/', function () {
 Route::resource('/aqa', 'SiteController');
 
 Route::get('/site/eventos', function () {
-    return view('site/eventos');
+    return view('site/evento/eventos');
 });
 
 Route::get('/site/evento', function () {
-    return view('site/evento');
+    return view('site/evento/evento');
 });
 
 Route::get('/site/campanhas', function () {

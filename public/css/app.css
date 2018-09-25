@@ -11502,6 +11502,12 @@ body .row {
   color: #4D4F5C;
 }
 
+.sitedestaques .observacoes h6 {
+  font-size: 14px;
+  font-style: italic;
+  color: #4D4F5C;
+}
+
 .sitedestaques .observacoes .descricaocampanhadestaque {
   font-size: 12px;
   width: 280px;
@@ -12137,6 +12143,8 @@ body .row {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 20px 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .sitecampanhas .divcampanhas .observacoescampanhas p {
@@ -12156,17 +12164,37 @@ body .row {
   color: #4D4F5C;
 }
 
+.sitecampanhas .divcampanhas .observacoescampanhas h6 {
+  font-size: 14px;
+  font-style: italic;
+  color: #4D4F5C;
+}
+
 .sitecampanhas .divcampanhas .observacoescampanhas .descricaocampanhas {
   font-size: 12px;
   width: 280px;
   height: 130px;
 }
 
+.sitecampanhas .divcampanhas .observacoescampanhas .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sitecampanhas .divcampanhas .observacoescampanhas .numlike {
+  margin-left: -30px;
+  font-size: 12px;
+  color: #4D4F5C;
+}
+
 .sitecampanhas .divcampanhas .observacoescampanhas .saibamaiscampanhas {
   font-size: 10px;
-  margin-left: auto;
   color: #4D4F5C;
-  float: right;
   text-decoration: none;
   background-color: #F1F1F1;
   padding: 4px;
@@ -12182,7 +12210,6 @@ body .row {
 }
 
 .sitecampanha {
-  min-height: calc(100vh - 214px);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12203,7 +12230,7 @@ body .row {
   border-style: solid;
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
-  margin-top: 0;
+  margin: 15px;
 }
 
 .sitecampanha .divcampanha .diamescampanha {
@@ -12236,23 +12263,21 @@ body .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 238px;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  width: 340px;
+  margin-left: 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px 0;
-}
-
-.sitecampanha .divcampanha .observacoescampanha p {
-  margin: 0;
+  padding: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .sitecampanha .divcampanha .observacoescampanha .nomecampanha {
   font-size: 20px;
+  width: 100%;
   font-weight: 400;
   color: #4D4F5C;
   margin-top: 15px;
@@ -12268,31 +12293,68 @@ body .row {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 30px 0;
+  margin-top: 10px;
 }
 
 .sitecampanha .divcampanha .observacoescampanha .localhora p {
   font-size: 10px;
   color: #4D4F5C;
+  margin: 0;
 }
 
 .sitecampanha .divcampanha .observacoescampanha .localhora .local {
   font-weight: bold;
 }
 
-.sitecampanha .divcampanha .observacoescampanha .localhora .hora {
-  font-weight: bold;
-}
-
-.sitecampanha .divcampanha .observacoescampanha .descricaocampanha p {
+.sitecampanha .divcampanha .observacoescampanha .descricaocampanha {
+  margin-top: -20px;
   color: #8A8A8A;
   font-size: 12px;
-  width: 250px;
-  height: 140px;
+  width: 340px;
+  height: 200px;
 }
 
-.sitecampanha .divcampanha .observacoescampanha .datacampanha {
+.sitecampanha .divcampanha .observacoescampanha .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sitecampanha .divcampanha .observacoescampanha .numlike {
+  margin-left: -65px;
   font-size: 12px;
-  font-style: italic;
+  color: #4D4F5C;
+}
+
+.sitecampanha .divcampanha .observacoescampanha .opcoescampanha {
+  margin-top: 7px;
+  margin-left: -40px;
+  width: 408px;
+  text-align: center;
+}
+
+.sitecampanha .divcampanha .observacoescampanha .opcoescampanha .seguircampanha {
+  text-decoration: none;
+  background-color: #F2F2F2;
+  padding: 15px;
+  font-size: 16px;
+  color: black;
+  -webkit-box-shadow: 3px 5px 20px rgba(28, 27, 27, 0.1);
+          box-shadow: 3px 5px 20px rgba(28, 27, 27, 0.1);
+}
+
+.sitecampanha .divcampanha .observacoescampanha .opcoescampanha .doarcampanha {
+  text-decoration: none;
+  background-color: #F2F2F2;
+  padding: 15px;
+  font-size: 16px;
+  color: black;
+  -webkit-box-shadow: 3px 5px 20px rgba(28, 27, 27, 0.1);
+          box-shadow: 3px 5px 20px rgba(28, 27, 27, 0.1);
 }
 
 .returnsite {

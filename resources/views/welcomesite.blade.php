@@ -87,7 +87,7 @@
                 <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
                 <div class="col-6 row observacoes">
                     <h4 class="nomecampanhadestaque">Campanha 1</h4>
-                    <p class="datacampanhadestaque">22/03/2018</p>
+                    <h6 class="nomeentidadesite">Por: Entidade 0</h6>
                     <p class="descricaocampanhadestaque">Lorem ipsum dolor sit amet, con...</p>
                     <a href="#" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
                 </div>
@@ -97,7 +97,7 @@
                 <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
                 <div class="col-6 row observacoes">
                     <h4 class="nomecampanhadestaque">Campanha 1</h4>
-                    <p class="datacampanhadestaque">22/03/2018</p>
+                    <h6 class="nomeentidadesite">Por: Entidade 0</h6>
                     <p class="descricaocampanhadestaque">Lorem ipsum dolor sit amet, con...</p>
                     <a href="#" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
                 </div>
@@ -107,7 +107,7 @@
                 <img class="row imagemdestaque" src="{{ asset('imagens/campanhadestaque.png') }}" alt="Imagem destque">
                 <div class="col-6 row observacoes">
                     <h4 class="nomecampanhadestaque">Campanha 1</h4>
-                    <p class="datacampanhadestaque">22/03/2018</p>
+                    <h6 class="nomeentidadesite">Por: Entidade 0</h6>
                     <p class="descricaocampanhadestaque">Lorem ipsum dolor sit amet, con...</p>
                     <a href="#" class=" align-content-end saibamaiscampanhadestaque">Saiba mais</a>
                 </div>
