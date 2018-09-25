@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Campanha extends Model
 {
     protected $fillable = [
-        'nome', 'descricao', 'status', 'dataInicio', 'dataFim',
+        'nome', 'descricao', 'status', 'dataInicio', 'dataFim', 'destaque'
     ];
 
     public function users(){

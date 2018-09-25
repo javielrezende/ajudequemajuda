@@ -28,6 +28,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
+
         DB::table('users')->insert([
             'name' => 'Tecon',
             'email' => 'tecon@gmail.com',
@@ -46,8 +47,25 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name' => 'Yara Brasil',
+            'email' => 'yara@gmail.com',
+            'password' => bcrypt(123123),
+            'cpf' => null,
+            'cnpj' => 1111111111111,
+            'fone' => 53991000000,
+            'funcao' => 1,
+            'mensagem' => 'Quero ser a entidade Yara',
+            'descricao_entidade' => 'Empresa ética e responsável de fertilizantes',
+            'solicitacao_entidade' => 1,
+            'status' => 1,
+            'enderecos_id' => 2,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
+
+        DB::table('users')->insert([
             'name' => 'Celina',
-            'email' => 'celina@gmail.com',
+            'email' => 'celinahernande@gmail.com',
             'password' => bcrypt(123123),
             'cpf' => null,
             'cnpj' => null,

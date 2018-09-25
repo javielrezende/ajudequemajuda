@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="text-center returnsite"><span class="homelinkreturn">HOME / </span><a href="{{url('/site/campanhas')}}"
-                                                                                      class="linkReturn">Campanhas</a>
+                                                                                      class="linkReturn">CAMPANHAS</a>
     </div>
 
     <div class="row sitecampanha">
