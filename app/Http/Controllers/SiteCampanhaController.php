@@ -14,7 +14,12 @@ class SiteCampanhaController extends Controller
      */
     public function index()
     {
-        //
+        $campanhas = Campanha::where('status', 1)
+            ->orderBy('destaque', 1)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('site.campanha.campanhas', compact('campanhas'));
     }
 
     /**
@@ -46,8 +51,10 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
-        $registro = Campanha::find($id);
-        //dd($registro);
+        $registro = Campanha::with('users')
+        ->find($id);
+        //dd($registro->users[0]->endereco->rua);
+        //dd($registro->users[0]->id);
 
         return view('site.campanha.campanha', compact('registro'));
     }

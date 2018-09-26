@@ -11646,7 +11646,7 @@ body .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 238px;
+  width: 280px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -11799,6 +11799,7 @@ body .row {
   font-size: 12px;
   font-style: italic;
   margin: 10px 0;
+  color: #4D4F5C;
 }
 
 .precadastrogeral {

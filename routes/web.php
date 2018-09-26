@@ -24,31 +24,41 @@ Route::get('/', function () {
 
 Route::resource('/aqa', 'SiteController');
 
-Route::get('/site/eventos', function () {
+/*Route::get('/site/eventos', function () {
     return view('site/evento/eventos');
-});
+});*/
 
 Route::resource('/site/campanha', 'SiteCampanhaController');
+Route::resource('/site/campanhas', 'SiteCampanhaController');
+Route::resource('/site/evento', 'SiteEventoController');
+Route::resource('/site/eventos', 'SiteEventoController');
 
-Route::get('/site/evento', function () {
+/*Route::get('/site/evento', function () {
     return view('site/evento/evento');
-});
+});*/
 
-Route::get('/site/campanhas', function () {
+/*Route::get('/site/campanhas', function () {
     return view('site/campanha/campanhas');
-});
+});*/
 
 /*Route::get('/site/campanha', function () {
     return view('site/campanha/campanha');
 });*/
 
-Route::get('/site/entidades', function () {
+/**
+ * Renomeado como entidades para não conflitar com a rota de entidades
+ * do admin.
+ * Para chamar essa rota utiliza-se entidades.entidades.'o metodo que se quer chamar dentro da rota'
+ */
+Route::resource('site/entidades', 'SiteUserController',
+    ['as' => 'entidades']);
+/*Route::get('/site/entidades', function () {
     return view('site/entidade/entidades');
-});
+});*/
 
-Route::get('/site/entidade', function () {
+/*Route::get('/site/entidade', function () {
     return view('site/entidade/entidade');
-});
+});*/
 
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 

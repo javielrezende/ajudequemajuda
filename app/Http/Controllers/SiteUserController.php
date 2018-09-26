@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class SiteUserController extends Controller
@@ -9,11 +10,17 @@ class SiteUserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * Mostra todas as ENTIDADES cadastradas e ATIVAS no site
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $entidades = User::where('funcao', 1)
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('site.entidade.entidades', compact('entidades'));
     }
 
     /**
@@ -45,7 +52,9 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $registro = User::find($id);
+        //dd($registro->endereco);
+        return view('site.entidade.entidade', compact('registro'));
     }
 
     /**

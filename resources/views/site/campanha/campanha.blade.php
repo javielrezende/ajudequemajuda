@@ -18,7 +18,7 @@
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localcampanha">Estádio Boca do Lobo, 14 - Bairro Fragata</p>
+                        <p class="localcampanha">{{$registro->users[0]->endereco->rua}}, {{$registro->users[0]->endereco->numero}} - {{$registro->users[0]->endereco->bairro}}</p>
                     </div>
                     <div>
                         <p class="hora">Data Final:</p>

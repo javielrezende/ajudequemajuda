@@ -14,14 +14,14 @@
                  alt="Imagem entidade">
 
             <div class="row observacoesentidade">
-                <h4 class="nomeentidade">Campanha 1</h4>
+                <h4 class="nomeentidade">{{$registro->name}}</h4>
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localentidade">Estádio Boca do Lobo, 14 - Bairro Fragata</p>
+                        <p class="localentidade">{{$registro->endereco->rua}}, {{$registro->endereco->numero}} - {{$registro->endereco->bairro}}</p>
                     </div>
                 </div>
-                <p class="descricaoentidade">LOREM LORELOREM LORELOREM LORELOREM LORELOREM LORELOREM LO</p>
+                <p class="descricaoentidade">{{$registro->descricao}}</p>
                 <div class="row like">
                     <i class="far fa-thumbs-up"></i>
                     <p class="numlike">999</p>
