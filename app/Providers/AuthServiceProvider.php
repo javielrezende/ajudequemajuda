@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->funcao == User::USUARIO;
         });
         Gate::define('entidade', function ($user){
+            //dd($user->funcao == User::ENTIDADE);
             return $user->funcao == User::ENTIDADE;
         });
         Gate::define('admin', function ($user){

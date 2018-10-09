@@ -1,6 +1,6 @@
 .sitecampanha {
 
-  min-height: calc(100vh - 214px);
+  //min-height: calc(100vh - 70px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -13,8 +13,7 @@
     border-color: rgba(202, 206, 213, .21);
     border-style: solid;
     box-shadow: 3px 3px rgba(0, 0, 0, .03);
-    margin-top: 0;
-    //margin: 15px;
+    margin: 15px;
 
     .diamescampanha {
       color: #439AFF;
@@ -38,22 +37,20 @@
 
     .observacoescampanha {
       display: flex;
-      width: 238px;
-      justify-content: flex-start;
+      width: 340px;
+      margin-left: 40px;
       //align-items: flex-start;
       flex-direction: column;
-      padding: 20px 0;
-
-      p {
-        margin: 0;
-      }
+      padding: 0;
+      justify-content: space-between;
 
       .nomecampanha {
-          font-size: 20px;
-          font-weight: 400;
-          color: #4D4F5C;
-          margin-top: 15px;
-          margin-bottom: 0;
+        font-size: 20px;
+        width: 100%;
+        font-weight: 400;
+        color: #4D4F5C;
+        margin-top: 15px;
+        margin-bottom: 0;
       }
 
       .localhora {
@@ -62,10 +59,12 @@
         display: flex;
         justify-content: space-between;
         margin: 30px 0;
+        margin-top: 10px;
 
         p {
           font-size: 10px;
           color: #4D4F5C;
+          margin: 0;
         }
 
         .local {
@@ -78,21 +77,50 @@
       }
 
       .descricaocampanha {
-        p {
-          //margin: 0;
-          color: #8A8A8A;
-          font-size: 12px;
-          width: 250px;
-          height: 140px;
+        margin-top: -20px;
+        color: #8A8A8A;
+        font-size: 12px;
+        width: 340px;
+        height: 200px;
+
+      }
+
+      .like {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .numlike {
+        margin-left: -65px;
+        font-size: 12px;
+        color: #4D4F5C;
+      }
+
+      .opcoescampanha {
+
+        margin-top: 7px;
+        margin-left: -40px;
+        width: 408px;
+        text-align: center;
+
+        .seguircampanha {
+          text-decoration: none;
+          background-color: #F2F2F2;
+          padding: 15px;
+          font-size: 16px;
+          color: black;
+          box-shadow: 3px 5px 20px rgba(28, 27, 27, .10);
+        }
+        .doarcampanha {
+          text-decoration: none;
+          background-color: #F2F2F2;
+          padding: 15px;
+          font-size: 16px;
+          color: black;
+          box-shadow: 3px 5px 20px rgba(28, 27, 27, .10);
         }
       }
-
-      .datacampanha {
-        font-size: 12px;
-        font-style: italic;
-        //margin: 10px 0;
-      }
-
     }
   }
 }

@@ -14,20 +14,25 @@
                  alt="Imagem entidade">
 
             <div class="row observacoesentidade">
-                <h4 class="nomeentidade">Campanha 1</h4>
+                <h4 class="nomeentidade">{{$registro->name}}</h4>
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localentidade">Estádio Boca do Lobo, 14 - Bairro Fragata</p>
+                        <p class="localentidade">{{$registro->endereco->rua}}, {{$registro->endereco->numero}}
+                            - {{$registro->endereco->bairro}}</p>
                     </div>
                 </div>
-                <p class="descricaoentidade">LOREM LORELOREM LORELOREM LORELOREM LORELOREM LORELOREM LO</p>
+                <p class="descricaoentidade">{{$registro->descricao}}</p>
                 <div class="row like">
                     <i class="far fa-thumbs-up"></i>
                     <p class="numlike">999</p>
                     <i class="far fa-thumbs-down"></i>
                     <p class="numlike">999</p>
-                    <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com" data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+                    <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
+                         data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
+                                                                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                                                              class="fb-xfbml-parse-ignore">Compartilhar</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,58 +41,27 @@
 
 
         <div class="campanhasentidade">
-            <div class="camp">
-                <p class="campnome">Campanha 1</p>
-                <p class="campdescricao">Campanha nome</p>
-                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="camp">
-                <p class="campnome">Campanha 1</p>
-                <p class="campdescricao">Campanha nome</p>
-                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="camp">
-                <p class="campnome">Campanha 1</p>
-                <p class="campdescricao">Campanha nome</p>
-                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="camp">
-                <p class="campnome">Campanha 1</p>
-                <p class="campdescricao">Campanha nome</p>
-                <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
+            @foreach($registroCampanhas as $r)
+                <div class="camp">
+                    <p class="campnome">{{$r->nome}}</p>
+                    <p class="campdescricao">{{$r->descricao}}</p>
+                    <a href="{{ url('site/campanha') }}" class="saibamaisentidades">Saiba mais</a>
+                </div>
+            @endforeach
         </div>
 
         <p class="row col-md-12 titulosPrincipais">Eventos ativos</p>
 
-
         <div class="eventosentidade">
-            <div class="event">
-                <p class="eventnome">Campanha 1</p>
-                <p class="eventdescricao">Campanha nome</p>
-                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="event">
-                <p class="eventnome">Campanha 1</p>
-                <p class="eventdescricao">Campanha nome</p>
-                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="event">
-                <p class="eventnome">Campanha 1</p>
-                <p class="eventdescricao">Campanha nome</p>
-                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
-
-            <div class="event">
-                <p class="eventnome">Campanha 1</p>
-                <p class="eventdescricao">Campanha nome</p>
-                <a href="{{ url('site/eventos') }}" class="saibamaisentidades">Saiba mais</a>
-            </div>
+            @foreach($registroCampanhas as $r)
+                @foreach($r->eventos as $e)
+                    <div class="event">
+                        <p class="eventnome">{{$e->nome}}</p>
+                        <p class="eventdescricao">{{$e->descricao}}</p>
+                        <a href="{{ route('evento.show', $e->id) }}" class="saibamaisentidades">Saiba mais</a>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
 
         <p class="row col-md-12 titulosPrincipais">Deixe seu comentário sobre a entidade</p>
@@ -178,7 +152,7 @@
 
 
 
-{{--Js de compartilhamento do facebook--}}
+    {{--Js de compartilhamento do facebook--}}
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];

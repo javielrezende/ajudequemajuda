@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SiteCampanhaController extends Controller
 {
@@ -13,7 +16,12 @@ class SiteCampanhaController extends Controller
      */
     public function index()
     {
-        //
+        $campanhas = Campanha::where('status', 1)
+            ->orderBy('destaque', 1)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('site.campanha.campanhas', compact('campanhas'));
     }
 
     /**
@@ -29,7 +37,7 @@ class SiteCampanhaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,18 +48,23 @@ class SiteCampanhaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $registro = Campanha::with('users')
+            ->find($id);
+        //dd($registro->users[0]->endereco->rua);
+        //dd($registro->users[0]->id);
+
+        return view('site.campanha.campanha', compact('registro'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +75,8 @@ class SiteCampanhaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +87,7 @@ class SiteCampanhaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

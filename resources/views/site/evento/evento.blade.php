@@ -18,18 +18,18 @@
             </div>
 
             <div class="row observacoesevento">
-                <h4 class="nomeevento">Evento 1</h4>
+                <h4 class="nomeevento">{{$registro->nome}}</h4>
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localevento">Estádio Boca do Lobo</p>
+                        <p class="localevento">{{$registro->enderecos->rua}}</p>
                     </div>
                     <div>
                         <p class="hora">Horário:</p>
-                        <p class="horaevento">20 h</p>
+                        <p class="horaevento">{{$registro->dataHoraInicio1}} h</p>
                     </div>
                 </div>
-                <p class="descricaoevento">Lorem ipsum dolor sit amet, con...</p>
+                <p class="descricaoevento">{{$registro->descricao}}</p>
             </div>
         </div>
     </div>

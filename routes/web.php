@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
+
 //------SITE--------------------------------------------------------------------------
 Route::get('/', function () {
     return redirect()->to(url('/aqa'));
@@ -22,31 +23,51 @@ Route::get('/', function () {
 
 Route::resource('/aqa', 'SiteController');
 
-Route::get('/site/eventos', function () {
-    return view('site/eventos');
-});
+Route::resource('/entidade-site', 'SiteEntidadeController');
+Route::resource('/entidade-site/minhas-campanhas', 'SiteEntidadeController@minhasCampanhas');
 
-Route::get('/site/evento', function () {
-    return view('site/evento');
-});
 
-Route::get('/site/campanhas', function () {
-    return view('site/campanha/campanhas');
-});
+Route::resource('/usuario-site', 'SiteUsuarioController');
 
-Route::get('/site/campanha', function () {
-    return view('site/campanha/campanha');
-});
-
-Route::get('/site/entidades', function () {
-    return view('site/entidade/entidades');
-});
-
-Route::get('/site/entidade', function () {
-    return view('site/entidade/entidade');
-});
-
+Route::resource('/site/campanha', 'SiteCampanhaController');
+Route::resource('/site/campanhas', 'SiteCampanhaController');
+Route::resource('/site/evento', 'SiteEventoController');
+Route::resource('/site/eventos', 'SiteEventoController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
+
+/**
+ * Rota para seguir uma campanha
+ */
+Route::get('/site/campanhas/{campanha}/seguir', 'SiteUsuarioController@seguirCampanha')->name('seguir-campanha');
+
+/**
+ * Renomeado como entidades para não conflitar com a rota de entidades
+ * do admin.
+ * Para chamar essa rota utiliza-se entidades.entidades.'o metodo que se quer chamar dentro da rota'
+ */
+Route::resource('site/entidades', 'SiteUserController',
+    ['as' => 'entidades']);
+
+/*Route::get('/site/evento', function () {
+    return view('site/evento/evento');
+});*/
+
+/*Route::get('/site/campanhas', function () {
+    return view('site/campanha/campanhas');
+});*/
+
+/*Route::get('/site/campanha', function () {
+    return view('site/campanha/campanha');
+});*/
+
+/*Route::get('/site/entidades', function () {
+    return view('site/entidade/entidades');
+});*/
+
+/*Route::get('/site/entidade', function () {
+    return view('site/entidade/entidade');
+});*/
+
 
 
 

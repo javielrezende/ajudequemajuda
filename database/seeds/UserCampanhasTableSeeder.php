@@ -19,6 +19,24 @@ class UserCampanhasTableSeeder extends Seeder
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
+
+        DB::table('user_campanha_curtida_interesses')->insert([
+            'users_id' => 2,
+            'campanhas_id' => 2,
+            'curtidas' => null,
+            'interesse' => null,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
+
+        DB::table('user_campanha_curtida_interesses')->insert([
+            'users_id' => 3,
+            'campanhas_id' => 3,
+            'curtidas' => null,
+            'interesse' => null,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
     }
 
 }

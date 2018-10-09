@@ -15,6 +15,8 @@ require('moment/locale/pt-br');
 require('tempusdominus-bootstrap-4');
 require('jquery/dist/jquery.min');
 require('jquery-mask-plugin/dist/jquery.mask.min');
+require('bootstrap');
+
 
 // Neste caso é referente ao datepicker para campanhas que nao possuem horario
 require('bootstrap-datepicker');

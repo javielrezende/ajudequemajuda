@@ -24,5 +24,19 @@ class EventosTableSeeder extends Seeder
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
+
+        DB::table('eventos')->insert([
+            'nome' => 'Sopão de rua Yara',
+            'descricao' => 'Evento para elaboração e entrega de sopão para moradores de rua',
+            'dataHoraInicio' => null,
+            'dataHoraInicio' => null,
+            'dataHoraFim' => null,
+            'dataHoraFim' => null,
+            'status' => 1,
+            'campanhas_id' => 2,
+            'enderecos_id' => 2,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
     }
 }

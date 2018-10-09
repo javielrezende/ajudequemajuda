@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Evento;
+use App\Campanha;
+use App\User;
+use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class SiteEventoController extends Controller
+class SiteUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +17,7 @@ class SiteEventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::with('campanhas')
-            ->with('enderecos')
-            ->where('status', 1)
-            ->orderBy('id', 'desc')
-            ->get();
-        //dd($eventos);
 
-        return view('site.evento.eventos', compact('eventos'));
     }
 
     /**
@@ -53,11 +49,10 @@ class SiteEventoController extends Controller
      */
     public function show($id)
     {
-        $registro = Evento::with('campanhas')
-            ->with('enderecos')
-            ->find($id);
-        //dd($registro);
-        return view('site.evento.evento', compact('registro'));
+        $usuario = Auth::user();
+
+        //dd($usuario);
+        return view('site.user.cadastrousuario', compact('usuario'));
     }
 
     /**
@@ -93,4 +88,32 @@ class SiteEventoController extends Controller
     {
         //
     }
+
+    public function seguirCampanha($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        if(Auth::user()->funcao != 2){
+
+        }
+
+        $usuario = Auth::user()->id;
+        //$usuarioteste = Auth::user()->funcao;
+        //dd($usuarioteste);
+        $campanhaId = Campanha::find($id);
+        $campanha = $campanhaId->id;
+        //dd($campanha->id);
+        //dd($campanha);
+
+        $seguir = UserCampanhaCurtidaInteresse::create(
+            ['users_id' => $usuario,
+                'campanhas_id' => $campanha,
+                'interesse' => 1]
+        );
+
+        dd($usuario, $campanha, $seguir);
+    }
+
 }

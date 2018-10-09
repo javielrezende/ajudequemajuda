@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Evento;
+use App\Campanha;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class SiteEventoController extends Controller
+class SiteEntidadeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +16,14 @@ class SiteEventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::with('campanhas')
-            ->with('enderecos')
-            ->where('status', 1)
-            ->orderBy('id', 'desc')
-            ->get();
-        //dd($eventos);
+        /*if(Auth::user()->funcao != 1){
+            return redirect('/aqa');
+        }*/
+        $entidadeLogada = Auth::user();
 
-        return view('site.evento.eventos', compact('eventos'));
+        $campanhas = $entidadeLogada->campanhas;
+
+        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas'));
     }
 
     /**
@@ -53,11 +55,10 @@ class SiteEventoController extends Controller
      */
     public function show($id)
     {
-        $registro = Evento::with('campanhas')
-            ->with('enderecos')
-            ->find($id);
-        //dd($registro);
-        return view('site.evento.evento', compact('registro'));
+        $entidade = Auth::user();
+
+        //dd($entidade);
+        return view('site.entidade.cadastroentidade', compact('entidade'));
     }
 
     /**
@@ -93,4 +94,13 @@ class SiteEventoController extends Controller
     {
         //
     }
+
+    /*public function minhasCampanhas()
+    {
+        $entidadeLogada = Auth::user();
+
+        $campanhas = $entidadeLogada->campanhas;
+
+        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
+    }*/
 }
