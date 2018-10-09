@@ -18,6 +18,10 @@ class Campanha extends Model
         return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id');
     }
 
+    public function eventos(){
+        return $this->hasMany('App\Evento', 'campanhas_id');
+    }
+
     public function getDataInicioAttribute(){
         $dataInicio = explode('-', $this->attributes['dataInicio']);
         if(count($dataInicio) != 3){

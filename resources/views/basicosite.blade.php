@@ -16,12 +16,25 @@
 <body>
 <nav class="navbarsite">
     <div class="top-leftsite linkssitelogo">
-        <a href="{{ url('/aqa') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
-                                         alt="Logo Ajude Quem Ajuda"></a>
+        @if(Auth::user() && Auth::user()->funcao == 1)
+            <a href="{{ url('/entidade-site') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
+                                                       alt="Logo Ajude Quem Ajuda"></a>
+        @else
+            <a href="{{ url('/aqa') }}"><img class="logosite" src="{{ asset('imagens/logo_p.png') }}"
+                                             alt="Logo Ajude Quem Ajuda"></a>
+        @endif
     </div>
     @if (Route::has('login'))
         <div class="menu text-center">
-            <a href="{{ url('/') }}">Home</a>
+            {{--@if(Auth::user() && Auth::user()->can('entidade'))--}}
+            {{--@if(Gate::check('entidade'))--}}
+
+            @if(Auth::user() && Auth::user()->funcao == 1)
+                {{--@if(\Illuminate\Support\Facades\Auth::user() && \Illuminate\Support\Facades\Auth::user()->funcao == 1)--}}
+                <a href="{{ url('/entidade-site') }}">Home</a>
+            @else
+                <a href="{{ url('/aqa') }}">Home</a>
+            @endif
             <a href="{{ url('site/entidades')  }}">Entidades</a>
             {{--<a href="{{ url('/entidades') }}">Entidades</a>--}}
             <a href="{{ url('site/campanhas')  }}">Campanhas</a>
@@ -39,14 +52,26 @@
                        aria-expanded="false">
                         <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}"
                              alt="Foto de perfil"></a>
-
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Meu cadastro</a>
-                        <a class="dropdown-item" href="#">Trocar senha</a>
-                        <a class="dropdown-item" href="#">Campanhas interessantes</a>
-                        <a class="dropdown-item" href="#">Doações efetuadas</a>
-                    </div>
-
+                    @if(Auth::user()->funcao == 1)
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"
+                               href=" {{route('entidade-site.show', $usuario = Auth::user()->id)}} ">Meu
+                                cadastro</a>
+                            <a class="dropdown-item" href="#">Trocar senha</a>
+                            <a class="dropdown-item" href="{{url('entidade-site/minhas-campanhas')}}">Minhas Campanhas</a>
+                            <a class="dropdown-item" href="#">Doações recebidas</a>
+                            <a class="dropdown-item" href="#">Relatórios</a>
+                        </div>
+                    @else
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item"
+                               href=" {{route('usuario-site.show', $usuario = Auth::user()->id)}} ">Meu
+                                cadastro</a>
+                            <a class="dropdown-item" href="#">Trocar senha</a>
+                            <a class="dropdown-item" href="#">Campanhas interessantes</a>
+                            <a class="dropdown-item" href="#">Doações efetuadas</a>
+                        </div>
+                    @endif
                 </div>
 
                 <span class="ola">Olá, </span>

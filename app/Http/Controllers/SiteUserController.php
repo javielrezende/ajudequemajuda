@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
+use App\Evento;
 use App\User;
+use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 
 class SiteUserController extends Controller
@@ -36,7 +39,7 @@ class SiteUserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,23 +50,50 @@ class SiteUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $registro = User::find($id);
+        $registro = User::with(['campanhas', 'campanhas.eventos'])
+            ->find($id);
+
+        //$registroCampanhas = UserCampanhaCurtidaInteresse::where('users_id', $registro->campanhas[0]->id)
+        //->get();
+
+        $registroCampanhas = $registro->campanhas;
+        //dd($registroCampanhas);
+        //dd($registro->campanhas[0]->id);
+//        $registroCampanhas = $registro->campanhas;
+        //dd($registroCampanhas);
+
+        /*$count = 0;
+        while ($registroCampanhas) {
+            $count++;
+            if ($count == 10) {
+                dd($count);
+            }
+        }*/
+        //dd($registro->campanhas[0]->id);
+        //dd($registro->campanhas[1]->id);
+        //dd($registroCampanhas);
+
+        //$registroEventos = Evento::where('')
+
+        //$registroCampanhas = Campanha::where('status', 1)
+        //->where
         //dd($registro->endereco);
-        return view('site.entidade.entidade', compact('registro'));
+        return view('site.entidade.entidade', compact('registro', 'registroCampanhas'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         $registro = User::find($id);
 
@@ -75,11 +105,12 @@ class SiteUserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         $dados = $request->all();
 
@@ -97,10 +128,11 @@ class SiteUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }

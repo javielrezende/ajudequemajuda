@@ -1,0 +1,109 @@
+.cadastrousuario {
+
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto 5px;
+  }
+
+  .titulosPrincipais {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  /*.explicacao {
+    color: #8A8A8A;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }*/
+
+  .geraleditor {
+    width: 620px;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+    .editarCampo {
+      font-size: 14px;
+      color: black;
+      margin-bottom: 6px;
+    }
+
+    .editar {
+      margin-left: 10px;
+      font-size: 8px;
+      color: #00CEA0;
+      margin-bottom: 6px;
+    }
+
+    .resultado {
+      font-size: 14px;
+      color: #6C757D;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+    }
+
+    .form-control::placeholder{
+      font-size: 14px ;
+    }
+
+    .obr {
+      color: red;
+      font-size: 20px;
+    }
+
+    .obrinv {
+      color: red;
+      opacity: 0;
+      font-size: 20px;
+    }
+
+    .form-group {
+      padding: 0;
+    }
+
+    .e {
+      margin-right: 8px;
+    }
+
+    .d {
+      margin-left: 8px;
+    }
+
+    .m {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+
+    .cad {
+      background-color: #439AFF;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .env {
+      background-color: #439AFF;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+  }
+
+}

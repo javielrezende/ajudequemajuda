@@ -126,7 +126,7 @@
   .campanhasentidade {
 
     margin: 0 auto;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, 1fr);
     display: grid;
 
     .camp {
@@ -172,7 +172,7 @@
   .eventosentidade {
 
     margin: 0 auto;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, 1fr);
     display: grid;
 
     .event {

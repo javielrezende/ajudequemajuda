@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="row opcoescampanha">
-                    <a href="#" class="col seguircampanha">SEGUIR</a>
+                    <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">SEGUIR</a>
                     <a href="#" class="col doarcampanha">DOAR</a>
                 </div>
             </div>

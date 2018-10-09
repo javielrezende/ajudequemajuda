@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\User;
+use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SiteCampanhaController extends Controller
+class SiteUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +17,7 @@ class SiteCampanhaController extends Controller
      */
     public function index()
     {
-        $campanhas = Campanha::where('status', 1)
-            ->orderBy('destaque', 1)
-            ->orderBy('id', 'desc')
-            ->get();
 
-        return view('site.campanha.campanhas', compact('campanhas'));
     }
 
     /**
@@ -53,12 +49,10 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
-        $registro = Campanha::with('users')
-            ->find($id);
-        //dd($registro->users[0]->endereco->rua);
-        //dd($registro->users[0]->id);
+        $usuario = Auth::user();
 
-        return view('site.campanha.campanha', compact('registro'));
+        //dd($usuario);
+        return view('site.user.cadastrousuario', compact('usuario'));
     }
 
     /**
@@ -94,4 +88,32 @@ class SiteCampanhaController extends Controller
     {
         //
     }
+
+    public function seguirCampanha($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        if(Auth::user()->funcao != 2){
+
+        }
+
+        $usuario = Auth::user()->id;
+        //$usuarioteste = Auth::user()->funcao;
+        //dd($usuarioteste);
+        $campanhaId = Campanha::find($id);
+        $campanha = $campanhaId->id;
+        //dd($campanha->id);
+        //dd($campanha);
+
+        $seguir = UserCampanhaCurtidaInteresse::create(
+            ['users_id' => $usuario,
+                'campanhas_id' => $campanha,
+                'interesse' => 1]
+        );
+
+        dd($usuario, $campanha, $seguir);
+    }
+
 }

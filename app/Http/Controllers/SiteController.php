@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Endereco;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -16,10 +17,18 @@ class SiteController extends Controller
      */
     public function index()
     {
+        /*$logado = 4;
+        if (Auth::check()) {
+            $logado = Auth::user()->funcao;
+        }
+        //dd($logado);*/
+
         $campanhas = Campanha::where('destaque', 1)
             ->where('status', 1)
             ->orderBy('id', 'desc')
             ->get();
+
+        //dd($campanhas);
 
         return view('welcomesite', compact('campanhas'));
     }

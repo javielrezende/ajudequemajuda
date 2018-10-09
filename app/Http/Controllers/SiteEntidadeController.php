@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SiteCampanhaController extends Controller
+class SiteEntidadeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,14 @@ class SiteCampanhaController extends Controller
      */
     public function index()
     {
-        $campanhas = Campanha::where('status', 1)
-            ->orderBy('destaque', 1)
-            ->orderBy('id', 'desc')
-            ->get();
+        /*if(Auth::user()->funcao != 1){
+            return redirect('/aqa');
+        }*/
+        $entidadeLogada = Auth::user();
 
-        return view('site.campanha.campanhas', compact('campanhas'));
+        $campanhas = $entidadeLogada->campanhas;
+
+        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas'));
     }
 
     /**
@@ -53,12 +55,10 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
-        $registro = Campanha::with('users')
-            ->find($id);
-        //dd($registro->users[0]->endereco->rua);
-        //dd($registro->users[0]->id);
+        $entidade = Auth::user();
 
-        return view('site.campanha.campanha', compact('registro'));
+        //dd($entidade);
+        return view('site.entidade.cadastroentidade', compact('entidade'));
     }
 
     /**
@@ -94,4 +94,13 @@ class SiteCampanhaController extends Controller
     {
         //
     }
+
+    /*public function minhasCampanhas()
+    {
+        $entidadeLogada = Auth::user();
+
+        $campanhas = $entidadeLogada->campanhas;
+
+        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
+    }*/
 }

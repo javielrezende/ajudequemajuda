@@ -23,6 +23,17 @@ class CampanhasTableSeeder extends Seeder
         ]);
 
         DB::table('campanhas')->insert([
+            'nome' => 'Doação Tecon 2',
+            'descricao' => 'Doamos brinquedos para crianças',
+            'status' => '1',
+            'destaque' => '1',
+            'dataInicio' => null,
+            'dataFim' => null,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
+
+        DB::table('campanhas')->insert([
             'nome' => 'Doação Yara',
             'descricao' => 'Doamos mantimentos para comida de rua',
             'status' => '1',
