@@ -8,7 +8,7 @@
         <p class="row col-md-12 titulosPrincipais">Minhas Campanhas</p>
         <div class="row imgcampanhas">
 
-                {{dd('teste tela minhas cmapnahs')}}
+                {{--{{dd('teste tela minhas cmapnahs')}}--}}
 
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">

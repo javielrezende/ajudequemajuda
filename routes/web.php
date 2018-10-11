@@ -24,15 +24,16 @@ Route::get('/', function () {
 Route::resource('/aqa', 'SiteController');
 
 Route::resource('/entidade-site', 'SiteEntidadeController');
-Route::resource('/entidade-site/minhas-campanhas', 'SiteEntidadeController@minhasCampanhas');
 
 
 Route::resource('/usuario-site', 'SiteUsuarioController');
 
 Route::resource('/site/campanha', 'SiteCampanhaController');
 Route::resource('/site/campanhas', 'SiteCampanhaController');
+Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
 Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
+Route::resource('/meus-eventos', 'MeusEventosController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
 /**

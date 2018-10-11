@@ -38,10 +38,10 @@
                 <div class="row">
                     <div class="form-group col">
                         <div class="row">
-                            <label for="cpf" class="editarCampo">CPF</label>
+                            <label for="cnpj" class="editarCampo">CNPJ</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado" id="cpf">{{$entidade->cpf}}</p>
+                        <p class="resultado" id="cnpj">{{$entidade->cnpj}}</p>
                     </div>
                 </div>
             </div>
