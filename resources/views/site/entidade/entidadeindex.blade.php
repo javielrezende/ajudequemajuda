@@ -20,7 +20,7 @@
                 </div>
             </a>
 
-            <a href="#" class="precadastrolink">
+            <a href="{{route('meus-eventos.create')}}" class="precadastrolink">
                 <div class="row cadastroimg">
                     <h4 class="nomeopcao">Criar Evento</h4>
                     {{--<p class="mensagemopcao">Cadastre sua entidade e receba auxílio</p>--}}

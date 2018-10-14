@@ -14,6 +14,10 @@ class MinhasCampanhasController extends Controller
      */
     public function index()
     {
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
+
         $entidadeLogada = Auth::user();
 
         $campanhas = $entidadeLogada->campanhas;

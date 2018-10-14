@@ -16,9 +16,10 @@ class SiteEntidadeController extends Controller
      */
     public function index()
     {
-        /*if(Auth::user()->funcao != 1){
-            return redirect('/aqa');
-        }*/
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
+        
         $entidadeLogada = Auth::user();
 
         $campanhas = $entidadeLogada->campanhas;

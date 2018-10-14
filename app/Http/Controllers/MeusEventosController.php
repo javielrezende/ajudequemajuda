@@ -28,7 +28,9 @@ class MeusEventosController extends Controller
      */
     public function create()
     {
-        //
+        $acao = 1;
+
+        return view('site.evento.criar', compact('acao'));
     }
 
     /**

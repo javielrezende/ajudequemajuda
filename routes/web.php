@@ -53,22 +53,6 @@ Route::resource('site/entidades', 'SiteUserController',
     return view('site/evento/evento');
 });*/
 
-/*Route::get('/site/campanhas', function () {
-    return view('site/campanha/campanhas');
-});*/
-
-/*Route::get('/site/campanha', function () {
-    return view('site/campanha/campanha');
-});*/
-
-/*Route::get('/site/entidades', function () {
-    return view('site/entidade/entidades');
-});*/
-
-/*Route::get('/site/entidade', function () {
-    return view('site/entidade/entidade');
-});*/
-
 
 
 

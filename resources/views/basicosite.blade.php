@@ -60,7 +60,7 @@
                             <a class="dropdown-item" href="#">Trocar senha</a>
                             <a class="dropdown-item" href="{{route('minhas-campanhas.index')}}">Minhas Campanhas</a>
                             <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
-                            <a class="dropdown-item" href="#">Doações recebidas</a>
+                            <a class="dropdown-item" href="#">Doações para confirmar</a>
                             <a class="dropdown-item" href="#">Relatórios</a>
                         </div>
                     @else

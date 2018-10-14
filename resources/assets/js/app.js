@@ -5,6 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 // bootstrap
 require('./bootstrap');
 
@@ -16,6 +17,7 @@ require('tempusdominus-bootstrap-4');
 require('jquery/dist/jquery.min');
 require('jquery-mask-plugin/dist/jquery.mask.min');
 require('bootstrap');
+require('tether');
 
 
 // Neste caso é referente ao datepicker para campanhas que nao possuem horario
