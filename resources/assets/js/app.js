@@ -17,7 +17,8 @@ require('tempusdominus-bootstrap-4');
 require('jquery/dist/jquery.min');
 require('jquery-mask-plugin/dist/jquery.mask.min');
 require('bootstrap');
-require('tether');
+//require('tether/dist/js/tether.min');
+
 
 
 // Neste caso é referente ao datepicker para campanhas que nao possuem horario
