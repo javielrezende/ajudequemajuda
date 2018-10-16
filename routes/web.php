@@ -34,6 +34,7 @@ Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
 Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
 Route::resource('/meus-eventos', 'MeusEventosController');
+Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
 /**

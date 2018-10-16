@@ -1,0 +1,121 @@
+.doacaoConfirmar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto 5px;
+  }
+
+  .titulosPrincipais {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .formdoacoesConfirmar {
+    width: 600px;
+    margin-bottom: 350px;
+
+    label {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .form-control::placeholder {
+      font-size: 14px;
+    }
+
+    .obr {
+      color: red;
+      font-size: 20px;
+    }
+
+    .obrinv {
+      color: red;
+      opacity: 0;
+      font-size: 20px;
+    }
+
+    .form-group {
+      padding: 0;
+    }
+
+    .e {
+      margin-right: 8px;
+    }
+
+    .d {
+      margin-left: 8px;
+    }
+
+    .m {
+      margin-left: 35px;
+      //margin-right: 16px;
+      display: flex;
+      align-items: center;
+      margin-bottom: -18px;
+    }
+
+    .urgente {
+      height: 20px;
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    .add {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+    .cad {
+      background-color: #439AFF;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+  }
+
+  .alinhamentoItens {
+    width: 316px;
+    margin-left: 60px;
+  }
+
+  th {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .ur{
+    text-align: center;
+  }
+
+  .ch {
+    text-align: center;
+  }
+
+  .verde {
+    color: #0BA200;
+  }
+
+  .vermelho {
+    color: #C40909;
+  }
+}

@@ -13651,3 +13651,149 @@ body .row {
   margin-bottom: 40px;
 }
 
+.doacaoConfirmar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.doacaoConfirmar .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.doacaoConfirmar .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar {
+  width: 600px;
+  margin-bottom: 350px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar label {
+  font-size: 14px;
+  margin: 0;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .form-control::placeholder {
+  font-size: 14px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .form-group {
+  padding: 0;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .e {
+  margin-right: 8px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .d {
+  margin-left: 8px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .m {
+  margin-left: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: -18px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .urgente {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.doacaoConfirmar .formdoacoesConfirmar .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.doacaoConfirmar .alinhamentoItens {
+  width: 316px;
+  margin-left: 60px;
+}
+
+.doacaoConfirmar th {
+  border-top: none;
+  border-bottom: none;
+}
+
+.doacaoConfirmar .ur {
+  text-align: center;
+}
+
+.doacaoConfirmar .ch {
+  text-align: center;
+}
+
+.doacaoConfirmar .verde {
+  color: #0BA200;
+}
+
+.doacaoConfirmar .vermelho {
+  color: #C40909;
+}
+
