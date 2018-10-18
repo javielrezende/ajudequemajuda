@@ -43,6 +43,11 @@ Route::resource('/faleconosco', 'SiteFaleConoscoController');
 Route::get('/site/campanhas/{campanha}/seguir', 'SiteUsuarioController@seguirCampanha')->name('seguir-campanha');
 
 /**
+ * Rota para envio de email
+ */
+Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
+
+/**
  * Renomeado como entidades para não conflitar com a rota de entidades
  * do admin.
  * Para chamar essa rota utiliza-se entidades.entidades.'o metodo que se quer chamar dentro da rota'
