@@ -46,13 +46,13 @@
                 <div class="row">
                     <div class="form-group col">
                         <label for="item">Novo ítem <span class="obr">*</span></label>
-                        <input type="text" class="form-control" id="item" name="item"
+                        <input type="text" class="form-control" id="inItem" name="item"
                                placeholder="O que deseja receber na campanha..." required>
                     </div>
 
                     <div class="form-group col m">
                         <input style="height: 20px; width: 20px; margin-right: 8px; background-color: white"
-                               id="urgente" type="checkbox" class="form-control"
+                               id="inUrgente" type="checkbox" class="form-control"
                                name="urgente"
                                value={{1}}>
                         <label for="urgente">Urgente</label>
@@ -60,7 +60,7 @@
 
                     <div class="form-group col">
                         <label for="quantidade">Quantidade <span class="obr">*</span></label>
-                        <input type="number" class="form-control" id="quantidade" name="quantidade"
+                        <input type="number" class="form-control" id="inQuantidade" name="quantidade"
                                placeholder="Ex.: 999" required>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <button type="button" class="btn add">Adicionar</button>
+                        <button type="button" id="btAdicionar" class="btn add">Adicionar</button>
                     </div>
                 </div>
             </div>
@@ -124,4 +124,5 @@
             </table>
         </div>
     </div>
+    <script src="criarCampanha.js"></script>
 @endsection

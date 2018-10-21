@@ -61,7 +61,7 @@
                             <a class="dropdown-item" href="{{route('minhas-campanhas.index')}}">Minhas Campanhas</a>
                             <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
                             <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para confirmar</a>
-                            <a class="dropdown-item" href="#">Relatórios</a>
+                            <a class="dropdown-item" href="{{route('relatorios.index')}}">Relatórios</a>
                         </div>
                     @else
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

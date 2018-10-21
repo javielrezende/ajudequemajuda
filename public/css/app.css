@@ -13797,3 +13797,230 @@ body .row {
   color: #C40909;
 }
 
+.criarEvento .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.criarEvento .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.criarEvento .explicacao {
+  color: #8A8A8A;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.criarEvento .formcriarEvento {
+  width: 620px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.criarEvento .formcriarEvento label {
+  font-size: 14px;
+}
+
+.criarEvento .formcriarEvento .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.criarEvento .formcriarEvento .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.criarEvento .formcriarEvento .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.criarEvento .formcriarEvento .form-control::placeholder {
+  font-size: 14px;
+}
+
+.criarEvento .formcriarEvento .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.criarEvento .formcriarEvento .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.criarEvento .formcriarEvento .form-group {
+  padding: 0;
+}
+
+.criarEvento .formcriarEvento .e {
+  margin-right: 8px;
+}
+
+.criarEvento .formcriarEvento .d {
+  margin-left: 8px;
+}
+
+.criarEvento .formcriarEvento .m {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.criarEvento .formcriarEvento .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.criarEvento .formcriarEvento th {
+  border-top: none;
+  border-bottom: none;
+}
+
+.criarEvento .formcriarEvento .ur {
+  text-align: center;
+}
+
+.criarEvento .formcriarEvento .ch {
+  text-align: center;
+}
+
+.criarEvento .formcriarEvento .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.criarEvento .formcriarEvento .t1 {
+  margin-bottom: 80px;
+}
+
+.criarEvento .formcriarEvento .resul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0;
+}
+
+.criarEvento .formcriarEvento .esquerda {
+  width: 186px;
+  height: 108px;
+  background-color: #F2F2F2;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.criarEvento .formcriarEvento .meio {
+  width: 186px;
+  height: 108px;
+  background-color: #F2F2F2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.criarEvento .formcriarEvento .direita {
+  width: 186px;
+  height: 108px;
+  background-color: #F2F2F2;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.criarEvento .formcriarEvento .resultNome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.criarEvento .formcriarEvento .nums {
+  font-size: 46px;
+  color: #8A8A8A;
+  font-weight: bold;
+}
+
+.criarEvento .formcriarEvento .nomesRelaEsquerda {
+  font-size: 12px;
+  color: #8A8A8A;
+  margin-bottom: 50px;
+  width: 186px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.criarEvento .formcriarEvento .nomesRelaMeio {
+  font-size: 12px;
+  color: #8A8A8A;
+  margin-bottom: 50px;
+  width: 186px;
+  text-align: center;
+}
+
+.criarEvento .formcriarEvento .nomesRelaDireita {
+  font-size: 12px;
+  color: #8A8A8A;
+  margin-bottom: 50px;
+  width: 186px;
+  margin-left: 10px;
+  text-align: center;
+}
+

@@ -25,7 +25,6 @@ Route::resource('/aqa', 'SiteController');
 
 Route::resource('/entidade-site', 'SiteEntidadeController');
 
-
 Route::resource('/usuario-site', 'SiteUsuarioController');
 
 Route::resource('/site/campanha', 'SiteCampanhaController');
@@ -35,6 +34,7 @@ Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
 Route::resource('/meus-eventos', 'MeusEventosController');
 Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
+Route::resource('/relatorios', 'RelatorioController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
 /**
