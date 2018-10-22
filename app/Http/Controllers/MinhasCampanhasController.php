@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campanha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +58,18 @@ class MinhasCampanhasController extends Controller
      */
     public function show($id)
     {
-        //
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
+
+        $entidade = Auth::user();
+
+        $campanha = Campanha::with('users')
+            ->find($id);
+
+        //dd($campanha);
+
+        return view('site.campanha.cadastroCampanhas', compact('entidade', 'campanha'));
     }
 
     /**

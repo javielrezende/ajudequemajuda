@@ -14024,3 +14024,265 @@ body .row {
   text-align: center;
 }
 
+.editarCampanha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.editarCampanha .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.editarCampanha .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.editarCampanha .geraleditor {
+  width: 475px;
+}
+
+.editarCampanha .geraleditor .editarCampo {
+  font-size: 14px;
+  color: black;
+  margin-bottom: 6px;
+}
+
+.editarCampanha .geraleditor .editar {
+  margin-left: 10px;
+  font-size: 8px;
+  color: #00CEA0;
+  margin-bottom: 6px;
+}
+
+.editarCampanha .geraleditor .resultado {
+  font-size: 14px;
+  color: #6C757D;
+  margin-bottom: 25px;
+}
+
+.editarCampanha .geraleditor label {
+  font-size: 14px;
+  margin: 0;
+}
+
+.editarCampanha .geraleditor .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.editarCampanha .geraleditor .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.editarCampanha .geraleditor .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.editarCampanha .geraleditor .form-control::placeholder {
+  font-size: 14px;
+}
+
+.editarCampanha .geraleditor .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.editarCampanha .geraleditor .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.editarCampanha .geraleditor .form-group {
+  padding: 0;
+}
+
+.editarCampanha .geraleditor .e {
+  margin-right: 8px;
+}
+
+.editarCampanha .geraleditor .d {
+  margin-left: 8px;
+}
+
+.editarCampanha .geraleditor .m {
+  margin-left: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: -18px;
+}
+
+.editarCampanha .geraleditor .urgente {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+}
+
+.editarCampanha .geraleditor .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.editarCampanha .geraleditor .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.editarCampanha .alinhamentoItens {
+  width: 316px;
+  margin-left: 60px;
+}
+
+.editarCampanha th {
+  border-top: none;
+  border-bottom: none;
+}
+
+.editarCampanha .ur {
+  text-align: center;
+}
+
+.editarCampanha .ch {
+  text-align: center;
+}
+
+.editarCampanha .b {
+  padding-right: 40px;
+}
+
+.editarCampanha .addB {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.final {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.final .b {
+  padding-right: 40px;
+}
+
+.final .addB {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.final .titulosPrincipais {
+  color: #4D4F5C;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.final .finalCurtidas {
+  width: 475px;
+  height: auto;
+}
+
+.final .finalCurtidas .qnt {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.final .finalCurtidas .imgcurtidas {
+  margin-right: 25px;
+}
+
+.final .finalCurtidas .imgcurtidas .imgperfilref {
+  width: 50px;
+  height: auto;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.final .finalCurtidas .imgcurtidas .imgperfilref:last-child {
+  margin-bottom: 25px;
+}
+
+.final .finalComentarios {
+  width: 475px;
+}
+
+.final .finalComentarios .titulosPrincipais {
+  color: #4D4F5C;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.final .finalComentarios .imgcurtidas {
+  margin-right: 25px;
+}
+
+.final .finalComentarios .imgcurtidas .imgperfilref {
+  width: 50px;
+  height: auto;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.final .finalComentarios .imgcurtidas .imgperfilref:last-child {
+  margin-bottom: 25px;
+}
+

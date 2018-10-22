@@ -23,8 +23,9 @@
                             <p class="numlike">999</p>
                             <i class="far fa-thumbs-down"></i>
                             <p class="numlike">999</p>
-                            <a href="{{route('campanha.show', $campanha->id)}}" class="saibamaiscampanhas">Saiba
-                                mais</a>
+                            <a href=" {{route('minhas-campanhas.show', $campanha->id)}} " class="saibamaiscampanhas">Saiba
+                                mais
+                            </a>
                         </div>
                     </div>
                 </div>
