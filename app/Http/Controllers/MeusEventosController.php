@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,7 +53,19 @@ class MeusEventosController extends Controller
      */
     public function show($id)
     {
-        //
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
+
+        $entidade = Auth::user();
+
+        $evento = Evento::with('campanhas')
+            ->find($id);
+
+        //dd($evento->enderecos->cep);
+        //dd($evento->campanhas->nome);
+
+        return view('site.evento.cadastroEventos', compact('evento', 'entidade'));
     }
 
     /**

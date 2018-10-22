@@ -18,7 +18,7 @@
                             <h4 class="nomeeventos">{{$evento->nome}}</h4>
                             <p class="dataeventos"><b>Dia: </b>{{$evento->dataHoraInicio}}</p>
                             <p class="descricaoeventos">{{$evento->descricao}}</p>
-                            <a href="{{ route('evento.show', $evento->id) }}"
+                            <a href=" {{route('meus-eventos.show', $evento->id)}} "
                                class=" align-content-end saibamaiseventos">Saiba
                                 mais</a>
                         </div>

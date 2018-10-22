@@ -14180,21 +14180,6 @@ body .row {
   text-align: center;
 }
 
-.editarCampanha .b {
-  padding-right: 40px;
-}
-
-.editarCampanha .addB {
-  background-color: #F1F1F1;
-  padding: 6px;
-  padding-left: 18px;
-  padding-right: 18px;
-  border-radius: 20px;
-  font-size: 10px;
-  color: #4D4F5C;
-  margin-bottom: 10px;
-}
-
 .final {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14210,7 +14195,7 @@ body .row {
 }
 
 .final .b {
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
 .final .addB {
@@ -14284,5 +14269,119 @@ body .row {
 
 .final .finalComentarios .imgcurtidas .imgperfilref:last-child {
   margin-bottom: 25px;
+}
+
+.editarEvento .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.editarEvento .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.editarEvento .explicacao {
+  color: #8A8A8A;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.editarEvento .geralEditor {
+  width: 620px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.editarEvento .geralEditor .editarCampo {
+  font-size: 14px;
+  color: black;
+  margin-bottom: 6px;
+}
+
+.editarEvento .geralEditor .editar {
+  margin-left: 10px;
+  font-size: 8px;
+  color: #00CEA0;
+  margin-bottom: 6px;
+}
+
+.editarEvento .geralEditor .resultado {
+  font-size: 14px;
+  color: #6C757D;
+  margin-bottom: 25px;
+}
+
+.editarEvento .geralEditor label {
+  font-size: 14px;
+}
+
+.editarEvento .geralEditor .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.editarEvento .geralEditor .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.editarEvento .geralEditor .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.editarEvento .geralEditor .form-control::placeholder {
+  font-size: 14px;
+}
+
+.editarEvento .geralEditor .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.editarEvento .geralEditor .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.editarEvento .geralEditor .form-group {
+  padding: 0;
+}
+
+.editarEvento .geralEditor .e {
+  margin-right: 8px;
+}
+
+.editarEvento .geralEditor .d {
+  margin-left: 8px;
+}
+
+.editarEvento .geralEditor .m {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.editarEvento .geralEditor .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
 }
 

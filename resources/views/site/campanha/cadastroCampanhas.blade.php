@@ -3,7 +3,6 @@
 
 @section('content')
 
-
     <div class="row editarCampanha">
         <a href="{{url('/entidade-site')}}" class="linkReturn">HOME</a>
 

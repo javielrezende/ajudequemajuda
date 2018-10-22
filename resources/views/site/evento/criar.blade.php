@@ -25,18 +25,40 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col e">
-                        <label for="dataInicio">Data inicial</label>
+                        <label for="dataHoraInicio">Data inicial</label>
                         <div class="input-group date">
-                            <input autocomplete="off" type="text" class="form-control" id="dataInicio"
-                                   name="dataInicio">
+                            <input autocomplete="off" type="text" class="form-control" id="dataHoraInicio"
+                                   name="dataHoraInicio">
                         </div>
                     </div>
 
                     <div class="form-group col d">
-                        <label for="dataFim">Data final</label>
+                        <label for="dataHoraFim">Data final</label>
                         <div class="input-group date">
-                            <input autocomplete="off" type="text" class="form-control" id="dataFim"
-                                   name="dataFim">
+                            <input autocomplete="off" type="text" class="form-control" id="dataHoraFim"
+                                   name="dataHoraFim">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col e">
+                        <label for="dataHoraInicio1">Hora inicial</label>
+                        <div class="input-group date">
+                            <input autocomplete="off" type="text" class="form-control datetimepicker-input"
+                                   data-toggle="datetimepicker" data-target="#dataHoraInicio1" id="dataHoraInicio1"
+                                   name="dataHoraInicio1">
+                        </div>
+                    </div>
+
+                    <div class="form-group col d">
+                        <label for="dataHoraFim1">Hora final</label>
+                        <div class="input-group date">
+                            <input autocomplete="off" type="text" class="form-control datetimepicker-input"
+                                   data-toggle="datetimepicker" data-target="#dataHoraFim1" id="dataHoraFim1"
+                                   name="dataHoraFim1">
                         </div>
                     </div>
                 </div>
