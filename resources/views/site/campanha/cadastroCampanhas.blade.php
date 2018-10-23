@@ -125,9 +125,36 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="container b">
+            <div class="container">
                 <div class="row justify-content-end">
-                    <button type="button" id="btAdicionar" class="btn addB">Enviar e-mail para seguidores</button>
+                    <button type="button" class="btn addB" data-toggle="modal" data-target="#modalEmailCenter">Enviar
+                        e-mail para seguidores
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalEmailCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="modalEmailCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="modalEmailCenterTitle">Mensagem</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea id="mensagem" rows="6" class="form-control"
+                                              placeholder="Escreva o que os seguidores irão receber no corpo do e-mail..."
+                                              name="mensagem"></textarea>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn addS" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn addB">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,8 +188,8 @@
             </div>
             <div class="container b">
                 <div class="row justify-content-end">
-                        <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
-                   </div>
+                    <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
+                </div>
             </div>
         </div>
 
@@ -192,8 +219,8 @@
             </div>
             <div class="container b">
                 <div class="row justify-content-end">
-                        <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
-                    </div>
+                    <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
+                </div>
             </div>
 
 

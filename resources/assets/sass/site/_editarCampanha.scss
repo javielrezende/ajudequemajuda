@@ -114,6 +114,34 @@
   .alinhamentoItens {
     width: 316px;
     margin-left: 60px;
+
+    .b {
+      padding-right: 20px;
+    }
+
+    .addB {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+    .addS {
+      background-color: white;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+
   }
 
   th {
