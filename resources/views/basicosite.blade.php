@@ -57,7 +57,7 @@
                             <a class="dropdown-item"
                                href=" {{route('entidade-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
-                            <a class="dropdown-item" href="#">Trocar senha</a>
+                            <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
                             <a class="dropdown-item" href="{{route('minhas-campanhas.index')}}">Minhas Campanhas</a>
                             <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
                             <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para confirmar</a>
@@ -68,7 +68,7 @@
                             <a class="dropdown-item"
                                href=" {{route('usuario-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
-                            <a class="dropdown-item" href="#">Trocar senha</a>
+                            <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
                             <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas interessantes</a>
                             <a class="dropdown-item" href="#">Doações efetuadas</a>
                         </div>

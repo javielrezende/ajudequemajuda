@@ -38,6 +38,7 @@ Route::resource('/relatorios', 'RelatorioController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
 Route::resource('/campanhas-interessantes', 'CampanhasInteressantesController');
+Route::resource('/alterar-senha', 'TrocarSenhaController');
 
 /**
  * Rota para seguir uma campanha
