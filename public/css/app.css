@@ -14411,3 +14411,337 @@ body .row {
   margin-bottom: 40px;
 }
 
+.usuarioindex .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 35px;
+}
+
+.usuarioindex .titulosPrincipais1 {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.usuarioindex .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.usuarioindex .imgcampanhas {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
+.usuarioindex .divcampanhas {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0.21);
+  border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas h6 {
+  font-size: 14px;
+  font-style: italic;
+  color: #4D4F5C;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas .descricaocampanhas {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas .numlike {
+  margin-left: -30px;
+  font-size: 12px;
+  color: #4D4F5C;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas .saibamaiscampanhas {
+  font-size: 10px;
+  color: #4D4F5C;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.usuarioindex .divcampanhas .observacoescampanhas .datacampanhas {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.usuarioindex .imgeventos {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
+.usuarioindex .diveventos {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0.21);
+  border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
+}
+
+.usuarioindex .diveventos .observacoeseventos {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.usuarioindex .diveventos .observacoeseventos p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.usuarioindex .diveventos .observacoeseventos a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.usuarioindex .diveventos .observacoeseventos h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.usuarioindex .diveventos .observacoeseventos .descricaoeventos {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.usuarioindex .diveventos .observacoeseventos .saibamaiseventos {
+  font-size: 10px;
+  margin-left: auto;
+  color: #4D4F5C;
+  float: right;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.usuarioindex .diveventos .observacoeseventos .dataeventos {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
+  color: #4D4F5C;
+}
+
+.campanhasInteressantes .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 35px;
+}
+
+.campanhasInteressantes .titulosPrincipais1 {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.campanhasInteressantes .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.campanhasInteressantes .imgcampanhas {
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 50%);
+  display: grid;
+}
+
+.campanhasInteressantes .divcampanhas {
+  width: 475px;
+  height: 264px;
+  border-width: 1px;
+  border-color: rgba(202, 206, 213, 0.21);
+  border-style: solid;
+  -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+          box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
+  margin: 15px;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas p {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas a {
+  margin: 0;
+  color: #8A8A8A;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4D4F5C;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas h6 {
+  font-size: 14px;
+  font-style: italic;
+  color: #4D4F5C;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas .descricaocampanhas {
+  font-size: 12px;
+  width: 280px;
+  height: 130px;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas .like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas .numlike {
+  margin-left: -30px;
+  font-size: 12px;
+  color: #4D4F5C;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas .saibamaiscampanhas {
+  font-size: 10px;
+  color: #4D4F5C;
+  text-decoration: none;
+  background-color: #F1F1F1;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+
+.campanhasInteressantes .divcampanhas .observacoescampanhas .datacampanhas {
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0;
+}
+

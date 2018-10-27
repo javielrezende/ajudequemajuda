@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
@@ -17,7 +18,19 @@ class SiteUsuarioController extends Controller
      */
     public function index()
     {
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
 
+        $usuario = Auth::user();
+
+        $campanhas = Campanha::where('status', 1)
+        ->get();
+
+        $eventos = Evento::where('status', 1)
+            ->get();
+
+        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos'));
     }
 
     /**

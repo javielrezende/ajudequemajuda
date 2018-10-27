@@ -69,7 +69,7 @@
                                href=" {{route('usuario-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
                             <a class="dropdown-item" href="#">Trocar senha</a>
-                            <a class="dropdown-item" href="#">Campanhas interessantes</a>
+                            <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas interessantes</a>
                             <a class="dropdown-item" href="#">Doações efetuadas</a>
                         </div>
                     @endif

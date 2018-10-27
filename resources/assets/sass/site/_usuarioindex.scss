@@ -1,0 +1,190 @@
+.usuarioindex {
+
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto 35px;
+  }
+
+  .titulosPrincipais1 {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .titulosPrincipais {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .imgcampanhas {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    display: grid;
+  }
+
+  .divcampanhas {
+    width: 475px;
+    height: 264px;
+    border-width: 1px;
+    border-color: rgba(202, 206, 213, .21);
+    border-style: solid;
+    box-shadow: 3px 3px rgba(0, 0, 0, .03);
+    margin: 15px;
+
+    .observacoescampanhas {
+      margin-left: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px 0;
+      justify-content: space-around;
+
+      p {
+        margin: 0;
+        color: #8A8A8A;
+      }
+
+      a {
+        margin: 0;
+        color: #8A8A8A;
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4D4F5C;
+      }
+
+      h6 {
+        font-size: 14px;
+        font-style: italic;
+        color: #4D4F5C;
+      }
+
+      .descricaocampanhas {
+        font-size: 12px;
+        width: 280px;
+        height: 130px;
+        //margin-top: 15px;
+      }
+
+      .like {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .numlike {
+        margin-left: -30px;
+        font-size: 12px;
+        color: #4D4F5C;
+      }
+
+      .saibamaiscampanhas {
+        font-size: 10px;
+        //margin-top: 5px;
+        //margin-left: auto;
+        color: #4D4F5C;
+        //margin-left: 150px;
+        //float: right;
+        text-decoration: none;
+        background-color: #F1F1F1;
+        padding: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+      }
+
+      .datacampanhas {
+        font-size: 12px;
+        font-style: italic;
+        margin: 10px 0;
+      }
+
+    }
+  }
+
+  .imgeventos {
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 50%);
+    display: grid;
+  }
+
+  .diveventos {
+    width: 475px;
+    height: 264px;
+    border-width: 1px;
+    border-color: rgba(202, 206, 213, .21);
+    border-style: solid;
+    box-shadow: 3px 3px rgba(0, 0, 0, .03);
+    margin: 15px;
+
+    .observacoeseventos {
+      margin-left: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px 0;
+
+      p {
+        margin: 0;
+        color: #8A8A8A;
+      }
+
+      a {
+        margin: 0;
+        color: #8A8A8A;
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4D4F5C;
+      }
+
+      .descricaoeventos {
+        font-size: 12px;
+        width: 280px;
+        height: 130px;
+      }
+
+      .saibamaiseventos {
+        font-size: 10px;
+        //margin-top: 5px;
+        margin-left: auto;
+        color: #4D4F5C;
+        //margin-left: 150px;
+        float: right;
+        text-decoration: none;
+        background-color: #F1F1F1;
+        padding: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+      }
+
+      .dataeventos {
+        font-size: 12px;
+        font-style: italic;
+        margin: 10px 0;
+        color: #4D4F5C;
+      }
+
+    }
+  }
+
+}
+

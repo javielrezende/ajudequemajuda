@@ -37,6 +37,8 @@ Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
 Route::resource('/relatorios', 'RelatorioController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
+Route::resource('/campanhas-interessantes', 'CampanhasInteressantesController');
+
 /**
  * Rota para seguir uma campanha
  */
