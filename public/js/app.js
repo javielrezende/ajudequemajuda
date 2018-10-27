@@ -27555,6 +27555,8 @@ __webpack_require__(159);
 __webpack_require__(160);
 __webpack_require__(162);
 __webpack_require__(163);
+//require('tether/dist/js/tether.min');
+
 
 // Neste caso é referente ao datepicker para campanhas que nao possuem horario
 __webpack_require__(164);

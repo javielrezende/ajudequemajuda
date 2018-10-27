@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
-use App\Evento;
-use App\User;
-use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SiteUsuarioController extends Controller
+class MinhasCampanhasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,15 +19,11 @@ class SiteUsuarioController extends Controller
             return redirect()->to(url('/aqa-login'));
         }
 
-        $usuario = Auth::user();
+        $entidadeLogada = Auth::user();
 
-        $campanhas = Campanha::where('status', 1)
-        ->get();
+        $campanhas = $entidadeLogada->campanhas;
 
-        $eventos = Evento::where('status', 1)
-            ->get();
-
-        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos'));
+        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
     }
 
     /**
@@ -40,13 +33,16 @@ class SiteUsuarioController extends Controller
      */
     public function create()
     {
-        //
+        $acao = 1;
+
+        return view('site.campanha.criar', compact('acao'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -57,21 +53,29 @@ class SiteUsuarioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $usuario = Auth::user();
+        if(!Auth::check()){
+            return redirect()->to(url('/aqa-login'));
+        }
 
-        //dd($usuario);
-        return view('site.user.cadastrousuario', compact('usuario'));
+        $entidade = Auth::user();
+
+        $campanha = Campanha::with('users')
+            ->find($id);
+
+        //dd($campanha);
+
+        return view('site.campanha.cadastroCampanhas', compact('entidade', 'campanha'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -82,8 +86,8 @@ class SiteUsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,39 +98,11 @@ class SiteUsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
-
-    public function seguirCampanha($id)
-    {
-        if (!Auth::check()) {
-            return redirect('/aqa-login');
-        }
-
-        if(Auth::user()->funcao != 2){
-
-        }
-
-        $usuario = Auth::user()->id;
-        //$usuarioteste = Auth::user()->funcao;
-        //dd($usuarioteste);
-        $campanhaId = Campanha::find($id);
-        $campanha = $campanhaId->id;
-        //dd($campanha->id);
-        //dd($campanha);
-
-        $seguir = UserCampanhaCurtidaInteresse::create(
-            ['users_id' => $usuario,
-                'campanhas_id' => $campanha,
-                'interesse' => 1]
-        );
-
-        dd($usuario, $campanha, $seguir);
-    }
-
 }

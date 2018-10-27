@@ -24,21 +24,31 @@ Route::get('/', function () {
 Route::resource('/aqa', 'SiteController');
 
 Route::resource('/entidade-site', 'SiteEntidadeController');
-Route::resource('/entidade-site/minhas-campanhas', 'SiteEntidadeController@minhasCampanhas');
-
 
 Route::resource('/usuario-site', 'SiteUsuarioController');
 
 Route::resource('/site/campanha', 'SiteCampanhaController');
 Route::resource('/site/campanhas', 'SiteCampanhaController');
+Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
 Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
+Route::resource('/meus-eventos', 'MeusEventosController');
+Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
+Route::resource('/relatorios', 'RelatorioController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
+
+Route::resource('/campanhas-interessantes', 'CampanhasInteressantesController');
+Route::resource('/alterar-senha', 'TrocarSenhaController');
 
 /**
  * Rota para seguir uma campanha
  */
 Route::get('/site/campanhas/{campanha}/seguir', 'SiteUsuarioController@seguirCampanha')->name('seguir-campanha');
+
+/**
+ * Rota para envio de email
+ */
+Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
 
 /**
  * Renomeado como entidades para não conflitar com a rota de entidades
@@ -50,22 +60,6 @@ Route::resource('site/entidades', 'SiteUserController',
 
 /*Route::get('/site/evento', function () {
     return view('site/evento/evento');
-});*/
-
-/*Route::get('/site/campanhas', function () {
-    return view('site/campanha/campanhas');
-});*/
-
-/*Route::get('/site/campanha', function () {
-    return view('site/campanha/campanha');
-});*/
-
-/*Route::get('/site/entidades', function () {
-    return view('site/entidade/entidades');
-});*/
-
-/*Route::get('/site/entidade', function () {
-    return view('site/entidade/entidade');
 });*/
 
 

@@ -57,18 +57,19 @@
                             <a class="dropdown-item"
                                href=" {{route('entidade-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
-                            <a class="dropdown-item" href="#">Trocar senha</a>
-                            <a class="dropdown-item" href="{{url('entidade-site/minhas-campanhas')}}">Minhas Campanhas</a>
-                            <a class="dropdown-item" href="#">Doações recebidas</a>
-                            <a class="dropdown-item" href="#">Relatórios</a>
+                            <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
+                            <a class="dropdown-item" href="{{route('minhas-campanhas.index')}}">Minhas Campanhas</a>
+                            <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
+                            <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para confirmar</a>
+                            <a class="dropdown-item" href="{{route('relatorios.index')}}">Relatórios</a>
                         </div>
                     @else
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item"
                                href=" {{route('usuario-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
-                            <a class="dropdown-item" href="#">Trocar senha</a>
-                            <a class="dropdown-item" href="#">Campanhas interessantes</a>
+                            <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
+                            <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas interessantes</a>
                             <a class="dropdown-item" href="#">Doações efetuadas</a>
                         </div>
                     @endif
@@ -108,6 +109,8 @@
 
 </div>
 <!-- Scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

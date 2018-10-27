@@ -1,0 +1,250 @@
+.editarCampanha {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+  .linkReturn {
+    text-decoration: underline;
+    font-size: 10px;
+    font-weight: bold;
+    color: #439AFF;
+    margin: 40px auto 5px;
+  }
+
+  .titulosPrincipais {
+    justify-content: center;
+    color: #4D4F5C;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .geraleditor {
+    width: 475px;
+
+    .editarCampo {
+      font-size: 14px;
+      color: black;
+      margin-bottom: 6px;
+    }
+
+    .editar {
+      margin-left: 10px;
+      font-size: 8px;
+      color: #00CEA0;
+      margin-bottom: 6px;
+    }
+
+    .resultado {
+      font-size: 14px;
+      color: #6C757D;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .form-control::placeholder {
+      font-size: 14px;
+    }
+
+    .obr {
+      color: red;
+      font-size: 20px;
+    }
+
+    .obrinv {
+      color: red;
+      opacity: 0;
+      font-size: 20px;
+    }
+
+    .form-group {
+      padding: 0;
+    }
+
+    .e {
+      margin-right: 8px;
+    }
+
+    .d {
+      margin-left: 8px;
+    }
+
+    .m {
+      margin-left: 35px;
+      //margin-right: 16px;
+      display: flex;
+      align-items: center;
+      margin-bottom: -18px;
+    }
+
+    .urgente {
+      height: 20px;
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    .add {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+    .cad {
+      background-color: #439AFF;
+      padding: 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: white;
+      margin-bottom: 40px;
+    }
+  }
+
+  .alinhamentoItens {
+    width: 316px;
+    margin-left: 60px;
+
+    .b {
+      padding-right: 20px;
+    }
+
+    .addB {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+    .addS {
+      background-color: white;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+    }
+
+
+  }
+
+  th {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .ur {
+    text-align: center;
+  }
+
+  .ch {
+    text-align: center;
+  }
+}
+
+.final {
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+
+  .b {
+    padding-right: 20px;
+  }
+
+  .addB {
+    background-color: #F1F1F1;
+    padding: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 20px;
+    font-size: 10px;
+    color: #4D4F5C;
+    margin-bottom: 10px;
+  }
+
+
+  .titulosPrincipais {
+    //justify-content: center;
+    color: #4D4F5C;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .finalCurtidas {
+    width: 475px;
+    height: auto;
+
+    .qnt {
+      font-size: 18px;
+      font-weight: lighter;
+    }
+
+    .imgcurtidas {
+
+      margin-right: 25px;
+      .imgperfilref {
+        width: 50px;
+        height: auto;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-top: 5px;
+
+      }
+
+      .imgperfilref:last-child {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .finalComentarios {
+    width: 475px;
+    //height: 264px;
+
+    .titulosPrincipais {
+      //justify-content: center;
+      color: #4D4F5C;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .imgcurtidas {
+
+      margin-right: 25px;
+      .imgperfilref {
+        width: 50px;
+        height: auto;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+
+      .imgperfilref:last-child {
+        margin-bottom: 25px;
+      }
+    }
+
+  }
+}

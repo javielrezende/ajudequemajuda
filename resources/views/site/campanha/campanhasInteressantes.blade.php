@@ -2,13 +2,17 @@
 @extends('basicosite')
 
 @section('content')
+    <div class="row campanhasInteressantes">
 
-    <div class="row sitecampanhas">
-        <a href="{{url('/entidade-site')}}" class="linkReturn">HOME</a>
-        <p class="row col-md-12 titulosPrincipais">Minhas Campanhas</p>
+        <div class="container">
+            <div class="row">
+                <a href="{{url('/usuario-site')}}" class="linkReturn">HOME</a>
+            </div>
+        </div>
+
+        <p class="row col-md-12 titulosPrincipais">Campanhas Interessantes</p>
+
         <div class="row imgcampanhas">
-
-                {{--{{dd('teste tela minhas cmapnahs')}}--}}
 
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
@@ -23,20 +27,16 @@
                             <p class="numlike">999</p>
                             <i class="far fa-thumbs-down"></i>
                             <p class="numlike">999</p>
-                            <a href=" {{route('minhas-campanhas.show', $campanha->id)}} " class="saibamaiscampanhas">Saiba
-                                mais
-                            </a>
+                            <a href="{{route('campanha.show', $campanha->id)}}" class="saibamaiscampanhas">Saiba
+                                mais</a>
                         </div>
                     </div>
                 </div>
             @endforeach
 
-
         </div>
 
     </div>
-
-
 
 
 

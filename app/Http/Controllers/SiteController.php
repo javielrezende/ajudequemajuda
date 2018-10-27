@@ -17,11 +17,14 @@ class SiteController extends Controller
      */
     public function index()
     {
-        /*$logado = 4;
-        if (Auth::check()) {
-            $logado = Auth::user()->funcao;
+        //dd(Auth::user());
+        if(Auth::check() && Auth::user()->funcao == 1) {
+            return redirect()->to(url('/entidade-site'));
         }
-        //dd($logado);*/
+
+        if(Auth::check() && Auth::user()->funcao == 0) {
+            return redirect()->to(url('/usuario-site'));
+        }
 
         $campanhas = Campanha::where('destaque', 1)
             ->where('status', 1)

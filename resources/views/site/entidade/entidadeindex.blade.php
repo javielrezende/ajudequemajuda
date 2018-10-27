@@ -13,14 +13,14 @@
 
         <div class="row escolhaCampanhaEvento">
 
-            <a href="#" class="precadastrolink">
+            <a href="{{route('minhas-campanhas.create')}}" class="precadastrolink">
                 <div class="row doarimg">
                     <h4 class="nomeopcao">Criar Campanha</h4>
                     {{--<p class="mensagemopcao">Ajude instituições com suprimentos</p>--}}
                 </div>
             </a>
 
-            <a href="#" class="precadastrolink">
+            <a href="{{route('meus-eventos.create')}}" class="precadastrolink">
                 <div class="row cadastroimg">
                     <h4 class="nomeopcao">Criar Evento</h4>
                     {{--<p class="mensagemopcao">Cadastre sua entidade e receba auxílio</p>--}}
@@ -28,14 +28,13 @@
             </a>
         </div>
 
+        <p class="row col-md-12 titulosPrincipais1"><a href="/enviar-email">Enviar E-mail</a></p>
+
         <p class="row col-md-12 titulosPrincipais1">Últimas atualizações</p>
 
         <p class="row col-md-12 titulosPrincipais">Campanhas</p>
 
 
-        {{--<div class="row sitecampanhas">
-            <a href="{{url('/aqa')}}" class="linkReturn">HOME</a>
-            <p class="row col-md-12 titulosPrincipais">Campanhas</p>--}}
         <div class="row imgcampanhas">
 
             @foreach($campanhas as $campanha)
