@@ -105,7 +105,18 @@ Route::get('/admin', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
+//com acl para soente adm entrar no admin
+/*Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
+    Route::resource('/eventos', 'EventoController');
+    Route::resource('/itens', 'ItemController');
+    Route::resource('/entidades', 'EntidadeController');
+    Route::resource('/users', 'UserController');
+    Route::resource('/campanhas', 'CampanhaController');
+    Route::resource('/faleconoscoadmin', 'FaleConoscoController');
+});*/
+
+//sem acl para soente adm entrar no admin
+Route::group(['prefix' => '/admin'], function (){
     Route::resource('/eventos', 'EventoController');
     Route::resource('/itens', 'ItemController');
     Route::resource('/entidades', 'EntidadeController');
