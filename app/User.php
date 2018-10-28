@@ -27,7 +27,7 @@ class User extends Authenticatable
     }
 
     public function campanhas(){
-        return $this->belongsToMany('App\Campanha', 'user_campanha_curtida_interesses', 'users_id', 'campanhas_id');
+        return $this->belongsToMany('App\Campanha', 'user_campanhas', 'users_id', 'campanhas_id');
     }
 
     public function users(){

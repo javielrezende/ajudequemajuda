@@ -8,6 +8,7 @@ use App\User;
 use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class SiteUsuarioController extends Controller
 {
@@ -108,8 +109,11 @@ class SiteUsuarioController extends Controller
             return redirect('/aqa-login');
         }
 
-        if(Auth::user()->funcao != 2){
+        //dd(Auth::user()->funcao);
 
+        if(Auth::check() && (Auth::user()->funcao != 0)){
+            dd('Não é possivel curtir sem ser um Usuário!');
+            return redirect()->back();
         }
 
         $usuario = Auth::user()->id;
@@ -120,13 +124,17 @@ class SiteUsuarioController extends Controller
         //dd($campanha->id);
         //dd($campanha);
 
-        $seguir = UserCampanhaCurtidaInteresse::create(
-            ['users_id' => $usuario,
-                'campanhas_id' => $campanha,
-                'interesse' => 1]
-        );
+        //dd($usuario, $campanhaId);
 
-        dd($usuario, $campanha, $seguir);
+        $seguir = $campanhaId->users()->sync($usuario);
+
+            /*$seguir = UserCampanhaCurtidaInteresse::create(
+                ['users_id' => $usuario,
+                    'campanhas_id' => $campanha,
+                    'interesse' => 1]
+            );*/
+
+        dd($usuario, $campanhaId, $seguir);
     }
 
 }
