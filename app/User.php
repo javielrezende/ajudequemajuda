@@ -30,6 +30,14 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Campanha', 'user_campanhas', 'users_id', 'campanhas_id');
     }
 
+    public function seguir(){
+        return $this->belongsToMany('App\User', 'user_campanha_interesses', 'users_id', 'campanhas_id')->withPivot('interesse');
+    }
+
+    public function curtir(){
+        return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'users_id', 'campanhas_id');
+    }
+
     public function users(){
         return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1');
     }

@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('imagem')->nullable();
-            $table->bigInteger('cpf')->unique()->nullable();
-            $table->bigInteger('cnpj')->unique()->nullable();
-            $table->bigInteger('fone')->nullable();
+            $table->string('cpf')->unique()->nullable();
+            $table->string('cnpj')->unique()->nullable();
+            $table->string('fone')->nullable();
             $table->smallInteger('funcao')->default(\App\User::USUARIO);
             $table->text('mensagem')->nullable();
             $table->text('descricao_entidade')->nullable();

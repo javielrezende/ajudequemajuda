@@ -8,6 +8,7 @@ use App\User;
 use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class SiteUsuarioController extends Controller
@@ -19,14 +20,14 @@ class SiteUsuarioController extends Controller
      */
     public function index()
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect()->to(url('/aqa-login'));
         }
 
         $usuario = Auth::user();
 
         $campanhas = Campanha::where('status', 1)
-        ->get();
+            ->get();
 
         $eventos = Evento::where('status', 1)
             ->get();
@@ -109,32 +110,53 @@ class SiteUsuarioController extends Controller
             return redirect('/aqa-login');
         }
 
-        //dd(Auth::user()->funcao);
-
-        if(Auth::check() && (Auth::user()->funcao != 0)){
+        if (Auth::check() && (Auth::user()->funcao != 0)) {
             dd('Não é possivel curtir sem ser um Usuário!');
             return redirect()->back();
         }
 
         $usuario = Auth::user()->id;
-        //$usuarioteste = Auth::user()->funcao;
-        //dd($usuarioteste);
-        $campanhaId = Campanha::find($id);
-        $campanha = $campanhaId->id;
-        //dd($campanha->id);
-        //dd($campanha);
+        $campanha = Campanha::find($id);
 
-        //dd($usuario, $campanhaId);
 
-        $seguir = $campanhaId->users()->sync($usuario);
+        $result = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario)
+            ->where('campanhas_id', $campanha->id)
+            ->first();
 
-            /*$seguir = UserCampanhaCurtidaInteresse::create(
-                ['users_id' => $usuario,
-                    'campanhas_id' => $campanha,
-                    'interesse' => 1]
-            );*/
+        if (!$result) {
+            $campanha->seguir()->attach($usuario, ['interesse' => 1]);
 
-        dd($usuario, $campanhaId, $seguir);
+            $resultado = DB::table('user_campanha_interesses')
+                ->where('users_id', $usuario)
+                ->where('campanhas_id', $campanha->id)
+                ->get();
+
+            $seguindo = $resultado[0]->interesse;
+            return redirect()->back()->with($seguindo);
+            //dd('nao seguia, vai seguir agora', $seguindo);
+        }
+
+        $resultado = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario)
+            ->where('campanhas_id', $campanha->id)
+            ->get();
+
+        /*$seguindo = $resultado[0]->interesse;
+        return redirect()->back()->with($seguindo);
+        dd('nao seguia, vai seguir agora', $seguindo);*/
+
+        if ($resultado[0]->interesse == 1) {
+            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 0]);
+            $seguindo = $resultado[0]->interesse;
+            return redirect()->back()->with($seguindo);
+        }
+        if ($resultado[0]->interesse == 0) {
+            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 1]);
+            $seguindo = $resultado[0]->interesse;
+            //dd('Ja seguia e parou, vai voltar a seguir agora', $seguindo);
+            return redirect()->back()->with($seguindo);
+        }
     }
 
 }

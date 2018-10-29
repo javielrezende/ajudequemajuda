@@ -18,7 +18,8 @@
                 <div class="localhora">
                     <div>
                         <p class="local">Local:</p>
-                        <p class="localcampanha">{{$registro->users[0]->endereco->rua}}, {{$registro->users[0]->endereco->numero}} - {{$registro->users[0]->endereco->bairro}}</p>
+                        <p class="localcampanha">{{$registro->users[0]->endereco->rua}}
+                            , {{$registro->users[0]->endereco->numero}} - {{$registro->users[0]->endereco->bairro}}</p>
                     </div>
                     <div>
                         <p class="hora">Data Final:</p>
@@ -38,8 +39,18 @@
                     </div>
                 </div>
                 <div class="row opcoescampanha">
-                    <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">SEGUIR</a>
-                    <a href="#" class="col doarcampanha">DOAR</a>
+                    @auth
+                        @if($seguindo == 0 || $seguindo == null)
+                            <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">SEGUIR</a>
+                        @endif
+                        @if($seguindo == 1)
+                            <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">DEIXAR DE
+                                SEGUIR</a>
+                        @endif
+                        @else
+                            <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">SEGUIR</a>
+                            @endauth
+                            <a href="#" class="col doarcampanha">DOAR</a>
                 </div>
             </div>
         </div>

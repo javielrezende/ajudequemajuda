@@ -6,6 +6,7 @@ use App\Campanha;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SiteCampanhaController extends Controller
 {
@@ -53,10 +54,37 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
+        if (Auth::check() && Auth::user()->funcao == 0) {
+            $usuario = Auth::user()->id;
+            $campanha = Campanha::find($id);
+            $registro = Campanha::with('users')
+                ->find($id);
+            $result = DB::table('user_campanha_interesses')
+                ->where('users_id', $usuario)
+                ->where('campanhas_id', $campanha->id)
+                ->first();
+
+            if ($result) {
+                $resultado = DB::table('user_campanha_interesses')
+                    ->where('users_id', $usuario)
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+                $seguindo = $resultado[0]->interesse;
+                return view('site.campanha.campanha', compact('registro', 'seguindo'));
+            }
+
+            if (!$result) {
+                $seguindo = null;
+                return view('site.campanha.campanha', compact('registro', 'seguindo'));
+            }
+
+
+        }
+
+        //dd('oi');
+
         $registro = Campanha::with('users')
             ->find($id);
-        //dd($registro->users[0]->endereco->rua);
-        //dd($registro->users[0]->id);
 
         return view('site.campanha.campanha', compact('registro'));
     }

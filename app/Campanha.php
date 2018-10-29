@@ -14,6 +14,14 @@ class Campanha extends Model
         return $this->belongsToMany('App\User', 'user_campanhas', 'campanhas_id', 'users_id');
     }
 
+    public function seguir(){
+        return $this->belongsToMany('App\User', 'user_campanha_interesses', 'campanhas_id', 'users_id')->withPivot('interesse');
+    }
+
+    public function curtir(){
+        return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'campanhas_id', 'users_id');
+    }
+
     public function itens(){
         return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id');
     }
