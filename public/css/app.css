@@ -12333,8 +12333,16 @@ body .row {
           justify-content: space-between;
 }
 
+.sitecampanha .divcampanha .observacoescampanha .fas {
+  margin-left: 50px;
+}
+
+.sitecampanha .divcampanha .observacoescampanha .far {
+  margin-left: 50px;
+}
+
 .sitecampanha .divcampanha .observacoescampanha .numlike {
-  margin-left: -65px;
+  margin-left: -120px;
   font-size: 12px;
   color: #4D4F5C;
 }

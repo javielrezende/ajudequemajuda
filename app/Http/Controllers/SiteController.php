@@ -7,6 +7,7 @@ use App\Endereco;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class SiteController extends Controller
 {
@@ -75,6 +76,14 @@ class SiteController extends Controller
             'status' => 1,
             'enderecos_id' => $endereco->id,
         ]);
+
+        
+        /*if (Input::file('imagem')) {
+
+            $ultimoId = $ligas->id;
+            $imagemLigaId = $ultimoId . '.png';
+            $request->imagem_liga->move(public_path('imagens_ligas/'), $imagemLigaId);*/
+
         //dd($resultado);
 
         if ($resultado) {

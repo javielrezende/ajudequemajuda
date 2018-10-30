@@ -32,7 +32,24 @@ class SiteUsuarioController extends Controller
         $eventos = Evento::where('status', 1)
             ->get();
 
-        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos'));
+        $num = 0;
+
+        $result = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario->id)
+            ->first();
+
+        if ($result) {
+            $resultado = DB::table('user_campanha_interesses')
+                ->where('users_id', $usuario->id)
+                ->where('interesse', 1)
+                ->get();
+            //dd($resultado[1]->campanhas_id);
+            $num = $resultado->count();
+            //dd($num);
+        }
+
+
+        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos', 'resultado', 'num'));
     }
 
     /**
@@ -111,7 +128,7 @@ class SiteUsuarioController extends Controller
         }
 
         if (Auth::check() && (Auth::user()->funcao != 0)) {
-            dd('Não é possivel curtir sem ser um Usuário!');
+            dd('Não é possivel seguir uma campanha sem ser um Usuário!');
             return redirect()->back();
         }
 
@@ -156,6 +173,64 @@ class SiteUsuarioController extends Controller
             $seguindo = $resultado[0]->interesse;
             //dd('Ja seguia e parou, vai voltar a seguir agora', $seguindo);
             return redirect()->back()->with($seguindo);
+        }
+    }
+
+    public function curtirCampanha($id)
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        if (Auth::check() && (Auth::user()->funcao != 0)) {
+            dd('Não é possivel curtir sem ser um Usuário!');
+            return redirect()->back();
+        }
+
+        $usuario = Auth::user()->id;
+        $campanha = Campanha::find($id);
+
+
+        $result = DB::table('user_campanha_curtidas')
+            ->where('users_id', $usuario)
+            ->where('campanhas_id', $campanha->id)
+            ->first();
+
+        if (!$result) {
+            $campanha->curtir()->attach($usuario, ['curtida' => 1]);
+
+            $resultado = DB::table('user_campanha_curtidas')
+                ->where('users_id', $usuario)
+                ->where('campanhas_id', $campanha->id)
+                ->get();
+
+            /*$resultado2 = DB::table('user_campanha_curtidas')
+                ->where('campanhas_id', $campanha->id)
+                ->get();
+            $num = $resultado2->count();
+            dd($num);*/
+
+            //dd('nao tinha cutido ainda');
+            $curtida = $resultado[0]->curtida;
+            return redirect()->back()->with($curtida);
+        }
+
+        $resultado = DB::table('user_campanha_curtidas')
+            ->where('users_id', $usuario)
+            ->where('campanhas_id', $campanha->id)
+            ->get();
+
+        if ($resultado[0]->curtida == 1) {
+            $campanha->curtir()->updateExistingPivot($usuario, ['curtida' => 0]);
+            $curtida = $resultado[0]->curtida;
+            //dd('estou descurtindo');
+            return redirect()->back()->with($curtida);
+        }
+        if ($resultado[0]->curtida == 0) {
+            $campanha->curtir()->updateExistingPivot($usuario, ['curtida' => 1]);
+            $curtida = $resultado[0]->curtida;
+            //dd('voltei a curtir');
+            return redirect()->back()->with($curtida);
         }
     }
 

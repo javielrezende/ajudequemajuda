@@ -54,39 +54,85 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
+        $num = 0;
+
         if (Auth::check() && Auth::user()->funcao == 0) {
             $usuario = Auth::user()->id;
             $campanha = Campanha::find($id);
             $registro = Campanha::with('users')
                 ->find($id);
+
             $result = DB::table('user_campanha_interesses')
                 ->where('users_id', $usuario)
                 ->where('campanhas_id', $campanha->id)
                 ->first();
 
-            if ($result) {
+            $res = DB::table('user_campanha_curtidas')
+                ->where('users_id', $usuario)
+                ->where('campanhas_id', $campanha->id)
+                ->first();
+
+            if ($result && $res) {
                 $resultado = DB::table('user_campanha_interesses')
                     ->where('users_id', $usuario)
                     ->where('campanhas_id', $campanha->id)
                     ->get();
+                $resultado1 = DB::table('user_campanha_curtidas')
+                    ->where('users_id', $usuario)
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+
+                $resultado2 = DB::table('user_campanha_curtidas')
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+                $num = $resultado2->count();
+
                 $seguindo = $resultado[0]->interesse;
-                return view('site.campanha.campanha', compact('registro', 'seguindo'));
+                $curtida = $resultado1[0]->curtida;
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
             }
 
-            if (!$result) {
+            if ($result && !$res) {
+                $resultado = DB::table('user_campanha_interesses')
+                    ->where('users_id', $usuario)
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+
+                $seguindo = $resultado[0]->interesse;
+                $curtida = null;
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+            }
+
+            if (!$result && $res) {
+                $resultado1 = DB::table('user_campanha_curtidas')
+                    ->where('users_id', $usuario)
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+                $resultado2 = DB::table('user_campanha_curtidas')
+                    ->where('campanhas_id', $campanha->id)
+                    ->get();
+                $num = $resultado2->count();
+                //dd($num);
+
                 $seguindo = null;
-                return view('site.campanha.campanha', compact('registro', 'seguindo'));
+                $curtida = $resultado1[0]->curtida;
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
             }
 
-
+            if (!$result && !$res) {
+                $seguindo = null;
+                $curtida = null;
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+            }
         }
+
 
         //dd('oi');
 
         $registro = Campanha::with('users')
             ->find($id);
 
-        return view('site.campanha.campanha', compact('registro'));
+        return view('site.campanha.campanha', compact('registro', 'num'));
     }
 
     /**

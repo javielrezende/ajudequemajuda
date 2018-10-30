@@ -37,7 +37,7 @@
 
         <div class="row imgcampanhas">
 
-            @foreach($campanhas as $campanha)
+            {{--@foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
                     <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
                          alt="Imagem destaque">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @endforeach--}}
 
         </div>
 

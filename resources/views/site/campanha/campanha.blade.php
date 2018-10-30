@@ -28,15 +28,26 @@
                 </div>
                 <p class="descricaocampanha">{{$registro->descricao}}</p>
                 <div class="row like">
-                    <i class="far fa-thumbs-up"></i>
-                    <p class="numlike">999</p>
-                    <i class="far fa-thumbs-down"></i>
-                    <p class="numlike">999</p>
-                    <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
-                         data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
-                                                                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                                                                              class="fb-xfbml-parse-ignore">Compartilhar</a>
-                    </div>
+                    @auth
+                        @if($curtida == 0 || $curtida == null)
+                            <a href="{{route('curtir-campanha', $registro->id)}}" class="far fa-thumbs-up"
+                               style="color: black"></a>
+                        @endif
+                        @if($curtida == 1)
+                            <a href="{{route('curtir-campanha', $registro->id)}}" class="fas fa-thumbs-up"></a>
+                        @endif
+                        @else
+                            <a href="{{route('curtir-campanha', $registro->id)}}" class="far fa-thumbs-up"
+                               style="color: black"></a>
+                            @endauth
+                            <p class="numlike">{{$registro->num}}</p>
+                            {{--<i class="far fa-thumbs-down"></i>
+                            <p class="numlike">999</p>--}}
+                            <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
+                                 data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
+                                                                                                      href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                                                                      class="fb-xfbml-parse-ignore">Compartilhar</a>
+                            </div>
                 </div>
                 <div class="row opcoescampanha">
                     @auth
