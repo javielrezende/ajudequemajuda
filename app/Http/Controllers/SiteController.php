@@ -7,7 +7,7 @@ use App\Endereco;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
@@ -19,11 +19,11 @@ class SiteController extends Controller
     public function index()
     {
         //dd(Auth::user());
-        if(Auth::check() && Auth::user()->funcao == 1) {
+        if (Auth::check() && Auth::user()->funcao == 1) {
             return redirect()->to(url('/entidade-site'));
         }
 
-        if(Auth::check() && Auth::user()->funcao == 0) {
+        if (Auth::check() && Auth::user()->funcao == 0) {
             return redirect()->to(url('/usuario-site'));
         }
 
@@ -77,7 +77,7 @@ class SiteController extends Controller
             'enderecos_id' => $endereco->id,
         ]);
 
-        
+
         /*if (Input::file('imagem')) {
 
             $ultimoId = $ligas->id;
@@ -106,6 +106,8 @@ class SiteController extends Controller
             'cep' => $request['cep'],
             'estado' => $request['estado'],
         ]);
+
+
         $resultado = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -119,6 +121,19 @@ class SiteController extends Controller
             'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
+
+        if ($resultado) {
+            $imagem = $request['imagem'];
+            //dd('ola voce');
+
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+                $nomeImagem = $resultado->id . kebab_case($resultado->name);
+                $extensao = $request->imagem->extension();
+                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+                dd($nomeImagemFinal);
+            }
+        }
 
         if ($resultado) {
             return redirect()->route('aqa.index');
