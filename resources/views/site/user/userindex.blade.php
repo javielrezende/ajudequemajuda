@@ -12,8 +12,8 @@
 
         <p class="row col-md-12 titulosPrincipais">Principais Campanhas</p>
 
-        {{--@if($num != 0)
-            @foreach($campanhas as $campanha)
+        @if($num != 0)
+            @foreach($campanhasInteressadas as $campanha)
                 <div class="row divcampanhas">
                     <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
                          alt="Imagem destaque">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             @endforeach
-        @endif--}}
+        @endif
 
         <p class="row col-md-12 titulosPrincipais">Últimas Campanhas</p>
 

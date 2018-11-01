@@ -34,11 +34,17 @@ class SiteUsuarioController extends Controller
 
         $num = 0;
 
-        $result = DB::table('user_campanha_interesses')
+        $campanhasIds = DB::table('user_campanha_interesses')
             ->where('users_id', $usuario->id)
-            ->first();
+            ->where('interesse', 1)
+            ->get()
+            ->map(function($value) {
+                return $value->campanhas_id;
+            });
 
-        if ($result) {
+
+        $campanhasInteressadas = Campanha::findMany($campanhasIds);
+        if ($campanhasInteressadas) {
             $resultado = DB::table('user_campanha_interesses')
                 ->where('users_id', $usuario->id)
                 ->where('interesse', 1)
@@ -49,7 +55,7 @@ class SiteUsuarioController extends Controller
         }
 
 
-        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos', 'resultado', 'num'));
+        return view('site.user.userindex', compact('usuario', 'campanhas', 'eventos', 'resultado', 'num', 'campanhasInteressadas'));
     }
 
     /**
