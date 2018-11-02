@@ -64,10 +64,6 @@ Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('envi
 Route::resource('site/entidades', 'SiteUserController',
     ['as' => 'entidades']);
 
-/*Route::get('/site/evento', function () {
-    return view('site/evento/evento');
-});*/
-
 
 
 

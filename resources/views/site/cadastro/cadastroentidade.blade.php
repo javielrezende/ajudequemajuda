@@ -157,17 +157,17 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="form-group">
-                        <label for="imagem">Imagem</label>
+                    <div class="form-group col">
+                        <label class="add" for="imagem">Inserir imagem de perfil</label>
                         <input type="file" id="imagem" name="imagem"
-                               onchange="previewFile()"
-                               class="form-control">
+                               onchange="previewFile()">
+
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6">
-                {!!"<img src='imagem/sem_foto.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='img-circle'>"!!}
+                {!!"<img src='imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
             </div>
 
             <div class="container">
@@ -184,11 +184,11 @@
         /*---------------------------------------------------------------------*/
         /*Adiciona preview de imagem*/
         function previewFile() {
-            var preview = document.getElementById('imagem_preview');
-            var file    = document.getElementById('imagem').files[0];
-            var reader  = new FileReader();
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
 
-            reader.onloadend = function() {
+            reader.onloadend = function () {
                 preview.src = reader.result;
             };
 
@@ -198,6 +198,7 @@
                 preview.src = "";
             }
         }
+
         /*---------------------------------------------------------------------*/
 
 
