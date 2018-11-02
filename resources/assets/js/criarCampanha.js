@@ -1,69 +1,30 @@
-var btAdicionar = document.getElementById("btAdicionar");
-var btEditar = document.getElementById("btEditar");
-var btExcluir = document.getElementById("btExcluir");
+const inItem = document.getElementById('inItem')
+const inUrgente = document.getElementById('inUrgente')
+const inQuantidade = document.getElementById('inQuantidade')
+const btAdicionar = document.getElementById('btAdicionar')
+const alinhamentoItens = document.querySelector('#alinhamentoItens tbody')
 
-
-var inItem = document.getElementById("inItem");
-var inUrgente = document.getElementById("inUrgente");
-var inQuantidade = document.getElementById("inQuantidade");
-
-
-var fila = [];
-
-function adicionarItem() {
-    var item = inItem.value;
-
-    if(item == ""){
-        inNome.focus();
-        return;
-    }
-
-    fila.push(nome);
-
-    // mais seguro, nao renderiza uma tag, poderia ser usado o innerHtml, mas aceita tag html
-    outFila.textContent = fila.join(", ");
-
-    //cria um novo elemento html na página
-    var novoBicho = document.createElement('img');
-    novoBicho.src = "img/"+nome+".jpg";
-    novoBicho.textAlt = nome;
-    novoBicho.className = "especie";
-
-    // indica que o elemento é filho da divFila
-    // sem isso ele nao sabe quem eh o pai e nao eh criado
-    divFila.appendChild(novoBicho);
-
-    inNome.value = "";
-    inNome.focus();
+if (inItem.value == "" || inItem.value == null) {
+    document.getElementById('btAdicionar').disabled = true;
 }
-btAdicionar.addEventListener("click", adicionarEspecie);
 
-// cria function (anonima) associada ao evento keypress (tecla enter)
-inNome.addEventListener("keypress", function(tecla){
-    // 13: codigo da tecla enter
-    if(tecla.keyCode == 13){
-        adicionarEspecie();
-    }
-});
+btAdicionar.addEventListener('click', function () {
 
-
-
-function atenderEspecie() {
-    // verifica o numero de elementos do vetor
-    if(fila.length == 0){
-        alert("Não há animais na fila");
-        return;
-    }
-
-    // tira o primeiro elemento do vetor
-    var atende = fila.shift();
-
-    outFila.textContent = fila.join(", ");
-
-    // obtem as imagens filhas da divFila
-    var imagens = divFila.getElementsByTagName("img");
-    divFila.removeChild(imagens[0]);
-
-    alert(atende + " em atendimento. Vai sair da fila...");
-}
-btAtender.addEventListener("click", atenderEspecie);
+    alinhamentoItens.insertAdjacentHTML('beforeend', `
+        <tr>
+            <td>${inItem.value}</td>
+            <td class="ch">${inUrgente.checked ? '<i class="fas fa-check"></i>' : ''}</td>
+            <td>${inQuantidade.value}</td>
+            <td><i class="fas fa-p en"></i></td>
+            <td>
+            
+                <input type="hidden" name="descricao[]" value="${inItem.value}" required/>
+                <input type="hidden" name="quantidade[]" value="${inQuantidade.value}"/>
+                <input type="hidden" name="urgencia[]" value="${inUrgente.checked}"/>
+                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>
+                
+            </td>
+            
+        </tr>
+    `)
+})

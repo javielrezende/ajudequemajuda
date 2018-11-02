@@ -28,3 +28,4 @@ require('./datapicker');
 require('./datatimepicker');
 require('./estadocidade');
 require('./mask');
+require('./criarCampanha');
