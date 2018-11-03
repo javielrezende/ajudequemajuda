@@ -8,6 +8,14 @@
     margin: 40px auto 35px;
   }
 
+  .aviso1 {
+    //text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ebb8;
+    margin: 40px 330px 35px;
+  }
+
   .titulosPrincipais1 {
     justify-content: center;
     color: #4D4F5C;
@@ -29,6 +37,8 @@
     margin: 0 auto;
     grid-template-columns: repeat(2, 50%);
     display: grid;
+
+
   }
 
   .divcampanhas {

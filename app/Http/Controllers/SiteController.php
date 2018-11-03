@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Campanha;
 use App\Endereco;
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -56,6 +58,10 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = $request->validate([
+            'file' => 'max:5120', //5MB
+        ]);
+
         $endereco = Endereco::create([
             'rua' => $request['rua'],
             'numero' => $request['numero'],
@@ -65,6 +71,28 @@ class SiteController extends Controller
             'cep' => $request['cep'],
             'estado' => $request['estado'],
         ]);
+
+        $imagem = null;
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $horaAtual = Carbon::parse()->timestamp;
+            //dd($horaAtual);
+            $nomeImagem = kebab_case($horaAtual) . kebab_case($endereco->rua);
+            //dd($nomeImagem);
+
+            $extensao = $request->imagem->extension();
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+            $imagem = "imagens/users/" . $nomeImagemFinal;
+
+            //dd($imagem);
+
+            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
+            //dd($nomeImagem, $extensao, $nomeImagemFinal);
+        }
+
         $resultado = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -73,18 +101,10 @@ class SiteController extends Controller
             'cnpj' => null,
             'funcao' => User::USUARIO,
             'fone' => $request['fone'],
+            'imagem' => $imagem,
             'status' => 1,
             'enderecos_id' => $endereco->id,
         ]);
-
-
-        /*if (Input::file('imagem')) {
-
-            $ultimoId = $ligas->id;
-            $imagemLigaId = $ultimoId . '.png';
-            $request->imagem_liga->move(public_path('imagens_ligas/'), $imagemLigaId);*/
-
-        //dd($resultado);
 
         if ($resultado) {
             return redirect()->route('aqa.index');
@@ -97,6 +117,10 @@ class SiteController extends Controller
      */
     public function storeentidade(Request $request)
     {
+        $validator = $request->validate([
+            'file' => 'max:5120', //5MB
+        ]);
+
         $endereco = Endereco::create([
             'rua' => $request['rua'],
             'numero' => $request['numero'],
@@ -107,6 +131,26 @@ class SiteController extends Controller
             'estado' => $request['estado'],
         ]);
 
+        $imagem = null;
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $horaAtual = Carbon::parse()->timestamp;
+            //dd($horaAtual);
+            $nomeImagem = kebab_case($horaAtual) . kebab_case($endereco->rua);
+            //dd($nomeImagem);
+
+            $extensao = $request->imagem->extension();
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+            $imagem = "imagens/users/" . $nomeImagemFinal;
+
+            //dd($imagem);
+
+            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
+            //dd($nomeImagem, $extensao, $nomeImagemFinal);
+        }
 
         $resultado = User::create([
             'name' => $request['name'],
@@ -117,23 +161,12 @@ class SiteController extends Controller
             'funcao' => User::ENTIDADE,
             'status' => 1,
             'fone' => $request['fone'],
+            'imagem' => $imagem,
             'mensagem' => $request['mensagem'],
             'descricao_entidade' => $request['descricao_entidade'],
             'enderecos_id' => $endereco->id,
         ]);
 
-        if ($resultado) {
-            $imagem = $request['imagem'];
-            //dd('ola voce');
-
-            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-
-                $nomeImagem = $resultado->id . kebab_case($resultado->name);
-                $extensao = $request->imagem->extension();
-                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-                dd($nomeImagemFinal);
-            }
-        }
 
         if ($resultado) {
             return redirect()->route('aqa.index');

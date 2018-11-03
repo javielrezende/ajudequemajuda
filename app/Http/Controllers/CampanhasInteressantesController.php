@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CampanhasInteressantesController extends Controller
 {
@@ -14,9 +16,36 @@ class CampanhasInteressantesController extends Controller
      */
     public function index()
     {
-        $campanhas = Campanha::where('status', 1)
-        ->get();
-        return view('site.campanha.campanhasInteressantes', compact('campanhas'));
+        if (!Auth::check()) {
+            return redirect()->to(url('/aqa-login'));
+        }
+
+        $usuario = Auth::user();
+
+        $num = 0;
+
+        $campanhasIds = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario->id)
+            ->where('interesse', 1)
+            ->get()
+            ->map(function ($value) {
+                return $value->campanhas_id;
+            });
+
+
+        $campanhasInteressadas = Campanha::findMany($campanhasIds);
+
+        if ($campanhasInteressadas) {
+            $resultado = DB::table('user_campanha_interesses')
+                ->where('users_id', $usuario->id)
+                ->where('interesse', 1)
+                ->get();
+            //dd($resultado[1]->campanhas_id);
+            $num = $resultado->count();
+            //dd($num);
+        }
+
+        return view('site.campanha.campanhasInteressantes', compact('num', 'campanhasInteressadas'));
     }
 
     /**
@@ -32,7 +61,7 @@ class CampanhasInteressantesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,7 +72,7 @@ class CampanhasInteressantesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,7 +83,7 @@ class CampanhasInteressantesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -65,8 +94,8 @@ class CampanhasInteressantesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -77,7 +106,7 @@ class CampanhasInteressantesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

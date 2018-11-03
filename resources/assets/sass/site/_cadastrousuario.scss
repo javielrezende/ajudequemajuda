@@ -94,6 +94,22 @@
       margin-bottom: 40px;
     }
 
+    input[type='file'] {
+      display: none
+    }
+
+    .add {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
     .env {
       background-color: #439AFF;
       padding: 10px;

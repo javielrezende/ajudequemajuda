@@ -11972,6 +11972,22 @@ body .row {
   margin-right: 16px;
 }
 
+.cadastrodoador .formcadastro input[type='file'] {
+  display: none;
+}
+
+.cadastrodoador .formcadastro .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .cadastrodoador .formcadastro .cad {
   background-color: #439AFF;
   padding: 10px;
@@ -12961,6 +12977,22 @@ body .row {
   font-size: 10px;
   color: white;
   margin-bottom: 40px;
+}
+
+.cadastrousuario .geraleditor input[type='file'] {
+  display: none;
+}
+
+.cadastrousuario .geraleditor .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .cadastrousuario .geraleditor .env {
@@ -14427,6 +14459,13 @@ body .row {
   margin: 40px auto 35px;
 }
 
+.usuarioindex .aviso1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00ebb8;
+  margin: 40px 330px 35px;
+}
+
 .usuarioindex .titulosPrincipais1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -14658,6 +14697,13 @@ body .row {
   margin: 0 auto;
   grid-template-columns: repeat(2, 50%);
   display: grid;
+}
+
+.campanhasInteressantes .imgcampanhas .aviso1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00ebb8;
+  margin: 40px 330px 190px;
 }
 
 .campanhasInteressantes .divcampanhas {
