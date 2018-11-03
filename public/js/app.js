@@ -27530,7 +27530,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(135);
-module.exports = __webpack_require__(170);
+module.exports = __webpack_require__(171);
 
 
 /***/ }),
@@ -27565,7 +27565,7 @@ __webpack_require__(166);
 __webpack_require__(167);
 __webpack_require__(168);
 __webpack_require__(169);
-__webpack_require__(178);
+__webpack_require__(170);
 
 /***/ }),
 /* 136 */
@@ -54701,19 +54701,6 @@ $(document).ready(function () {
 /* 170 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */
-/***/ (function(module, exports) {
-
 var inItem = document.getElementById('inItem');
 var inUrgente = document.getElementById('inUrgente');
 var inQuantidade = document.getElementById('inQuantidade');
@@ -54728,6 +54715,12 @@ btAdicionar.addEventListener('click', function () {
 
     alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td>' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricao[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
 });
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
