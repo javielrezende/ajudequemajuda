@@ -99,6 +99,7 @@
                     <tr>
                         <th scope="col">Ítens</th>
                         <th scope="col" class="ur">Urgência</th>
+                        <th scope="col" class="qua">Quantidade</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -16,7 +16,7 @@ btAdicionar.addEventListener('click', function () {
         <tr>
             <td>${inItem.value}</td>
             <td class="ch">${inUrgente.checked ? '<i class="fas fa-check"></i>' : ''}</td>
-            <td>${inQuantidade.value}</td>
+            <td class="ch">${inQuantidade.value}</td>
             <td><i class="fas fa-p en"></i></td>
             <td>
             

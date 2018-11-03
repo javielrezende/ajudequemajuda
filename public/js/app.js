@@ -54715,7 +54715,7 @@ if (inItem.value == "" || inItem.value == null) {
 
 btAdicionar.addEventListener('click', function () {
 
-    alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td>' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricao[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
+    alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td class="ch">' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricao[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
 });
 
 /***/ }),
