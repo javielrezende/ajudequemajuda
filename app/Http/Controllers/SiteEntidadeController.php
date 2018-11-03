@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,7 +87,39 @@ class SiteEntidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        $entidade = User::find($id);
+        $imagem = $entidade->imagem;
+        //dd($usuario->imagem);
+        //dd($imagem);
+
+        //if ($usuario->imagem == null || $usuario->imagem == "") {
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $horaAtual = Carbon::parse()->timestamp;
+            //dd($horaAtual);
+            $nomeImagem = kebab_case($horaAtual) . kebab_case($entidade->endereco->rua);
+            //dd($nomeImagem);
+
+            $extensao = $request->imagem->extension();
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+            $imagem = "imagens/users/" . $nomeImagemFinal;
+        }
+        //   $alteracao = $usuario->update(['imagem' => $imagem]);
+        //} else {
+        $alteracao = $entidade->update(['imagem' => $imagem]);
+        //}
+
+
+        if ($alteracao) {
+            return redirect()->route('entidade-site.show', $entidade->id);
+        }
     }
 
     /**

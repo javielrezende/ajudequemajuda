@@ -12979,6 +12979,22 @@ body .row {
   margin-bottom: 40px;
 }
 
+.cadastrousuario .geraleditor input[type='file'] {
+  display: none;
+}
+
+.cadastrousuario .geraleditor .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .cadastrousuario .geraleditor .env {
   background-color: #439AFF;
   padding: 10px;

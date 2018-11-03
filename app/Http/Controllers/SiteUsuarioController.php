@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,7 @@ class SiteUsuarioController extends Controller
             ->where('users_id', $usuario->id)
             ->where('interesse', 1)
             ->get()
-            ->map(function($value) {
+            ->map(function ($value) {
                 return $value->campanhas_id;
             });
 
@@ -113,7 +114,39 @@ class SiteUsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        $usuario = User::find($id);
+        $imagem = $usuario->imagem;
+        //dd($usuario->imagem);
+        //dd($imagem);
+
+        //if ($usuario->imagem == null || $usuario->imagem == "") {
+
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+                $horaAtual = Carbon::parse()->timestamp;
+                //dd($horaAtual);
+                $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
+                //dd($nomeImagem);
+
+                $extensao = $request->imagem->extension();
+                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+                $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+                $imagem = "imagens/users/" . $nomeImagemFinal;
+            }
+         //   $alteracao = $usuario->update(['imagem' => $imagem]);
+        //} else {
+            $alteracao = $usuario->update(['imagem' => $imagem]);
+        //}
+
+
+        if ($alteracao) {
+            return redirect()->route('usuario-site.show', $usuario->id);
+        }
     }
 
     /**

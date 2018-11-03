@@ -9,7 +9,11 @@
 
         <p class="row col-md-12 titulosPrincipais">Meu cadastro</p>
 
-        <div class="geraleditor">
+        <form class="row geraleditor" method="post" enctype="multipart/form-data"
+              action="{{route('entidade-site.update', $entidade->id)}}">
+            {!! method_field('put') !!}
+            {{ csrf_field() }}
+
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
@@ -126,12 +130,58 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="add" for="imagem">Inserir imagem de perfil</label>
+                        <input type="file" id="imagem" name="imagem"
+                               onchange="previewFile()">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                @if($entidade->imagem == null || $entidade->imagem == "")
+                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
+                         alt='Foto do perfil' class='rounded-circle'>
+                @else
+                    <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px'
+                         alt='Foto do perfil' class='rounded-circle'>
+                @endif
+            </div>
+
             <div style="margin-bottom: 35px" class="container">
                 <div class="row justify-content-end">
                     &nbsp;&nbsp;&nbsp;<button type="submit" class="btn env">Enviar</button>
                 </div>
             </div>
 
-        </div>
+        </form>
     </div>
+
+    <!-- Adicionando Javascript -->
+    <script type="text/javascript">
+
+        /*---------------------------------------------------------------------*/
+        /*Adiciona preview de imagem*/
+        function previewFile() {
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
+    </script>
 @endsection

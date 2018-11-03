@@ -4,9 +4,11 @@ const inQuantidade = document.getElementById('inQuantidade')
 const btAdicionar = document.getElementById('btAdicionar')
 const alinhamentoItens = document.querySelector('#alinhamentoItens tbody')
 
+/*
 if (inItem.value == "" || inItem.value == null) {
     document.getElementById('btAdicionar').disabled = true;
 }
+*/
 
 btAdicionar.addEventListener('click', function () {
 

@@ -54707,9 +54707,11 @@ var inQuantidade = document.getElementById('inQuantidade');
 var btAdicionar = document.getElementById('btAdicionar');
 var alinhamentoItens = document.querySelector('#alinhamentoItens tbody');
 
+/*
 if (inItem.value == "" || inItem.value == null) {
     document.getElementById('btAdicionar').disabled = true;
 }
+*/
 
 btAdicionar.addEventListener('click', function () {
 
