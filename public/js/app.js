@@ -27565,7 +27565,10 @@ __webpack_require__(166);
 __webpack_require__(167);
 __webpack_require__(168);
 __webpack_require__(169);
+__webpack_require__(179);
 __webpack_require__(170);
+//require('./habilitarCampo');
+__webpack_require__(181);
 
 /***/ }),
 /* 136 */
@@ -54715,7 +54718,7 @@ if (inItem.value == "" || inItem.value == null) {
 
 btAdicionar.addEventListener('click', function () {
 
-    alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td class="ch">' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricao[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
+    alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td class="ch">' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricaoItem[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
 });
 
 /***/ }),
@@ -54723,6 +54726,42 @@ btAdicionar.addEventListener('click', function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
+/***/ (function(module, exports) {
+
+$(function () {
+    $('[data-toggle="popover"]').popover();
+});
+
+/***/ }),
+/* 180 */,
+/* 181 */
+/***/ (function(module, exports) {
+
+function previewFile() {
+    var preview = document.getElementById('imagem_preview');
+    var file = document.getElementById('imagem').files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    };
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+    }
+}
 
 /***/ })
 /******/ ]);

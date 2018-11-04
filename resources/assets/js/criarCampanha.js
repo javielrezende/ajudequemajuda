@@ -20,7 +20,7 @@ btAdicionar.addEventListener('click', function () {
             <td><i class="fas fa-p en"></i></td>
             <td>
             
-                <input type="hidden" name="descricao[]" value="${inItem.value}" required/>
+                <input type="hidden" name="descricaoItem[]" value="${inItem.value}" required/>
                 <input type="hidden" name="quantidade[]" value="${inQuantidade.value}"/>
                 <input type="hidden" name="urgencia[]" value="${inUrgente.checked}"/>
                 <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>

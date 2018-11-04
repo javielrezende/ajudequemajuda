@@ -9,7 +9,7 @@
         <p class="row col-md-12 titulosPrincipais">Criar Campanha</p>
 
 
-        <form class="row" method="post" action="{{route('minhas-campanhas.store')}}">
+        <form class="row" method="post" enctype="multipart/form-data" action="{{route('minhas-campanhas.store')}}">
             {{ csrf_field() }}
 
             <div class="formcriarCampanha">
@@ -28,8 +28,15 @@
                         <div class="form-group col e">
                             <label for="dataInicio">Data inicial</label>
                             <div class="input-group date">
-                                <input autocomplete="off" type="text" class="form-control" id="dataInicio"
-                                       name="dataInicio">
+                                <input autocomplete="off" type="text"
+                                       data-toggle="popover"
+                                       data-trigger="hover"
+                                       title="Sua campanha pode ser permanente!"
+                                       data-content="Se vocÊ não escolher esta opção sua campanha será permanente, sem data final! :)"
+                                       class="form-control"
+                                       id="dataInicio"
+                                       name="dataInicio"
+                                        {{--onblur="liberar()"--}}>
                             </div>
                         </div>
 
@@ -37,7 +44,8 @@
                             <label for="dataFim">Data final</label>
                             <div class="input-group date">
                                 <input autocomplete="off" type="text" class="form-control" id="dataFim"
-                                       name="dataFim">
+                                       name="dataFim"
+                                        {{--disabled="disabled"--}}>
                             </div>
                         </div>
                     </div>
@@ -85,6 +93,21 @@
                     </div>
                 </div>
 
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group col">
+                            <label class="add" for="imagem">Inserir imagem de perfil</label>
+                            <input type="file" id="imagem" name="imagem"
+                                   onchange="previewFile()">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    {!!"<img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+                </div>
+
 
                 <div class="container">
                     <div class="row justify-content-end">
@@ -103,28 +126,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {{--<tr>--}}
-                    {{--<td>Arroz</td>--}}
-                    {{--<td class="ch"><i class="fas fa-check"></i></td>--}}
-                    {{--<td><i class="fas fa-pen"></i></td>--}}
-                    {{--<td><i class="fas fa-trash-alt"></i></td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td>Feijao</td>--}}
-                    {{--<td class="ch"><i class="fas fa-check"></i></td>--}}
-                    {{--<td><i class="fas fa-pen"></i></td>--}}
-                    {{--<td><i class="fas fa-trash-alt"></i></td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td>Massa</td>--}}
-                    {{--<td class="ch"><i class="fas fa-check"></i></td>--}}
-                    {{--<td><i class="fas fa-pen"></i></td>--}}
-                    {{--<td><i class="fas fa-trash-alt"></i></td>--}}
-                    {{--</tr>--}}
                     </tbody>
                 </table>
             </div>
         </form>
     </div>
-    <script src="criarCampanha.js"></script>
+
+    <!-- Adicionando Javascript -->
+    <script type="text/javascript">
+
+        /*---------------------------------------------------------------------*/
+        /*Adiciona preview de imagem*/
+        function previewFile() {
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
+    </script>
 @endsection

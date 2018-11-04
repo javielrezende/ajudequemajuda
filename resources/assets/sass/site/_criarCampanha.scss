@@ -69,6 +69,10 @@
       margin-right: 8px;
     }
 
+    input[type='file'] {
+      display: none
+    }
+
     .add {
       background-color: #F1F1F1;
       padding: 6px;
@@ -78,7 +82,10 @@
       font-size: 10px;
       color: #4D4F5C;
       margin-bottom: 10px;
+      cursor: pointer;
     }
+
+    cursor: pointer;
 
     .cad {
       background-color: #439AFF;

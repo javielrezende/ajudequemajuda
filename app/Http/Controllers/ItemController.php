@@ -15,7 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $itens = Item::orderBy('descricao')->get();
+        $itens = Item::orderBy('descricaoItem')->get();
 
         return view('admin/itens/itens_list', compact('itens'));
     }
@@ -29,7 +29,7 @@ class ItemController extends Controller
     {
         $acao = 1;
 
-        $itens = Item::orderBy('descricao')->get();
+        $itens = Item::orderBy('descricaoItem')->get();
 
         return view('admin/itens/itens_form', compact('acao', 'itens'));
     }
@@ -47,7 +47,7 @@ class ItemController extends Controller
         }
 
         $resultado = Item::create([
-            'descricao' => $request['descricao'],
+            'descricao' => $request['descricaoItem'],
             'quantidade' => 0,
             ]);
 
@@ -78,7 +78,7 @@ class ItemController extends Controller
     {
         $registro = Item::find($id);
 
-        $itens = Item::orderBy('descricao')->get();
+        $itens = Item::orderBy('descricaoItem')->get();
 
         $acao = 2;
 
@@ -98,12 +98,12 @@ class ItemController extends Controller
             return redirect('/');
         }
 
-        $descricao = $request['descricao'];
+        $descricao = $request['descricaoItem'];
         $quantidade = 0;
 
         $registro = Item::find($id);
 
-        $dados = ['descricao' => $descricao, 'quantidade' => $quantidade];
+        $dados = ['descricaoItem' => $descricao, 'quantidade' => $quantidade];
 
         $alteracao = $registro->update($dados);
 

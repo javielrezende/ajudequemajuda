@@ -13493,6 +13493,7 @@ body .row {
 
 .criarCampanha .formcriarCampanha {
   width: 475px;
+  cursor: pointer;
 }
 
 .criarCampanha .formcriarCampanha label {
@@ -13556,6 +13557,10 @@ body .row {
   margin-right: 8px;
 }
 
+.criarCampanha .formcriarCampanha input[type='file'] {
+  display: none;
+}
+
 .criarCampanha .formcriarCampanha .add {
   background-color: #F1F1F1;
   padding: 6px;
@@ -13565,6 +13570,7 @@ body .row {
   font-size: 10px;
   color: #4D4F5C;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .criarCampanha .formcriarCampanha .cad {
