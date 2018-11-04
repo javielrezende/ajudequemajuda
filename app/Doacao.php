@@ -19,6 +19,6 @@ class Doacao extends Model
     }
 
     public function itens(){
-        return $this->belongsToMany('App\Item', 'item_doacaos', 'doacoes_id', 'itens_id');
+        return $this->belongsToMany('App\Item', 'item_doacaos', 'doacoes_id', 'itens_id')->withTimestamps();
     }
 }

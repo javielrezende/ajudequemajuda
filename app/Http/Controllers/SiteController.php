@@ -32,7 +32,7 @@ class SiteController extends Controller
         $campanhas = Campanha::where('destaque', 1)
             ->where('status', 1)
             ->orderBy('id', 'desc')
-            ->get();
+            ->paginate(4);
 
         //dd($campanhas);
 

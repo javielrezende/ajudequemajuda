@@ -30,14 +30,11 @@
 
         <p class="row col-md-12 titulosPrincipais1"><a href="/enviar-email">Enviar E-mail</a></p>
 
-        <p class="row col-md-12 titulosPrincipais1">Últimas atualizações</p>
-
-        <p class="row col-md-12 titulosPrincipais">Campanhas</p>
-
+        <p class="row col-md-12 titulosPrincipais">Últimas Campanhas</p>
 
         <div class="row imgcampanhas">
 
-            {{--@foreach($campanhas as $campanha)
+            @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
                     <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
                          alt="Imagem destaque">
@@ -50,16 +47,19 @@
                             <p class="numlike">999</p>
                             <i class="far fa-thumbs-down"></i>
                             <p class="numlike">999</p>
-                            <a href="{{route('campanha.show', $campanha->id)}}" class="saibamaiscampanhas">Saiba
+                            <a href="{{route('minhas-campanhas.show', $campanha->id)}}" class="saibamaiscampanhas">Saiba
                                 mais</a>
                         </div>
                     </div>
                 </div>
-            @endforeach--}}
-
+            @endforeach
         </div>
 
-        <p class="row col-md-12 titulosPrincipais">Eventos</p>
+        @if($c > 4)
+        <a href="{{url('/minhas-campanhas')}}" class="col-12 text-center add">Ver todos</a>
+        @endif
+
+        <p class="row col-md-12 titulosPrincipais">Últimos Eventos</p>
 
         <div class="row imgeventos">
 

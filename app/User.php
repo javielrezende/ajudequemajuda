@@ -27,19 +27,19 @@ class User extends Authenticatable
     }
 
     public function campanhas(){
-        return $this->belongsToMany('App\Campanha', 'user_campanhas', 'users_id', 'campanhas_id');
+        return $this->belongsToMany('App\Campanha', 'user_campanhas', 'users_id', 'campanhas_id')->withTimestamps();
     }
 
     public function seguir(){
-        return $this->belongsToMany('App\User', 'user_campanha_interesses', 'users_id', 'campanhas_id')->withPivot('interesse');
+        return $this->belongsToMany('App\User', 'user_campanha_interesses', 'users_id', 'campanhas_id')->withPivot('interesse')->withTimestamps();
     }
 
     public function curtir(){
-        return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'users_id', 'campanhas_id');
+        return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'users_id', 'campanhas_id')->withTimestamps();
     }
 
     public function users(){
-        return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1');
+        return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1')->withTimestamps();
     }
 
     /*public function user(){

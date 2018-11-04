@@ -35,11 +35,7 @@
                 @endforeach
 
             @else
-                <div class="container">
-                    <div class="row">
-                        <p class="row col-md-12 aviso1"> Você ainda não está seguindo nenhuma Campanha! :( </p>
-                    </div>
-                </div>
+                <p class="col-12 aviso1"> Você ainda não está seguindo nenhuma Campanha! :( </p>
             @endif
         </div>
 
@@ -92,8 +88,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection

@@ -17,15 +17,17 @@ class SiteEntidadeController extends Controller
      */
     public function index()
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect()->to(url('/aqa-login'));
         }
 
         $entidadeLogada = Auth::user();
 
-        $campanhas = $entidadeLogada->campanhas;
+        $c = $entidadeLogada->campanhas()->orderBy('id', 'desc')->count();
+        //dd($c);
+        $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->paginate(4);
 
-        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas'));
+        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'c'));
     }
 
     /**
@@ -57,7 +59,7 @@ class SiteEntidadeController extends Controller
      */
     public function show($id)
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect()->to(url('/aqa-login'));
         }
 

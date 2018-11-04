@@ -16,6 +16,7 @@ class CreateImagemsTable extends Migration
         Schema::create('imagems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo', 191)->nullable();
+            $table->string('caminho', 191);
             $table->boolean('capa')->nullable();
             $table->unsignedInteger('campanhas_id');
             $table->foreign('campanhas_id')

@@ -11,10 +11,10 @@ class Item extends Model
     ];
 
     public function doacao(){
-        return $this->belongsToMany('App\Doacao', 'item_doacaos', 'itens_id', 'doacoes_id');
+        return $this->belongsToMany('App\Doacao', 'item_doacaos', 'itens_id', 'doacoes_id')->withTimestamps();;
     }
 
     public function campanha(){
-        return $this->belongsToMany('App\Campanha', 'campanha_items', 'itens_id', 'campanhas_id');
+        return $this->belongsToMany('App\Campanha', 'campanha_items', 'itens_id', 'campanhas_id')->withTimestamps();;
     }
 }

@@ -28,17 +28,20 @@ class SiteUsuarioController extends Controller
         $usuario = Auth::user();
 
         $campanhas = Campanha::where('status', 1)
-            ->get();
+            ->orderBy('id', 'desc')
+            ->simplePaginate(4);
 
         $eventos = Evento::where('status', 1)
-            ->get();
+            ->orderBy('id', 'desc')
+            ->paginate(4);
 
         $num = 0;
 
         $campanhasIds = DB::table('user_campanha_interesses')
             ->where('users_id', $usuario->id)
             ->where('interesse', 1)
-            ->get()
+            ->orderBy('campanhas_id', 'desc')
+            ->paginate(4)
             ->map(function ($value) {
                 return $value->campanhas_id;
             });
@@ -48,8 +51,9 @@ class SiteUsuarioController extends Controller
         if ($campanhasInteressadas) {
             $resultado = DB::table('user_campanha_interesses')
                 ->where('users_id', $usuario->id)
+                ->orderBy('campanhas_id', 'desc')
                 ->where('interesse', 1)
-                ->get();
+                ->paginate(4);
             //dd($resultado[1]->campanhas_id);
             $num = $resultado->count();
             //dd($num);

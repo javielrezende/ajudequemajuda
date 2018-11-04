@@ -11365,6 +11365,19 @@ body .row {
   min-height: calc(100vh - 70px);
 }
 
+.add {
+  margin-top: 15px;
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .titlesite {
   margin-top: 70px;
   margin-left: 100px;
@@ -13022,6 +13035,19 @@ body .row {
   font-size: 28px;
   font-weight: bold;
   margin-top: 20px;
+}
+
+.entidadeindex .add {
+  margin-top: 15px;
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .entidadeindex .titulosPrincipais {
