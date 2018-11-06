@@ -11640,6 +11640,13 @@ body .row {
   margin-top: 0;
 }
 
+.siteevento .divevento img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 290px;
+  height: 398px;
+}
+
 .siteevento .divevento .diamesevento {
   color: #439AFF;
   margin: 30px;
@@ -12288,6 +12295,13 @@ body .row {
   margin: 15px;
 }
 
+.sitecampanha .divcampanha img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 290px;
+  height: 398px;
+}
+
 .sitecampanha .divcampanha .diamescampanha {
   color: #439AFF;
   margin: 30px;
@@ -12453,6 +12467,13 @@ body .row {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.siteentidade img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 290px;
+  height: 398px;
 }
 
 .siteentidade .diventidade {

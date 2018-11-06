@@ -24,6 +24,12 @@
   justify-content: center;
   align-items: center;
 
+  img {
+    object-fit: cover;
+    width: 290px;
+    height: 398px;
+  }
+
   .diventidade {
     width: 700px;
     height: 400px;

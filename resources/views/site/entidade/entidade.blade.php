@@ -10,8 +10,13 @@
     <div class="row siteentidade">
 
         <div class="row diventidade">
-            <img class="row imagementidade" src="{{ asset('imagens/evento.png') }}"
-                 alt="Imagem entidade">
+            @if($registro->imagem)
+                <img class="row imagemcampanhas" src="/{{$registro->imagem}}"
+                     alt="Foto de perfil">
+            @else
+                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                     alt="Imagem destaque">
+            @endif
 
             <div class="row observacoesentidade">
                 <h4 class="nomeentidade">{{$registro->name}}</h4>

@@ -10,8 +10,13 @@
     <div class="row sitecampanha">
 
         <div class="row divcampanha">
-            <img class="row imagemcampanha" src="{{ asset('imagens/evento.png') }}"
-                 alt="Imagem campanha">
+            @if(!empty($registro->imagens->count() > 0))
+                <img class="row imagemcampanhas" src="/{{$registro->imagens[0]->caminho}}"
+                     alt="Foto de perfil">
+            @else
+                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                     alt="Imagem destaque">
+            @endif
 
             <div class="row observacoescampanha">
                 <h4 class="nomecampanha">{{$registro->nome}}</h4>
