@@ -9,7 +9,7 @@
         <p class="row col-md-12 titulosPrincipais">Criar Evento</p>
 
 
-        <form class="row formcriarEvento" method="post" action="{{route('meus-eventos.store')}}">
+        <form class="row formcriarEvento" method="post" enctype="multipart/form-data" action="{{route('meus-eventos.store')}}">
             {{ csrf_field() }}
 
             <div class="container">
@@ -17,7 +17,7 @@
                     <div class="form-group col">
                         <label for="nome">Nome <span class="obr">*</span></label>
                         <input type="text" class="form-control" id="nome" name="nome"
-                               placeholder="ex.: Campanha 1" autofocus required>
+                               placeholder="ex.: Evento 1" autofocus required>
                     </div>
                 </div>
             </div>
@@ -67,18 +67,15 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        {{--<label for="campanha">Campanha <span class="obr">*</span></label>
+                        <label for="campanha">Campanha <span class="obr">*</span></label>
                         <select class="form-control" id="campanha" name="campanha" required>
+                            <option value=”” disabled selected>Escolha a campanha relacionada ao Evento...</option>
                             @foreach($campanhas as $c)
                                 <option value="{{$c->id}}"
                                         @if ((isset($registro) and $registro->campanha_id == $c->id) or
-                                             old('campanha_id') == $c->id) selected @endif>
+                                             old('campanha_id') == $c->id)  @endif>
                                     {{$c->nome}}</option>
                             @endforeach
-                        </select>--}}
-                        <label for="campanha">Campanha <span class="obr">*</span></label>
-                        <select class="form-control" id="campanha" name="campanha" required>
-                            <option> option 1</option>
                         </select>
                     </div>
                 </div>
@@ -155,6 +152,21 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="add" for="imagem">Inserir imagem da campanha</label>
+                        <input type="file" id="imagem" name="imagem"
+                               onchange="previewFile()">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                {!!"<img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+            </div>
+
 
             <div class="container">
                 <div class="row justify-content-end">
@@ -169,6 +181,26 @@
 
     <!-- Adicionando Javascript -->
     <script type="text/javascript">
+
+        /*---------------------------------------------------------------------*/
+        /*Adiciona preview de imagem*/
+        function previewFile() {
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.

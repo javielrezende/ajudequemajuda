@@ -13,7 +13,7 @@
             nossa base de dados. Fique tranquilo, <br/>seus dados estão protegidos ;)</p>
 
 
-        <form class="row formcadastro" method="post" action="{{route('aqa.store')}}">
+        <form class="row formcadastro" method="post" enctype="multipart/form-data" action="{{route('aqa.store')}}">
             {{ csrf_field() }}
 
             <div class="container">
@@ -101,7 +101,7 @@
                         <label for="estado">Estado <span class="obr">*</span></label>
                         {{--<input type="text" class="form-control" id="estado" name="estado"
                                placeholder="Escolha seu estado" required>--}}
-                        <select class="custom-select" name="estado" id="estado">
+                        <select class="custom-select" name="estado" id="estado" required>
                             <option value="#" disabled selected>Escolha seu estado</option>
                         </select>
                     </div>
@@ -110,7 +110,7 @@
                         <label for="cidade">Cidade <span class="obr">*</span></label>
                         {{--<input type="text" class="form-control" id="cidade" name="cidade"
                                placeholder="Insira sua cidade" required>--}}
-                        <select class="custom-select" name="cidade" id="cidade">
+                        <select class="custom-select" name="cidade" id="cidade" required>
                             <option value="#" disabled selected>Insira sua cidade</option>
                         </select>
                     </div>
@@ -139,6 +139,20 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="add" for="imagem">Inserir imagem de perfil</label>
+                        <input type="file" id="imagem" name="imagem"
+                               onchange="previewFile()">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                {!!"<img src='imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+            </div>
 
             <div class="container">
                 <div class="row justify-content-end">
@@ -153,6 +167,25 @@
     <!-- Adicionando Javascript -->
     <script type="text/javascript">
 
+        /*---------------------------------------------------------------------*/
+        /*Adiciona preview de imagem*/
+        function previewFile() {
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.

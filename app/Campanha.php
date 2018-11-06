@@ -11,15 +11,27 @@ class Campanha extends Model
     ];
 
     public function users(){
-        return $this->belongsToMany('App\User', 'user_campanha_curtida_interesses', 'campanhas_id', 'users_id');
+        return $this->belongsToMany('App\User', 'user_campanhas', 'campanhas_id', 'users_id')->withTimestamps();
+    }
+
+    public function seguir(){
+        return $this->belongsToMany('App\User', 'user_campanha_interesses', 'campanhas_id', 'users_id')->withPivot('interesse')->withTimestamps();
+    }
+
+    public function curtir(){
+        return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'campanhas_id', 'users_id')->withTimestamps();
     }
 
     public function itens(){
-        return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id');
+        return $this->belongsToMany('App\Item', 'campanha_items', 'campanhas_id', 'itens_id')->withTimestamps();
     }
 
     public function eventos(){
         return $this->hasMany('App\Evento', 'campanhas_id');
+    }
+
+    public function imagens(){
+        return $this->hasMany('App\Imagem', 'campanhas_id');
     }
 
     public function getDataInicioAttribute(){

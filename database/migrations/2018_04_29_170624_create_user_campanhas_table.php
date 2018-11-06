@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserCampanhaCurtidaInteressesTable extends Migration
+class CreateUserCampanhasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUserCampanhaCurtidaInteressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_campanha_curtida_interesses', function (Blueprint $table) {
+        Schema::create('user_campanhas', function (Blueprint $table) {
             $table->unsignedInteger('users_id');
             $table->unsignedInteger('campanhas_id');
             $table->primary(['users_id', 'campanhas_id']);
-            $table->boolean('curtidas')->nullable()->default(0);
-            $table->boolean('interesse')->nullable()->default(0);
             $table->foreign('users_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
@@ -39,7 +37,7 @@ class CreateUserCampanhaCurtidaInteressesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('user_campanha_curtida_interesses');
+        Schema::dropIfExists('user_campanhas');
         Schema::enableForeignKeyConstraints();
     }
 }

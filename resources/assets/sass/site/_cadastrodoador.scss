@@ -32,8 +32,8 @@
       font-size: 14px;
     }
 
-    .form-control::placeholder{
-      font-size: 14px ;
+    .form-control::placeholder {
+      font-size: 14px;
     }
 
     .obr {
@@ -62,6 +62,22 @@
     .m {
       margin-left: 16px;
       margin-right: 16px;
+    }
+
+    input[type='file'] {
+      display: none
+    }
+
+    .add {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
+      cursor: pointer;
     }
 
     .cad {

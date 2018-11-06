@@ -12,7 +12,7 @@
             entidade para nossa base de dados. Fique tranquilo, <br/>seus dados estão protegidos ;)</p>
 
 
-        <form class="row formcadastro" method="post" action="{{route('storeentidade')}}">
+        <form class="row formcadastro" method="post" enctype="multipart/form-data" action="{{route('storeentidade')}}">
             {{ csrf_field() }}
 
             <div class="container">
@@ -100,7 +100,7 @@
                         <label for="estado">Estado <span class="obr">*</span></label>
                         {{--<input type="text" class="form-control" id="estado" name="estado"
                                placeholder="Escolha seu estado" required>--}}
-                        <select  class="custom-select" name="estado" id="estado">
+                        <select class="custom-select" name="estado" id="estado">
                             <option value="#" disabled selected>Escolha seu estado</option>
                         </select>
                     </div>
@@ -142,18 +142,33 @@
                     <div class="form-group col e">
                         <label for="descricao_entidade">Fale sobre sua entidade <span class="obrinv">*</span></label>
                         <textarea id="descricao_entidade" rows="6" class="form-control"
-                                 placeholder="O que for digitado neste campo estará disponível para os usuários no seu perfil..."
+                                  placeholder="O que for digitado neste campo estará disponível para os usuários no seu perfil..."
                                   name="descricao_entidade"></textarea>
                     </div>
 
                     <div class="form-group col d">
                         <label for="mensagem">Explique o motivo de seu pedido <span class="obrinv">*</span></label>
                         <textarea id="mensagem" rows="6" class="form-control"
-                                  placeholder="Este campo não será visível para os usuários do sistema..." name="mensagem"></textarea>
+                                  placeholder="Este campo não será visível para os usuários do sistema..."
+                                  name="mensagem"></textarea>
                     </div>
                 </div>
             </div>
 
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="add" for="imagem">Inserir imagem de perfil</label>
+                        <input type="file" id="imagem" name="imagem"
+                               onchange="previewFile()">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                {!!"<img src='imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+            </div>
 
             <div class="container">
                 <div class="row justify-content-end">
@@ -165,6 +180,27 @@
 
     <!-- Adicionando Javascript -->
     <script type="text/javascript">
+
+        /*---------------------------------------------------------------------*/
+        /*Adiciona preview de imagem*/
+        function previewFile() {
+            let preview = document.getElementById('imagem_preview');
+            let file = document.getElementById('imagem').files[0];
+            let reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+
+        /*---------------------------------------------------------------------*/
+
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.

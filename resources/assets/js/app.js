@@ -28,3 +28,9 @@ require('./datapicker');
 require('./datatimepicker');
 require('./estadocidade');
 require('./mask');
+require('./popover');
+require('./criarCampanha');
+//require('./habilitarCampo');
+require('./uploadImagem');
+
+

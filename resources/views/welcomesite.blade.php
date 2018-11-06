@@ -81,7 +81,7 @@
     </div>
 
     <div class="row sitedestaques">
-        <p class="row col-md-12 titulodestaques">Campanhas em destaque</p>
+        <p class="row col-md-12 titulodestaques">Últimas Campanhas</p>
         <div class="row imgdestaques">
 
             @foreach($campanhas as $campanha)

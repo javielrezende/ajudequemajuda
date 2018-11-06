@@ -5731,17 +5731,18 @@ const json = {
 const estadosElement = document.getElementById("estado")
 const cidadesElement = document.getElementById("cidade")
 
+if(estadosElement) {
+    json.estados.forEach(estado => {
+        estadosElement.add(new Option(estado.nome, estado.sigla))
+    })
 
-json.estados.forEach(estado => {
-    estadosElement.add(new Option(estado.nome, estado.sigla))
-})
 
 
-
-estadosElement.addEventListener('change', function(e) {
-    cidadesElement.innerHTML = ""
-    const filtro = json.estados.find(estado => estado.sigla === e.target.value)
-    filtro.cidades.forEach(cidade =>
-        cidadesElement.add(new Option(cidade,cidade))
-    )
-})
+    estadosElement.addEventListener('change', function(e) {
+        cidadesElement.innerHTML = ""
+        const filtro = json.estados.find(estado => estado.sigla === e.target.value)
+        filtro.cidades.forEach(cidade =>
+            cidadesElement.add(new Option(cidade,cidade))
+        )
+    })
+}

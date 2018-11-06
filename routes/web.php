@@ -46,6 +46,12 @@ Route::resource('/alterar-senha', 'TrocarSenhaController');
 Route::get('/site/campanhas/{campanha}/seguir', 'SiteUsuarioController@seguirCampanha')->name('seguir-campanha');
 
 /**
+ * Rota para curtir uma campanha
+ */
+Route::get('/site/campanhas/{campanha}/curtir', 'SiteUsuarioController@curtirCampanha')->name('curtir-campanha');
+
+
+/**
  * Rota para envio de email
  */
 Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
@@ -57,10 +63,6 @@ Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('envi
  */
 Route::resource('site/entidades', 'SiteUserController',
     ['as' => 'entidades']);
-
-/*Route::get('/site/evento', function () {
-    return view('site/evento/evento');
-});*/
 
 
 

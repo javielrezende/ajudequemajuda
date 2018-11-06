@@ -50,8 +50,16 @@
                 <div class="dropdown" style="display: inline">
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                        <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}"
-                             alt="Foto de perfil"></a>
+                        @if(Auth::user()->imagem == "" || Auth::user()->imagem == null)
+                            <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}"
+                                 alt="Foto de perfil">
+
+                        @else
+                            <img class="imgperfil" src="{{ asset(\Illuminate\Support\Facades\Auth::user()->imagem) }}"
+                                 alt="Foto de perfil">
+                        @endif
+                    </a>
+
                     @if(Auth::user()->funcao == 1)
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item"
@@ -60,7 +68,8 @@
                             <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
                             <a class="dropdown-item" href="{{route('minhas-campanhas.index')}}">Minhas Campanhas</a>
                             <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
-                            <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para confirmar</a>
+                            <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para
+                                confirmar</a>
                             <a class="dropdown-item" href="{{route('relatorios.index')}}">Relatórios</a>
                         </div>
                     @else
@@ -69,7 +78,8 @@
                                href=" {{route('usuario-site.show', $usuario = Auth::user()->id)}} ">Meu
                                 cadastro</a>
                             <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
-                            <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas interessantes</a>
+                            <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas
+                                interessantes</a>
                             <a class="dropdown-item" href="#">Doações efetuadas</a>
                         </div>
                     @endif
