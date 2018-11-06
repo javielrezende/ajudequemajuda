@@ -25,7 +25,9 @@ class SiteEntidadeController extends Controller
 
         $c = $entidadeLogada->campanhas()->orderBy('id', 'desc')->count();
         //dd($c);
-        $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->paginate(4);
+        $campanhas = $entidadeLogada->campanhas()->with('imagens')->orderBy('id', 'desc')->paginate(4);
+
+        //dd($campanhas);
 
         return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'c'));
     }

@@ -32,7 +32,7 @@
                                        data-toggle="popover"
                                        data-trigger="hover"
                                        title="Sua campanha pode ser permanente!"
-                                       data-content="Se vocÊ não escolher esta opção sua campanha será permanente, sem data final! :)"
+                                       data-content="Se você não escolher esta opção sua campanha será permanente, sem data final! :)"
                                        class="form-control"
                                        id="dataInicio"
                                        name="dataInicio"
@@ -96,7 +96,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="form-group col">
-                            <label class="add" for="imagem">Inserir imagem de perfil</label>
+                            <label class="add" for="imagem">Inserir imagem da campanha</label>
                             <input type="file" id="imagem" name="imagem"
                                    onchange="previewFile()">
 

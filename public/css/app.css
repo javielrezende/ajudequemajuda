@@ -13628,7 +13628,22 @@ body .row {
   text-align: center;
 }
 
-.criarEvento .linkReturn {
+option {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+select:required {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+select:required:invalid {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+.linkReturn {
   text-decoration: underline;
   font-size: 10px;
   font-weight: bold;
@@ -13636,7 +13651,7 @@ body .row {
   margin: 40px auto 5px;
 }
 
-.criarEvento .titulosPrincipais {
+.titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -13646,13 +13661,13 @@ body .row {
   margin-bottom: 25px;
 }
 
-.criarEvento .explicacao {
+.explicacao {
   color: #8A8A8A;
   font-size: 14px;
   margin-bottom: 15px;
 }
 
-.criarEvento .formcriarEvento {
+.formcriarEvento {
   width: 620px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -13664,55 +13679,72 @@ body .row {
   margin: auto;
 }
 
-.criarEvento .formcriarEvento label {
+.formcriarEvento label {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::-webkit-input-placeholder {
+.formcriarEvento .form-control::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control:-ms-input-placeholder {
+.formcriarEvento .form-control:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::-ms-input-placeholder {
+.formcriarEvento .form-control::-ms-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::placeholder {
+.formcriarEvento .form-control::placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .obr {
+.formcriarEvento .obr {
   color: red;
   font-size: 20px;
 }
 
-.criarEvento .formcriarEvento .obrinv {
+.formcriarEvento .obrinv {
   color: red;
   opacity: 0;
   font-size: 20px;
 }
 
-.criarEvento .formcriarEvento .form-group {
+.formcriarEvento .form-group {
   padding: 0;
 }
 
-.criarEvento .formcriarEvento .e {
+.formcriarEvento .e {
   margin-right: 8px;
 }
 
-.criarEvento .formcriarEvento .d {
+.formcriarEvento .d {
   margin-left: 8px;
 }
 
-.criarEvento .formcriarEvento .m {
+.formcriarEvento .m {
   margin-left: 16px;
   margin-right: 16px;
+  cursor: pointer;
 }
 
-.criarEvento .formcriarEvento .cad {
+.formcriarEvento .m input[type='file'] {
+  display: none;
+}
+
+.formcriarEvento .m .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.formcriarEvento .m .cad {
   background-color: #439AFF;
   padding: 10px;
   padding-left: 18px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use App\Imagem;
 use App\Item;
 use App\User;
 use Carbon\Carbon;
@@ -83,6 +84,40 @@ class MinhasCampanhasController extends Controller
 
         $campanha->users()->sync($usuario);
         //dd('sim');
+
+        $imagem = null;
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $horaAtual = Carbon::parse()->timestamp;
+            //dd($horaAtual);
+            $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
+            //dd($nomeImagem);
+
+            $extensao = $request->imagem->extension();
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+            $imagem = "imagens/users/" . $nomeImagemFinal;
+
+
+            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
+            $imagemCreate = new Imagem;
+            $imagemCreate->caminho = $imagem;
+            $imagemCreate->campanhas_id = $campanha->id;
+            $imagemCreate->eventos_id = null;
+                //dd($imagemCreate);
+            $resultado2 = $imagemCreate->save();
+            dd($resultado2);
+
+
+            /*$imagemCreate = Imagem::create([
+                'caminho' => $imagem,
+                'campanhas_id' => $campanha
+            ]);*/
+            //dd($imagemCreate);
+        }
+
 
         for ($i = 0; $i < count($request->descricaoItem); $i++) {
             $item = new Item;

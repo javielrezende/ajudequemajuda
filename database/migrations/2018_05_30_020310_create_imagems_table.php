@@ -18,12 +18,12 @@ class CreateImagemsTable extends Migration
             $table->string('titulo', 191)->nullable();
             $table->string('caminho', 191);
             $table->boolean('capa')->nullable();
-            $table->unsignedInteger('campanhas_id');
+            $table->unsignedInteger('campanhas_id')->nullable();
             $table->foreign('campanhas_id')
                 ->references('id')->on('campanhas')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->unsignedInteger('eventos_id');
+            $table->unsignedInteger('eventos_id')->nullable();
             $table->foreign('eventos_id')
                 ->references('id')->on('eventos')
                 ->onUpdate('cascade')

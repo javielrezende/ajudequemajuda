@@ -1,5 +1,21 @@
 .criarEvento {
 
+}
+option {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+select:required {
+  font-size: 14px;
+  color: #6C757D;
+}
+
+select:required:invalid {
+  font-size: 14px;
+  color: #6C757D;
+}
+
   .linkReturn {
     text-decoration: underline;
     font-size: 10px;
@@ -62,7 +78,24 @@
     .m {
       margin-left: 16px;
       margin-right: 16px;
-    }
+
+      input[type='file'] {
+        display: none
+      }
+
+      .add {
+        background-color: #F1F1F1;
+        padding: 6px;
+        padding-left: 18px;
+        padding-right: 18px;
+        border-radius: 20px;
+        font-size: 10px;
+        color: #4D4F5C;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      cursor: pointer;
 
     .cad {
       background-color: #439AFF;
