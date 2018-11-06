@@ -10,8 +10,13 @@
 
             @foreach($entidades as $entidade)
             <div class="row diventidades">
-                <img class="row imagementidades" src="{{ asset('imagens/campanhadestaque.png') }}"
-                     alt="Imagem destaque">
+                @if($entidade->imagem)
+                    <img class="row imagemcampanhas" src="/{{$entidade->imagem}}"
+                         alt="Foto de perfil">
+                @else
+                    <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                         alt="Imagem destaque">
+                @endif
                 <div class="col-6 row observacoesentidades">
                     <h4 class="nomeentidades">{{$entidade->name}}</h4>
                     <p class="descricaoentidades">{{$entidade->descricao_entidade}}</p>

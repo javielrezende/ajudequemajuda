@@ -12,8 +12,14 @@
 
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
-                    <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
-                         alt="Imagem destaque">
+                    @if(!empty($campanha->imagens->count() > 0))
+                        <img class="row imagemcampanhas" src="/{{$campanha->imagens[0]->caminho}}"
+                             alt="Foto de perfil">
+                    @else
+                        <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                             alt="Imagem destaque">
+                    @endif
+
                     <div class="col-6 row observacoescampanhas">
                         <h4 class="nomecampanhas">{{$campanha->nome}}</h4>
                         <h6 class="nomeentidadesite">Por: {{$campanha->users[0]->name}}</h6>

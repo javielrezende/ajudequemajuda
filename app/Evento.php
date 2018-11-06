@@ -18,6 +18,10 @@ class Evento extends Model
         return $this->belongsTo('App\Endereco', 'enderecos_id');
     }
 
+    public function imagens(){
+        return $this->hasMany('App\Imagem', 'eventos_id');
+    }
+
     public function getDataHoraInicioAttribute(){
         $dataHoraInicio = explode('-', $this->attributes['dataHoraInicio']);
         if(count($dataHoraInicio) != 3){

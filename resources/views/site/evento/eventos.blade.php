@@ -10,8 +10,15 @@
 
             @foreach($eventos as $evento)
             <div class="row diveventos">
-                <img class="row imagemeventos" src="{{ asset('imagens/campanhadestaque.png') }}"
-                     alt="Imagem destaque">
+                {{--{{dd($evento)}}--}}
+                @if(!empty($evento->imagens->count() > 0))
+                    <img class="row imagemcampanhas" src="/{{$evento->imagens[0]->caminho}}"
+                         alt="Foto de perfil">
+                @else
+                    <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                         alt="Imagem destaque">
+                @endif
+
                 <div class="col-6 row observacoeseventos">
                     <h4 class="nomeeventos">{{$evento->nome}}</h4>
                     <p class="dataeventos"><b>Dia: </b>{{$evento->dataHoraInicio}}</p>

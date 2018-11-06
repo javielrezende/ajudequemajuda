@@ -11484,6 +11484,13 @@ body .row {
   margin: 15px;
 }
 
+.sitedestaques .divdestaques img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
+}
+
 .sitedestaques .observacoes {
   margin-left: 20px;
   display: -webkit-box;
@@ -11745,6 +11752,13 @@ body .row {
   margin: 0 auto;
   grid-template-columns: repeat(2, 50%);
   display: grid;
+}
+
+.siteeventos .imgeventos img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
 }
 
 .siteeventos .diveventos {
@@ -12159,6 +12173,13 @@ body .row {
   -webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
           box-shadow: 3px 3px rgba(0, 0, 0, 0.03);
   margin: 15px;
+}
+
+.sitecampanhas .divcampanhas img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
 }
 
 .sitecampanhas .divcampanhas .observacoescampanhas {
@@ -12800,6 +12821,13 @@ body .row {
   margin: 15px;
 }
 
+.siteentidades .diventidades img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
+}
+
 .siteentidades .diventidades .observacoesentidades {
   margin-left: 20px;
   display: -webkit-box;
@@ -13139,6 +13167,13 @@ body .row {
   margin: 15px;
 }
 
+.entidadeindex .divcampanhas img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
+}
+
 .entidadeindex .divcampanhas .observacoescampanhas {
   margin-left: 20px;
   display: -webkit-box;
@@ -13411,6 +13446,13 @@ body .row {
   margin: 0 auto;
   grid-template-columns: repeat(2, 50%);
   display: grid;
+}
+
+.sitecampanhas .imgeventos img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
 }
 
 .sitecampanhas .diveventos {
@@ -14557,6 +14599,13 @@ select:required:invalid {
   display: grid;
 }
 
+.usuarioindex .imgcampanhas img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
+}
+
 .usuarioindex .divcampanhas {
   width: 475px;
   height: 264px;
@@ -14654,6 +14703,13 @@ select:required:invalid {
   margin: 0 auto;
   grid-template-columns: repeat(2, 50%);
   display: grid;
+}
+
+.usuarioindex .imgeventos img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
 }
 
 .usuarioindex .diveventos {
@@ -14761,6 +14817,13 @@ select:required:invalid {
   margin: 0 auto;
   grid-template-columns: repeat(2, 50%);
   display: grid;
+}
+
+.campanhasInteressantes .imgcampanhas img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
 }
 
 .campanhasInteressantes .imgcampanhas .aviso1 {

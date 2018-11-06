@@ -25,7 +25,7 @@ class MinhasCampanhasController extends Controller
 
         $entidadeLogada = Auth::user();
 
-        $campanhas = $entidadeLogada->campanhas;
+        $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->get();
 
         return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
     }

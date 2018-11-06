@@ -30,6 +30,13 @@
     grid-template-columns: repeat(2, 50%);
     display: grid;
 
+    img {
+      object-fit: cover;
+      width: 175px;
+      height: 262px;
+    }
+
+
     .aviso1 {
       //text-decoration: underline;
       font-size: 20px;

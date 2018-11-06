@@ -56,7 +56,7 @@ class SiteCampanhaController extends Controller
     {
         $num = 0;
 
-        if (Auth::check() && Auth::user()->funcao == 0) {
+        if (Auth::check()) {
             $usuario = Auth::user()->id;
             $campanha = Campanha::find($id);
             $registro = Campanha::with('users')

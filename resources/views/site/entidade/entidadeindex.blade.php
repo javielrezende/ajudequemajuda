@@ -37,7 +37,7 @@
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
                     @if(!empty($campanha->imagens->count() > 0))
-                        <img class="row imagemcampanhas" style="object-fit: cover; width: 175px; height: 262px" src="/{{$campanha->imagens[0]->caminho}}"
+                        <img class="row imagemcampanhas" src="/{{$campanha->imagens[0]->caminho}}"
                              alt="Foto de perfil">
                     @else
                         <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"

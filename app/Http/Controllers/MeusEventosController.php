@@ -125,18 +125,18 @@ class MeusEventosController extends Controller
             //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
             $imagemCreate = new Imagem;
             $imagemCreate->caminho = $imagem;
-            $imagemCreate->campanhas_id = $campanha->id;
-            $imagemCreate->eventos_id = null;
+            $imagemCreate->campanhas_id = null;
+            $imagemCreate->eventos_id = $resultado->id;
             //dd($imagemCreate);
             $resultado2 = $imagemCreate->save();
-            dd($resultado2);
+            //dd($resultado2);
 
 
             /*$imagemCreate = Imagem::create([
                 'caminho' => $imagem,
                 'campanhas_id' => $campanha
             ]);*/
-            dd($imagemCreate);
+            //dd($imagemCreate);
         }
 
         //dd($resultado);

@@ -14,7 +14,7 @@ class SiteEventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::with('campanhas')
+        $eventos = Evento::with('campanhas', 'imagens')
             ->with('enderecos')
             ->where('status', 1)
             ->orderBy('id', 'desc')

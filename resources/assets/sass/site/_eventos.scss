@@ -26,6 +26,14 @@
     margin: 0 auto;
     grid-template-columns: repeat(2, 50%);
     display: grid;
+
+    img {
+      object-fit: cover;
+      width: 175px;
+      height: 262px;
+    }
+
+
   }
 
   .diveventos {
