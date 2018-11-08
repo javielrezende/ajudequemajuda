@@ -126,8 +126,13 @@
       padding-right: 18px;
       border-radius: 20px;
       font-size: 10px;
-      color: #4D4F5C;
       margin-bottom: 10px;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: #4D4F5C;
+      }
     }
 
     .addS {
@@ -140,7 +145,6 @@
       color: #4D4F5C;
       margin-bottom: 10px;
     }
-
 
   }
 
@@ -179,7 +183,6 @@
     color: #4D4F5C;
     margin-bottom: 10px;
   }
-
 
   .titulosPrincipais {
     //justify-content: center;

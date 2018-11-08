@@ -46,8 +46,8 @@
                                style="color: black"></a>
                             @endauth
                             <p class="numlike">{{$registro->num}}</p>
-                            {{--<i class="far fa-thumbs-down"></i>
-                            <p class="numlike">999</p>--}}
+                            {{--<i class="far fa-thumbs-down"></i>--}}
+                            <p class="numlike">{{$c}}</p>
                             <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
                                  data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
                                                                                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"

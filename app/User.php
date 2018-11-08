@@ -39,7 +39,7 @@ class User extends Authenticatable
     }
 
     public function users(){
-        return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1')->withTimestamps();
+        return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1')->withPivot('curtidas', 'comentarios, denuncia, mensagem_denuncia')->withTimestamps();
     }
 
     /*public function user(){

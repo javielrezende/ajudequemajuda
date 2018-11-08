@@ -28,7 +28,7 @@
             </a>
         </div>
 
-        <p class="row col-md-12 titulosPrincipais1"><a href="/enviar-email">Enviar E-mail</a></p>
+        {{--<p class="row col-md-12 titulosPrincipais1"><a href="/enviar-email">Enviar E-mail</a></p>--}}
 
         <p class="row col-md-12 titulosPrincipais">Últimas Campanhas</p>
 

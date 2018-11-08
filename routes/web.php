@@ -50,6 +50,10 @@ Route::get('/site/campanhas/{campanha}/seguir', 'SiteUsuarioController@seguirCam
  */
 Route::get('/site/campanhas/{campanha}/curtir', 'SiteUsuarioController@curtirCampanha')->name('curtir-campanha');
 
+/**
+ * Rota para curtir uma entidade
+ */
+Route::get('/site/entidades/{entidade}/curtir', 'SiteUsuarioController@curtirEntidade')->name('curtir-entidade');
 
 /**
  * Rota para envio de email

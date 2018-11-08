@@ -22,6 +22,7 @@ class SiteCampanhaController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
+
         return view('site.campanha.campanhas', compact('campanhas'));
     }
 
@@ -55,6 +56,33 @@ class SiteCampanhaController extends Controller
     public function show($id)
     {
         $num = 0;
+        $campanha = Campanha::find($id);
+
+//        $coun = 0;
+
+        $c = DB::table('user_campanha_curtidas')
+            ->where('campanhas_id', $campanha->id)
+            ->get()
+            ->map(function ($value) {
+                return $value->curtida;
+            })->count();
+/*
+        $c1 = DB::table('user_campanha_curtidas')
+            ->where('campanhas_id', $campanha->id)
+            ->get()
+            ->map(function ($value) {
+                return $value->curtida;
+            })->count();
+
+        dd($c);
+
+        for($i=0; $i<$c1; $i++) {
+            if($c > 0) {
+                $coun++;
+            }
+        }
+
+        dd($coun);*/
 
         if (Auth::check()) {
             $usuario = Auth::user()->id;
@@ -89,7 +117,7 @@ class SiteCampanhaController extends Controller
 
                 $seguindo = $resultado[0]->interesse;
                 $curtida = $resultado1[0]->curtida;
-                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num', 'c'));
             }
 
             if ($result && !$res) {
@@ -100,7 +128,7 @@ class SiteCampanhaController extends Controller
 
                 $seguindo = $resultado[0]->interesse;
                 $curtida = null;
-                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num', 'c'));
             }
 
             if (!$result && $res) {
@@ -116,13 +144,13 @@ class SiteCampanhaController extends Controller
 
                 $seguindo = null;
                 $curtida = $resultado1[0]->curtida;
-                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num', 'c'));
             }
 
             if (!$result && !$res) {
                 $seguindo = null;
                 $curtida = null;
-                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num'));
+                return view('site.campanha.campanha', compact('registro', 'seguindo', 'curtida', 'num', 'c'));
             }
         }
 
@@ -132,7 +160,7 @@ class SiteCampanhaController extends Controller
         $registro = Campanha::with('users')
             ->find($id);
 
-        return view('site.campanha.campanha', compact('registro', 'num'));
+        return view('site.campanha.campanha', compact('registro', 'num', 'c'));
     }
 
     /**

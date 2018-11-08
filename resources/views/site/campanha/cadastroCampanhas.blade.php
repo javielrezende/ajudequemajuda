@@ -136,22 +136,24 @@
                          aria-labelledby="modalEmailCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title" id="modalEmailCenterTitle">Mensagem</h6>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <textarea id="mensagem" rows="6" class="form-control"
+                                <form class="" method="post" action="{{route('enviar-email')}}">
+                                    {{ csrf_field() }}
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="modalEmailCenterTitle">Mensagem</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <textarea id="mensagemEmail" rows="6" class="form-control"
                                               placeholder="Escreva o que os seguidores irão receber no corpo do e-mail..."
-                                              name="mensagem"></textarea>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn addS" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn addB">Confirmar</button>
-                                </div>
+                                              name="mensagemEmail"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn addS" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn addB">Enviar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -222,6 +224,8 @@
                     <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
                 </div>
             </div>
+        </div>
+    </div>
 
 
 @endsection

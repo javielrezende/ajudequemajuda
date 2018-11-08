@@ -7,6 +7,8 @@ use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SiteUserController extends Controller
 {
@@ -58,31 +60,22 @@ class SiteUserController extends Controller
         $registro = User::with(['campanhas', 'campanhas.eventos'])
             ->find($id);
 
-        //$registroCampanhas = UserCampanhaCurtidaInteresse::where('users_id', $registro->campanhas[0]->id)
-        //->get();
-
         $registroCampanhas = $registro->campanhas;
-        //dd($registroCampanhas);
-        //dd($registro->campanhas[0]->id);
-//        $registroCampanhas = $registro->campanhas;
-        //dd($registroCampanhas);
 
-        /*$count = 0;
-        while ($registroCampanhas) {
-            $count++;
-            if ($count == 10) {
-                dd($count);
-            }
-        }*/
-        //dd($registro->campanhas[0]->id);
-        //dd($registro->campanhas[1]->id);
-        //dd($registroCampanhas);
+        $usuario = Auth::user()->id;
+        $usuario1 = User::find($id);
+        $result = DB::table('user_user_curtidas')
+            ->where('users_id', $usuario)
+            ->where('users_id1', $usuario1->id)
+            ->first();
+        if ($result) {
+            $tr = 1;
+        } else {
+            $tr = 0;
+        }
+        return redirect()->back()->with($tr);
 
-        //$registroEventos = Evento::where('')
 
-        //$registroCampanhas = Campanha::where('status', 1)
-        //->where
-        //dd($registro->endereco);
         return view('site.entidade.entidade', compact('registro', 'registroCampanhas'));
     }
 

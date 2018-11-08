@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
+use App\UserUserCurtida;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -129,22 +130,22 @@ class SiteUsuarioController extends Controller
 
         //if ($usuario->imagem == null || $usuario->imagem == "") {
 
-            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-                $horaAtual = Carbon::parse()->timestamp;
-                //dd($horaAtual);
-                $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
-                //dd($nomeImagem);
+            $horaAtual = Carbon::parse()->timestamp;
+            //dd($horaAtual);
+            $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
+            //dd($nomeImagem);
 
-                $extensao = $request->imagem->extension();
-                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-                $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+            $extensao = $request->imagem->extension();
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
 
-                $imagem = "imagens/users/" . $nomeImagemFinal;
-            }
-         //   $alteracao = $usuario->update(['imagem' => $imagem]);
+            $imagem = "imagens/users/" . $nomeImagemFinal;
+        }
+        //   $alteracao = $usuario->update(['imagem' => $imagem]);
         //} else {
-            $alteracao = $usuario->update(['imagem' => $imagem]);
+        $alteracao = $usuario->update(['imagem' => $imagem]);
         //}
 
 
@@ -274,6 +275,54 @@ class SiteUsuarioController extends Controller
             $curtida = $resultado[0]->curtida;
             //dd('voltei a curtir');
             return redirect()->back()->with($curtida);
+        }
+    }
+
+    public function curtirEntidade(Request $request, $id)
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        if (Auth::check() && (Auth::user()->funcao != 0)) {
+            dd('Não é possivel curtir sem ser um Usuário!');
+            return redirect()->back();
+        }
+
+        $usuario = Auth::user()->id;
+        $usuario1 = User::find($id);
+
+        $result = DB::table('user_user_curtidas')
+            ->where('users_id', $usuario)
+            ->where('users_id1', $usuario1->id)
+            ->first();
+
+
+        if (!$result) {
+            $cur = UserUserCurtida::create([
+                'users_id' => $usuario,
+                'users_id1' => $usuario1->id,
+            ]);
+            //dd($cur);
+
+            $result1 = DB::table('user_user_curtidas')
+                ->where('users_id', $usuario)
+                ->where('users_id1', $usuario1->id)
+                ->get();
+            if ($result1) {
+                $tr = 1;
+            }
+
+            return redirect()->back()->with($tr);
+        } else {
+            $result1 = DB::table('user_user_curtidas')
+                ->where('users_id', $usuario)
+                ->where('users_id1', $usuario1->id)
+                ->delete();
+            if ($result1) {
+                $tr = 0;
+                return redirect()->back()->with($tr);
+            }
         }
     }
 

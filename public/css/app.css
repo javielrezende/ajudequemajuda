@@ -14345,8 +14345,13 @@ select:required:invalid {
   padding-right: 18px;
   border-radius: 20px;
   font-size: 10px;
-  color: #4D4F5C;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.editarCampanha .alinhamentoItens .addB a {
+  text-decoration: none;
+  color: #4D4F5C;
 }
 
 .editarCampanha .alinhamentoItens .addS {
