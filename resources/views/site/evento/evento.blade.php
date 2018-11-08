@@ -18,8 +18,8 @@
                      alt="Imagem destaque">
             @endif
             <div class="diamesevento">
-                <h4 class="diaevento">19</h4>
-                <h4 class="mesevento">ABR</h4>
+                <h4 class="diaevento">{{$dia}}</h4>
+                <h4 class="mesevento">{{$mes}}</h4>
             </div>
 
             <div class="row observacoesevento">

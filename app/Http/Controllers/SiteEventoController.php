@@ -56,8 +56,10 @@ class SiteEventoController extends Controller
         $registro = Evento::with('campanhas')
             ->with('enderecos')
             ->find($id);
-        //dd($registro);
-        return view('site.evento.evento', compact('registro'));
+        $dia = $registro->getDia();
+        $mes = $registro->getMesAttribute();
+        //dd($mes);
+        return view('site.evento.evento', compact('registro', 'dia', 'mes'));
     }
 
     /**

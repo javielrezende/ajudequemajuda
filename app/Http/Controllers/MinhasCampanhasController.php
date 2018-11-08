@@ -108,7 +108,7 @@ class MinhasCampanhasController extends Controller
             $imagemCreate->eventos_id = null;
                 //dd($imagemCreate);
             $resultado2 = $imagemCreate->save();
-            dd($resultado2);
+            //dd($resultado2);
 
 
             /*$imagemCreate = Imagem::create([
