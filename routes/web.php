@@ -58,7 +58,7 @@ Route::get('/site/entidades/{entidade}/curtir', 'SiteUsuarioController@curtirEnt
 /**
  * Rota para envio de email
  */
-Route::get('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
+Route::post('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
 
 /**
  * Renomeado como entidades para não conflitar com a rota de entidades

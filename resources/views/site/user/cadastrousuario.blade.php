@@ -21,7 +21,10 @@
                             <label for="name" class="editarCampo">Nome</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->name}}</p>
+                        {{--<p class="resultado">{{$usuario->name}}</p>--}}
+                        <input type="text" class="form-control" id="name" name="name"
+                               placeholder="Insira seu nome completo"
+                               value="{{$usuario->name or old('name')}}">
                     </div>
                 </div>
             </div>
@@ -33,7 +36,10 @@
                             <label for="email" class="editarCampo">E-mail</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->email}}</p>
+{{--                        <p class="resultado">{{$usuario->email}}</p>--}}
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="email@provedor.com"
+                               value="{{$usuario->email or old('email')}}">
                     </div>
                 </div>
             </div>
@@ -45,7 +51,10 @@
                             <label for="cpf" class="editarCampo">CPF</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado" id="cpf">{{$usuario->cpf}}</p>
+{{--                        <p class="resultado" id="cpf">{{$usuario->cpf}}</p>--}}
+                        <input type="text" class="form-control" id="cpf" name="cpf"
+                               placeholder="000.000.000-00"
+                               value="{{$usuario->cpf or old('cpf')}}">
                     </div>
                 </div>
             </div>
@@ -57,7 +66,10 @@
                             <label for="fone" class="editarCampo">Fone</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->fone}}</p>
+                       {{-- <p class="resultado">{{$usuario->fone}}</p>--}}
+                        <input type="tel" class="form-control" id="fone" name="fone"
+                               placeholder="(DDD) 00000-0000"
+                               value="{{$usuario->fone or old('fone')}}">
                     </div>
                 </div>
             </div>
@@ -70,7 +82,10 @@
                             <label for="cep" class="editarCampo">CEP</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado" id="cep">{{$usuario->endereco->cep}}</p>
+                        {{--<p class="resultado" id="cep">{{$usuario->endereco->cep}}</p>--}}
+                        <input type="text" class="form-control" id="cep" name="cep"
+                               onblur="pesquisacep(this.value);" placeholder="ex.: 96055-510"
+                               value="{{$usuario->endereco->cep or old('cep')}}">
                     </div>
 
                     <div class="form-group col d">
@@ -78,7 +93,10 @@
                             <label for="rua" class="editarCampo">Rua</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->rua}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->rua}}</p>--}}
+                        <input type="text" class="form-control" id="rua" name="rua"
+                               placeholder="ex.: Av. Duque de Caxias"
+                               value="{{$usuario->endereco->rua or old('rua')}}">
                     </div>
                 </div>
             </div>
@@ -90,7 +108,10 @@
                             <label for="numero" class="editarCampo">Número</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->numero}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->numero}}</p>--}}
+                        <input type="text" class="form-control" id="numero" name="numero"
+                               placeholder="ex.: 650"
+                               value="{{$usuario->endereco->numero or old('numero')}}">
                     </div>
 
                     <div class="form-group col d">
@@ -98,7 +119,10 @@
                             <label for="complemento" class="editarCampo">Complemento</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->complemento}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->complemento}}</p>--}}
+                        <input type="text" class="form-control" id="complemento" name="complemento"
+                               placeholder="ex.: Apto. 102"
+                               value="{{$usuario->endereco->complemento or old('complemento')}}">
                     </div>
                 </div>
             </div>
@@ -110,15 +134,21 @@
                             <label for="bairro" class="editarCampo">Bairro</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->bairro}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->bairro}}</p>--}}
+                        <input type="text" class="form-control" id="bairro" name="bairro"
+                               placeholder="Insira seu bairro"
+                               value="{{$usuario->endereco->bairro or old('bairro')}}">
                     </div>
 
                     <div class="form-group col m">
                         <div class="row">
-                            <label for="estado" class="editarCampo">Estado</label>
+                            {{--<label for="estado" class="editarCampo">Estado</label>--}}
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->estado}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->estado}}</p>--}}
+                        <select class="custom-select" name="estado" id="estado">
+                            <option value="{{$usuario->endereco->estado or old('estado')}}">Escolha seu estado</option>
+                        </select>
                     </div>
 
                     <div class="form-group col">
@@ -126,7 +156,10 @@
                             <label for="cidade" class="editarCampo">Cidade</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        <p class="resultado">{{$usuario->endereco->cidade}}</p>
+                        {{--<p class="resultado">{{$usuario->endereco->cidade}}</p>--}}
+                        <select class="custom-select" name="cidade" id="cidade">
+                            <option value="{{$usuario->endereco->cidade or old('cidade')}}">Insira sua cidade</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -144,9 +177,11 @@
 
             <div class="col-sm-6">
                 @if($usuario->imagem == null || $usuario->imagem == "")
-                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>
+                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
+                         alt='Foto do perfil' class='rounded-circle'>
                 @else
-                    <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>
+                    <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px'
+                         alt='Foto do perfil' class='rounded-circle'>
                 @endif
             </div>
 

@@ -93,6 +93,11 @@ class SiteUsuarioController extends Controller
      */
     public function show($id)
     {
+
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
         $usuario = Auth::user();
 
         //dd($usuario);
@@ -125,10 +130,16 @@ class SiteUsuarioController extends Controller
 
         $usuario = User::find($id);
         $imagem = $usuario->imagem;
-        //dd($usuario->imagem);
-        //dd($imagem);
 
-        //if ($usuario->imagem == null || $usuario->imagem == "") {
+
+        $dados = $request->all();
+
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
+
+        $alteracao = $registro->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
+
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
@@ -145,11 +156,11 @@ class SiteUsuarioController extends Controller
         }
         //   $alteracao = $usuario->update(['imagem' => $imagem]);
         //} else {
-        $alteracao = $usuario->update(['imagem' => $imagem]);
+        $alteracao2 = $usuario->update(['imagem' => $imagem]);
         //}
 
 
-        if ($alteracao) {
+        if ($alteracao2 && $alteracao && $alteracao1) {
             return redirect()->route('usuario-site.show', $usuario->id);
         }
     }
@@ -171,10 +182,11 @@ class SiteUsuarioController extends Controller
             return redirect('/aqa-login');
         }
 
-        if (Auth::check() && (Auth::user()->funcao != 0)) {
-            dd('Não é possivel seguir uma campanha sem ser um Usuário!');
+//        if (Auth::check() && (Auth::user()->funcao != 0)) {
+        /*if (Auth::check()) {
+            //dd('Não é possivel seguir uma campanha sem ser um Usuário!');
             return redirect()->back();
-        }
+        }*/
 
         $usuario = Auth::user()->id;
         $campanha = Campanha::find($id);

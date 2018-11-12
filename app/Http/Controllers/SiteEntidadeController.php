@@ -97,10 +97,14 @@ class SiteEntidadeController extends Controller
 
         $entidade = User::find($id);
         $imagem = $entidade->imagem;
-        //dd($usuario->imagem);
-        //dd($imagem);
 
-        //if ($usuario->imagem == null || $usuario->imagem == "") {
+        $dados = $request->all();
+
+        $registro = User::with('endereco')->find($id);
+        //$registro = User::with(Endereco::class)->find($id);
+
+        $alteracao = $registro->update($dados);
+        $alteracao1 = $registro->endereco->update($dados);
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
@@ -117,11 +121,11 @@ class SiteEntidadeController extends Controller
         }
         //   $alteracao = $usuario->update(['imagem' => $imagem]);
         //} else {
-        $alteracao = $entidade->update(['imagem' => $imagem]);
+        $alteracao2 = $entidade->update(['imagem' => $imagem]);
         //}
 
 
-        if ($alteracao) {
+        if ($alteracao && $alteracao1 && $alteracao2) {
             return redirect()->route('entidade-site.show', $entidade->id);
         }
     }

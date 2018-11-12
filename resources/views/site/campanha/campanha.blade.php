@@ -53,6 +53,7 @@
                                                                                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                                                                                                       class="fb-xfbml-parse-ignore">Compartilhar</a>
                             </div>
+                            
                 </div>
                 <div class="row opcoescampanha">
                     @auth
@@ -66,11 +67,75 @@
                         @else
                             <a href="{{route('seguir-campanha', $registro->id)}}" class="col seguircampanha">SEGUIR</a>
                             @endauth
-                            <a href="#" class="col doarcampanha">DOAR</a>
+                            <a style="cursor: pointer;" class="col doarcampanha" data-toggle="modal"
+                               data-target="#modalDoacaoCenter">DOAR </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDoacaoCenter" tabindex="-1" role="dialog"
+         aria-labelledby="modalEmailCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form class="" method="post" action="{{route('enviar-email')}}">
+                    {{ csrf_field() }}
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modalEmailCenterTitle">:) Faça a sua doação (:</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form class="row formdoacoes" method="post" action="{{route('doacao-confirmar.store')}}">
+                            {{ csrf_field() }}
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Ítens</th>
+                                                <th scope="col" class="ur">Quantidade</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($registro->itens as $item)
+                                            <tr>
+                                                <td>{{$item->descricaoItem}}</td>
+                                                <td><i class="fas fa-minus verde"></i></td>
+                                                <td class="ch">
+                                                <span>
+                                                0
+                                                </span>
+                                                <input type="hidden" id="idModal" name="itemId[]" value="{{$item->id}}">
+                                                <input type="hidden" id="quantidadeModal" name="quantidade[]" class="qtd">
+
+                                                </td>
+                                                <td><i class="fas fa-plus vermelho"></i></td>
+                                            </tr>
+                                            @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn addS" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn addB">Doar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{--Fim Modal--}}
 
 
     {{--Js de compartilhamento do facebook--}}

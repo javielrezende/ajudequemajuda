@@ -32,5 +32,6 @@ require('./popover');
 require('./criarCampanha');
 //require('./habilitarCampo');
 require('./uploadImagem');
+require('./modalDoacao');
 
 

@@ -155,7 +155,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label class="add" for="imagem">Inserir imagem da campanha</label>
+                        <label class="add" for="imagem">Inserir imagem do evento</label>
                         <input type="file" id="imagem" name="imagem"
                                onchange="previewFile()">
 

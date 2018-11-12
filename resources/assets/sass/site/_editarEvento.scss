@@ -83,6 +83,10 @@
       margin-right: 16px;
     }
 
+    input[type='file'] {
+      display: none
+    }
+
     .cad {
       background-color: #439AFF;
       padding: 10px;

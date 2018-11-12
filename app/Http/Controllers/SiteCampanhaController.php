@@ -23,6 +23,15 @@ class SiteCampanhaController extends Controller
             ->get();
 
 
+            // $c = DB::table('user_campanha_curtidas')
+            // ->where('campanhas_id', $campanha->id)
+            // ->where('curtida', 1)
+            // ->get()
+            // ->map(function ($value) {
+            //     return $value->curtida;
+            // })->count();
+
+
         return view('site.campanha.campanhas', compact('campanhas'));
     }
 
@@ -62,32 +71,17 @@ class SiteCampanhaController extends Controller
 
         $c = DB::table('user_campanha_curtidas')
             ->where('campanhas_id', $campanha->id)
+            ->where('curtida', 1)
             ->get()
             ->map(function ($value) {
                 return $value->curtida;
             })->count();
-/*
-        $c1 = DB::table('user_campanha_curtidas')
-            ->where('campanhas_id', $campanha->id)
-            ->get()
-            ->map(function ($value) {
-                return $value->curtida;
-            })->count();
-
-        dd($c);
-
-        for($i=0; $i<$c1; $i++) {
-            if($c > 0) {
-                $coun++;
-            }
-        }
-
-        dd($coun);*/
+            
 
         if (Auth::check()) {
             $usuario = Auth::user()->id;
             $campanha = Campanha::find($id);
-            $registro = Campanha::with('users')
+            $registro = Campanha::with(['users', 'itens'])
                 ->find($id);
 
             $result = DB::table('user_campanha_interesses')

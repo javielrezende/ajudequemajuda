@@ -12,4 +12,13 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  .form-control[readonly] {
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    color: #6C757D;
+    margin-bottom: 25px;
+  }
 }

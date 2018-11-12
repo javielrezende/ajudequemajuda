@@ -27530,7 +27530,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(135);
-module.exports = __webpack_require__(173);
+module.exports = __webpack_require__(174);
 
 
 /***/ }),
@@ -27569,6 +27569,7 @@ __webpack_require__(170);
 __webpack_require__(171);
 //require('./habilitarCampo');
 __webpack_require__(172);
+__webpack_require__(173);
 
 /***/ }),
 /* 136 */
@@ -54717,17 +54718,57 @@ var inUrgente = document.getElementById('inUrgente');
 var inQuantidade = document.getElementById('inQuantidade');
 var btAdicionar = document.getElementById('btAdicionar');
 var alinhamentoItens = document.querySelector('#alinhamentoItens tbody');
+var btAtualizar = document.getElementById("btAtualizar");
 
-/*
-if (inItem.value == "" || inItem.value == null) {
-    document.getElementById('btAdicionar').disabled = true;
+if (btAdicionar) {
+    btAdicionar.addEventListener('click', function () {
+
+        adicionarItens({
+            elemento: alinhamentoItens,
+            deletar: true,
+            editar: btAdicionar.dataset.editar
+        });
+        inItem.value = '';
+        inQuantidade.value = '';
+        inUrgente.checked = false;
+    });
 }
-*/
 
-btAdicionar.addEventListener('click', function () {
+function adicionarItens(_ref) {
+    var elemento = _ref.elemento,
+        editar = _ref.editar,
+        deletar = _ref.deletar;
 
-    alinhamentoItens.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td>' + inItem.value + '</td>\n            <td class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td class="ch">' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            <td>\n            \n                <input type="hidden" name="descricaoItem[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>\n                \n            </td>\n            \n        </tr>\n    ');
-});
+    if (!elemento) return;
+    elemento.insertAdjacentHTML('beforeend', '\n        <tr>\n            <td id="name">' + inItem.value + '</td>\n            <td id="checked" class="ch">' + (inUrgente.checked ? '<i class="fas fa-check"></i>' : '') + '</td>\n            <td id="qtd" class="ch">' + inQuantidade.value + '</td>\n            <td><i class="fas fa-p en"></i></td>\n            ' + (editar ? '\n               <td>\n                 <i class="fas fa-pen" onclick="editarItem(this)">\n               </td> \n            ' : '') + '\n            ' + (deletar ? '<td>\n                <input type="hidden" name="descricaoItem[]" value="' + inItem.value + '" required/>\n                <input type="hidden" name="quantidade[]" value="' + inQuantidade.value + '"/>\n                <input type="hidden" name="urgencia[]" value="' + inUrgente.checked + '"/>\n                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>     \n            </td>' : '') + '   \n        </tr>\n    ');
+}
+
+function editarItem(elemento) {
+    var tr = elemento.parentElement.parentElement;
+    var nome = tr.querySelector('#name');
+    var checked = tr.querySelector('#checked');
+    var qtd = tr.querySelector('#qtd');
+
+    inItem.value = nome.textContent;
+    inQuantidade.value = qtd.textContent;
+    inUrgente.checked = !!tr.querySelector('.fa-check');
+
+    btAtualizar.hidden = false;
+    btAtualizar.onclick = function () {
+        //console.log('clicou')
+        nome.innerText = inItem.value;
+        qtd.innerHTML = inQuantidade.value;
+        checked.innerHTML = inUrgente.checked ? '<i class="fas fa-check"></i>' : '';
+
+        inItem.value = '';
+        inQuantidade.value = '';
+        inUrgente.checked = false;
+
+        btAtualizar.hidden = true;
+    };
+}
+
+window.editarItem = editarItem;
 
 /***/ }),
 /* 172 */
@@ -54751,6 +54792,40 @@ function previewFile() {
 
 /***/ }),
 /* 173 */
+/***/ (function(module, exports) {
+
+var modalDoacaoCenter = document.getElementById('modalDoacaoCenter');
+if (modalDoacaoCenter) {
+    var trs = modalDoacaoCenter.querySelectorAll('tbody tr');
+    trs.forEach(function (tr) {
+        var qtd = tr.querySelector('.qtd');
+
+        tr.querySelector('.fa-minus').parentElement.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log(e);
+
+            var number = +e.target.nextElementSibling.querySelector('span').innerText;
+
+            if (number === 0) return;
+            e.target.nextElementSibling.querySelector('span').innerText = number - 1;
+            qtd.value = number - 1;
+        });
+
+        tr.querySelector('.fa-plus').parentElement.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log(e);
+            var number = +e.target.previousElementSibling.querySelector('span').innerText;
+
+            e.target.previousElementSibling.querySelector('span').innerText = number + 1;
+            qtd.value = number + 1;
+        });
+    });
+}
+
+/***/ }),
+/* 174 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -11127,6 +11127,12 @@ body .row {
   padding: 0;
 }
 
+body .fa-minus,
+body .fa-plus {
+  pointer-events: none;
+  cursor: pointer;
+}
+
 .centro {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -11353,6 +11359,15 @@ body .principalsite {
 body .row {
   margin: 0;
   padding: 0;
+}
+
+body .form-control[readonly] {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+  color: #6C757D;
+  margin-bottom: 25px;
 }
 
 .welcome {
@@ -13294,6 +13309,13 @@ body .row {
   margin: 15px;
 }
 
+.entidadeindex .diveventos img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 175px;
+  height: 262px;
+}
+
 .entidadeindex .diveventos .observacoeseventos {
   margin-left: 20px;
   display: -webkit-box;
@@ -13689,6 +13711,22 @@ body .row {
 
 .criarCampanha .ch {
   text-align: center;
+}
+
+.criarEvento input[type='file'] {
+  display: none;
+}
+
+.criarEvento .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 option {
@@ -14307,6 +14345,10 @@ select:required:invalid {
   margin-right: 8px;
 }
 
+.editarCampanha .geraleditor input[type='file'] {
+  display: none;
+}
+
 .editarCampanha .geraleditor .add {
   background-color: #F1F1F1;
   padding: 6px;
@@ -14316,6 +14358,7 @@ select:required:invalid {
   font-size: 10px;
   color: #4D4F5C;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .editarCampanha .geraleditor .cad {
@@ -14570,6 +14613,10 @@ select:required:invalid {
 .editarEvento .geralEditor .m {
   margin-left: 16px;
   margin-right: 16px;
+}
+
+.editarEvento .geralEditor input[type='file'] {
+  display: none;
 }
 
 .editarEvento .geralEditor .cad {
