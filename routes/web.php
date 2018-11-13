@@ -33,6 +33,7 @@ Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
 Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
 Route::resource('/meus-eventos', 'MeusEventosController');
+Route::resource('/doar', 'DoarController');
 Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
 Route::resource('/relatorios', 'RelatorioController');
 Route::resource('/faleconosco', 'SiteFaleConoscoController');

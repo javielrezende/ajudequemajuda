@@ -53,7 +53,7 @@
                                                                                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                                                                                                       class="fb-xfbml-parse-ignore">Compartilhar</a>
                             </div>
-                            
+
                 </div>
                 <div class="row opcoescampanha">
                     @auth
@@ -79,10 +79,10 @@
          aria-labelledby="modalEmailCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form class="" method="post" action="{{route('enviar-email')}}">
+                <form class="" method="post" action="{{route('doar.store')}}">
                     {{ csrf_field() }}
                     <div class="modal-header">
-                        <h6 class="modal-title" id="modalEmailCenterTitle">:) Faça a sua doação (:</h6>
+                        <h6 class="modal-title" id="modalEmailCenterTitle">Faça a sua doação &nbsp&nbsp :)</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -90,21 +90,18 @@
                     <div class="modal-body">
 
 
-                        <form class="row formdoacoes" method="post" action="{{route('doacao-confirmar.store')}}">
-                            {{ csrf_field() }}
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="form-group col">
-                                        <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">Ítens</th>
-                                                <th scope="col" class="ur">Quantidade</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($registro->itens as $item)
+                        <div class="container">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Ítens</th>
+                                            <th scope="col" class="ur">Quantidade</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($registro->itens as $item)
                                             <tr>
                                                 <td>{{$item->descricaoItem}}</td>
                                                 <td><i class="fas fa-minus verde"></i></td>
@@ -112,20 +109,22 @@
                                                 <span>
                                                 0
                                                 </span>
-                                                <input type="hidden" id="idModal" name="itemId[]" value="{{$item->id}}">
-                                                <input type="hidden" id="quantidadeModal" name="quantidade[]" class="qtd">
+                                                    <input type="hidden" id="idModal" name="itemId[]"
+                                                           value="{{$item->id}}">
+                                                    <input type="hidden" id="quantidadeModal" name="quantidade[]"
+                                                           class="qtd">
+                                                    <input type="hidden" name="campId" value="{{$registro->id}}">
 
                                                 </td>
                                                 <td><i class="fas fa-plus vermelho"></i></td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn addS" data-dismiss="modal">Cancelar</button>

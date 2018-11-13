@@ -114,14 +114,7 @@
                 {{--{{dd($campanha->imagens[0]->caminho)}}--}}
 
                 <div class="col-sm-6">
-                    @if(!empty($campanha->imagens->count() > 0))
-                        <img src='/{{$campanha->imagens[0]->caminho}}' id='imagem_preview' height='150px' width='150px'
-                             alt='Foto do perfil' class='rounded-circle'>
-                    @else
-                        <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
-                             alt='Foto do perfil' class='rounded-circle'>
-
-                    @endif
+                    <img src='/{{$campanha->imagens[0]->caminho}}' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>
                 </div>
 
 
