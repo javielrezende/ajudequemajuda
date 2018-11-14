@@ -30,9 +30,9 @@
                 <p class="descricaoentidade">{{$registro->descricao_entidade}}</p>
                 <div class="row like">
 
-                    @auth
+                    {{--@auth
                         @if($tr == 0)
-
+--}}
 
                     <a href="{{route('curtir-entidade', $registro->id)}}" class="far fa-thumbs-up"
                        style="color: black"></a>

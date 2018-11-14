@@ -64,6 +64,7 @@ class SiteCampanhaController extends Controller
      */
     public function show($id)
     {
+        //dd('oi');
         $num = 0;
         $campanha = Campanha::find($id);
 

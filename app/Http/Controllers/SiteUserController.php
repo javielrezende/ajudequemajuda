@@ -57,14 +57,15 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
+        //dd('oi');
         $registro = User::with(['campanhas', 'campanhas.eventos'])
             ->find($id);
 
         $registroCampanhas = $registro->campanhas;
 
-        $usuario = Auth::user()->id;
-        $usuario1 = User::find($id);
-        $result = DB::table('user_user_curtidas')
+        /*$usuario = Auth::user()->id;
+        $usuario1 = User::find($id);*/
+        /*$result = DB::table('user_user_curtidas')
             ->where('users_id', $usuario)
             ->where('users_id1', $usuario1->id)
             ->first();
@@ -73,10 +74,10 @@ class SiteUserController extends Controller
         } else {
             $tr = 0;
         }
-        return redirect()->back()->with($tr);
+        //return redirect()->back()->with($tr);*/
 
 
-        return view('site.entidade.entidade', compact('registro', 'registroCampanhas'));
+        return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'tr'));
     }
 
     /**
