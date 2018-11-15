@@ -77,14 +77,14 @@
 
         <p class="row col-md-12 titulosPrincipais">Deixe seu comentário sobre a entidade</p>
 
-        <form class="row formescrevercomentario" method="post" action="#">
+        <form class="row formescrevercomentario" method="post" action="{{route('comentar-entidade', $registro->id)}}">
             {{ csrf_field() }}
 
             <div class="container">
                 <div class="row">
 
                     <div class="form-group primletra">
-                        R
+                        {{$primeiraLetraNome}}
                     </div>
 
                     <div class="form-group col">
@@ -92,6 +92,7 @@
                                   placeholder="Escreva sua mensagem..."
                                   name="comentarios"></textarea>
                     </div>
+                    <div name="entidade" style="display: none">{{$registro->id}}</div>
                 </div>
             </div>
             <div class="container">

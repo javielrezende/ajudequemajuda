@@ -57,11 +57,25 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
-        //dd('oi');
-        $registro = User::with(['campanhas', 'campanhas.eventos'])
-            ->find($id);
+        if (!Auth::check()) {
+            $registro = User::with(['campanhas', 'campanhas.eventos'])
+                ->find($id);
+            $registroCampanhas = $registro->campanhas;
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'tr'));
+        } else {
+            $registro = User::with(['campanhas', 'campanhas.eventos'])
+                ->find($id);
+            $registroCampanhas = $registro->campanhas;
 
-        $registroCampanhas = $registro->campanhas;
+            $usuarioLogado = Auth::user();
+            $primeiraLetraNome = Auth::user()->name[0];
+            //dd($primeiraLetraNome);
+
+
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome'));
+        }
+        //dd('oi');
+
 
         /*$usuario = Auth::user()->id;
         $usuario1 = User::find($id);*/
@@ -77,7 +91,6 @@ class SiteUserController extends Controller
         //return redirect()->back()->with($tr);*/
 
 
-        return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'tr'));
     }
 
     /**
@@ -86,8 +99,7 @@ class SiteUserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit($id)
+    public function edit($id)
     {
         $registro = User::find($id);
 

@@ -57,6 +57,11 @@ Route::get('/site/campanhas/{campanha}/curtir', 'SiteUsuarioController@curtirCam
 Route::get('/site/entidades/{entidade}/curtir', 'SiteUsuarioController@curtirEntidade')->name('curtir-entidade');
 
 /**
+ * Rota para comentar uma entidade
+ */
+Route::post('/site/entidades/{entidade}/comentar', 'SiteUsuarioController@comentarEntidade')->name('comentar-entidade');
+
+/**
  * Rota para envio de email
  */
 Route::post('/enviar-email', 'EnviarEmailParaSeguidores@enviarEmail')->name('enviar-email');
