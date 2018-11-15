@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Doacao;
+use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +45,29 @@ class DoarController extends Controller
         //dd($usuario);
         $campanha = $request['campId'];
         //dd($campanha);
+        //dd($request->all(), $usuario, $campanha);
+
+        $doacao = new Doacao;
+        $doacao->users_id = $usuario;
+        $doacao->campanhas_id = $campanha;
+        $doacao->confirmacao = 1;
+        $resultado = $doacao->save();
+        //dd($resultado);
+
+        for ($i = 0; $i < count($request->descricaoItem); $i++) {
+            $item = new Item;
+            $item->descricaoItem = $request->descricaoItem[$i];
+            $item->quantidade = $request->quantidade[$i];
+            $item->save();
+            $item->doacao()->attach($doacao);
+        }
+        //dd('yes');
+        if ($resultado) {
+            return redirect()->route('campanha.index')
+                ->with('status', 'Obrigado pela Doação! Vá ao local para entregar o seu ato de caridade! (:');
+        }
+
+
     }
 
     /**
@@ -62,7 +87,8 @@ class DoarController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         //
     }
@@ -74,7 +100,8 @@ class DoarController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         //
     }
@@ -85,7 +112,8 @@ class DoarController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }

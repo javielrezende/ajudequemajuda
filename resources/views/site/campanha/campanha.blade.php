@@ -109,8 +109,8 @@
                                                 <span>
                                                 0
                                                 </span>
-                                                    <input type="hidden" id="idModal" name="itemId[]"
-                                                           value="{{$item->id}}">
+                                                    <input type="hidden" id="idModal" name="descricaoItem[]"
+                                                           value="{{$item->descricaoItem}}">
                                                     <input type="hidden" id="quantidadeModal" name="quantidade[]"
                                                            class="qtd">
                                                     <input type="hidden" name="campId" value="{{$registro->id}}">

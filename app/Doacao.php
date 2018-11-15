@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Doacao extends Model
 {
     protected $fillable = [
-        'quantidade', 'users_id', 'campanhas_id', 'confirmacao',
+//        'quantidade',
+        'users_id', 'campanhas_id', 'confirmacao',
     ];
 
     public function user(){

@@ -56,7 +56,7 @@
                         <div class="form-group col">
                             <label for="item">Novo ítem <span class="obr">*</span></label>
                             <input type="text" class="form-control" id="inItem"
-                                   placeholder="O que deseja receber na campanha..." required>
+                                   placeholder="O que deseja receber na campanha...">
                         </div>
 
                         <div class="form-group col m">
@@ -69,7 +69,7 @@
                         <div class="form-group col">
                             <label for="quantidade">Quantidade <span class="obr">*</span></label>
                             <input type="number" class="form-control" id="inQuantidade"
-                                   placeholder="Ex.: 999" required>
+                                   placeholder="Ex.: 999">
                         </div>
                     </div>
                 </div>
