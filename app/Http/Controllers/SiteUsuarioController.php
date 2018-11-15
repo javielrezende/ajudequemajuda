@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
+use App\UserUserComentario;
 use App\UserUserCurtida;
 use App\UserUserCurtidaComentario;
 use Carbon\Carbon;
@@ -345,19 +346,19 @@ class SiteUsuarioController extends Controller
         $entidade = User::find($id);
         $usuarioLogadoId = Auth::user()->id;
         $comentario = $request['comentarios'];
-        //dd($comentario, $entidade, $usuarioLogado);
+        dd($comentario, $entidade, $usuarioLogadoId);
 
-        $registro = UserUserCurtidaComentario::where('users_id', $entidade->id)
+        /*$registro = UserUserComentario::where('users_id', $entidade->id)
             ->where('users_id1', $usuarioLogadoId)
             ->first();
-        dd($registro);
+        dd($registro);*/
 
-        if ($registro) {
-            $mensagemOk = $entidade->users()->attach($usuarioLogadoId, ['comentarios' => $comentario]);
-            if ($mensagemOk) {
-                return redirect()->route('entidades.entidades.index')
-                    ->with('status', 'Obrigado pela sua mensagem! (:');
-            }
+//        if ($registro) {
+        $mensagemOk = $entidade->comentarios()->attach($usuarioLogadoId, ['comentarios' => $comentario]);
+        if ($mensagemOk) {
+            return redirect()->route('entidades.entidades.index')
+                ->with('status', 'Obrigado pela sua mensagem! (:');
+//            }
         }
 
     }

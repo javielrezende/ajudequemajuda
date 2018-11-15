@@ -38,8 +38,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'user_campanha_curtidas', 'users_id', 'campanhas_id')->withTimestamps();
     }
 
-    public function users(){
+    /*public function users(){
         return $this->belongsToMany('App\User', 'user_user_curtida_comentarios', 'users_id', 'users_id1')->withPivot('curtidas', 'comentarios, denuncia, mensagem_denuncia')->withTimestamps();
+    }*/
+
+    public function comentarios(){
+        return $this->belongsToMany('App\User', 'user_user_comentarios', 'users_id', 'users_id1')->withPivot('comentarios')->withTimestamps();
     }
 
     /*public function user(){
