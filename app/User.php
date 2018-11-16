@@ -46,6 +46,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'user_user_comentarios', 'users_id', 'users_id1')->withPivot('comentarios')->withTimestamps();
     }
 
+    /*public function getDataComentarioAttribute(){
+        $data = explode('-', $this->attributes['created_at'], 4);
+        $data = $data[2] . '/' . $data[1] . '/' . $data[0];
+        return $data;
+    }*/
+
+    public function getDataComentarioAttribute()
+    {
+        return date('d-m-Y', strtotime($this->attributes['created_at']));
+    }
+
     /*public function user(){
         return $this->belongsToMany('App\User', 'users_users_curtidas_comentarios', 'users_id1', 'users_id');
     }*/

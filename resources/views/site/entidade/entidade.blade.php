@@ -102,7 +102,38 @@
             </div>
         </form>
 
-        <div class="rpts">
+        @foreach($comentarios as $comentario)
+
+            <div class="rpts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col rpt">
+                            @foreach($nomes as $nome)
+                                <span class="nomerpts">{{$nome->name}}</span><span
+                                        class="datarpts"> - {{$nome->getDataComentarioAttribute()}}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="primletra">
+                        @foreach($nomes as $nome)
+                        {{$nome->name[0]}}
+                        @endforeach
+                    </div>
+
+                    <div class="col">
+                        <div class="coments">{{$comentario->comentarios}}</div>
+                    </div>
+                </div>
+
+                <hr>
+            </div>
+        @endforeach
+
+
+        {{--<div class="rpts">
             <div class="container">
                 <div class="row">
                     <div class="col rpt">
@@ -128,36 +159,7 @@
             </div>
 
             <hr>
-        </div>
-
-
-        <div class="rpts">
-            <div class="container">
-                <div class="row">
-                    <div class="col rpt">
-                        <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="primletra">
-                    R
-                </div>
-
-                <div class="col">
-                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu
-                        nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies
-                        arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit
-                        purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper,
-                        nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a
-                        condimentum.
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-        </div>
+        </div>--}}
 
     </div>
 

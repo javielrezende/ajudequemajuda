@@ -342,24 +342,20 @@ class SiteUsuarioController extends Controller
 
     public function comentarEntidade(Request $request, $id)
     {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
 
         $entidade = User::find($id);
         $usuarioLogadoId = Auth::user()->id;
         $comentario = $request['comentarios'];
-        dd($comentario, $entidade, $usuarioLogadoId);
+        //dd($comentario, $entidade, $usuarioLogadoId);
 
-        /*$registro = UserUserComentario::where('users_id', $entidade->id)
-            ->where('users_id1', $usuarioLogadoId)
-            ->first();
-        dd($registro);*/
 
-//        if ($registro) {
-        $mensagemOk = $entidade->comentarios()->attach($usuarioLogadoId, ['comentarios' => $comentario]);
-        if ($mensagemOk) {
-            return redirect()->route('entidades.entidades.index')
-                ->with('status', 'Obrigado pela sua mensagem! (:');
-//            }
-        }
+        $entidade->comentarios()->attach($usuarioLogadoId, ['comentarios' => $comentario]);
+
+        return redirect()->route('entidades.entidades.index')
+            ->with('status', 'Obrigado pela sua mensagem! (:');
 
     }
 

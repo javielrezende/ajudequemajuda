@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
+use App\UserUserComentario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -57,11 +58,26 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
+        $comentarios = UserUserComentario::orderBy('id', 'desc')
+            ->get();
+
+        $nomeComentariosId = UserUserComentario::orderBy('id', 'desc')
+            ->get()
+            ->map(function ($value) {
+                return $value->users_id1;
+            });
+        //dd($nomeComentariosId);
+
+        $nomes = User::findMany($nomeComentariosId);
+        //dd($nomes);
+
         if (!Auth::check()) {
             $registro = User::with(['campanhas', 'campanhas.eventos'])
                 ->find($id);
             $registroCampanhas = $registro->campanhas;
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'tr'));
+
+            $primeiraLetraNome = "A";
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios','primeiraLetraNome', 'nomes'));
         } else {
             $registro = User::with(['campanhas', 'campanhas.eventos'])
                 ->find($id);
@@ -72,7 +88,7 @@ class SiteUserController extends Controller
             //dd($primeiraLetraNome);
 
 
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes'));
         }
         //dd('oi');
 

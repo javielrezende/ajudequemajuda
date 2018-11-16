@@ -17,7 +17,7 @@ class CreateUserUserComentariosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('users_id');
             $table->unsignedInteger('users_id1');
-            $table->primary(['users_id', 'users_id1', 'id']);
+            //$table->primary(['users_id', 'users_id1']);
             $table->text('comentarios');
             $table->foreign('users_id')
                 ->references('id')->on('users')

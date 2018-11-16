@@ -17,7 +17,7 @@ class CreateUserUserDenunciasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('users_id');
             $table->unsignedInteger('users_id1');
-            $table->primary(['users_id', 'users_id1', 'id']);
+            //$table->primary(['users_id', 'users_id1', 'id']);
             $table->boolean('denuncia')->default(0);
             $table->text('mensagem_denuncia')->nullable();
             $table->foreign('users_id')
