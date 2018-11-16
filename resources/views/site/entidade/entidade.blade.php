@@ -90,7 +90,7 @@
                     <div class="form-group col">
                         <textarea id="comentarios" rows="4" class="form-control"
                                   placeholder="Escreva sua mensagem..."
-                                  name="comentarios"></textarea>
+                                  name="comentarios" required></textarea>
                     </div>
                     <div name="entidade" style="display: none">{{$registro->id}}</div>
                 </div>

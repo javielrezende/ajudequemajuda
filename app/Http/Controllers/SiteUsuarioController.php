@@ -304,40 +304,22 @@ class SiteUsuarioController extends Controller
         }
 
         $usuario = Auth::user()->id;
-        $usuario1 = User::find($id);
+        $entidade = User::find($id);
 
-        $result = DB::table('user_user_curtidas')
-            ->where('users_id', $usuario)
-            ->where('users_id1', $usuario1->id)
-            ->first();
+        $reg = UserUserCurtida::where('users_id', $entidade->id)
+            ->where('users_id1', $usuario)
+            ->get()->count();
+        //dd($reg, $usuario, $entidade);
 
-
-        if (!$result) {
-            $cur = UserUserCurtida::create([
-                'users_id' => $usuario,
-                'users_id1' => $usuario1->id,
-            ]);
-            //dd($cur);
-
-            $result1 = DB::table('user_user_curtidas')
-                ->where('users_id', $usuario)
-                ->where('users_id1', $usuario1->id)
-                ->get();
-            if ($result1) {
-                $tr = 1;
-            }
-
-            return redirect()->back()->with($tr);
+        if ($reg > 0) {
+            $entidade->curtidas()->detach();
+            return redirect()->back();
         } else {
-            $result1 = DB::table('user_user_curtidas')
-                ->where('users_id', $usuario)
-                ->where('users_id1', $usuario1->id)
-                ->delete();
-            if ($result1) {
-                $tr = 0;
-                return redirect()->back()->with($tr);
-            }
+            $entidade->curtidas()->sync($usuario);
+            return redirect()->back();
         }
+
+
     }
 
     public function comentarEntidade(Request $request, $id)
