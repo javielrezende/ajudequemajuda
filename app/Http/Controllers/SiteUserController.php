@@ -58,7 +58,13 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
+        $registro = User::with(['campanhas', 'campanhas.eventos'])
+            ->find($id);
+
+        $registroCampanhas = $registro->campanhas;
+
         $comentarios = UserUserComentario::orderBy('id', 'desc')
+            ->where('users_id', $registro->id)
             ->get();
 
         $nomeComentariosId = UserUserComentario::orderBy('id', 'desc')
@@ -72,12 +78,9 @@ class SiteUserController extends Controller
         //dd($nomes);
 
         if (!Auth::check()) {
-            $registro = User::with(['campanhas', 'campanhas.eventos'])
-                ->find($id);
-            $registroCampanhas = $registro->campanhas;
 
             $primeiraLetraNome = "A";
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios','primeiraLetraNome', 'nomes'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes'));
         } else {
             $registro = User::with(['campanhas', 'campanhas.eventos'])
                 ->find($id);
