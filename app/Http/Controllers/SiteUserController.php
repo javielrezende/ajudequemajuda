@@ -7,6 +7,7 @@ use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
 use App\UserUserComentario;
+use App\UserUserCurtida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -67,6 +68,8 @@ class SiteUserController extends Controller
             ->where('users_id', $registro->id)
             ->get();
 
+        //dd($comentarios );
+
         $nomeComentariosId = UserUserComentario::orderBy('id', 'desc')
             ->get()
             ->map(function ($value) {
@@ -74,13 +77,20 @@ class SiteUserController extends Controller
             });
         //dd($nomeComentariosId);
 
+        $dataComentarios = UserUserComentario::get()
+            ->map(function ($value) {
+                return $value->created_at->format('d/m/Y');
+            });
+        //dd($dataComentarios);
+
         $nomes = User::findMany($nomeComentariosId);
         //dd($nomes);
+
 
         if (!Auth::check()) {
 
             $primeiraLetraNome = "A";
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes', 'dataComentarios'));
         } else {
             $registro = User::with(['campanhas', 'campanhas.eventos'])
                 ->find($id);
@@ -90,24 +100,14 @@ class SiteUserController extends Controller
             $primeiraLetraNome = Auth::user()->name[0];
             //dd($primeiraLetraNome);
 
+            $curtidas = UserUserCurtida::where('users_id', $registro->id)
+                ->where('users_id1', $usuarioLogado->id)
+                ->get()->count();
 
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes'));
+            //dd($curtidas);
+
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes', 'curtidas', 'dataComentarios'));
         }
-        //dd('oi');
-
-
-        /*$usuario = Auth::user()->id;
-        $usuario1 = User::find($id);*/
-        /*$result = DB::table('user_user_curtidas')
-            ->where('users_id', $usuario)
-            ->where('users_id1', $usuario1->id)
-            ->first();
-        if ($result) {
-            $tr = 1;
-        } else {
-            $tr = 0;
-        }
-        //return redirect()->back()->with($tr);*/
 
 
     }

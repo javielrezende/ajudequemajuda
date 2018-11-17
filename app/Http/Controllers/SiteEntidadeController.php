@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\User;
+use App\UserUserComentario;
+use App\UserUserCurtida;
 use Carbon\Carbon;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +32,43 @@ class SiteEntidadeController extends Controller
 
         //dd($campanhas);
 
-        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'c'));
+        $comentarios = UserUserComentario::orderBy('id', 'desc')
+            ->where('users_id', $entidadeLogada->id)
+            ->get();
+
+        $numCom = UserUserComentario::orderBy('id', 'desc')
+            ->where('users_id', $entidadeLogada->id)
+            ->get()
+            ->count();
+
+        $nomeComentariosId = UserUserComentario::orderBy('id', 'desc')
+            ->get()
+            ->map(function ($value) {
+                return $value->users_id1;
+            });
+        $dataComentarios = UserUserComentario::get()
+            ->map(function ($value) {
+                return $value->created_at->format('d/m/Y');
+            });
+        $nomes = User::findMany($nomeComentariosId);
+
+        $numCur = UserUserCurtida::where('users_id', $entidadeLogada->id)
+            ->get()
+            ->count();
+
+        $idImgCur = UserUserCurtida::where('users_id', $entidadeLogada->id)
+            ->get()
+            ->map(function ($value) {
+                return $value->users_id1;
+            });
+
+        $userCur = User::findMany($idImgCur);
+
+        //dd($userCur);
+        //dd($idImgCur);
+
+
+        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'c', 'comentarios', 'dataComentarios', 'nomes', 'numCom', 'numCur', 'userCur'));
     }
 
     /**

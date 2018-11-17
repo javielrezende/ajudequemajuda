@@ -85,52 +85,63 @@
                 @endforeach
             @endforeach
 --}}
-                @foreach($campanhas as $campanha)
-                    @foreach($campanha->eventos as $evento)
-                        <div class="row diveventos">
-                            @if(!empty($evento->imagens->count() > 0))
-                                <img class="row imagemcampanhas" src="/{{$evento->imagens[0]->caminho}}"
-                                     alt="Foto de perfil">
-                            @else
-                                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
-                                     alt="Imagem destaque">
-                            @endif
+            @foreach($campanhas as $campanha)
+                @foreach($campanha->eventos as $evento)
+                    <div class="row diveventos">
+                        @if(!empty($evento->imagens->count() > 0))
+                            <img class="row imagemcampanhas" src="/{{$evento->imagens[0]->caminho}}"
+                                 alt="Foto de perfil">
+                        @else
+                            <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                                 alt="Imagem destaque">
+                        @endif
 
-                            <div class="col-6 row observacoeseventos">
-                                <h4 class="nomeeventos">{{$evento->nome}}</h4>
-                                <p class="dataeventos"><b>Dia: </b>{{$evento->dataHoraInicio}}</p>
-                                <p class="descricaoeventos">{{$evento->descricao}}</p>
-                                <a href=" {{route('meus-eventos.show', $evento->id)}} "
-                                   class=" align-content-end saibamaiseventos">Saiba
-                                    mais</a>
-                            </div>
+                        <div class="col-6 row observacoeseventos">
+                            <h4 class="nomeeventos">{{$evento->nome}}</h4>
+                            <p class="dataeventos"><b>Dia: </b>{{$evento->dataHoraInicio}}</p>
+                            <p class="descricaoeventos">{{$evento->descricao}}</p>
+                            <a href=" {{route('meus-eventos.show', $evento->id)}} "
+                               class=" align-content-end saibamaiseventos">Saiba
+                                mais</a>
                         </div>
-                    @endforeach
+                    </div>
                 @endforeach
+            @endforeach
         </div>
 
 
         <div class="row final">
             <div class="finalCurtidas">
                 <p class="row col-md-12 titulosPrincipais">Curtidas <span id="qnt"
-                                                                          style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">(55)</span>
+                                                                          style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numCur}}
+                        )</span>
                 </p>
                 <div class="imgcurtidas">
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    @foreach($userCur as $u)
+                        {{--{{dd($u->imagem)}}--}}
+                        @if($u->imagem == null || $u->imagem == "")
+                            <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                                 alt="Foto de perfil"></a>
+                        @else
+                            <img class="imgperfilrefe" src="{{ asset($u->imagem) }}"
+                                 alt="Foto de perfil"></a>
+                        @endif
+                    @endforeach
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
 
                 </div>
@@ -138,105 +149,44 @@
 
             <div class="finalComentarios">
                 <p class="row col-md-12 titulosPrincipais">Comentários <span id="qnt"
-                                                                             style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">(55)</span>
+                                                                             style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numCom}}
+                        )</span>
                 </p>
 
-                <div class="rpts">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col rpt">
-                                <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
 
-                        <div class="primletra">
-                            R
-                        </div>
-
-                        <div class="col">
-                            <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a
-                                leo eu
-                                nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor
-                                ultricies
-                                arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget
-                                suscipit
-                                purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt
-                                semper,
-                                nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut
-                                erat a
-                                condimentum.
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-
+                @foreach($comentarios as $comentario)
                     <div class="rpts">
                         <div class="container">
                             <div class="row">
                                 <div class="col rpt">
-                                    <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
+                                    @foreach($nomes as $nome)
+                                        <span class="nomerpts">{{$nome->name}}</span>
+                                    @endforeach
+                                    @foreach($dataComentarios as $data)
+                                        <span
+                                                class="datarpts"> - {{$data}}</span>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="row">
 
                             <div class="primletra">
-                                R
+                                @foreach($nomes as $nome)
+                                    {{$nome->name[0]}}
+                                @endforeach
                             </div>
 
                             <div class="col">
-                                <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-                                    a leo eu
-                                    nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis
-                                    porttitor ultricies
-                                    arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget
-                                    suscipit
-                                    purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu
-                                    tincidunt semper,
-                                    nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut
-                                    erat a
-                                    condimentum.
-                                </div>
+                                <div class="coments">{{$comentario->comentarios}}</div>
                                 <hr>
                             </div>
                         </div>
-
-                        <div class="rpts">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col rpt">
-                                        <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="primletra">
-                                    R
-                                </div>
-
-                                <div class="col">
-                                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Phasellus a leo eu
-                                        nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis
-                                        porttitor ultricies
-                                        arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus
-                                        eget suscipit
-                                        purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu
-                                        tincidunt semper,
-                                        nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse
-                                        condimentum ut erat a
-                                        condimentum.
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
-                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
 
 @endsection

@@ -13413,9 +13413,9 @@ body .form-control[readonly] {
   margin-right: 25px;
 }
 
-.entidadeindex .finalCurtidas .imgcurtidas .imgperfilref {
+.entidadeindex .finalCurtidas .imgcurtidas .imgperfilrefe {
   width: 50px;
-  height: auto;
+  height: 50px;
   border-radius: 100%;
   margin-right: 10px;
   margin-top: 5px;

@@ -30,20 +30,29 @@
                 <p class="descricaoentidade">{{$registro->descricao_entidade}}</p>
                 <div class="row like">
 
-                    {{--@auth
-                        @if($tr == 0)
---}}
 
-                    <a href="{{route('curtir-entidade', $registro->id)}}" class="far fa-thumbs-up"
-                       style="color: black"></a>
-                    <p class="numlike">999</p>
-                    {{--<i class="far fa-thumbs-down"></i>
-                    <p class="numlike">999</p>--}}
-                    <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
-                         data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
-                                                                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                                                                              class="fb-xfbml-parse-ignore">Compartilhar</a>
-                    </div>
+                    @auth
+                        @if($curtidas > 0)
+                            <a href="{{route('curtir-entidade', $registro->id)}}" class="fas fa-thumbs-up"></a>
+                        @endif
+                        @if($curtidas == 0 || $curtidas == null)
+                            <a href="{{route('curtir-entidade', $registro->id)}}" class="far fa-thumbs-up"
+                               style="color: black"></a>
+                        @endif
+                        @else
+                            <a href="{{route('curtir-entidade', $registro->id)}}" class="far fa-thumbs-up"
+                               style="color: black"></a>
+                            @endauth
+
+
+                            {{--<a href="{{route('curtir-entidade', $registro->id)}}" class="far fa-thumbs-up"
+                               style="color: black"></a>--}}
+                            <p class="numlike">999</p>
+                            <div class="fb-share-button" data-href="http://ajudequemajudapelotas.herokuapp.com"
+                                 data-layout="button" data-size="large" data-mobile-iframe="false"><a target="_blank"
+                                                                                                      href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                                                                      class="fb-xfbml-parse-ignore">Compartilhar</a>
+                            </div>
                 </div>
             </div>
         </div>
@@ -109,8 +118,10 @@
                     <div class="row">
                         <div class="col rpt">
                             @foreach($nomes as $nome)
-                                <span class="nomerpts">{{$nome->name}}</span><span
-                                        class="datarpts"> - {{$nome->getDataComentarioAttribute()}}</span>
+                                <span class="nomerpts">{{$nome->name}}</span>
+                            @endforeach
+                            @foreach($dataComentarios as $data)
+                                <span class="datarpts"> - {{$data}}</span>
                             @endforeach
                         </div>
                     </div>
@@ -119,7 +130,7 @@
 
                     <div class="primletra">
                         @foreach($nomes as $nome)
-                        {{$nome->name[0]}}
+                            {{$nome->name[0]}}
                         @endforeach
                     </div>
 

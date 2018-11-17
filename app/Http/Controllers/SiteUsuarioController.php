@@ -315,7 +315,7 @@ class SiteUsuarioController extends Controller
             $entidade->curtidas()->detach();
             return redirect()->back();
         } else {
-            $entidade->curtidas()->sync($usuario);
+            $entidade->curtidas()->attach($usuario);
             return redirect()->back();
         }
 

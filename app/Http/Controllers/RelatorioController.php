@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RelatorioController extends Controller
 {
@@ -13,7 +14,11 @@ class RelatorioController extends Controller
      */
     public function index()
     {
-        return view('site.relatorios.principal');
+        $entidadeLogada = Auth::user();
+
+        $campanhas = $entidadeLogada->campanhas;
+
+        return view('site.relatorios.principal', compact('campanhas'));
     }
 
     /**
