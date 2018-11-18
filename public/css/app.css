@@ -13477,6 +13477,7 @@ body .form-control[readonly] {
   font-size: 12px;
   color: #949494;
   width: 475px;
+  margin-top: 25px;
 }
 
 .finalComentarios .rpts hr {

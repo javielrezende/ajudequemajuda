@@ -32,9 +32,13 @@ class SiteEntidadeController extends Controller
 
         //dd($campanhas);
 
-        $comentarios = UserUserComentario::orderBy('id', 'desc')
+        $comentarios = UserUserComentario::with('users')->orderBy('id', 'desc')
             ->where('users_id', $entidadeLogada->id)
             ->get();
+        //dd($comentarios);
+
+
+
 
         $numCom = UserUserComentario::orderBy('id', 'desc')
             ->where('users_id', $entidadeLogada->id)

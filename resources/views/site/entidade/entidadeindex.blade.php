@@ -83,8 +83,8 @@
                         </div>
                     </div>
                 @endforeach
-            @endforeach
---}}
+            @endforeach--}}
+
             @foreach($campanhas as $campanha)
                 @foreach($campanha->eventos as $evento)
                     <div class="row diveventos">
@@ -121,13 +121,13 @@
                         {{--{{dd($u->imagem)}}--}}
                         @if($u->imagem == null || $u->imagem == "")
                             <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                                 alt="Foto de perfil"></a>
+                                 alt="Foto de perfil">
                         @else
                             <img class="imgperfilrefe" src="{{ asset($u->imagem) }}"
-                                 alt="Foto de perfil"></a>
+                                 alt="Foto de perfil">
                         @endif
                     @endforeach
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                    {{--<img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
                     <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
@@ -142,39 +142,32 @@
                     <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
                     <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
+                         alt="Foto de perfil"></a>--}}
 
                 </div>
             </div>
 
             <div class="finalComentarios">
-                <p class="row col-md-12 titulosPrincipais">Comentários <span id="qnt"
-                                                                             style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numCom}}
+                <p class="row col-md-12 titulosPrincipais">Comentários
+                    <span id="qnt"
+                          style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numCom}}
                         )</span>
                 </p>
-
-
                 @foreach($comentarios as $comentario)
                     <div class="rpts">
                         <div class="container">
                             <div class="row">
                                 <div class="col rpt">
-                                    @foreach($nomes as $nome)
-                                        <span class="nomerpts">{{$nome->name}}</span>
-                                    @endforeach
-                                    @foreach($dataComentarios as $data)
-                                        <span
-                                                class="datarpts"> - {{$data}}</span>
-                                    @endforeach
+                                    <span class="nomerpts">{{$comentario->users->name}}</span>
+                                    <span class="datarpts"> - {{$comentario->users->created_at->format('d/m/Y')}}</span>
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
 
                             <div class="primletra">
-                                @foreach($nomes as $nome)
-                                    {{$nome->name[0]}}
-                                @endforeach
+                                {{$comentario->users->name[0]}}
                             </div>
 
                             <div class="col">

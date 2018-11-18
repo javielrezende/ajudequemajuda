@@ -117,21 +117,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col rpt">
-                            @foreach($nomes as $nome)
-                                <span class="nomerpts">{{$nome->name}}</span>
-                            @endforeach
-                            @foreach($dataComentarios as $data)
-                                <span class="datarpts"> - {{$data}}</span>
-                            @endforeach
+                                <span class="nomerpts">{{$comentario->users->name}}</span>
+                                <span class="datarpts"> - {{$comentario->users->created_at->format('d/m/Y')}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
 
                     <div class="primletra">
-                        @foreach($nomes as $nome)
-                            {{$nome->name[0]}}
-                        @endforeach
+                            {{$comentario->users->name[0]}}
                     </div>
 
                     <div class="col">
@@ -142,36 +136,6 @@
                 <hr>
             </div>
         @endforeach
-
-
-        {{--<div class="rpts">
-            <div class="container">
-                <div class="row">
-                    <div class="col rpt">
-                        <span class="nomerpts">Nome </span><span class="datarpts"> - data</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="primletra">
-                    R
-                </div>
-
-                <div class="col">
-                    <div class="coments">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a leo eu
-                        nisi cursus auctor. Pellentesque in scelerisque sem, ac mollis tellus. Duis porttitor ultricies
-                        arcu a dignissim. Cras in libero eu sapien egestas commodo nec in quam. Vivamus eget suscipit
-                        purus. Quisque tincidunt metus vitae gravida posuere. Donec facilisis, elit eu tincidunt semper,
-                        nulla erat commodo nisi, ut malesuada mi risus in libero. Suspendisse condimentum ut erat a
-                        condimentum.
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-        </div>--}}
-
     </div>
 
 
