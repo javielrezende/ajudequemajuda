@@ -11,7 +11,7 @@
 
         <div class="row formcriarRelatorio">
 
-            <p class="row col-md-12 titulosPrincipais">Campanha 1</p>
+            <p class="row col-md-12 titulosPrincipais">{{$nomeCampanha}} - Fevereiro - 2018</p>
 
             <table class="table table-striped t1">
                 <thead>
@@ -38,25 +38,25 @@
 
             <div class="container resul">
                 <div class="form-group col esquerda">
-                    <p class="nums">127</p>
+                    <p class="nums">{{$numCurtidas}}</p>
                 </div>
 
 
                 <div class="form-group col meio">
-                    <p class="nums">76</p>
+                    <p class="nums">{{$numInteressados}}</p>
                 </div>
 
 
-                <div class="form-group col direita">
+                {{--<div class="form-group col direita">
                     <p class="nums">43</p>
-                </div>
+                </div>--}}
 
             </div>
 
             <div class="resultNome">
                 <p class="nomesRelaEsquerda">Curtdas</p>
                 <p class="nomesRelaMeio">Usuários Interessados</p>
-                <p class="nomesRelaDireita">Comentários</p>
+                {{--<p class="nomesRelaDireita">Comentários</p>--}}
             </div>
 
             <div class="container">
