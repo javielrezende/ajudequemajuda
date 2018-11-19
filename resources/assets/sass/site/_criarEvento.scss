@@ -15,21 +15,20 @@
     cursor: pointer;
   }
 
-}
-option {
-  font-size: 14px;
-  color: #6C757D;
-}
+  option {
+    font-size: 14px;
+    color: #6C757D;
+  }
 
-select:required {
-  font-size: 14px;
-  color: #6C757D;
-}
+  select:required {
+    font-size: 14px;
+    color: #6C757D;
+  }
 
-select:required:invalid {
-  font-size: 14px;
-  color: #6C757D;
-}
+  select:required:invalid {
+    font-size: 14px;
+    color: #6C757D;
+  }
 
   .linkReturn {
     text-decoration: underline;
@@ -63,8 +62,8 @@ select:required:invalid {
       font-size: 14px;
     }
 
-    .form-control::placeholder{
-      font-size: 14px ;
+    .form-control::placeholder {
+      font-size: 14px;
     }
 
     .obr {
@@ -98,19 +97,21 @@ select:required:invalid {
         display: none
       }
 
-      .add {
-        background-color: #F1F1F1;
-        padding: 6px;
-        padding-left: 18px;
-        padding-right: 18px;
-        border-radius: 20px;
-        font-size: 10px;
-        color: #4D4F5C;
-        margin-bottom: 10px;
-        cursor: pointer;
-      }
+    }
 
+    .add {
+      background-color: #F1F1F1;
+      padding: 6px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: #4D4F5C;
+      margin-bottom: 10px;
       cursor: pointer;
+    }
+
+    cursor: pointer;
 
     .cad {
       background-color: #439AFF;
@@ -122,6 +123,6 @@ select:required:invalid {
       color: white;
       margin-bottom: 40px;
     }
-  }
 
+  }
 }

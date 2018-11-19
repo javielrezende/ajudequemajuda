@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Doacao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,5 +86,23 @@ class RelatorioController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function resultado(Request $request)
+    {
+        //dd($request->all());
+
+        $campanhaId = $request['campanha'];
+
+        // --------------------- NÚMERO DE DOACOES
+        $numeroDoacoes = Doacao::where('campanhas_id', $campanhaId)
+            ->get()
+        ->count();
+        dd($numeroDoacoes);
+
+
+
+
+
     }
 }

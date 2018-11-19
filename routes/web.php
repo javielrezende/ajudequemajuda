@@ -61,6 +61,9 @@ Route::get('/site/entidades/{entidade}/curtir', 'SiteUsuarioController@curtirEnt
  */
 Route::post('/site/entidades/{entidade}/comentar', 'SiteUsuarioController@comentarEntidade')->name('comentar-entidade');
 
+Route::get('/resultado', 'RelatorioController@resultado')->name('resultado');
+
+
 /**
  * Rota para envio de email
  */

@@ -13730,22 +13730,22 @@ body .form-control[readonly] {
   cursor: pointer;
 }
 
-option {
+.criarEvento option {
   font-size: 14px;
   color: #6C757D;
 }
 
-select:required {
+.criarEvento select:required {
   font-size: 14px;
   color: #6C757D;
 }
 
-select:required:invalid {
+.criarEvento select:required:invalid {
   font-size: 14px;
   color: #6C757D;
 }
 
-.linkReturn {
+.criarEvento .linkReturn {
   text-decoration: underline;
   font-size: 10px;
   font-weight: bold;
@@ -13753,7 +13753,7 @@ select:required:invalid {
   margin: 40px auto 5px;
 }
 
-.titulosPrincipais {
+.criarEvento .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -13763,13 +13763,13 @@ select:required:invalid {
   margin-bottom: 25px;
 }
 
-.explicacao {
+.criarEvento .explicacao {
   color: #8A8A8A;
   font-size: 14px;
   margin-bottom: 15px;
 }
 
-.formcriarEvento {
+.criarEvento .formcriarEvento {
   width: 620px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -13779,62 +13779,62 @@ select:required:invalid {
       -ms-flex-align: center;
           align-items: center;
   margin: auto;
+  cursor: pointer;
 }
 
-.formcriarEvento label {
+.criarEvento .formcriarEvento label {
   font-size: 14px;
 }
 
-.formcriarEvento .form-control::-webkit-input-placeholder {
+.criarEvento .formcriarEvento .form-control::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.formcriarEvento .form-control:-ms-input-placeholder {
+.criarEvento .formcriarEvento .form-control:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.formcriarEvento .form-control::-ms-input-placeholder {
+.criarEvento .formcriarEvento .form-control::-ms-input-placeholder {
   font-size: 14px;
 }
 
-.formcriarEvento .form-control::placeholder {
+.criarEvento .formcriarEvento .form-control::placeholder {
   font-size: 14px;
 }
 
-.formcriarEvento .obr {
+.criarEvento .formcriarEvento .obr {
   color: red;
   font-size: 20px;
 }
 
-.formcriarEvento .obrinv {
+.criarEvento .formcriarEvento .obrinv {
   color: red;
   opacity: 0;
   font-size: 20px;
 }
 
-.formcriarEvento .form-group {
+.criarEvento .formcriarEvento .form-group {
   padding: 0;
 }
 
-.formcriarEvento .e {
+.criarEvento .formcriarEvento .e {
   margin-right: 8px;
 }
 
-.formcriarEvento .d {
+.criarEvento .formcriarEvento .d {
   margin-left: 8px;
 }
 
-.formcriarEvento .m {
+.criarEvento .formcriarEvento .m {
   margin-left: 16px;
   margin-right: 16px;
-  cursor: pointer;
 }
 
-.formcriarEvento .m input[type='file'] {
+.criarEvento .formcriarEvento .m input[type='file'] {
   display: none;
 }
 
-.formcriarEvento .m .add {
+.criarEvento .formcriarEvento .add {
   background-color: #F1F1F1;
   padding: 6px;
   padding-left: 18px;
@@ -13846,7 +13846,7 @@ select:required:invalid {
   cursor: pointer;
 }
 
-.formcriarEvento .m .cad {
+.criarEvento .formcriarEvento .cad {
   background-color: #439AFF;
   padding: 10px;
   padding-left: 18px;
@@ -14003,7 +14003,11 @@ select:required:invalid {
   color: #C40909;
 }
 
-.criarEvento .linkReturn {
+.criarRelatorio {
+  min-height: calc(100vh - 190px);
+}
+
+.criarRelatorio .linkReturn {
   text-decoration: underline;
   font-size: 10px;
   font-weight: bold;
@@ -14011,7 +14015,7 @@ select:required:invalid {
   margin: 40px auto 5px;
 }
 
-.criarEvento .titulosPrincipais {
+.criarRelatorio .titulosPrincipais {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -14021,13 +14025,13 @@ select:required:invalid {
   margin-bottom: 25px;
 }
 
-.criarEvento .explicacao {
+.criarRelatorio .explicacao {
   color: #8A8A8A;
   font-size: 14px;
   margin-bottom: 15px;
 }
 
-.criarEvento .formcriarEvento {
+.criarRelatorio .formcriarRelatorio {
   width: 620px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -14039,55 +14043,55 @@ select:required:invalid {
   margin: auto;
 }
 
-.criarEvento .formcriarEvento label {
+.criarRelatorio .formcriarRelatorio label {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::-webkit-input-placeholder {
+.criarRelatorio .formcriarRelatorio .form-control::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control:-ms-input-placeholder {
+.criarRelatorio .formcriarRelatorio .form-control:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::-ms-input-placeholder {
+.criarRelatorio .formcriarRelatorio .form-control::-ms-input-placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .form-control::placeholder {
+.criarRelatorio .formcriarRelatorio .form-control::placeholder {
   font-size: 14px;
 }
 
-.criarEvento .formcriarEvento .obr {
+.criarRelatorio .formcriarRelatorio .obr {
   color: red;
   font-size: 20px;
 }
 
-.criarEvento .formcriarEvento .obrinv {
+.criarRelatorio .formcriarRelatorio .obrinv {
   color: red;
   opacity: 0;
   font-size: 20px;
 }
 
-.criarEvento .formcriarEvento .form-group {
+.criarRelatorio .formcriarRelatorio .form-group {
   padding: 0;
 }
 
-.criarEvento .formcriarEvento .e {
+.criarRelatorio .formcriarRelatorio .e {
   margin-right: 8px;
 }
 
-.criarEvento .formcriarEvento .d {
+.criarRelatorio .formcriarRelatorio .d {
   margin-left: 8px;
 }
 
-.criarEvento .formcriarEvento .m {
+.criarRelatorio .formcriarRelatorio .m {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-.criarEvento .formcriarEvento .add {
+.criarRelatorio .formcriarRelatorio .add {
   background-color: #F1F1F1;
   padding: 6px;
   padding-left: 18px;
@@ -14098,20 +14102,20 @@ select:required:invalid {
   margin-bottom: 10px;
 }
 
-.criarEvento .formcriarEvento th {
+.criarRelatorio .formcriarRelatorio th {
   border-top: none;
   border-bottom: none;
 }
 
-.criarEvento .formcriarEvento .ur {
+.criarRelatorio .formcriarRelatorio .ur {
   text-align: center;
 }
 
-.criarEvento .formcriarEvento .ch {
+.criarRelatorio .formcriarRelatorio .ch {
   text-align: center;
 }
 
-.criarEvento .formcriarEvento .cad {
+.criarRelatorio .formcriarRelatorio .cad {
   background-color: #439AFF;
   padding: 10px;
   padding-left: 18px;
@@ -14122,11 +14126,11 @@ select:required:invalid {
   margin-bottom: 40px;
 }
 
-.criarEvento .formcriarEvento .t1 {
+.criarRelatorio .formcriarRelatorio .t1 {
   margin-bottom: 80px;
 }
 
-.criarEvento .formcriarEvento .resul {
+.criarRelatorio .formcriarRelatorio .resul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14139,7 +14143,7 @@ select:required:invalid {
   padding: 0;
 }
 
-.criarEvento .formcriarEvento .esquerda {
+.criarRelatorio .formcriarRelatorio .esquerda {
   width: 186px;
   height: 108px;
   background-color: #F2F2F2;
@@ -14156,7 +14160,7 @@ select:required:invalid {
           align-items: center;
 }
 
-.criarEvento .formcriarEvento .meio {
+.criarRelatorio .formcriarRelatorio .meio {
   width: 186px;
   height: 108px;
   background-color: #F2F2F2;
@@ -14172,7 +14176,7 @@ select:required:invalid {
           align-items: center;
 }
 
-.criarEvento .formcriarEvento .direita {
+.criarRelatorio .formcriarRelatorio .direita {
   width: 186px;
   height: 108px;
   background-color: #F2F2F2;
@@ -14189,7 +14193,7 @@ select:required:invalid {
           align-items: center;
 }
 
-.criarEvento .formcriarEvento .resultNome {
+.criarRelatorio .formcriarRelatorio .resultNome {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14198,13 +14202,13 @@ select:required:invalid {
       justify-content: space-around;
 }
 
-.criarEvento .formcriarEvento .nums {
+.criarRelatorio .formcriarRelatorio .nums {
   font-size: 46px;
   color: #8A8A8A;
   font-weight: bold;
 }
 
-.criarEvento .formcriarEvento .nomesRelaEsquerda {
+.criarRelatorio .formcriarRelatorio .nomesRelaEsquerda {
   font-size: 12px;
   color: #8A8A8A;
   margin-bottom: 50px;
@@ -14213,7 +14217,7 @@ select:required:invalid {
   text-align: center;
 }
 
-.criarEvento .formcriarEvento .nomesRelaMeio {
+.criarRelatorio .formcriarRelatorio .nomesRelaMeio {
   font-size: 12px;
   color: #8A8A8A;
   margin-bottom: 50px;
@@ -14221,7 +14225,7 @@ select:required:invalid {
   text-align: center;
 }
 
-.criarEvento .formcriarEvento .nomesRelaDireita {
+.criarRelatorio .formcriarRelatorio .nomesRelaDireita {
   font-size: 12px;
   color: #8A8A8A;
   margin-bottom: 50px;
