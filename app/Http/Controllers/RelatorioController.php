@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Campanha;
 use App\Doacao;
 use App\UserUserCurtida;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class RelatorioController extends Controller
 {
@@ -100,12 +103,31 @@ class RelatorioController extends Controller
         if (!Auth::check()) {
             return redirect('/aqa-login');
         }
+        $mes = $request['mes'];
+        //dd($mes);
 
         $entidade = Auth::user();
-
-        //dd($request->all());
-
         $campanhaId = $request['campanha'];
+
+//            dd($request->all());
+        $itens = Doacao::select('id')
+            ->with(['itens:descricaoItem'])
+            ->where('campanhas_id', $campanhaId)
+            ->whereMonth('created_at', $mes)
+            ->get()
+            ->map(function ($doacao) {
+                return $doacao->itens;
+            })->map(function ($item) {
+                return $item->toArray();
+            })->flatten(1)
+            ->groupBy('descricaoItem')
+            ->map(function ($item) {
+                return $item->count();
+            });
+
+        //dd($dados);
+
+
 
         // --------------------- NÚMERO DE DOACOES
         $numeroDoacoes = Doacao::where('campanhas_id', $campanhaId)
@@ -119,16 +141,28 @@ class RelatorioController extends Controller
 
         $numCurtidas = DB::table('user_campanha_curtidas')
             ->where('campanhas_id', $campanhaId)
-            ->where('curtida',1)
+            ->where('curtida', 1)
             ->get()->count();
 
         $numInteressados = DB::table('user_campanha_interesses')
             ->where('campanhas_id', $campanhaId)
-            ->where('interesse',1)
+            ->where('interesse', 1)
             ->get()->count();
 
-        return view('site.relatorios.resultado', compact('numCurtidas', 'numInteressados', 'nomeCampanha'));
 
+        return view('site.relatorios.resultado', compact('numCurtidas', 'numInteressados', 'nomeCampanha', 'itens'));
 
+    }
+
+    public function pdf()
+    {
+        //$usuario_autenticado_id = Auth::guard()->user()->id;
+
+        //$times = Times::orderBy('nome_time')->where('usuario_id', $usuario_autenticado_id)->get();
+
+        $pdf = App::make('dompdf.wrapper');
+        $view = View::make('site.relatorios.resultado1')->render();
+        $pdf->loadHTML($view);
+        return $pdf->stream();
     }
 }

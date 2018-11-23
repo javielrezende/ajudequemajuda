@@ -63,6 +63,8 @@ Route::post('/site/entidades/{entidade}/comentar', 'SiteUsuarioController@coment
 
 Route::get('/resultado', 'RelatorioController@resultado')->name('resultado');
 
+Route::get('/pdf', 'RelatorioController@pdf')->name('pdf');
+
 
 /**
  * Rota para envio de email

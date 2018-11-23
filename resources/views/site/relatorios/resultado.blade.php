@@ -21,18 +21,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Arroz</td>
-                    <td class="ch">12</td>
-                </tr>
-                <tr>
-                    <td>Feijao</td>
-                    <td class="ch">22</td>
-                </tr>
-                <tr>
-                    <td>Massa</td>
-                    <td class="ch">08</td>
-                </tr>
+                @forelse($itens as $item => $quantidade)
+                    <tr>
+                        <td>{{$item}}</td>
+                        <td class="ch">{{$quantidade}}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td>Não há ítens</td>
+                    </tr>
+                @endforelse
                 </tbody>
             </table>
 
@@ -61,7 +59,9 @@
 
             <div class="container">
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn cad">GERAR RELATÓRIO PDF</button>
+                    <a href="{{route('pdf')}}">
+                        <button type="submit" class="btn cad">GERAR RELATÓRIO PDF</button>
+                    </a>
                 </div>
             </div>
         </div>
