@@ -154,11 +154,15 @@ class RelatorioController extends Controller
 
     }
 
-    public function pdf()
+    public function pdf(Request $request)
     {
         //$usuario_autenticado_id = Auth::guard()->user()->id;
 
         //$times = Times::orderBy('nome_time')->where('usuario_id', $usuario_autenticado_id)->get();
+
+
+        dd($request->query('campanha'));
+
 
         $pdf = App::make('dompdf.wrapper');
         $view = View::make('site.relatorios.resultado1')->render();

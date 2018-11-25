@@ -9,6 +9,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MinhasCampanhasController extends Controller
 {
@@ -25,7 +26,9 @@ class MinhasCampanhasController extends Controller
 
         $entidadeLogada = Auth::user();
 
-        $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->get();
+        $campanhas = $entidadeLogada->campanhas()
+            ->where('status', 1)
+            ->orderBy('id', 'desc')->get();
 
         return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
     }
@@ -106,7 +109,7 @@ class MinhasCampanhasController extends Controller
             $imagemCreate->caminho = $imagem;
             $imagemCreate->campanhas_id = $campanha->id;
             $imagemCreate->eventos_id = null;
-                //dd($imagemCreate);
+            //dd($imagemCreate);
             $resultado2 = $imagemCreate->save();
             //dd($resultado2);
 
@@ -157,12 +160,24 @@ class MinhasCampanhasController extends Controller
             return redirect()->to(url('/aqa-login'));
         }
 
+
         $entidade = Auth::user();
 
         $campanha = Campanha::with('users', 'imagens')
             ->find($id);
 
-        //dd($campanha->imagens[0]->caminho);
+        if ($campanha == null) {
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+
+        $verificarCampanha = DB::table('user_campanhas')
+            ->where('users_id', $entidade->id)
+            ->where('campanhas_id', $campanha->id)
+            ->first();
+
+        if ($verificarCampanha == null) {
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
 
         return view('site.campanha.cadastroCampanhas', compact('entidade', 'campanha'));
     }
@@ -194,6 +209,23 @@ class MinhasCampanhasController extends Controller
 
         $entidade = Auth::user()->id;
 
+        $registro = Campanha::find($id);
+        //dd($registro);
+
+        if ($registro == null) {
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+
+        $verificarCampanha = DB::table('user_campanhas')
+            ->where('users_id', $entidade->id)
+            ->where('campanhas_id', $registro->id)
+            ->first();
+
+        if ($verificarCampanha == null) {
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
+
+
         $dataInicial = $request['dataInicio'];
         $dataFinal = $request['dataFim'];
 
@@ -205,8 +237,6 @@ class MinhasCampanhasController extends Controller
         $descricao = $request['descricao'];
         //dd($dataInicial, $dataFinal, $entidade, $descricao);
 
-        $registro = Campanha::find($id);
-        //dd($registro);
 
         $alteracoes = ['nome' => $nome, 'descricao' => $descricao];
 
@@ -232,9 +262,6 @@ class MinhasCampanhasController extends Controller
 
         $ent = User::find($entidade);
         $registro->users()->sync($ent);
-
-
-
 
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
@@ -277,13 +304,8 @@ class MinhasCampanhasController extends Controller
             $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
 
 
-
             //dd($imagem, $nomeImagemFinal, $imagemAlteradaId);
             //dd($sim, $nomeImagemFinal);
-
-
-
-
 
 
             //$i->update(['caminho' => $imagem]);
@@ -306,13 +328,6 @@ class MinhasCampanhasController extends Controller
         }
 
 
-
-
-
-
-
-
-
         if ($alteracao && $alteracao1 && $alteracao2) {
             return redirect()->route('minhas-campanhas.index')->with('status', 'Campanha Alterada!');
         }
@@ -326,6 +341,34 @@ class MinhasCampanhasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+        $entidadeLogada = Auth::user();
+        $campanha = Campanha::find($id);
+
+        $campanhas = $entidadeLogada->campanhas()
+            ->where('status', 1)
+            ->orderBy('id', 'desc')->get();
+
+
+        if ($campanha == null) {
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+        //dd($entidadeLogada);
+        $verificarCampanha = DB::table('user_campanhas')
+            ->where('users_id', $entidadeLogada->id)
+            ->where('campanhas_id', $campanha->id)
+            ->first();
+        if ($verificarCampanha == null) {
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
+
+        $alteracao = $campanha->update([
+            'status' => 0
+        ]);
+
+        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
+
     }
 }

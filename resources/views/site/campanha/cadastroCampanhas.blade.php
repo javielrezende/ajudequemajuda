@@ -8,6 +8,26 @@
 
         <p class="row col-md-12 titulosPrincipais">{{ $campanha->nome }}</p>
 
+
+        {{--<div class="row col-md-12 btn addB"><button type="submit" class="btn cad">Apagar campanha</button></div>--}}
+
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <form style="display: inline-block"
+                      method="post"
+                      action="{{route('minhas-campanhas.destroy', $campanha->id)}}"
+                      onsubmit="return confirm('Confirma Exclusão?')">
+                    {{method_field('delete')}}
+                    {{csrf_field()}}
+                    <button type="submit" class="btn addC">
+                        Apagar campanha
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
         <form class="row" enctype="multipart/form-data" method="post"
               action="{{route('minhas-campanhas.update', $campanha->id)}}">
             {!! method_field('put') !!}
@@ -205,7 +225,6 @@
             </div>
         </div>
         {{--Fim Modal--}}
-
 
         <div class="row final">
             <div class="finalCurtidas">

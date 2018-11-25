@@ -12161,6 +12161,10 @@ body .form-control[readonly] {
   margin-top: 60px;
 }
 
+.sitecampanhas {
+  margin-bottom: 131px !important;
+}
+
 .sitecampanhas .linkReturn {
   text-decoration: underline;
   font-size: 10px;
@@ -14246,6 +14250,17 @@ body .form-control[readonly] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.editarCampanha .addC {
+  background-color: rgba(252, 12, 96, 0.5);
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
 }
 
 .editarCampanha .linkReturn {

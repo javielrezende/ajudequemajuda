@@ -36,7 +36,7 @@
                 @foreach($itens as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->descricao}}</td>
+                        <td>{{$item->descricaoItem}}</td>
                         <td>
                             <a href="{{route('itens.edit', $item->id)}}"
                                class="btn btn-outline-info btn-sm">Alterar</a> &nbsp;&nbsp;

@@ -26,14 +26,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('usuario', function ($user){
+        Gate::define('usuario', function ($user) {
             return $user->funcao == User::USUARIO;
         });
-        Gate::define('entidade', function ($user){
+        Gate::define('entidade', function ($user) {
             //dd($user->funcao == User::ENTIDADE);
             return $user->funcao == User::ENTIDADE;
         });
-        Gate::define('admin', function ($user){
+        Gate::define('admin', function ($user) {
             return $user->funcao == User::ADMIN;
         });
     }

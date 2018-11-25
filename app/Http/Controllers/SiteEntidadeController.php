@@ -28,7 +28,12 @@ class SiteEntidadeController extends Controller
 
         $c = $entidadeLogada->campanhas()->orderBy('id', 'desc')->count();
         //dd($c);
-        $campanhas = $entidadeLogada->campanhas()->with('imagens')->orderBy('id', 'desc')->paginate(4);
+        $campanhas = $entidadeLogada->campanhas()->with('imagens')
+            ->where('status', 1)
+            ->orderBy('id', 'desc')->paginate(4);
+
+        $campanhasEventos = $entidadeLogada->campanhas()->with('imagens')
+            ->orderBy('id', 'desc')->paginate(4);
 
         //dd($campanhas);
 
@@ -72,7 +77,7 @@ class SiteEntidadeController extends Controller
         //dd($idImgCur);
 
 
-        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'c', 'comentarios', 'dataComentarios', 'nomes', 'numCom', 'numCur', 'userCur'));
+        return view('site.entidade.entidadeindex', compact('entidadeLogada', 'campanhas', 'campanhasEventos', 'c', 'comentarios', 'dataComentarios', 'nomes', 'numCom', 'numCur', 'userCur'));
     }
 
     /**

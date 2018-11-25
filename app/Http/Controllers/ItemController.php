@@ -15,7 +15,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $itens = Item::orderBy('descricaoItem')->get();
+        $itens = Item::orderBy('id')
+            ->get();
 
         return view('admin/itens/itens_list', compact('itens'));
     }
@@ -37,7 +38,7 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,9 +48,9 @@ class ItemController extends Controller
         }
 
         $resultado = Item::create([
-            'descricao' => $request['descricaoItem'],
+            'descricaoItem' => $request['descricaoItem'],
             'quantidade' => 0,
-            ]);
+        ]);
 
         if ($resultado) {
             return redirect()->route('itens.create')
@@ -60,7 +61,7 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -71,12 +72,13 @@ class ItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $registro = Item::find($id);
+        //dd($registro->quantidade);
 
         $itens = Item::orderBy('descricaoItem')->get();
 
@@ -88,8 +90,8 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -99,9 +101,11 @@ class ItemController extends Controller
         }
 
         $descricao = $request['descricaoItem'];
-        $quantidade = 0;
+        //dd($descricao);
 
         $registro = Item::find($id);
+        $quantidade = $registro->quantidade;
+        //dd($quantidade);
 
         $dados = ['descricaoItem' => $descricao, 'quantidade' => $quantidade];
 
@@ -115,7 +119,7 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

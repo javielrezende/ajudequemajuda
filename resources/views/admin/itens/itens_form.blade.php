@@ -24,8 +24,8 @@
 
                         <div class="form-group">
                             <label for="descricao">Descrição <span class="obr">*</span></label>
-                            <input type="text" class="form-control" id="descricao" name="descricao"
-                                   value="{{$registro->descricao or old('descricao')}}" required autofocus>
+                            <input type="text" class="form-control" id="descricao" name="descricaoItem"
+                                   value="{{$registro->descricaoItem or old('descricaoItem')}}" required autofocus>
                         </div>
 
                         <div>
