@@ -158,25 +158,60 @@
                     <tr>
                         <th scope="col">Ítens</th>
                         <th scope="col" class="ur">Urgência</th>
+                        <th scope="col" class="qua">Quantidade</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {{--<tr>
-                        <td id="name">{{name}}</td>
-                        <td id="checked" class="ch">${inUrgente.checked ? '<i class="fas fa-check"></i>' : ''}</td>
-                        <td id="qtd" class="ch">${inQuantidade.value}</td>
-                        <td><i class="fas fa-p en"></i></td>
 
-                        <td>
-                            <i class="fas fa-pen" onclick="editarItem(this)">
-                        </td>
-                        <td>
-                            <input type="hidden" name="descricaoItem[]" value="${inItem.value}"/>
-                            <input type="hidden" name="quantidade[]" value="${inQuantidade.value}"/>
-                            <input type="hidden" name="urgencia[]" value="${inUrgente.checked}"/>
-                            <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>
-                        </td>
-                    </tr>--}}
+                    @foreach($campanha->itens as $item)
+                        {{--<tr>
+                            <td>{{$item->descricaoItem}}</td>
+                            <td><i class="fas fa-minus verde"></i></td>
+                            <td class="ch">
+                                                <span>
+                                                0
+                                                </span>
+                                <input type="hidden" id="idModal" name="descricaoItem[]"
+                                       value="{{$item->descricaoItem}}">
+                                <input type="hidden" id="quantidadeModal" name="quantidade[]"
+                                       class="qtd">
+                                <input type="hidden" name="campId" value="{{$campanha->id}}">
+
+                            </td>
+                            <td><i class="fas fa-plus vermelho"></i></td>
+                        </tr>--}}
+
+
+
+
+                        <tr>
+                            <td id="name">{{$item->descricaoItem}}</td>
+                            @if($item->urgente == 1)
+                                {{--                            @if($item->urgente)--}}
+                                <td id="checked" class="ch"><i class="fas fa-check"></i></td>
+                            @else
+                                <td id="checked" class="ch"></td>
+                            @endif
+                            {{--<td id="checked" class="ch">${inUrgente.checked ? '<i class="fas fa-check"></i>' : ''}</td>--}}
+                            {{--<td id="qtd" class="ch">${inQuantidade.value}</td>--}}
+                            <td id="qtd" class="ch">{{$item->quantidade}}</td>
+                            <td><i class="fas fa-p en"></i></td>
+
+                            <td>
+                                <i class="fas fa-pen" onclick="editarItem(this)"></i>
+                            </td>
+                            <td>
+                                <input type="hidden" name="descricaoItem[]" value="${inItem.value}"/>
+                                <input type="hidden" name="quantidade[]" value="${inQuantidade.value}"/>
+                                <input type="hidden" name="urgencia[]" value="${inUrgente.checked}"/>
+                                <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>
+                            </td>
+                        </tr>
+
+
+                    @endforeach
+
+
                     </tbody>
                 </table>
                 <div class="container">
@@ -229,27 +264,27 @@
         <div class="row final">
             <div class="finalCurtidas">
                 <p class="row col-md-12 titulosPrincipais">Curtidas <span id="qnt"
-                                                                          style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">(55)</span>
+                                                                          style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numCur}}
+                        )</span>
                 </p>
+                {{--{{dd('oi')}}--}}
+
                 <div class="imgcurtidas">
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
+                    @foreach($userCur as $u)
+                        {{--{{dd($u->imagem)}}--}}
+                        @if($u->imagem == null || $u->imagem == "")
+                            <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                                 alt="Foto de perfil">
+                        @else
+                            <img class="imgperfilrefe" src="{{ asset($u->imagem) }}"
+                                 alt="Foto de perfil">
+                        @endif
+                    @endforeach
+
 
                 </div>
+
+
                 <div class="container b">
                     <div class="row justify-content-end">
                         <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
@@ -259,26 +294,37 @@
 
             <div class="finalComentarios">
                 <p class="row col-md-12 titulosPrincipais">Usuários interessados <span id="qnt"
-                                                                                       style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">(55)</span>
+                                                                                       style="font-size: 18px; font-weight: lighter; margin-left: 7px; margin-top: 7px">({{$numSeg}}
+                        )</span>
                 </p>
 
                 <div class="imgcurtidas">
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    @foreach($userSeg as $u)
+                        {{--{{dd($u->imagem)}}--}}
+                        @if($u->imagem == null || $u->imagem == "")
+                            <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                                 alt="Foto de perfil">
+                        @else
+                            <img class="imgperfilrefe" src="{{ asset($u->imagem) }}"
+                                 alt="Foto de perfil">
+                        @endif
+                    @endforeach
+                    {{--<img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
                          alt="Foto de perfil"></a>
-                    <img class="imgperfilref" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
+                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                         alt="Foto de perfil"></a>--}}
 
                 </div>
                 <div class="container b">

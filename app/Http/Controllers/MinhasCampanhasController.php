@@ -6,6 +6,7 @@ use App\Campanha;
 use App\Imagem;
 use App\Item;
 use App\User;
+use App\UserUserCurtida;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,8 @@ class MinhasCampanhasController extends Controller
         $campanhas = $entidadeLogada->campanhas()
             ->where('status', 1)
             ->orderBy('id', 'desc')->get();
+
+
 
         return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
     }
@@ -166,6 +169,45 @@ class MinhasCampanhasController extends Controller
         $campanha = Campanha::with('users', 'imagens')
             ->find($id);
 
+
+
+
+        $numCur = DB::table('user_campanha_curtidas')
+            ->where('campanhas_id', $campanha->id)
+            ->where('curtida', 1)
+            ->get()
+            ->count();
+
+        $idImgCur = DB::table('user_campanha_curtidas')
+            ->where('campanhas_id', $campanha->id)
+            ->where('curtida', 1)
+            ->get()
+            ->map(function ($value) {
+                return $value->users_id;
+            });
+
+        $numSeg = DB::table('user_campanha_interesses')
+            ->where('campanhas_id', $campanha->id)
+            ->where('interesse', 1)
+            ->get()
+            ->count();
+
+        $idImgSeg = DB::table('user_campanha_interesses')
+            ->where('campanhas_id', $campanha->id)
+            ->where('interesse', 1)
+            ->get()
+            ->map(function ($value) {
+                return $value->users_id;
+            });
+
+        //dd($idImgCur);
+
+        $userCur = User::findMany($idImgCur);
+
+        $userSeg = User::findMany($idImgSeg);
+
+
+
         if ($campanha == null) {
             return redirect()->back()->with('Esta campanha não existe!');
         }
@@ -179,7 +221,7 @@ class MinhasCampanhasController extends Controller
             return redirect()->back()->with('Você não tem esta permissão!');
         }
 
-        return view('site.campanha.cadastroCampanhas', compact('entidade', 'campanha'));
+        return view('site.campanha.cadastroCampanhas', compact('entidade', 'campanha', 'numCur', 'idImgCur', 'userCur', 'numSeg', 'idImgSeg', 'userSeg'));
     }
 
     /**
@@ -208,6 +250,7 @@ class MinhasCampanhasController extends Controller
         }
 
         $entidade = Auth::user()->id;
+        $entidadeId = $entidade;
 
         $registro = Campanha::find($id);
         //dd($registro);
@@ -217,7 +260,7 @@ class MinhasCampanhasController extends Controller
         }
 
         $verificarCampanha = DB::table('user_campanhas')
-            ->where('users_id', $entidade->id)
+            ->where('users_id', $entidadeId)
             ->where('campanhas_id', $registro->id)
             ->first();
 
@@ -266,28 +309,47 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $imagemAntiga = $registro->imagens[0]->caminho;
-            $img = Imagem::where('caminho', $imagemAntiga)
-                ->get()
-                ->map(function ($value) {
+            //SE EXISTIR ALGUMA IMAGEM CADASTRADA
+            if (count($registro->imagens) > 0) {
+
+                $imagemAntiga = $registro->imagens[0]->caminho;
+                $img = Imagem::where('caminho', $imagemAntiga)
+                    ->get()
+                    ->map(function ($value) {
+                        return $value->id;
+                    })->toArray();
+
+                /*$n = $img->map(function ($value){
                     return $value->id;
-                })->toArray();
-            //dd($imagemAntiga);
+                });
+                dd($n->toArray());*/
+                $imagemAlterada = Imagem::find($img);
+                $imagemAlteradaId = $imagemAlterada[0];
+                //$imagemAlteradaId = $imagemAlterada[0]->id;
+                //$i = $imagemAlterada->toArray();
+                //dd($i);
+                //dd($imagemAlterada->toArray());
+                //dd($imagemAlterada[0]);
+                //dd($imagemAlteradaId);
+                //dd($imagemAlterada);
 
-            /*$n = $img->map(function ($value){
-                return $value->id;
-            });
-            dd($n->toArray());*/
-            $imagemAlterada = Imagem::find($img);
-            $imagemAlteradaId = $imagemAlterada[0];
-            //$imagemAlteradaId = $imagemAlterada[0]->id;
-            //$i = $imagemAlterada->toArray();
-            //dd($i);
-            //dd($imagemAlterada->toArray());
-            //dd($imagemAlterada[0]);
-            //dd($imagemAlteradaId);
-            //dd($imagemAlterada);
 
+                $horaAtual = Carbon::parse()->timestamp;
+                //dd($horaAtual);
+                $nomeImagem = kebab_case($horaAtual) . kebab_case($ent->endereco->rua);
+                //dd($nomeImagem);
+
+                $extensao = $request->imagem->extension();
+                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+                $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+
+                $imagem = "imagens/users/" . $nomeImagemFinal;
+
+
+                $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
+            }
+
+            //SE NÃO EXISTIR ALGUMA IMAGEM CADASTRADA
 
             $horaAtual = Carbon::parse()->timestamp;
             //dd($horaAtual);
@@ -301,30 +363,12 @@ class MinhasCampanhasController extends Controller
             $imagem = "imagens/users/" . $nomeImagemFinal;
 
 
-            $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
-
-
-            //dd($imagem, $nomeImagemFinal, $imagemAlteradaId);
-            //dd($sim, $nomeImagemFinal);
-
-
-            //$i->update(['caminho' => $imagem]);
-            //dd($imagemAlteradaId);
-
-            /*$imagemCreate = new Imagem;
+            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
+            $imagemCreate = new Imagem;
             $imagemCreate->caminho = $imagem;
             $imagemCreate->campanhas_id = $registro->id;
-            $imagemCreate->eventos_id = null;*/
-            //dd($imagemCreate);
-            //$resultado2 = $imagemCreate->save();
-            //dd($resultado2);
+            $imagemCreate->eventos_id = null;
 
-
-            /*$imagemCreate = Imagem::create([
-                'caminho' => $imagem,
-                'campanhas_id' => $campanha
-            ]);*/
-            //dd($imagemCreate);
         }
 
 

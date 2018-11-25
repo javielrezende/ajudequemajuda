@@ -5,13 +5,13 @@
   justify-content: center;
 
   .addC {
-    background-color: rgba(252, 12, 96, .5);
+    background-color: rgba(249, 12, 16, .5);
     padding: 6px;
     padding-left: 18px;
     padding-right: 18px;
     border-radius: 20px;
     font-size: 10px;
-    color: #4D4F5C;
+    color: #e9e1f7;
     margin-bottom: 10px;
   }
 
@@ -227,12 +227,23 @@
         border-radius: 100%;
         margin-right: 10px;
         margin-top: 5px;
-
       }
 
       .imgperfilref:last-child {
         margin-bottom: 25px;
       }
+
+      .imgperfilrefe {
+        width: 50px;
+        height: auto;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+
+      /*.imgperfilrefe:last-child {
+        margin-bottom: 25px;
+      }*/
     }
   }
 
@@ -262,6 +273,14 @@
 
       .imgperfilref:last-child {
         margin-bottom: 25px;
+      }
+
+      .imgperfilrefe {
+        width: 50px;
+        height: auto;
+        border-radius: 100%;
+        margin-right: 10px;
+        margin-top: 5px;
       }
     }
 
