@@ -6,7 +6,7 @@
     <div class="row editarCampanha">
         <a href="{{url('/entidade-site')}}" class="linkReturn">HOME</a>
 
-        <p class="row col-md-12 titulosPrincipais">{{ $campanha->nome }}</p>
+        <p class="row col-md-12 titulosPrincipais">Campanha - {{ $campanha->nome }}</p>
 
 
         {{--<div class="row col-md-12 btn addB"><button type="submit" class="btn cad">Apagar campanha</button></div>--}}

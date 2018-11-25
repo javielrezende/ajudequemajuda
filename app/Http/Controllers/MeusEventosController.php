@@ -9,6 +9,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MeusEventosController extends Controller
 {
@@ -19,6 +20,10 @@ class MeusEventosController extends Controller
      */
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
         $entidadeLogada = Auth::user();
 
         $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->get();
@@ -164,7 +169,27 @@ class MeusEventosController extends Controller
         $campanhas = $entidade->campanhas;
 
         $evento = Evento::with('campanhas')
+            ->where('status', 1)
             ->find($id);
+
+
+        if ($evento == null) {
+            //dd('este evento nao existe');
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+
+        //dd($evento->campanhas_id);
+
+        $verificarEvento = DB::table('user_campanhas')
+            ->where('users_id', $entidade->id)
+            ->where('campanhas_id', $evento->campanhas_id)
+            ->first();
+
+        if ($verificarEvento == null) {
+            //dd('voce nao tem estar permissao');
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
+
 
         //dd($evento->enderecos->cep);
         //dd($evento->campanhas->nome);
@@ -195,8 +220,30 @@ class MeusEventosController extends Controller
         //dd($request->all());
 
         if (!Auth::check()) {
-            return redirect('/meus-eventos');
+            return redirect('/aqa-login');
         }
+
+        $registro = Evento::with('enderecos')->find($id);
+        $entidade = Auth::user();
+
+
+        if ($registro == null) {
+            //dd('este evento nao existe');
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+
+        //dd($evento->campanhas_id);
+
+        $verificarEvento = DB::table('user_campanhas')
+            ->where('users_id', $entidade->id)
+            ->where('campanhas_id', $registro->campanhas_id)
+            ->first();
+
+        if ($verificarEvento == null) {
+            //dd('voce nao tem estar permissao');
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
+
 
         $dataHoraInicial = $request['dataHoraInicio'];
         $dataHoraFinal = $request['dataHoraFim'];
@@ -215,8 +262,6 @@ class MeusEventosController extends Controller
         $estado = $request['estado'];
         $campanha = $request['campanha'];
 
-
-        $registro = Evento::with('enderecos')->find($id);
 
         if ($dataHoraInicial != "Sem data determinada" && $dataHoraInicial != null) {
             $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataHoraInicial)->toDateString();
@@ -293,6 +338,37 @@ class MeusEventosController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        $registro = Evento::with('enderecos')->find($id);
+        $entidadeLogada = Auth::user();
+        $campanhas = $entidadeLogada->campanhas()->orderBy('id', 'desc')->get();
+
+        if ($registro == null) {
+            //dd('este evento nao existe');
+            return redirect()->back()->with('Esta campanha não existe!');
+        }
+
+        //dd($evento->campanhas_id);
+
+        $verificarEvento = DB::table('user_campanhas')
+            ->where('users_id', $entidadeLogada->id)
+            ->where('campanhas_id', $registro->campanhas_id)
+            ->first();
+
+        if ($verificarEvento == null) {
+            //dd('voce nao tem estar permissao');
+            return redirect()->back()->with('Você não tem esta permissão!');
+        }
+
+        $alteracao = $registro->update([
+            'status' => 0
+        ]);
+
+        return view('site.evento.meusEventos', compact('entidadeLogada', 'campanhas'));
+
     }
 }

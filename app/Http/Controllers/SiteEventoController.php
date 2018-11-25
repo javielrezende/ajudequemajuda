@@ -55,6 +55,7 @@ class SiteEventoController extends Controller
     {
         $registro = Evento::with('campanhas')
             ->with('enderecos')
+            ->where('status', 1)
             ->find($id);
         $dia = $registro->getDia();
         $mes = $registro->getMesAttribute();

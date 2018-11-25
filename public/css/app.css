@@ -11751,6 +11751,10 @@ body .form-control[readonly] {
   font-style: italic;
 }
 
+.siteeventos {
+  margin-bottom: 131px !important;
+}
+
 .siteeventos .linkReturn {
   text-decoration: underline;
   font-size: 10px;
@@ -14509,7 +14513,7 @@ body .form-control[readonly] {
 
 .final .finalCurtidas .imgcurtidas .imgperfilrefe {
   width: 50px;
-  height: auto;
+  height: 50px;
   border-radius: 100%;
   margin-right: 10px;
   margin-top: 5px;
@@ -14533,7 +14537,7 @@ body .form-control[readonly] {
 
 .final .finalComentarios .imgcurtidas .imgperfilref {
   width: 50px;
-  height: auto;
+  height: 50px;
   border-radius: 100%;
   margin-right: 10px;
   margin-top: 5px;
@@ -14545,10 +14549,21 @@ body .form-control[readonly] {
 
 .final .finalComentarios .imgcurtidas .imgperfilrefe {
   width: 50px;
-  height: auto;
+  height: 50px;
   border-radius: 100%;
   margin-right: 10px;
   margin-top: 5px;
+}
+
+.editarEvento .addC {
+  background-color: rgba(249, 12, 16, 0.5);
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #e9e1f7;
+  margin-bottom: 10px;
 }
 
 .editarEvento .linkReturn {

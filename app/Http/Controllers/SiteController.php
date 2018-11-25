@@ -29,12 +29,13 @@ class SiteController extends Controller
             return redirect()->to(url('/usuario-site'));
         }
 
-        $campanhas = Campanha::where('destaque', 1)
+        $campanhas = Campanha::with('users')
+            ->where('destaque', 1)
             ->where('status', 1)
             ->orderBy('id', 'desc')
+//            ->get();
             ->paginate(4);
-
-        //dd($campanhas);
+       // dd($campanhas[0]->users);
 
         return view('welcomesite', compact('campanhas'));
     }

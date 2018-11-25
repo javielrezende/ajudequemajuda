@@ -6,8 +6,24 @@
     <div class="row editarEvento">
         <a href="{{url('/entidade-site')}}" class="linkReturn">HOME</a>
 
-        <p class="row col-md-12 titulosPrincipais">{{ $evento->nome }}</p>
+        <p class="row col-md-12 titulosPrincipais">Evento - {{ $evento->nome }}</p>
 
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <form style="display: inline-block"
+                      method="post"
+                      action="{{route('minhas-campanhas.destroy', $evento->id)}}"
+                      onsubmit="return confirm('Confirma Exclusão?')">
+                    {{method_field('delete')}}
+                    {{csrf_field()}}
+                    <button type="submit" class="btn addC">
+                        Apagar evento
+                    </button>
+                </form>
+
+            </div>
+        </div>
 
         <form class="row geralEditor" enctype="multipart/form-data" method="post"
               action="{{route('meus-eventos.update', $evento->id)}}">

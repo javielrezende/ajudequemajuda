@@ -15,27 +15,35 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-
 //------SITE--------------------------------------------------------------------------
 Route::get('/', function () {
     return redirect()->to(url('/aqa'));
 });
 
+
+//Route::group(['middleware' => 'can:entidade'], function () {
+    Route::resource('/entidade-site', 'SiteEntidadeController');
+    Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
+    Route::resource('/meus-eventos', 'MeusEventosController');
+    Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
+    Route::resource('/relatorios', 'RelatorioController');
+//});
+
+
 Route::resource('/aqa', 'SiteController');
 
-Route::resource('/entidade-site', 'SiteEntidadeController');
 
 Route::resource('/usuario-site', 'SiteUsuarioController');
 
 Route::resource('/site/campanha', 'SiteCampanhaController');
 Route::resource('/site/campanhas', 'SiteCampanhaController');
-Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
+
 Route::resource('/site/evento', 'SiteEventoController');
 Route::resource('/site/eventos', 'SiteEventoController');
-Route::resource('/meus-eventos', 'MeusEventosController');
+
 Route::resource('/doar', 'DoarController');
-Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
-Route::resource('/relatorios', 'RelatorioController');
+
+
 Route::resource('/faleconosco', 'SiteFaleConoscoController');
 
 Route::resource('/campanhas-interessantes', 'CampanhasInteressantesController');
@@ -80,23 +88,21 @@ Route::resource('site/entidades', 'SiteUserController',
     ['as' => 'entidades']);
 
 
-
-
 //------CADASTROS E LOGIN DO SITE--------------------------------------------------------------------------
 //------PRE CADASTRO--------------------------------------------------------------------------
-Route::get('/pre-cadastro', function (){
+Route::get('/pre-cadastro', function () {
     return view('site.cadastro.pre-cadastro');
     //return 'teste';
 })->name('pre-cadastro');
 
 //------CADASTRO DE USUARIOS--------------------------------------------------------------------------
-Route::get('/cadastrodoador', function (){
+Route::get('/cadastrodoador', function () {
     return view('site.cadastro.cadastrodoador');
     //return 'teste';
 })->name('cadastrodoador');
 
 //------CADASTRO DE ENTIDADES--------------------------------------------------------------------------
-Route::get('/cadastroentidade', function (){
+Route::get('/cadastroentidade', function () {
     return view('site.cadastro.cadastroentidade');
     //return 'teste';
 })->name('cadastroentidade');
@@ -105,7 +111,7 @@ Route::post('cadastroentidade', 'SiteController@storeentidade')
     ->name('storeentidade');
 
 //------LOGIN--------------------------------------------------------------------------
-Route::get('/aqa-login', function (){
+Route::get('/aqa-login', function () {
     return view('site.cadastro.loginsite');
     //return 'teste';
 })->name('aqa-login');
@@ -133,7 +139,7 @@ Route::get('/admin', function () {
 });*/
 
 //sem acl para soente adm entrar no admin
-Route::group(['prefix' => '/admin'], function (){
+Route::group(['prefix' => '/admin'], function () {
     Route::resource('/eventos', 'EventoController');
     Route::resource('/itens', 'ItemController');
     Route::resource('/entidades', 'EntidadeController');
