@@ -69,9 +69,26 @@ Route::get('/site/entidades/{entidade}/curtir', 'SiteUsuarioController@curtirEnt
  */
 Route::post('/site/entidades/{entidade}/comentar', 'SiteUsuarioController@comentarEntidade')->name('comentar-entidade');
 
+
+/**
+ * Relatorios
+ */
 Route::get('/resultado', 'RelatorioController@resultado')->name('resultado');
 
 Route::get('/pdf', 'RelatorioController@pdf')->name('pdf');
+/**
+ * ****************************************************************
+ */
+
+/**
+ * Rota para gerenciar emails
+ */
+Route::get('/site/campanhas-que-sigo', 'SiteUsuarioController@mostrarCampanhasQueSigo')->name('campanhas-que-sigo');
+
+Route::get('/site/{id}/gerenciar-email', 'SiteUsuarioController@gerenciarEmail')
+    ->name('gerenciar-email');
+
+
 
 
 /**
@@ -146,6 +163,8 @@ Route::group(['prefix' => '/admin'], function () {
     Route::resource('/users', 'UserController');
     Route::resource('/campanhas', 'CampanhaController');
     Route::resource('/faleconoscoadmin', 'FaleConoscoController');
+    Route::get('/relatorios', 'RelatorioController@data')->name('data');
+    Route::get('/relatorios/resultado', 'RelatorioController@resultadoAdmin')->name('resultado-admin');
 });
 //---------------------------------------------------------------------------------------------------
 

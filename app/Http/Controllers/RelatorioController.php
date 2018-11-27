@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Campanha;
 use App\Doacao;
+use App\Evento;
+use App\User;
 use App\UserUserCurtida;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -128,7 +130,6 @@ class RelatorioController extends Controller
         //dd($dados);
 
 
-
         // --------------------- NÚMERO DE DOACOES
         $numeroDoacoes = Doacao::where('campanhas_id', $campanhaId)
             ->get()
@@ -169,4 +170,50 @@ class RelatorioController extends Controller
         $pdf->loadHTML($view);
         return $pdf->stream();
     }
+
+
+    //-------------------relatorios para admin
+    public function data(Request $request)
+    {
+
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+
+        return view('admin.relatorios.principalAdmin');
+    }
+
+    public function resultadoAdmin(Request $request)
+    {
+
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+        $mes = $request['mes'];
+        //dd($mes);
+
+        $numEnt = User::where('funcao', 1)
+            ->whereMonth('created_at', $mes)
+            ->get()
+            ->count();
+
+        $numUsu = User::where('funcao', 0)
+            ->whereMonth('created_at', $mes)
+            ->get()
+            ->count();
+
+        $numCam = Campanha::whereMonth('created_at', $mes)
+            ->get()
+            ->count();
+
+        $numEve = Evento::whereMonth('created_at', $mes)
+            ->get()
+            ->count();
+
+
+        return view('admin.relatorios.resultadoAdmin', compact('numEnt', 'numCam', 'numEve', 'numUsu'));
+    }
+
+
 }

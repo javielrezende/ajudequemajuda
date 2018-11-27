@@ -19,6 +19,7 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
+                <a href="{{ url('/admin/relatorios') }}">Relatório</a>
                 <a href="{{ url('/admin/faleconoscoadmin') }}">Mensagens</a>
                 <a href="{{ url('/admin/itens') }}">Itens</a>
                 <a href="{{ url('/admin/eventos') }}">Eventos</a>

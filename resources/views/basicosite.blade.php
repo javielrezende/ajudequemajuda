@@ -80,6 +80,7 @@
                             <a class="dropdown-item" href="{{route('alterar-senha.index')}}">Trocar senha</a>
                             <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas
                                 interessantes</a>
+                            <a class="dropdown-item" href="{{route('campanhas-que-sigo')}}">Bloquear e-mails</a>
                             <a class="dropdown-item" href="#">Doações efetuadas</a>
                         </div>
                     @endif

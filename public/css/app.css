@@ -15177,3 +15177,149 @@ body .form-control[readonly] {
   margin-top: 60px;
 }
 
+.gerenciarEmail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gerenciarEmail .linkReturn {
+  text-decoration: underline;
+  font-size: 10px;
+  font-weight: bold;
+  color: #439AFF;
+  margin: 40px auto 5px;
+}
+
+.gerenciarEmail .titulosPrincipais {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #4D4F5C;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.gerenciarEmail .formgerenciarEmail {
+  width: 400px;
+  margin-bottom: 350px;
+}
+
+.gerenciarEmail .formgerenciarEmail label {
+  font-size: 14px;
+  margin: 0;
+}
+
+.gerenciarEmail .formgerenciarEmail .form-control::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.gerenciarEmail .formgerenciarEmail .form-control:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.gerenciarEmail .formgerenciarEmail .form-control::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.gerenciarEmail .formgerenciarEmail .form-control::placeholder {
+  font-size: 14px;
+}
+
+.gerenciarEmail .formgerenciarEmail .obr {
+  color: red;
+  font-size: 20px;
+}
+
+.gerenciarEmail .formgerenciarEmail .obrinv {
+  color: red;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.gerenciarEmail .formgerenciarEmail .form-group {
+  padding: 0;
+}
+
+.gerenciarEmail .formgerenciarEmail .e {
+  margin-right: 8px;
+}
+
+.gerenciarEmail .formgerenciarEmail .d {
+  margin-left: 8px;
+}
+
+.gerenciarEmail .formgerenciarEmail .m {
+  margin-left: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: -18px;
+}
+
+.gerenciarEmail .formgerenciarEmail .urgente {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+}
+
+.gerenciarEmail .formgerenciarEmail .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+}
+
+.gerenciarEmail .formgerenciarEmail .cad {
+  background-color: #439AFF;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.gerenciarEmail .alinhamentoItens {
+  width: 316px;
+  margin-left: 60px;
+}
+
+.gerenciarEmail th {
+  border-top: none;
+  border-bottom: none;
+}
+
+.gerenciarEmail .ur {
+  text-align: center;
+}
+
+.gerenciarEmail .ch {
+  text-align: center;
+}
+
+.gerenciarEmail .verde {
+  color: #0BA200;
+}
+
+.gerenciarEmail .vermelho {
+  color: #C40909;
+}
+

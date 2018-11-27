@@ -200,7 +200,7 @@ class SiteUsuarioController extends Controller
             ->first();
 
         if (!$result) {
-            $campanha->seguir()->attach($usuario, ['interesse' => 1]);
+            $campanha->seguir()->attach($usuario, ['interesse' => 1, 'email' => 1]);
 
             $resultado = DB::table('user_campanha_interesses')
                 ->where('users_id', $usuario)
@@ -222,12 +222,12 @@ class SiteUsuarioController extends Controller
         dd('nao seguia, vai seguir agora', $seguindo);*/
 
         if ($resultado[0]->interesse == 1) {
-            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 0]);
+            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 0, 'email' => 0]);
             $seguindo = $resultado[0]->interesse;
             return redirect()->back()->with($seguindo);
         }
         if ($resultado[0]->interesse == 0) {
-            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 1]);
+            $campanha->seguir()->updateExistingPivot($usuario, ['interesse' => 1, 'email' => 1]);
             $seguindo = $resultado[0]->interesse;
             //dd('Ja seguia e parou, vai voltar a seguir agora', $seguindo);
             return redirect()->back()->with($seguindo);
@@ -339,6 +339,71 @@ class SiteUsuarioController extends Controller
         return redirect()->route('entidades.entidades.index')
             ->with('status', 'Obrigado pela sua mensagem! (:');
 
+    }
+
+    public function mostrarCampanhasQueSigo()
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+
+        $usuario = Auth::user();
+        $id = $usuario->id;
+
+        /*$interesses = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario->id)
+            ->where('interesse', 1)
+            ->get()
+            ->map(function ($value) {
+                return $value->interesse;
+            });
+        dd($interesses);*/
+
+        $campanhasId = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuario->id)
+            ->where('interesse', 1)
+            ->get()
+            ->map(function ($value) {
+                return $value->campanhas_id;
+            });
+        //dd($campanhasId);
+
+        $campanhas = Campanha::with('emails')
+            ->findMany($campanhasId);
+
+        //dd($campanhas);
+
+        return view('site.email.gerenciarEmails', compact('campanhas', 'id'));
+
+    }
+
+    public function gerenciarEmail(Request $request, $id)
+    {
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
+        $usuario = Auth::user();
+        $usuarioLogadoId = $usuario->id;
+
+        $campanha = Campanha::with('emails')->find($id);
+        //dd($campanha->emails[0]->pivot->email);
+
+        $email = DB::table('user_campanha_interesses')
+            ->where('users_id', $usuarioLogadoId)
+            ->where('campanhas_id', $id)
+            ->get();
+        //dd($email[0]->email);
+
+        if ($campanha->emails[0]->pivot->email == 1) {
+            $campanha->emails()->updateExistingPivot($usuarioLogadoId, ['email' => 0]);
+            //dd('nao email');
+        } else {
+            $campanha->emails()->updateExistingPivot($usuarioLogadoId, ['email' => 1]);
+            //dd('email');
+        }
+        //dd('nao deu nada');
+
+        return redirect()->route('campanhas-que-sigo');
     }
 
 }

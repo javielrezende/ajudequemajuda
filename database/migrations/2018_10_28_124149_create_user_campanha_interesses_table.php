@@ -18,6 +18,7 @@ class CreateUserCampanhaInteressesTable extends Migration
             $table->unsignedInteger('campanhas_id');
             $table->primary(['users_id', 'campanhas_id']);
             $table->boolean('interesse')->nullable()->default(null);
+            $table->boolean('email')->nullable()->default(null);
             $table->foreign('users_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')

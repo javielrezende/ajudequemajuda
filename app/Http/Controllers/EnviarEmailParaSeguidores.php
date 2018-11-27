@@ -26,6 +26,7 @@ class EnviarEmailParaSeguidores extends Controller
         $usuariosId = DB::table('user_campanha_interesses')
             ->where('campanhas_id', $idCampanha)
             ->where('interesse', 1)
+            ->where('email', 1)
             ->get()
             ->map(function ($value) {
                 return $value->users_id;
