@@ -50,14 +50,8 @@ class EnviarEmailParaSeguidores extends Controller
                 $message->subject('Sistema Ajude Quem Ajuda');
             });
         }
-        //dd($emails);
 
-        //dd($idCampanha);
-        //dd($nomeCampanha);
-        //dd($mensagemEmail);
-
-        // Parametros:
-        // Template do email, dados que vai enviar e a funcao em si
+        return redirect()->back();
         
 
 

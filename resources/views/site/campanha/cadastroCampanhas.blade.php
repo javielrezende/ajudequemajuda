@@ -13,7 +13,6 @@
 
         <div class="container">
             <div class="row justify-content-center">
-
                 <form style="display: inline-block"
                       method="post"
                       action="{{route('minhas-campanhas.destroy', $campanha->id)}}"

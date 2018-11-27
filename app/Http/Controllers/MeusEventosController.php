@@ -278,6 +278,28 @@ class MeusEventosController extends Controller
         }
 
 
+
+
+
+
+        if ($dataHoraInicial1 != null) {
+            $alteracoes3 = ['dataHoraInicio1' => $dataHoraInicial1];
+        } else {
+            $alteracoes3 = ['dataHoraInicio1' => null];
+        }
+
+        if ($dataHoraFinal1 != null) {
+            $alteracoes4 = ['dataHoraFim1' => $dataHoraFinal1];
+        } else {
+            $alteracoes4 = ['dataHoraFim1' => null];
+        }
+
+
+
+
+
+
+
         $dados = ['nome' => $nome, 'descricao' => $descricao, 'campanhas_id' => $campanha];
         //dd($campanha, $dados);
         $dados1 = ['cep' => $cep,
@@ -288,7 +310,9 @@ class MeusEventosController extends Controller
         $alteracao = $registro->update($dados);
         $alteracao1 = $registro->enderecos->update($dados1);
         $alteracao3 = $registro->update($alteracoes1);
-        $alteracoes4 = $registro->update($alteracoes2);
+        $alteracao4 = $registro->update($alteracoes2);
+        $alteracao5 = $registro->update($alteracoes3);
+        $alteracao6 = $registro->update($alteracoes4);
 
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
@@ -303,13 +327,14 @@ class MeusEventosController extends Controller
             $imagemAlterada = Imagem::find($img);
             $imagemAlteradaId = $imagemAlterada[0];
 
-            $entidade = Auth::user()->id;
+            $entidade = Auth::user();
 
             $ent = User::find($entidade);
 
 
             $horaAtual = Carbon::parse()->timestamp;
             //dd($horaAtual);
+            //dd($entidade->endereco);
             $nomeImagem = kebab_case($horaAtual) . kebab_case($entidade->endereco->rua);
             //dd($nomeImagem);
 
@@ -325,7 +350,7 @@ class MeusEventosController extends Controller
         }
 
 
-        if ($alteracao && $alteracao1 && $alteracao3 && $alteracoes4) {
+        if ($alteracao && $alteracao1 && $alteracao3 && $alteracao4 && $alteracao5 && $alteracao6) {
             return redirect()->route('meus-eventos.index')->with('status', 'Evento Alterado!');
         }
     }

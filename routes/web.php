@@ -21,13 +21,13 @@ Route::get('/', function () {
 });
 
 
-//Route::group(['middleware' => 'can:entidade'], function () {
+Route::group(['middleware' => 'can:entidade'], function () {
     Route::resource('/entidade-site', 'SiteEntidadeController');
     Route::resource('/minhas-campanhas', 'MinhasCampanhasController');
     Route::resource('/meus-eventos', 'MeusEventosController');
     Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
     Route::resource('/relatorios', 'RelatorioController');
-//});
+});
 
 
 Route::resource('/aqa', 'SiteController');
@@ -157,6 +157,10 @@ Route::group(['prefix' => '/admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*Route::post('/login', function () {
+    return redirect()->to(url('/aqa-login'));
+});*/
 
 //Route::resource('/admin', 'AdminController');
 

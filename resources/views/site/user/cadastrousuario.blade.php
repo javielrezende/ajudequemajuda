@@ -142,7 +142,7 @@
 
                     <div class="form-group col m">
                         <div class="row">
-                            {{--<label for="estado" class="editarCampo">Estado</label>--}}
+                            <label for="estado" class="editarCampo">Estado</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
                         {{--<p class="resultado">{{$usuario->endereco->estado}}</p>--}}

@@ -53,7 +53,7 @@
                         </div>
                         {{--<p class="resultado">{{$entidade->dataHoraInicio}}</p>--}}
                         <input autocomplete="off" type="text" class="form-control" id="dataHoraInicio"
-                               name="dataHoraInicio" value="{{$entidade->dataHoraInicio or old('dataHoraInicio')}}">
+                               name="dataHoraInicio" value="{{$evento->dataHoraInicio or old('dataHoraInicio')}}">
                     </div>
 
                     <div class="form-group col d">
@@ -61,9 +61,9 @@
                             <label for="dataHoraFim" class="editarCampo">Data final</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<p class="resultado">{{$entidade->dataHoraFim}}</p>--}}
+                        {{--<p class="resultado">{{$evento->dataHoraFim}}</p>--}}
                         <input autocomplete="off" type="text" class="form-control" id="dataHoraFim"
-                               name="dataHoraFim" value="{{$entidade->dataHoraFim or old('dataHoraFim')}}">
+                               name="dataHoraFim" value="{{$evento->dataHoraFim or old('dataHoraFim')}}">
                     </div>
                 </div>
             </div>
@@ -75,10 +75,10 @@
                             <label for="dataHoraInicio1" class="editarCampo">Hora inicial</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<p class="resultado">{{$entidade->dataHoraInicio1}}</p>--}}
+                        {{--<p class="resultado">{{$evento->dataHoraInicio1}}</p>--}}
                         <input autocomplete="off" type="text" class="form-control datetimepicker-input"
                                data-toggle="datetimepicker" data-target="#dataHoraInicio1" id="dataHoraInicio1"
-                               name="dataHoraInicio1" value="{{$entidade->dataHoraInicio1 or old('dataHoraInicio1')}}">
+                               name="dataHoraInicio1" value="{{$evento->dataHoraInicio1 or old('dataHoraInicio1')}}">
                     </div>
 
                     <div class="form-group col d">
@@ -86,10 +86,10 @@
                             <label for="dataHoraFim1" class="editarCampo">Hora final</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--                        <p class="resultado">{{$entidade->dataHoraFim1}}</p>--}}
+                        {{--                        <p class="resultado">{{$evento->dataHoraFim1}}</p>--}}
                         <input autocomplete="off" type="text" class="form-control datetimepicker-input"
                                data-toggle="datetimepicker" data-target="#dataHoraFim1" id="dataHoraFim1"
-                               name="dataHoraFim1" value="{{$entidade->dataHoraFim1 or old('dataHoraFim1')}}">
+                               name="dataHoraFim1" value="{{$evento->dataHoraFim1 or old('dataHoraFim1')}}">
                     </div>
                 </div>
             </div>

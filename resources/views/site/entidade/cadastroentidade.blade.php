@@ -9,6 +9,45 @@
 
         <p class="row col-md-12 titulosPrincipais">Meu cadastro</p>
 
+        {{---------------------------------------------------------------------------------------}}
+        {{-----------SOLICITAR ENCERRAMENTO DE CONTA DE ENTIDADE---------------------------------}}
+        <div class="container">
+            <div class="row justify-content-center">
+                <button type="submit" class="btn addC" data-toggle="modal" data-target="#modalEmail">
+                    Solicitar encerramento de cadastro
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalEmail" tabindex="-1" role="dialog"
+             aria-labelledby="modalEmailTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>Olá! Envie um email para <b>ajudequemajuda.sistema@gmail.com</b>. Explique o motivo de sua saída do sistema!</h6>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn addS" data-dismiss="modal">Ok
+                            </button>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        {{--Fim Modal--}}
+
+
+        {{---------------------------------------------------------------------------------------}}
+        {{-----------SOLICITAR ENCERRAMENTO DE CONTA DE ENTIDADE---------------------------------}}
+
+
         <form class="row geraleditor" method="post" enctype="multipart/form-data"
               action="{{route('entidade-site.update', $entidade->id)}}">
             {!! method_field('put') !!}
