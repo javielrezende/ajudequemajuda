@@ -19,9 +19,9 @@ class EntidadeController extends Controller
     public function index()
     {
         $entidades = User::where('funcao', 1)
-                          -> where('status', 1)
-                          ->orderBy('id', 'desc')
-                          ->get();
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->get();
         //$entidades = User::all();
         return view('admin/entidades/entidades_list', compact('entidades'));
     }
@@ -30,7 +30,7 @@ class EntidadeController extends Controller
     {
         $entidades = User::with('endereco')
             ->where('funcao', 1)
-            -> where('status', 1)
+            ->where('status', 1)
             ->orderBy('name')
             ->get();
         //$entidades = User::all();
@@ -53,7 +53,7 @@ class EntidadeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -90,7 +90,7 @@ class EntidadeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -101,7 +101,7 @@ class EntidadeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -117,8 +117,8 @@ class EntidadeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -140,7 +140,7 @@ class EntidadeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -155,4 +155,28 @@ class EntidadeController extends Controller
             return redirect()->route('entidades.index')->with('status', 'Entidade Deletada!');
         }
     }
+
+    public function listarEntidadesParaLiberar()
+    {
+        $entidades = User::where('funcao', 1)
+            ->where('status', 0)
+            ->orderBy('id', 'desc')
+            ->get();
+        //$entidades = User::all();
+        return view('admin/entidades/lista_entidades_para_liberar', compact('entidades'));
+    }
+
+    public function liberar($id)
+    {
+
+        $dados = User::find($id);
+        $alteracao = $dados->update([
+            'status' => 1
+        ]);
+
+        if ($alteracao) {
+            return redirect()->route('entidades.index')->with('status', 'Entidade Liberada!');
+        }
+    }
+
 }

@@ -160,7 +160,7 @@ class SiteController extends Controller
             'cpf' => $request['cpf'],
             'cnpj' => $request['cnpj'],
             'funcao' => User::ENTIDADE,
-            'status' => 1,
+            'status' => 0,
             'fone' => $request['fone'],
             'imagem' => $imagem,
             'mensagem' => $request['mensagem'],

@@ -165,6 +165,8 @@ Route::group(['prefix' => '/admin'], function () {
     Route::resource('/faleconoscoadmin', 'FaleConoscoController');
     Route::get('/relatorios', 'RelatorioController@data')->name('data');
     Route::get('/relatorios/resultado', 'RelatorioController@resultadoAdmin')->name('resultado-admin');
+    Route::get('/lista-entidades-para-liberar', 'EntidadeController@listarEntidadesParaLiberar')->name('lista-entidades-para-liberar');
+    Route::get('/lista-entidades-para-liberar/{id}/liberar-entidade', 'EntidadeController@liberar')->name('liberar');
 });
 //---------------------------------------------------------------------------------------------------
 
