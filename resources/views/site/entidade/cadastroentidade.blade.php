@@ -25,18 +25,19 @@
              aria-labelledby="modalEmailTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Olá! Envie um email para <b>ajudequemajuda.sistema@gmail.com</b>. Explique o motivo de sua saída do sistema!</h6>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn addS" data-dismiss="modal">Ok
-                            </button>
-                        </div>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Olá! Envie um email para <b>ajudequemajuda.sistema@gmail.com</b>. Explique o motivo de sua
+                            saída do sistema!</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn addS" data-dismiss="modal">Ok
+                        </button>
+                    </div>
 
                 </div>
             </div>
@@ -186,6 +187,8 @@
                         </div>
                         {{--<p class="resultado">{{$entidade->endereco->estado}}</p>--}}
                         <select class="custom-select" name="estado" id="estado">
+                            <option disabled hidden selected
+                                    value="{{$entidade->endereco->estado or old('estado')}}">{{$entidade->endereco->estado or old('estado')}}</option>
                             <option value="{{$entidade->endereco->estado or old('estado')}}">Escolha seu estado</option>
                         </select>
                     </div>
@@ -197,6 +200,8 @@
                         </div>
                         {{--<p class="resultado">{{$entidade->endereco->cidade}}</p>--}}
                         <select class="custom-select" name="cidade" id="cidade">
+                            <option disabled hidden selected
+                                    value="{{$entidade->endereco->cidade or old('cidade')}}">{{$entidade->endereco->cidade or old('cidade')}}</option>
                             <option value="{{$entidade->endereco->cidade or old('cidade')}}">Insira sua cidade</option>
                         </select>
                     </div>
