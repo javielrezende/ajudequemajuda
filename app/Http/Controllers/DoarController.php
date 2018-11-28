@@ -50,7 +50,7 @@ class DoarController extends Controller
         $doacao = new Doacao;
         $doacao->users_id = $usuario;
         $doacao->campanhas_id = $campanha;
-        $doacao->confirmacao = 1;
+        $doacao->confirmacao = 0;
         $resultado = $doacao->save();
         //dd($resultado);
 

@@ -179,9 +179,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/login', function () {
-//    return redirect()->to(url('/aqa-login'));
-//});
+Route::get('/home', function () {
+    return redirect()->to(url('/aqa'));
+});
 
 //Route::resource('/admin', 'AdminController');
 

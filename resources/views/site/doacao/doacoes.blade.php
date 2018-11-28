@@ -9,8 +9,7 @@
         <p class="row col-md-12 titulosPrincipais">Doações para confirmar</p>
 
 
-        <form class="row formdoacoesConfirmar" method="post" action="{{route('doacao-confirmar.store')}}">
-            {{ csrf_field() }}
+        <div class="row formdoacoesConfirmar">
 
             <div class="container">
                 <div class="row">
@@ -18,33 +17,32 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th scope="col">Ítens</th>
                                 <th scope="col" class="ur">Campanha</th>
                                 <th scope="col" class="ur">Usuário</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Arroz</td>
-                                <td class="ch">Campanha Tecon</td>
-                                <td class="ch">Róger Rezende</td>
-                                <td><i class="far fa-check-circle verde"></i></td>
-                                <td><i class="far fa-times-circle vermelho"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Feijao</td>
-                                <td class="ch">Campanha Tecon</td>
-                                <td class="ch">Róger Rezende</td>
-                                <td><i class="far fa-check-circle verde"></i></td>
-                                <td><i class="far fa-times-circle vermelho"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Massa</td>
-                                <td class="ch">Campanha Tecon</td>
-                                <td class="ch">Róger Rezende</td>
-                                <td><i class="far fa-check-circle verde"></i></td>
-                                <td><i class="far fa-times-circle vermelho"></i></td>
-                            </tr>
+                            @foreach($doacoesRecebidas as $d)
+                                {{--                                {{dd($d->user->name)}}--}}
+                                <tr>
+                                    <td class="ch">{{$d->campanha->nome}}</td>
+                                    <td class="ch">{{$d->user->name}}</td>
+
+                                    <td>
+                                        <form method="post"
+                                              action="{{route('doacao-confirmar.update', $d->id)}}">
+                                            {!! method_field('put') !!}
+                                            {{ csrf_field() }}
+                                            <button type="submit" class="far fa-check-circle verde"></button>
+                                        </form>
+                                    </td>
+
+
+                                    {{--<td><a href="{{route('doacao-confirmar.edit', $d->id)}}">
+                                            <i class="far fa-check-circle verde"></i>
+                                        </a></td>--}}
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -52,7 +50,7 @@
             </div>
 
 
-        </form>
+        </div>
 
 
     </div>
