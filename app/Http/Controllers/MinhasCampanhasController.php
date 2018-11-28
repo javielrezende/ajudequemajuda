@@ -11,7 +11,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class MinhasCampanhasController extends Controller
 {
@@ -96,19 +95,16 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            /*$horaAtual = Carbon::parse()->timestamp;
+            $horaAtual = Carbon::parse()->timestamp;
             //dd($horaAtual);
             $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
             //dd($nomeImagem);
 
             $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";*/
-//            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
+            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
 
-            $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
-
-            $imagem = Storage::disk('s3')->url($imagem);
-            //$imagem = "imagens/users/" . $nomeImagemFinal;
+            $imagem = "imagens/users/" . $nomeImagemFinal;
 
 
             //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
@@ -287,14 +283,14 @@ class MinhasCampanhasController extends Controller
 
         $alteracoes = ['nome' => $nome, 'descricao' => $descricao];
 
-        if ($dataInicial != "Não há!" && $dataInicial != null) {
+        if ($dataInicial != "Sem data determinada" && $dataInicial != null) {
             $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
             $alteracoes1 = ['dataInicio' => $dataInicialFormatada];
         } else {
             $alteracoes1 = ['dataInicio' => null];
         }
 
-        if ($dataFinal != "Não há!" && $dataFinal != null) {
+        if ($dataFinal != "Sem data determinada" && $dataFinal != null) {
             $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
             $alteracoes2 = ['dataFim' => $dataFinalFormatada];
         } else {
