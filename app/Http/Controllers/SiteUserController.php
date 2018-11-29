@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use App\Doacao;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
@@ -59,6 +60,19 @@ class SiteUserController extends Controller
      */
     public function show($id)
     {
+
+        $doacaoRecebida = null;
+
+
+
+
+
+
+
+
+
+
+
         $registro = User::with(['campanhas', 'campanhas.eventos'])
             ->find($id);
 
@@ -90,13 +104,40 @@ class SiteUserController extends Controller
         if (!Auth::check()) {
 
             $primeiraLetraNome = "A";
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes', 'dataComentarios'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes', 'dataComentarios', 'doacaoRecebida'));
         } else {
+            $usuarioLogado = Auth::user();
+
+            //------------------------------------------------------------------------
+
+            $entidade = User::find($id);
+
+            $minhasCampanhas0 = User::with('campanhas')
+                ->where('id', $entidade->id)
+                ->get();
+
+            $minhasCampanhas = $minhasCampanhas0[0]->campanhas;
+            $idCampanhas = $minhasCampanhas->map(function ($value){
+                return $value->id;
+            });
+//        dd($idCampanhas);
+
+            $doacaoRecebida = Doacao::whereIn('campanhas_id', $idCampanhas)
+                ->where('confirmacao', 1)
+                ->where('users_id', $usuarioLogado->id)
+                ->first();
+            //dd($doacaoRecebida);
+
+
+//-------------------------------------------------------------------------------------------------
+
+
+
+
             $registro = User::with(['campanhas', 'campanhas.eventos'])
                 ->find($id);
             $registroCampanhas = $registro->campanhas;
 
-            $usuarioLogado = Auth::user();
             $primeiraLetraNome = Auth::user()->name[0];
             //dd($primeiraLetraNome);
 
@@ -106,7 +147,7 @@ class SiteUserController extends Controller
 
             //dd($curtidas);
 
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes', 'curtidas', 'dataComentarios'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes', 'curtidas', 'dataComentarios', 'doacaoRecebida'));
         }
 
 

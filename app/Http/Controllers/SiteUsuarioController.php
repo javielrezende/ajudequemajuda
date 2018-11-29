@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campanha;
+use App\Doacao;
 use App\Evento;
 use App\User;
 use App\UserCampanhaCurtidaInteresse;
@@ -328,8 +329,11 @@ class SiteUsuarioController extends Controller
             return redirect('/aqa-login');
         }
 
+
         $entidade = User::find($id);
         $usuarioLogadoId = Auth::user()->id;
+
+
         $comentario = $request['comentarios'];
         //dd($comentario, $entidade, $usuarioLogadoId);
 

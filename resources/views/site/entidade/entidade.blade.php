@@ -96,17 +96,37 @@
                         {{$primeiraLetraNome}}
                     </div>
 
-                    <div class="form-group col">
+                    @if($doacaoRecebida == null)
+                        <div class="form-group col">
+                        <textarea id="comentarios" rows="4" class="form-control"
+                                  placeholder="Escreva sua mensagem..."
+                                  name="comentarios" type="text" data-toggle="popover"
+                                  data-trigger="hover"
+                                  title="Você ainda não doou para esta entidade!"
+                                  data-content="Para comentar sobre esta entidade você deve realizar pelo menos uma doação
+                                   para alguma de suas campanhas e receber a confirmação do seu ato de caridade. :)"
+                                  required></textarea>
+                        </div>
+                    @else
+                        <div class="form-group col">
                         <textarea id="comentarios" rows="4" class="form-control"
                                   placeholder="Escreva sua mensagem..."
                                   name="comentarios" required></textarea>
-                    </div>
+                        </div>
+                    @endif
+
                     <div name="entidade" style="display: none">{{$registro->id}}</div>
                 </div>
             </div>
             <div class="container">
                 <div class="row justify-content-end">
-                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn com">COMENTAR</button>
+                    @if($doacaoRecebida == null)
+                        &nbsp;&nbsp;&nbsp;
+                        <button disabled type="submit" class="btn com">COMENTAR</button>
+                    @else
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn com">COMENTAR</button>
+                    @endif
                 </div>
             </div>
         </form>
@@ -117,15 +137,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col rpt">
-                                <span class="nomerpts">{{$comentario->users->name}}</span>
-                                <span class="datarpts"> - {{$comentario->users->created_at->format('d/m/Y')}}</span>
+                            <span class="nomerpts">{{$comentario->users->name}}</span>
+                            <span class="datarpts"> - {{$comentario->users->created_at->format('d/m/Y')}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
 
                     <div class="primletra">
-                            {{$comentario->users->name[0]}}
+                        {{$comentario->users->name[0]}}
                     </div>
 
                     <div class="col">
