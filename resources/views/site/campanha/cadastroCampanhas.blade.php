@@ -200,9 +200,9 @@
                                 <i class="fas fa-pen" onclick="editarItem(this)"></i>
                             </td>
                             <td>
-                                <input type="hidden" name="descricaoItem[]" value="${inItem.value}"/>
-                                <input type="hidden" name="quantidade[]" value="${inQuantidade.value}"/>
-                                <input type="hidden" name="urgencia[]" value="${inUrgente.checked}"/>
+                                <input type="hidden" name="descricaoItem[]" value="{{$item->descricaoItem}}"/>
+                                <input type="hidden" name="quantidade[]" value="{{$item->quantidade}}"/>
+                                <input type="hidden" name="urgencia[]" value="{{$item->urgente}}"/>
                                 <i class="fas fa-trash-alt" onclick="this.parentElement.parentElement.remove()"></i>
                             </td>
                         </tr>
