@@ -32,7 +32,6 @@ class MinhasCampanhasController extends Controller
             ->orderBy('id', 'desc')->get();
 
 
-
         return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
     }
 
@@ -95,6 +94,7 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
+<<<<<<< HEAD
             $horaAtual = Carbon::parse()->timestamp;
             //dd($horaAtual);
             $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
@@ -105,29 +105,27 @@ class MinhasCampanhasController extends Controller
             $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
 
             $imagem = "imagens/users/" . $nomeImagemFinal;
+=======
+            $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
+
+            $imagem = Storage::disk('s3')->url($imagem);
+>>>>>>> s3
 
 
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
             $imagemCreate = new Imagem;
             $imagemCreate->caminho = $imagem;
             $imagemCreate->campanhas_id = $campanha->id;
             $imagemCreate->eventos_id = null;
-            //dd($imagemCreate);
+
             $resultado2 = $imagemCreate->save();
-            //dd($resultado2);
 
-
-            /*$imagemCreate = Imagem::create([
-                'caminho' => $imagem,
-                'campanhas_id' => $campanha
-            ]);*/
-            //dd($imagemCreate);
         }
 
 
         for ($i = 0; $i < count($request->descricaoItem); $i++) {
             $item = new Item;
             $item->descricaoItem = $request->descricaoItem[$i];
+//            dd($request->descricaoItem[$i]);
             $item->quantidade = $request->quantidade[$i];
             $ur = $request->urgencia[$i];
             if ($ur) {
@@ -170,8 +168,6 @@ class MinhasCampanhasController extends Controller
             ->find($id);
 
 
-
-
         $numCur = DB::table('user_campanha_curtidas')
             ->where('campanhas_id', $campanha->id)
             ->where('curtida', 1)
@@ -205,7 +201,6 @@ class MinhasCampanhasController extends Controller
         $userCur = User::findMany($idImgCur);
 
         $userSeg = User::findMany($idImgSeg);
-
 
 
         if ($campanha == null) {
@@ -252,7 +247,7 @@ class MinhasCampanhasController extends Controller
         $entidade = Auth::user()->id;
         $entidadeId = $entidade;
 
-        $registro = Campanha::find($id);
+        $registro = Campanha::with('itens')->find($id);
         //dd($registro);
 
         if ($registro == null) {
@@ -297,6 +292,24 @@ class MinhasCampanhasController extends Controller
             $alteracoes2 = ['dataFim' => null];
         }
 
+
+        /*for ($i = 0; $i < count($request->descricaoItem); $i++) {
+
+            $registro->itens[$i]->descricaoItem = $request->descricaoItem[$i];
+
+            $registro->itens[$i]->quantidade = $request->quantidade[$i];
+            $registro->itens[$i]->urgencia = $request->urgencia[$i];
+            if ($registro->itens[$i]->urgencia) {
+                $registro->itens()->sync($registro, ['urgencia' => 1]);
+            } else {
+                $registro->itens()->sync($registro, ['urgencia' => 0]);
+            }
+        }*/
+
+/*        $item->save();
+        $item->campanha()->attach($campanha, ['urgencia' => 1]);*/
+
+
         $alteracao = $registro->update($alteracoes);
         $alteracao1 = $registro->update($alteracoes1);
         $alteracao2 = $registro->update($alteracoes2);
@@ -309,67 +322,17 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            //SE EXISTIR ALGUMA IMAGEM CADASTRADA
-            if (count($registro->imagens) > 0) {
 
-                $imagemAntiga = $registro->imagens[0]->caminho;
-                $img = Imagem::where('caminho', $imagemAntiga)
-                    ->get()
-                    ->map(function ($value) {
-                        return $value->id;
-                    })->toArray();
+            $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
-                /*$n = $img->map(function ($value){
-                    return $value->id;
-                });
-                dd($n->toArray());*/
-                $imagemAlterada = Imagem::find($img);
-                $imagemAlteradaId = $imagemAlterada[0];
-                //$imagemAlteradaId = $imagemAlterada[0]->id;
-                //$i = $imagemAlterada->toArray();
-                //dd($i);
-                //dd($imagemAlterada->toArray());
-                //dd($imagemAlterada[0]);
-                //dd($imagemAlteradaId);
-                //dd($imagemAlterada);
+            $imagem = Storage::disk('s3')->url($imagem);
 
+            $result = $registro->imagens->caminho = $imagem;
+            $registro->imagens->save();
 
-                $horaAtual = Carbon::parse()->timestamp;
-                //dd($horaAtual);
-                $nomeImagem = kebab_case($horaAtual) . kebab_case($ent->endereco->rua);
-                //dd($nomeImagem);
-
-                $extensao = $request->imagem->extension();
-                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-                $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-                $imagem = "imagens/users/" . $nomeImagemFinal;
-
-
-                $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
-            }
-
-            //SE NÃO EXISTIR ALGUMA IMAGEM CADASTRADA
-
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($ent->endereco->rua);
-            //dd($nomeImagem);
-
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
-
-
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
-            $imagemCreate = new Imagem;
-            $imagemCreate->caminho = $imagem;
-            $imagemCreate->campanhas_id = $registro->id;
-            $imagemCreate->eventos_id = null;
 
         }
+
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {

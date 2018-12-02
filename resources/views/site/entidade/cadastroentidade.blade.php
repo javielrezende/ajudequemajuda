@@ -185,7 +185,6 @@
                             <label for="estado" class="editarCampo">Estado</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<p class="resultado">{{$entidade->endereco->estado}}</p>--}}
                         <select class="custom-select" name="estado" id="estado">
                             <option disabled hidden selected
                                     value="{{$entidade->endereco->estado or old('estado')}}">{{$entidade->endereco->estado or old('estado')}}</option>
@@ -211,7 +210,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label class="add" for="imagem">Inserir imagem de perfil</label>
+                        <label class="add" for="imagem">Alterar imagem de perfil</label>
                         <input type="file" id="imagem" name="imagem"
                                onchange="previewFile()">
 
@@ -221,7 +220,7 @@
 
             <div class="col-sm-6">
                 @if($entidade->imagem == null || $entidade->imagem == "")
-                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
+                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar1.jpg' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
                 @else
                     <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px'

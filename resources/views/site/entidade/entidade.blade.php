@@ -14,7 +14,7 @@
                 <img class="row imagemcampanhas" src="/{{$registro->imagem}}"
                      alt="Foto de perfil">
             @else
-                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/entidades1.jpg') }}"
                      alt="Imagem destaque">
             @endif
 

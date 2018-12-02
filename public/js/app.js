@@ -54749,6 +54749,10 @@ function editarItem(elemento) {
     var checked = tr.querySelector('#checked');
     var qtd = tr.querySelector('#qtd');
 
+    var nomeHidden = tr.querySelector('[name="descricaoItem[]"]');
+    var checkedHidden = tr.querySelector('[name="urgencia[]"]');
+    var qtdHidden = tr.querySelector('[name="quantidade[]"]');
+
     inItem.value = nome.textContent;
     inQuantidade.value = qtd.textContent;
     inUrgente.checked = !!tr.querySelector('.fa-check');
@@ -54757,8 +54761,11 @@ function editarItem(elemento) {
     btAtualizar.onclick = function () {
         //console.log('clicou')
         nome.innerText = inItem.value;
+        nomeHidden.value = inItem.value;
         qtd.innerHTML = inQuantidade.value;
+        qtdHidden.value = inQuantidade.value;
         checked.innerHTML = inUrgente.checked ? '<i class="fas fa-check"></i>' : '';
+        checkedHidden.value = +inUrgente.checked;
 
         inItem.value = '';
         inQuantidade.value = '';

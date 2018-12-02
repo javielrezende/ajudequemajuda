@@ -16,11 +16,11 @@
             @if($num != 0)
                 @foreach($campanhasInteressadas as $campanha)
                     <div class="row divcampanhas">
-                        @if(!empty($campanha->imagens->count() > 0))
-                            <img class="row imagemcampanhas" src="/{{$campanha->imagens[0]->caminho}}"
+                        @if(!empty($campanha->imagens))
+                            <img class="row imagemcampanhas" src="{{$campanha->imagens->caminho}}"
                                  alt="Foto de perfil">
                         @else
-                            <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                            <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
                                  alt="Imagem destaque">
                         @endif
 

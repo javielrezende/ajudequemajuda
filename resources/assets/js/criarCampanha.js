@@ -53,6 +53,10 @@ function editarItem(elemento) {
     const checked = tr.querySelector('#checked')
     const qtd = tr.querySelector('#qtd')
 
+    const nomeHidden = tr.querySelector('[name="descricaoItem[]"]')
+    const checkedHidden = tr.querySelector('[name="urgencia[]"]')
+    const qtdHidden = tr.querySelector('[name="quantidade[]"]')
+
     inItem.value = nome.textContent
     inQuantidade.value = qtd.textContent
     inUrgente.checked = !!tr.querySelector('.fa-check')
@@ -62,8 +66,11 @@ function editarItem(elemento) {
     btAtualizar.onclick = function () {
         //console.log('clicou')
         nome.innerText = inItem.value
+        nomeHidden.value = inItem.value
         qtd.innerHTML = inQuantidade.value
+        qtdHidden.value = inQuantidade.value
         checked.innerHTML = inUrgente.checked ? '<i class="fas fa-check"></i>' : ''
+        checkedHidden.value = +inUrgente.checked
 
         inItem.value = ''
         inQuantidade.value = ''

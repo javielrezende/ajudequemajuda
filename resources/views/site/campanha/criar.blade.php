@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    {!!"<img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+                    {!!"<img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
                 </div>
 
 

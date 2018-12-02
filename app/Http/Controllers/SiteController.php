@@ -10,6 +10,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
 {
@@ -77,22 +78,11 @@ class SiteController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($endereco->rua);
-            //dd($nomeImagem);
+            $imagem = Storage::disk('s3')->putFile('usuarios', $request->imagem, 'public');
 
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
-
-            //dd($imagem);
-
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
-            //dd($nomeImagem, $extensao, $nomeImagemFinal);
+            $imagem = Storage::disk('s3')->url($imagem);
         }
+
 
         $resultado = User::create([
             'name' => $request['name'],
@@ -136,21 +126,9 @@ class SiteController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($endereco->rua);
-            //dd($nomeImagem);
+            $imagem = Storage::disk('s3')->putFile('entidades', $request->imagem, 'public');
 
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
-
-            //dd($imagem);
-
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
-            //dd($nomeImagem, $extensao, $nomeImagemFinal);
+            $imagem = Storage::disk('s3')->url($imagem);
         }
 
         $resultado = User::create([

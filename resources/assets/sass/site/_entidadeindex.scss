@@ -57,7 +57,7 @@
     .doarimg {
       //background-image: url("/public/imagens/doar.png");
       //background-image: url("/resources/assets/imagens/doar.png");
-      background-image: url("../../imagens/doar.png");
+      background-image: url("https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/criar-campanha1.jpg");
       //background-color: #636b6f;
       width: 498px;
       height: 271px;
@@ -68,8 +68,9 @@
 
     .cadastroimg {
       //background-color: #636b6f;
-      background-image: url("../../imagens/receber.png");
-
+      //background-image: url("../../imagens/receber.png");
+      background-image: url('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/criar-evento1.jpg');
+      object-fit: cover;
       width: 498px;
       height: 271px;
       display: flex;
