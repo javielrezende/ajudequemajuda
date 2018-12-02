@@ -128,7 +128,7 @@
                             <div class="row">
                                 <div class="col rpt">
                                     <span class="nomerpts">{{$comentario->users->name}}</span>
-                                    <span class="datarpts"> - {{$comentario->users->created_at->format('d/m/Y')}}</span>
+                                    <span class="datarpts"> - {{$comentario->created_at->format('d/m/Y')}}</span>
 
                                 </div>
                             </div>

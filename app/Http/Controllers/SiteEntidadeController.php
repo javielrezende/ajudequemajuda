@@ -37,13 +37,12 @@ class SiteEntidadeController extends Controller
 
         //dd($campanhas);
 
+
+
         $comentarios = UserUserComentario::with('users')->orderBy('id', 'desc')
             ->where('users_id', $entidadeLogada->id)
             ->get();
         //dd($comentarios);
-
-
-
 
         $numCom = UserUserComentario::orderBy('id', 'desc')
             ->where('users_id', $entidadeLogada->id)
@@ -59,6 +58,8 @@ class SiteEntidadeController extends Controller
             ->map(function ($value) {
                 return $value->created_at->format('d/m/Y');
             });
+        //dd($dataComentarios);
+
         $nomes = User::findMany($nomeComentariosId);
 
         $numCur = UserUserCurtida::where('users_id', $entidadeLogada->id)
