@@ -48,10 +48,10 @@
                         <h6 class="nomeentidadesite">Por: {{$campanha->users[0]->name}}</h6>
                         <p class="descricaocampanhas">{{$campanha->descricao}}</p>
                         <div class="row like">
-                            <i class="far fa-thumbs-up"></i>
+                            {{--<i class="far fa-thumbs-up"></i>
                             <p class="numlike">999</p>
                             <i class="far fa-thumbs-down"></i>
-                            <p class="numlike">999</p>
+                            <p class="numlike">999</p>--}}
                             <a href="{{route('minhas-campanhas.show', $campanha->id)}}" class="saibamaiscampanhas">Saiba
                                 mais</a>
                         </div>

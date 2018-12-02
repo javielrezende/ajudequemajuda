@@ -21,10 +21,10 @@
                     <h4 class="nomeentidades">{{$entidade->name}}</h4>
                     <p class="descricaoentidades">{{$entidade->descricao_entidade}}</p>
                     <div class="row like">
-                        <i class="far fa-thumbs-up"></i>
+                        {{--<i class="far fa-thumbs-up"></i>
                         <p class="numlike">999</p>
                         <i class="far fa-thumbs-down"></i>
-                        <p class="numlike">999</p>
+                        <p class="numlike">999</p>--}}
                         <a href="{{route('entidades.entidades.show', $entidade->id)}}" class="saibamaisentidades">Saiba mais</a>
                     </div>
                 </div>
