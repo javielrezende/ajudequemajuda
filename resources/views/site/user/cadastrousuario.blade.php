@@ -182,7 +182,7 @@
 
             <div class="col-sm-6">
                 @if($usuario->imagem == null || $usuario->imagem == "")
-                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar.jpg' id='imagem_preview' height='150px' width='150px'
+                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar1.jpg' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
                 @else
                     <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px'
