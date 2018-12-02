@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class MinhasCampanhasController extends Controller
 {
@@ -94,22 +95,11 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-<<<<<<< HEAD
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
-            //dd($nomeImagem);
 
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
-=======
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
             $imagem = Storage::disk('s3')->url($imagem);
->>>>>>> s3
+
 
 
             $imagemCreate = new Imagem;

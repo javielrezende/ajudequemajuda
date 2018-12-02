@@ -8,20 +8,18 @@
         <p class="row col-md-12 titulosPrincipais">Minhas Campanhas</p>
         <div class="row imgcampanhas">
 
-                {{--{{dd('teste tela minhas cmapnahs')}}--}}
+            {{--{{dd('teste tela minhas cmapnahs')}}--}}
 
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
-<<<<<<< HEAD
-                    @if(!empty($campanha->imagens->count() > 0))
-                        <img class="row imagemcampanhas" src="/{{$campanha->imagens[0]->caminho}}"
-=======
+
                     @if(!empty($campanha->imagens))
                         <img class="row imagemcampanhas" src="{{$campanha->imagens->caminho}}"
->>>>>>> s3
+
                              alt="Foto de perfil">
                     @else
-                        <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
+                        <img class="row imagemcampanhas"
+                             src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
                              alt="Imagem destaque">
                     @endif
 
