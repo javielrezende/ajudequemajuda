@@ -127,7 +127,7 @@ class RelatorioController extends Controller
                 return $item->count();
             });
 
-        //dd($dados);
+        //dd($itens);
 
 
         // --------------------- NÚMERO DE DOACOES
@@ -151,22 +151,63 @@ class RelatorioController extends Controller
             ->get()->count();
 
 
-        return view('site.relatorios.resultado', compact('numCurtidas', 'numInteressados', 'nomeCampanha', 'itens'));
+        return view('site.relatorios.resultado', compact('numCurtidas', 'numInteressados', 'nomeCampanha', 'itens','campanhaId', 'mes'));
 
     }
 
     public function pdf(Request $request)
     {
-        //$usuario_autenticado_id = Auth::guard()->user()->id;
+        if (!Auth::check()) {
+            return redirect('/aqa-login');
+        }
 
-        //$times = Times::orderBy('nome_time')->where('usuario_id', $usuario_autenticado_id)->get();
+        $campanhaId = $request->query('campanha');
+        $mes = $request->query('mes');
+        //dd($campanhaId, $mes);
 
 
-        dd($request->query('campanha'));
+        $itens = Doacao::select('id')
+            ->with(['itens:descricaoItem'])
+            ->where('campanhas_id', $campanhaId)
+            ->whereMonth('created_at', $mes)
+            ->get()
+            ->map(function ($doacao) {
+                return $doacao->itens;
+            })->map(function ($item) {
+                return $item->toArray();
+            })->flatten(1)
+            ->groupBy('descricaoItem')
+            ->map(function ($item) {
+                return $item->count();
+            });
+
+        //dd($itens);
+
+
+        // --------------------- NÚMERO DE DOACOES
+        $numeroDoacoes = Doacao::where('campanhas_id', $campanhaId)
+            ->get()
+            ->count();
+        //dd($numeroDoacoes);
+
+        $idCampanha = Campanha::find($campanhaId);
+        $nomeCampanha = $idCampanha->nome;
+        //dd($nomeCampanha);
+
+        $numCurtidas = DB::table('user_campanha_curtidas')
+            ->where('campanhas_id', $campanhaId)
+            ->where('curtida', 1)
+            ->get()->count();
+
+        $numInteressados = DB::table('user_campanha_interesses')
+            ->where('campanhas_id', $campanhaId)
+            ->where('interesse', 1)
+            ->get()->count();
+
 
 
         $pdf = App::make('dompdf.wrapper');
-        $view = View::make('site.relatorios.resultado1')->render();
+        $view = View::make('site.relatorios.resultadoPdf', compact('numCurtidas', 'numInteressados', 'nomeCampanha', 'itens', 'mes'))->render();
         $pdf->loadHTML($view);
         return $pdf->stream();
     }
@@ -212,7 +253,7 @@ class RelatorioController extends Controller
             ->count();
 
 
-        return view('admin.relatorios.resultadoAdmin', compact('numEnt', 'numCam', 'numEve', 'numUsu'));
+        return view('admin.relatorios.resultadoAdmin', compact('numEnt', 'numCam', 'numEve', 'numUsu', 'mes'));
     }
 
 

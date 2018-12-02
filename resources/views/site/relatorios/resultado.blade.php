@@ -59,7 +59,7 @@
 
             <div class="container">
                 <div class="row justify-content-center">
-                    <a href="{{route('pdf')}}">
+                    <a href="/pdf?campanha={{$campanhaId}}&mes={{$mes}}">
                         <button type="submit" class="btn cad">GERAR RELATÓRIO PDF</button>
                     </a>
                 </div>
