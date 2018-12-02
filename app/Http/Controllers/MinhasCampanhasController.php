@@ -95,11 +95,9 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
             $imagem = Storage::disk('s3')->url($imagem);
-
 
 
             $imagemCreate = new Imagem;
@@ -268,14 +266,14 @@ class MinhasCampanhasController extends Controller
 
         $alteracoes = ['nome' => $nome, 'descricao' => $descricao];
 
-        if ($dataInicial != "Sem data determinada" && $dataInicial != null) {
+        if ($dataInicial != "Não há!" && $dataInicial != null) {
             $dataInicialFormatada = Carbon::createFromFormat('d/m/Y', $dataInicial)->toDateString();
             $alteracoes1 = ['dataInicio' => $dataInicialFormatada];
         } else {
             $alteracoes1 = ['dataInicio' => null];
         }
 
-        if ($dataFinal != "Sem data determinada" && $dataFinal != null) {
+        if ($dataFinal != "Não há!" && $dataFinal != null) {
             $dataFinalFormatada = Carbon::createFromFormat('d/m/Y', $dataFinal)->toDateString();
             $alteracoes2 = ['dataFim' => $dataFinalFormatada];
         } else {
@@ -296,8 +294,8 @@ class MinhasCampanhasController extends Controller
             }
         }*/
 
-/*        $item->save();
-        $item->campanha()->attach($campanha, ['urgencia' => 1]);*/
+        /*        $item->save();
+                $item->campanha()->attach($campanha, ['urgencia' => 1]);*/
 
 
         $alteracao = $registro->update($alteracoes);
