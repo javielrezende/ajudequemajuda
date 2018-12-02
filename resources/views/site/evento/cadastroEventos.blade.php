@@ -8,6 +8,18 @@
 
         <p class="row col-md-12 titulosPrincipais">Evento - {{ $evento->nome }}</p>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <div class="container">
             <div class="row justify-content-center">
 
@@ -101,9 +113,9 @@
                             <label for="campanha" class="editarCampo">Campanha</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<p class="resultado">{{$evento->campanhas->nome}}</p>--}}
                         <select class="form-control" id="campanha" name="campanha" required>
-                            {{--<option value=”” disabled selected>Escolha a campanha relacionada ao Evento...</option>--}}
+                            <option value=”{{$evento->campanhas->id}}” disabled hidden
+                                    selected>{{$evento->campanhas->nome}}</option>
                             @foreach($campanhas as $c)
                                 <option value="{{$c->id}}"
                                 @if ((isset($registro) and $registro->campanha_id == $c->id) or
@@ -185,10 +197,9 @@
                             <label for="estado" class="editarCampo">Estado</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<input type="text" class="form-control" id="estado" name="estado"
-                               placeholder="Escolha seu estado" required>--}}
-                        {{--                        <p class="resultado">{{$evento->enderecos->estado}}</p>--}}
-                        <select class="custom-select" name="estado" id="estado">
+                        <select class="custom-select" name="estado" id="estado" required>
+                            <option disabled hidden selected
+                                    value="{{$evento->enderecos->estado or old('estado')}}">{{$evento->enderecos->estado or old('estado')}}</option>
                             <option value="{{$evento->enderecos->estado or old('estado')}}">Escolha seu estado</option>
                         </select>
                     </div>
@@ -198,10 +209,9 @@
                             <label for="cidade" class="editarCampo">Cidade</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<input type="text" class="form-control" id="cidade" name="cidade"
-                               placeholder="Insira sua cidade" required>--}}
-                        {{--<p class="resultadoultado">{{$evento->enderecos->cidade}}</p>--}}
-                        <select class="custom-select" name="cidade" id="cidade">
+                        <select class="custom-select" name="cidade" id="cidade" required>
+                            <option disabled hidden selected
+                                    value="{{$evento->enderecos->cidade or old('cidade')}}">{{$evento->enderecos->cidade or old('cidade')}}</option>
                             <option value="{{$evento->enderecos->cidade or old('cidade')}}">Insira sua cidade</option>
                         </select>
                     </div>
@@ -241,7 +251,8 @@
                     <img src='{{$evento->imagens->caminho}}' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
                 @else
-                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg' id='imagem_preview' height='150px' width='150px'
+                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg' id='imagem_preview'
+                         height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
 
                 @endif
@@ -276,76 +287,6 @@
                 preview.src = "";
             }
         }
-
-        /*---------------------------------------------------------------------*/
-
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('estado').value = ("");
-            //document.getElementById('ibge').value=("");
-        }
-
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('estado').value = (conteudo.uf);
-                //document.getElementById('ibge').value=(conteudo.ibge);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-
-        function pesquisacep(valor) {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('estado').value = "...";
-                    //document.getElementById('ibge').value="...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
 
     </script>
 

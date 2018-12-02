@@ -8,6 +8,18 @@
 
         <p class="row col-md-12 titulosPrincipais">Criar Evento</p>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
 
         <form class="row formcriarEvento" method="post" enctype="multipart/form-data" action="{{route('meus-eventos.store')}}">
             {{ csrf_field() }}

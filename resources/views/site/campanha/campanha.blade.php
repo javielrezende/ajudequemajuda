@@ -7,6 +7,18 @@
                                                                                       class="linkReturn">CAMPANHAS</a>
     </div>
 
+    <div class="col-md-12">
+        @if (count($errors) > 0)
+            <div class="alert alert-info">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+
     <div class="row sitecampanha">
 
         <div class="row divcampanha">

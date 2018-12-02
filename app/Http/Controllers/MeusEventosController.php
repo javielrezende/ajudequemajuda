@@ -158,6 +158,8 @@ class MeusEventosController extends Controller
             ->where('status', 1)
             ->find($id);
 
+        //dd($evento);
+
 
         if ($evento == null) {
             //dd('este evento nao existe');
@@ -212,6 +214,8 @@ class MeusEventosController extends Controller
         $registro = Evento::with('enderecos', 'imagens')->find($id);
         $entidade = Auth::user();
 
+        //dd($registro);
+
 
         if ($registro == null) {
             //dd('este evento nao existe');
@@ -247,6 +251,9 @@ class MeusEventosController extends Controller
         $cidade = $request['cidade'];
         $estado = $request['estado'];
         $campanha = $request['campanha'];
+
+        dd($campanha);
+        //dd($estado);
 
 
         if ($dataHoraInicial != "Sem data determinada" && $dataHoraInicial != null) {

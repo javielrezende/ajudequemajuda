@@ -235,7 +235,7 @@ class MinhasCampanhasController extends Controller
         $entidade = Auth::user()->id;
         $entidadeId = $entidade;
 
-        $registro = Campanha::with('itens')->find($id);
+        $registro = Campanha::with('itens', 'imagens')->find($id);
         //dd($registro);
 
         if ($registro == null) {
@@ -310,14 +310,15 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
             $imagem = Storage::disk('s3')->url($imagem);
 
-            $result = $registro->imagens->caminho = $imagem;
-            $registro->imagens->save();
+            //dd($registro);
 
+            $registro->imagens->caminho = $imagem;
+
+            $registro->imagens->save();
 
         }
 

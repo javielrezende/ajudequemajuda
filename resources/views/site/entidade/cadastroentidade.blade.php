@@ -9,6 +9,18 @@
 
         <p class="row col-md-12 titulosPrincipais">Meu cadastro</p>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         {{---------------------------------------------------------------------------------------}}
         {{-----------SOLICITAR ENCERRAMENTO DE CONTA DE ENTIDADE---------------------------------}}
         <div class="container">

@@ -10,7 +10,20 @@
             </div>
         </div>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <p class="row col-md-12 titulosPrincipais">Principais Campanhas</p>
+
 
         <div class="row imgcampanhas">
             @if($num != 0)
@@ -20,7 +33,8 @@
                             <img class="row imagemcampanhas" src="{{$campanha->imagens->caminho}}"
                                  alt="Foto de perfil">
                         @else
-                            <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
+                            <img class="row imagemcampanhas"
+                                 src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
                                  alt="Imagem destaque">
                         @endif
 
@@ -56,7 +70,8 @@
                         <img class="row imagemcampanhas" src="{{$campanha->imagens->caminho}}"
                              alt="Foto de perfil">
                     @else
-                        <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
+                        <img class="row imagemcampanhas"
+                             src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg') }}"
                              alt="Imagem destaque">
                     @endif
 
@@ -91,7 +106,8 @@
                             <img class="row imagemcampanhas" src="{{$evento->imagens->caminho}}"
                                  alt="Foto de perfil">
                         @else
-                            <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg') }}"
+                            <img class="row imagemcampanhas"
+                                 src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg') }}"
                                  alt="Imagem destaque">
                         @endif
 

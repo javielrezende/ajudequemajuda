@@ -8,6 +8,18 @@
 
         <p class="row col-md-12 titulosPrincipais">Cadastro de Entidade</p>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <p class="row col-md-12 justify-content-center explicacao">Precisamos saber um pouco mais sobre sua
             entidade para nossa base de dados. Fique tranquilo, <br/>seus dados estão protegidos ;)</p>
 

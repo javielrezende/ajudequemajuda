@@ -8,6 +8,18 @@
 
         <p class="row col-md-12 titulosPrincipais">Gerenciar recebimento de e-mails</p>
 
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
 
         {{--<form class="formgerenciarEmail" action="#">--}}
         <div class="formgerenciarEmail">

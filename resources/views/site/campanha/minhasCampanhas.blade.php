@@ -6,6 +6,19 @@
     <div class="row sitecampanhas">
         <a href="{{url('/entidade-site')}}" class="linkReturn">HOME</a>
         <p class="row col-md-12 titulosPrincipais">Minhas Campanhas</p>
+
+        <div class="col-md-12">
+            @if (count($errors) > 0)
+                <div class="alert alert-info">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
         <div class="row imgcampanhas">
 
             {{--{{dd('teste tela minhas cmapnahs')}}--}}
