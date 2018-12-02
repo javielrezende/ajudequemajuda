@@ -12601,8 +12601,8 @@ body .form-control[readonly] {
           justify-content: space-between;
 }
 
-.siteentidade .diventidade .observacoesentidade .numlike {
-  margin-left: -65px;
+.siteentidade .diventidade .observacoesentidade .numlikeEntidade {
+  margin-left: -170px;
   font-size: 12px;
   color: #4D4F5C;
 }

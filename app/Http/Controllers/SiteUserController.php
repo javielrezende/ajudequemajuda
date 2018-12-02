@@ -64,15 +64,6 @@ class SiteUserController extends Controller
         $doacaoRecebida = null;
 
 
-
-
-
-
-
-
-
-
-
         $registro = User::with(['campanhas', 'campanhas.eventos'])
             ->find($id);
 
@@ -100,11 +91,14 @@ class SiteUserController extends Controller
         $nomes = User::findMany($nomeComentariosId);
         //dd($nomes);
 
+        $cur = UserUserCurtida::where('users_id', $registro->id)
+            ->get()
+            ->count();
 
         if (!Auth::check()) {
 
             $primeiraLetraNome = "A";
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes', 'dataComentarios', 'doacaoRecebida'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'comentarios', 'primeiraLetraNome', 'nomes', 'dataComentarios', 'doacaoRecebida', 'cur'));
         } else {
             $usuarioLogado = Auth::user();
 
@@ -147,7 +141,7 @@ class SiteUserController extends Controller
 
             //dd($curtidas);
 
-            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes', 'curtidas', 'dataComentarios', 'doacaoRecebida'));
+            return view('site.entidade.entidade', compact('registro', 'registroCampanhas', 'primeiraLetraNome', 'comentarios', 'nomes', 'curtidas', 'dataComentarios', 'doacaoRecebida', 'cur'));
         }
 
 
