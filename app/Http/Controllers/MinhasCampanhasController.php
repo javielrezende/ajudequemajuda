@@ -366,4 +366,20 @@ class MinhasCampanhasController extends Controller
         return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
 
     }
+
+    public function campanhasFinalizadas()
+    {
+        if (!Auth::check()) {
+            return redirect()->to(url('/aqa-login'));
+        }
+
+        $entidadeLogada = Auth::user();
+
+        $campanhas = $entidadeLogada->campanhas()
+            ->where('status', 0)
+            ->orderBy('id', 'desc')->get();
+
+
+        return view('site.campanha.minhasCampanhasFinalizadas', compact('entidadeLogada', 'campanhas'));
+    }
 }

@@ -70,6 +70,8 @@
                             <a class="dropdown-item" href="{{route('meus-eventos.index')}}">Meus Eventos</a>
                             <a class="dropdown-item" href="{{route('doacao-confirmar.index')}}">Doações para
                                 confirmar</a>
+                            <a class="dropdown-item" href="{{route('campanhas-finalizadas')}}">Campanhas Finalizadas</a>
+
                             <a class="dropdown-item" href="{{route('relatorios.index')}}">Relatórios</a>
                         </div>
                     @else

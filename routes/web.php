@@ -27,6 +27,7 @@ Route::group(['middleware' => 'can:entidade'], function () {
     Route::resource('/meus-eventos', 'MeusEventosController');
     Route::resource('/doacao-confirmar', 'DoacaoConfirmarController');
     Route::resource('/relatorios', 'RelatorioController');
+    Route::get('/minhas-campanhas-finalizadas', 'MinhasCampanhasController@campanhasFinalizadas')->name('campanhas-finalizadas');
 });
 
 
