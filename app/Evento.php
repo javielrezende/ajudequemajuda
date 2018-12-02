@@ -19,7 +19,7 @@ class Evento extends Model
     }
 
     public function imagens(){
-        return $this->hasMany('App\Imagem', 'eventos_id');
+        return $this->hasOne('App\Imagem', 'eventos_id');
     }
 
     public function getDataHoraInicioAttribute(){

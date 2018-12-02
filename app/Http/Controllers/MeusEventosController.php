@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class MeusEventosController extends Controller
 {
@@ -116,33 +117,18 @@ class MeusEventosController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
-            //dd($nomeImagem);
+            $imagem = Storage::disk('s3')->putFile('eventos', $request->imagem, 'public');
 
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
+            $imagem = Storage::disk('s3')->url($imagem);
 
 
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
             $imagemCreate = new Imagem;
             $imagemCreate->caminho = $imagem;
             $imagemCreate->campanhas_id = null;
             $imagemCreate->eventos_id = $resultado->id;
-            //dd($imagemCreate);
+
             $resultado2 = $imagemCreate->save();
-            //dd($resultado2);
 
-
-            /*$imagemCreate = Imagem::create([
-                'caminho' => $imagem,
-                'campanhas_id' => $campanha
-            ]);*/
-            //dd($imagemCreate);
         }
 
         //dd($resultado);
@@ -223,7 +209,7 @@ class MeusEventosController extends Controller
             return redirect('/aqa-login');
         }
 
-        $registro = Evento::with('enderecos')->find($id);
+        $registro = Evento::with('enderecos', 'imagens')->find($id);
         $entidade = Auth::user();
 
 
@@ -280,8 +266,6 @@ class MeusEventosController extends Controller
 
 
 
-
-
         if ($dataHoraInicial1 != null) {
             $alteracoes3 = ['dataHoraInicio1' => $dataHoraInicial1];
         } else {
@@ -293,10 +277,6 @@ class MeusEventosController extends Controller
         } else {
             $alteracoes4 = ['dataHoraFim1' => null];
         }
-
-
-
-
 
 
 
@@ -317,35 +297,14 @@ class MeusEventosController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $imagemAntiga = $registro->imagens[0]->caminho;
-            $img = Imagem::where('caminho', $imagemAntiga)
-                ->get()
-                ->map(function ($value) {
-                    return $value->id;
-                })->toArray();
 
-            $imagemAlterada = Imagem::find($img);
-            $imagemAlteradaId = $imagemAlterada[0];
+            $imagem = Storage::disk('s3')->putFile('eventos', $request->imagem, 'public');
 
-            $entidade = Auth::user();
+            $imagem = Storage::disk('s3')->url($imagem);
 
-            $ent = User::find($entidade);
+            $result = $registro->imagens->caminho = $imagem;
+            $registro->imagens->save();
 
-
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            //dd($entidade->endereco);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($entidade->endereco->rua);
-            //dd($nomeImagem);
-
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
-            $imagem = "imagens/users/" . $nomeImagemFinal;
-
-
-            $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
 
         }
 

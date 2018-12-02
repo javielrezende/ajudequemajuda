@@ -11897,7 +11897,7 @@ body .form-control[readonly] {
 }
 
 .precadastrogeral .precadastro .doarimg {
-  background-image: url(/images/doar.png?1ba5561e9db356fbe58337c020daf901);
+  background-image: url("https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/quero-doar1.jpg");
   width: 498px;
   height: 271px;
   display: -webkit-box;
@@ -11913,7 +11913,7 @@ body .form-control[readonly] {
 }
 
 .precadastrogeral .precadastro .cadastroimg {
-  background-image: url(/images/receber.png?188fc4ad33a713590cd2f69030a7cb8f);
+  background-image: url("https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/preciso-de-doacoes1.png");
   width: 498px;
   height: 271px;
   display: -webkit-box;
@@ -13161,7 +13161,7 @@ body .form-control[readonly] {
 }
 
 .entidadeindex .escolhaCampanhaEvento .doarimg {
-  background-image: url(/images/doar.png?1ba5561e9db356fbe58337c020daf901);
+  background-image: url("https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/criar-campanha1.jpg");
   width: 498px;
   height: 271px;
   display: -webkit-box;
@@ -13177,7 +13177,9 @@ body .form-control[readonly] {
 }
 
 .entidadeindex .escolhaCampanhaEvento .cadastroimg {
-  background-image: url(/images/receber.png?188fc4ad33a713590cd2f69030a7cb8f);
+  background-image: url("https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/criar-evento1.jpg");
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 498px;
   height: 271px;
   display: -webkit-box;
@@ -14693,6 +14695,18 @@ body .form-control[readonly] {
   font-size: 10px;
   color: white;
   margin-bottom: 40px;
+}
+
+.editarEvento .geralEditor .add {
+  background-color: #F1F1F1;
+  padding: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #4D4F5C;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .usuarioindex .linkReturn {

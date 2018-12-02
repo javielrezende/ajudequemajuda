@@ -37,7 +37,7 @@ class Campanha extends Model
     }
 
     public function imagens(){
-        return $this->hasMany('App\Imagem', 'campanhas_id');
+        return $this->hasOne('App\Imagem', 'campanhas_id');
     }
 
     public function getDataInicioAttribute(){

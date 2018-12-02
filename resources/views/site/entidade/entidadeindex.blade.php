@@ -36,11 +36,11 @@
 
             @foreach($campanhas as $campanha)
                 <div class="row divcampanhas">
-                    @if(!empty($campanha->imagens->count() > 0))
-                        <img class="row imagemcampanhas" src="/{{$campanha->imagens[0]->caminho}}"
+                    @if(!empty($campanha->imagens))
+                        <img class="row imagemcampanhas" src="{{$campanha->imagens->caminho}}"
                              alt="Foto de perfil">
                     @else
-                        <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                        <img class="row imagemcampanhas" src="https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg"
                              alt="Imagem destaque">
                     @endif
                     <div class="col-6 row observacoescampanhas">
@@ -72,11 +72,11 @@
                 @foreach($campanha->eventos as $evento)
                     @if($evento->status == 1)
                         <div class="row diveventos">
-                            @if(!empty($evento->imagens->count() > 0))
-                                <img class="row imagemcampanhas" src="/{{$evento->imagens[0]->caminho}}"
+                            @if(!empty($evento->imagens))
+                                <img class="row imagemcampanhas" src="{{$evento->imagens->caminho}}"
                                      alt="Foto de perfil">
                             @else
-                                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                                <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg') }}"
                                      alt="Imagem destaque">
                             @endif
 
@@ -105,7 +105,7 @@
                     @foreach($userCur as $u)
                         {{--{{dd($u->imagem)}}--}}
                         @if($u->imagem == null || $u->imagem == "")
-                            <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
+                            <img class="imgperfilrefe" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar1.jpg') }}"
                                  alt="Foto de perfil">
                         @else
                             <img class="imgperfilrefe" src="{{ asset($u->imagem) }}"

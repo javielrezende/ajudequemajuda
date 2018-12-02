@@ -51,7 +51,7 @@
                     <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         @if(Auth::user()->imagem == "" || Auth::user()->imagem == null)
-                            <img class="imgperfil" src="{{ asset('imagens/perfil.png') }}"
+                            <img class="imgperfil" src="https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar1.jpg"
                                  alt="Foto de perfil">
 
                         @else
@@ -81,7 +81,7 @@
                             <a class="dropdown-item" href="{{route('campanhas-interessantes.index')}}">Campanhas
                                 interessantes</a>
                             <a class="dropdown-item" href="{{route('campanhas-que-sigo')}}">Bloquear e-mails</a>
-                            <a class="dropdown-item" href="#">Doações efetuadas</a>
+                            {{--<a class="dropdown-item" href="#">Doações efetuadas</a>--}}
                         </div>
                     @endif
                 </div>

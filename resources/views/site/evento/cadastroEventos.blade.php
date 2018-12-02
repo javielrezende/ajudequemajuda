@@ -226,7 +226,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label class="add" for="imagem">Alterar imagem da campanha</label>
+                        <label class="add" for="imagem">Alterar imagem do evento</label>
                         <input type="file" id="imagem" name="imagem"
                                onchange="previewFile()">
 
@@ -237,11 +237,11 @@
             {{--{{dd($campanha->imagens[0]->caminho)}}--}}
 
             <div class="col-sm-6">
-                @if(!empty($evento->imagens->count() > 0))
-                    <img src='/{{$evento->imagens[0]->caminho}}' id='imagem_preview' height='150px' width='150px'
+                @if(!empty($evento->imagens))
+                    <img src='{{$evento->imagens->caminho}}' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
                 @else
-                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
+                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
 
                 @endif

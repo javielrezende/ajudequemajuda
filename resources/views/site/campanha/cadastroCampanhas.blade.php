@@ -133,11 +133,11 @@
                 {{--{{dd($campanha->imagens[0]->caminho)}}--}}
 
                 <div class="col-sm-6">
-                    @if(!empty($campanha->imagens->count() > 0))
-                        <img src='/{{$campanha->imagens[0]->caminho}}' id='imagem_preview' height='150px' width='150px'
+                    @if(!empty($campanha->imagens))
+                        <img src='{{$campanha->imagens->caminho}}' id='imagem_preview' height='150px' width='150px'
                              alt='Foto do perfil' class='rounded-circle'>
                     @else
-                        {!!"<img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
+                        {!!"<img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/campanhas1.jpg' id='imagem_preview' height='150px' width='150px' alt='Foto do perfil' class='rounded-circle'>"!!}
                     @endif
 
                 </div>
@@ -163,24 +163,6 @@
                     <tbody>
 
                     @foreach($campanha->itens as $item)
-                        {{--<tr>
-                            <td>{{$item->descricaoItem}}</td>
-                            <td><i class="fas fa-minus verde"></i></td>
-                            <td class="ch">
-                                                <span>
-                                                0
-                                                </span>
-                                <input type="hidden" id="idModal" name="descricaoItem[]"
-                                       value="{{$item->descricaoItem}}">
-                                <input type="hidden" id="quantidadeModal" name="quantidade[]"
-                                       class="qtd">
-                                <input type="hidden" name="campId" value="{{$campanha->id}}">
-
-                            </td>
-                            <td><i class="fas fa-plus vermelho"></i></td>
-                        </tr>--}}
-
-
 
 
                         <tr>
@@ -308,22 +290,6 @@
                                  alt="Foto de perfil">
                         @endif
                     @endforeach
-                    {{--<img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>
-                    <img class="imgperfilrefe" src="{{ asset('imagens/perfil.png') }}"
-                         alt="Foto de perfil"></a>--}}
 
                 </div>
                 <div class="container b">

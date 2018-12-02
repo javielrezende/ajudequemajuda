@@ -145,9 +145,12 @@
                             <label for="estado" class="editarCampo">Estado</label>
                             <p class="editar">[EDITAR]</p>
                         </div>
-                        {{--<p class="resultado">{{$usuario->endereco->estado}}</p>--}}
+
                         <select class="custom-select" name="estado" id="estado">
-                            <option value="{{$usuario->endereco->estado or old('estado')}}">Escolha seu estado</option>
+                            <option disabled hidden selected
+                                    value="{{$usuario->endereco->estado or old('estado')}}">{{$usuario->endereco->estado or old('estado')}}</option>
+                            <option value="{{$usuario->endereco->estado or old('estado')}}">Escolha seu Estado</option>
+
                         </select>
                     </div>
 
@@ -158,6 +161,8 @@
                         </div>
                         {{--<p class="resultado">{{$usuario->endereco->cidade}}</p>--}}
                         <select class="custom-select" name="cidade" id="cidade">
+                            <option disabled hidden selected
+                                    value="{{$usuario->endereco->cidade or old('cidade')}}">{{$usuario->endereco->cidade or old('cidade')}}</option>
                             <option value="{{$usuario->endereco->cidade or old('cidade')}}">Insira sua cidade</option>
                         </select>
                     </div>
@@ -167,7 +172,7 @@
             <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label class="add" for="imagem">Inserir imagem de perfil</label>
+                        <label class="add" for="imagem">Alterar imagem de perfil</label>
                         <input type="file" id="imagem" name="imagem"
                                onchange="previewFile()">
 
@@ -177,7 +182,7 @@
 
             <div class="col-sm-6">
                 @if($usuario->imagem == null || $usuario->imagem == "")
-                    <img src='../imagens/perfil.png' id='imagem_preview' height='150px' width='150px'
+                    <img src='https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/avatar.jpg' id='imagem_preview' height='150px' width='150px'
                          alt='Foto do perfil' class='rounded-circle'>
                 @else
                     <img src="{{ asset(Auth::user()->imagem) }}" id='imagem_preview' height='150px' width='150px'

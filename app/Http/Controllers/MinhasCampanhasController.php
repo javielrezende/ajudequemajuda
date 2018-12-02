@@ -95,36 +95,18 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            /*$horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($usuario->endereco->rua);
-            //dd($nomeImagem);
-
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";*/
-//            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
             $imagem = Storage::disk('s3')->url($imagem);
-            //$imagem = "imagens/users/" . $nomeImagemFinal;
 
 
-            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
             $imagemCreate = new Imagem;
             $imagemCreate->caminho = $imagem;
             $imagemCreate->campanhas_id = $campanha->id;
             $imagemCreate->eventos_id = null;
-            //dd($imagemCreate);
+
             $resultado2 = $imagemCreate->save();
-            //dd($resultado2);
 
-
-            /*$imagemCreate = Imagem::create([
-                'caminho' => $imagem,
-                'campanhas_id' => $campanha
-            ]);*/
-            //dd($imagemCreate);
         }
 
 
@@ -299,7 +281,7 @@ class MinhasCampanhasController extends Controller
         }
 
 
-        for ($i = 0; $i < count($request->descricaoItem); $i++) {
+        /*for ($i = 0; $i < count($request->descricaoItem); $i++) {
 
             $registro->itens[$i]->descricaoItem = $request->descricaoItem[$i];
 
@@ -310,7 +292,7 @@ class MinhasCampanhasController extends Controller
             } else {
                 $registro->itens()->sync($registro, ['urgencia' => 0]);
             }
-        }
+        }*/
 
 /*        $item->save();
         $item->campanha()->attach($campanha, ['urgencia' => 1]);*/
@@ -326,72 +308,19 @@ class MinhasCampanhasController extends Controller
         $registro->users()->sync($ent);
 
 
-//
-//
-//
-//        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-//
-//            //SE EXISTIR ALGUMA IMAGEM CADASTRADA
-//            if (count($registro->imagens) > 0) {
-//
-//                $imagemAntiga = $registro->imagens[0]->caminho;
-//                $img = Imagem::where('caminho', $imagemAntiga)
-//                    ->get()
-//                    ->map(function ($value) {
-//                        return $value->id;
-//                    })->toArray();
-//
-//                /*$n = $img->map(function ($value){
-//                    return $value->id;
-//                });
-//                dd($n->toArray());*/
-//                $imagemAlterada = Imagem::find($img);
-//                $imagemAlteradaId = $imagemAlterada[0];
-//                //$imagemAlteradaId = $imagemAlterada[0]->id;
-//                //$i = $imagemAlterada->toArray();
-//                //dd($i);
-//                //dd($imagemAlterada->toArray());
-//                //dd($imagemAlterada[0]);
-//                //dd($imagemAlteradaId);
-//                //dd($imagemAlterada);
-//
-//
-//                $horaAtual = Carbon::parse()->timestamp;
-//                //dd($horaAtual);
-//                $nomeImagem = kebab_case($horaAtual) . kebab_case($ent->endereco->rua);
-//                //dd($nomeImagem);
-//
-//                $extensao = $request->imagem->extension();
-//                $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-//                $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-//
-//                $imagem = "imagens/users/" . $nomeImagemFinal;
-//
-//
-//                $sim = $imagemAlteradaId->update(['caminho' => $imagem]);
-//            }
-//
-//            //SE NÃO EXISTIR ALGUMA IMAGEM CADASTRADA
-//
-//            $horaAtual = Carbon::parse()->timestamp;
-//            //dd($horaAtual);
-//            $nomeImagem = kebab_case($horaAtual) . kebab_case($ent->endereco->rua);
-//            //dd($nomeImagem);
-//
-//            $extensao = $request->imagem->extension();
-//            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-//            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
-//
-//            $imagem = "imagens/users/" . $nomeImagemFinal;
-//
-//
-//            //$upload = $request->imagem->storeAs('imagem', $nomeImagemFinal);
-//            $imagemCreate = new Imagem;
-//            $imagemCreate->caminho = $imagem;
-//            $imagemCreate->campanhas_id = $registro->id;
-//            $imagemCreate->eventos_id = null;
-//
-//        }
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+
+            $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
+
+            $imagem = Storage::disk('s3')->url($imagem);
+
+            $result = $registro->imagens->caminho = $imagem;
+            $registro->imagens->save();
+
+
+        }
+
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {

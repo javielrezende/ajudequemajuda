@@ -10,11 +10,11 @@
     <div class="row siteevento">
 
         <div class="row divevento">
-            @if(!empty($registro->imagens->count() > 0))
-                <img class="row imagemcampanhas" src="/{{$registro->imagens[0]->caminho}}"
+            @if(!empty($registro->imagens))
+                <img class="row imagemcampanhas" src="{{$registro->imagens->caminho}}"
                      alt="Foto de perfil">
             @else
-                <img class="row imagemcampanhas" src="{{ asset('imagens/campanhadestaque.png') }}"
+                <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/eventos1.jpg') }}"
                      alt="Imagem destaque">
             @endif
             <div class="diamesevento">
