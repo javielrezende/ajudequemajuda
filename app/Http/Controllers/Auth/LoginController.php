@@ -51,7 +51,7 @@ class LoginController extends Controller
 
         $user = User::where('email', $userSocial->email)->first();
         if(!$user){
-            return redirect()->route('register');
+            return redirect()->route('cadastrodoador');
         }
 
         Auth::login($user);
