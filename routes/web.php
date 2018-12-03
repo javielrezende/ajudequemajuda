@@ -149,15 +149,15 @@ Route::get('/admin', function () {
 });
 
 //com acl para soente adm entrar no admin
-/*Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
+Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
     Route::resource('/eventos', 'EventoController');
     Route::resource('/itens', 'ItemController');
     Route::resource('/entidades', 'EntidadeController');
     Route::resource('/users', 'UserController');
     Route::resource('/campanhas', 'CampanhaController');
     Route::resource('/faleconoscoadmin', 'FaleConoscoController');
-});*/
-
+});
+/*
 //sem acl para soente adm entrar no admin
 Route::group(['prefix' => '/admin'], function () {
     Route::resource('/eventos', 'EventoController');
@@ -170,7 +170,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('/relatorios/resultado', 'RelatorioController@resultadoAdmin')->name('resultado-admin');
     Route::get('/lista-entidades-para-liberar', 'EntidadeController@listarEntidadesParaLiberar')->name('lista-entidades-para-liberar');
     Route::get('/lista-entidades-para-liberar/{id}/liberar-entidade', 'EntidadeController@liberar')->name('liberar');
-});
+});*/
 //---------------------------------------------------------------------------------------------------
 
 
