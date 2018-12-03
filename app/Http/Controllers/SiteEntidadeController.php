@@ -175,7 +175,7 @@ class SiteEntidadeController extends Controller
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {
-            return redirect()->route('entidade-site.show', $entidade->id);
+            return redirect()->route('entidade-site.show', $entidade->id)->with('status', 'Cadastro alterado com sucesso!');
         }
     }
 

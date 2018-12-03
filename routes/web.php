@@ -90,8 +90,6 @@ Route::get('/site/{id}/gerenciar-email', 'SiteUsuarioController@gerenciarEmail')
     ->name('gerenciar-email');
 
 
-
-
 /**
  * Rota para envio de email
  */
@@ -143,7 +141,11 @@ Route::get('/login/callback', 'Auth\LoginController@loginCallback');
 
 //------ADMIN--------------------------------------------------------------------------
 Route::get('/admin', function () {
-    return view('welcome');
+    if (Auth::check() && Auth::user()->funcao != 2) {
+        return redirect()->back()->with('status', 'Você não é autorizado!');
+    } else {
+        return view('welcome');
+    }
 });
 
 //com acl para soente adm entrar no admin

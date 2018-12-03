@@ -20,6 +20,15 @@
             @endif
         </div>
 
+        <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
+
+
 
         {{--<div class="row col-md-12 btn addB"><button type="submit" class="btn cad">Apagar campanha</button></div>--}}
 
@@ -278,11 +287,11 @@
                 </div>
 
 
-                <div class="container b">
+                {{--<div class="container b">
                     <div class="row justify-content-end">
                         <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
                     </div>
-                </div>
+                </div>--}}
             </div>
 
             <div class="finalComentarios">
@@ -304,11 +313,11 @@
                     @endforeach
 
                 </div>
-                <div class="container b">
+                {{--<div class="container b">
                     <div class="row justify-content-end">
                         <button type="button" id="btAdicionar" class="btn addB">Ver mais</button>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>

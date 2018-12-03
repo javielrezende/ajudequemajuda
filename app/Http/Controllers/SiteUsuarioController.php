@@ -160,7 +160,7 @@ class SiteUsuarioController extends Controller
 
 
         if ($alteracao2 && $alteracao && $alteracao1) {
-            return redirect()->route('usuario-site.show', $usuario->id);
+            return redirect()->route('usuario-site.show', $usuario->id)->with('status', 'Cadastro alterado com sucesso!');
         }
     }
 
@@ -181,11 +181,10 @@ class SiteUsuarioController extends Controller
             return redirect('/aqa-login');
         }
 
-//        if (Auth::check() && (Auth::user()->funcao != 0)) {
-        /*if (Auth::check()) {
-            //dd('Não é possivel seguir uma campanha sem ser um Usuário!');
-            return redirect()->back();
-        }*/
+        if (Auth::check() && (Auth::user()->funcao != 0)) {
+
+            return redirect()->back()->with('status', 'Não é possivel seguir uma campanha sem ser um usuário comum!');
+        }
 
         $usuario = Auth::user()->id;
         $campanha = Campanha::find($id);
@@ -238,8 +237,7 @@ class SiteUsuarioController extends Controller
         }
 
         if (Auth::check() && (Auth::user()->funcao != 0)) {
-            dd('Não é possivel curtir sem ser um Usuário!');
-            return redirect()->back();
+            return redirect()->back()->with('status', 'Não é possivel curtir uma campanha sem ser um usuário comum!');
         }
 
         $usuario = Auth::user()->id;
@@ -296,8 +294,7 @@ class SiteUsuarioController extends Controller
         }
 
         if (Auth::check() && (Auth::user()->funcao != 0)) {
-            dd('Não é possivel curtir sem ser um Usuário!');
-            return redirect()->back();
+            return redirect()->back()->with('status', 'Não é possivel seguir uma entidade sem ser um usuário comum!');
         }
 
         $usuario = Auth::user()->id;
@@ -323,6 +320,10 @@ class SiteUsuarioController extends Controller
     {
         if (!Auth::check()) {
             return redirect('/aqa-login');
+        }
+
+        if (Auth::check() && (Auth::user()->funcao != 0)) {
+            return redirect()->back()->with('status', 'Não é possivel comentar sobre uma entidade sem ser um usuário comum!');
         }
 
 

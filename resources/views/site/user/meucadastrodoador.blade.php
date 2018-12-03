@@ -21,6 +21,15 @@
             @endif
         </div>
 
+        <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
+
+
         <p class="row col-md-12 justify-content-center explicacao">Precisamos saber um pouco mais sobre você para
             nossa base de dados. Fique tranquilo, <br/>seus dados estão protegidos ;)</p>
 

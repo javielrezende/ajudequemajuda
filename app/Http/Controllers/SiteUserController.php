@@ -181,7 +181,7 @@ class SiteUserController extends Controller
         $alteracao1 = $registro->endereco->update($dados);
 
         if ($alteracao && $alteracao1) {
-            return redirect()->route('users.index')->with('status', 'Cadastro Alterado!');
+            return redirect()->route('users.index')->with('status', 'Cadastro alterado com sucesso!');
         }
     }
 

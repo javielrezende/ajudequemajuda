@@ -21,17 +21,13 @@
             @endif
         </div>
 
-        @if (session('status'))
-            <div class="container">
-                <div class="row">
-                    <div class="form-group col">
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    </div>
+        <div class="col-md-12">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
 
 
         <form class="row formcadastro" method="post" action="{{route('faleconosco.store')}}">
@@ -91,8 +87,8 @@
 
             <div style="margin-bottom: 35px" class="container">
                 <div class="row justify-content-end">
-                        &nbsp;&nbsp;&nbsp;<button type="submit" class="btn env">Enviar</button>
-                    </div>
+                    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn env">Enviar</button>
+                </div>
             </div>
         </form>
     </div>

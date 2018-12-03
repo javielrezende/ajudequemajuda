@@ -105,7 +105,7 @@ class DoacaoConfirmarController extends Controller
         ]);
 
         //dd($alteracao);
-        return redirect()->route('doacao-confirmar.index');
+        return redirect()->route('doacao-confirmar.index')->with('status', 'Doação confirmada!');
     }
 
     /**

@@ -134,7 +134,7 @@ class MeusEventosController extends Controller
         //dd($resultado);
         if ($resultado) {
             return redirect()->route('meus-eventos.index')
-                ->with('status', 'Evento Cadastrado!');
+                ->with('status', 'Evento Cadastrado com sucesso!');
         }
     }
 
@@ -317,7 +317,7 @@ class MeusEventosController extends Controller
 
 
         if ($alteracao && $alteracao1 && $alteracao3 && $alteracao4 && $alteracao5 && $alteracao6) {
-            return redirect()->route('meus-eventos.index')->with('status', 'Evento Alterado!');
+            return redirect()->route('meus-eventos.index')->with('status', 'Evento alterado com sucesso!');
         }
     }
 
@@ -340,7 +340,7 @@ class MeusEventosController extends Controller
 
         if ($registro == null) {
             //dd('este evento nao existe');
-            return redirect()->back()->with('Esta campanha não existe!');
+            return redirect()->back()->with('status', 'Esta campanha não existe!');
         }
 
         //dd($evento->campanhas_id);
@@ -352,14 +352,14 @@ class MeusEventosController extends Controller
 
         if ($verificarEvento == null) {
             //dd('voce nao tem estar permissao');
-            return redirect()->back()->with('Você não tem esta permissão!');
+            return redirect()->back()->with('status', 'Você não tem esta permissão!');
         }
 
         $alteracao = $registro->update([
             'status' => 0
         ]);
 
-        return view('site.evento.meusEventos', compact('entidadeLogada', 'campanhas'));
+        return view('site.evento.meusEventos', compact('entidadeLogada', 'campanhas'))->with('status', 'Evento apagado com sucesso!');
 
     }
 }

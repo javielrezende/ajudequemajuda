@@ -52,7 +52,7 @@ class EnviarEmailParaSeguidores extends Controller
             });
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Email enviado com sucesso!');
         
 
 

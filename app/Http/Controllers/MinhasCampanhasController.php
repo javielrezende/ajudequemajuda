@@ -131,7 +131,7 @@ class MinhasCampanhasController extends Controller
 
         if ($resultado) {
             return redirect()->route('minhas-campanhas.index')
-                ->with('status', 'Campanha Cadastrada!');
+                ->with('status', 'Campanha cadastrada com sucesso!');
         }
 
 
@@ -239,7 +239,7 @@ class MinhasCampanhasController extends Controller
         //dd($registro);
 
         if ($registro == null) {
-            return redirect()->back()->with('Esta campanha não existe!');
+            return redirect()->back()->with('status', 'Esta campanha não existe!');
         }
 
         $verificarCampanha = DB::table('user_campanhas')
@@ -248,7 +248,7 @@ class MinhasCampanhasController extends Controller
             ->first();
 
         if ($verificarCampanha == null) {
-            return redirect()->back()->with('Você não tem esta permissão!');
+            return redirect()->back()->with('status', 'Você não tem esta permissão!');
         }
 
 
@@ -325,7 +325,7 @@ class MinhasCampanhasController extends Controller
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {
-            return redirect()->route('minhas-campanhas.index')->with('status', 'Campanha Alterada!');
+            return redirect()->route('minhas-campanhas.index')->with('status', 'Campanha alterada com sucesso!');
         }
     }
 
@@ -349,7 +349,7 @@ class MinhasCampanhasController extends Controller
 
 
         if ($campanha == null) {
-            return redirect()->back()->with('Esta campanha não existe!');
+            return redirect()->back()->with('status', 'Esta campanha não existe!');
         }
         //dd($entidadeLogada);
         $verificarCampanha = DB::table('user_campanhas')
@@ -357,14 +357,14 @@ class MinhasCampanhasController extends Controller
             ->where('campanhas_id', $campanha->id)
             ->first();
         if ($verificarCampanha == null) {
-            return redirect()->back()->with('Você não tem esta permissão!');
+            return redirect()->back()->with('status', 'Você não tem esta permissão!');
         }
 
         $alteracao = $campanha->update([
             'status' => 0
         ]);
 
-        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'));
+        return view('site.campanha.minhasCampanhas', compact('entidadeLogada', 'campanhas'))->with('status', 'Campanha apagada com sucesso!');
 
     }
 
