@@ -7,6 +7,7 @@ use App\Evento;
 use App\Imagem;
 use App\User;
 use Carbon\Carbon;
+use http\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -302,7 +303,9 @@ class MeusEventosController extends Controller
         $alteracao6 = $registro->update($alteracoes4);
 
 
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+        /*if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            try {
 
 
             $imagem = Storage::disk('s3')->putFile('eventos', $request->imagem, 'public');
@@ -312,12 +315,17 @@ class MeusEventosController extends Controller
             $result = $registro->imagens->caminho = $imagem;
             $registro->imagens->save();
 
+            }catch(Exception $e) {
+                return redirect()->back()->with('status', 'Problemas para carregar a imagem');
+            }
 
-        }
+        }*/
 
 
         if ($alteracao && $alteracao1 && $alteracao3 && $alteracao4 && $alteracao5 && $alteracao6) {
             return redirect()->route('meus-eventos.index')->with('status', 'Evento alterado com sucesso!');
+        } else {
+            return redirect()->route('meus-eventos.index')->with('status', 'Aconteceu algum problema, tente novamente!');
         }
     }
 

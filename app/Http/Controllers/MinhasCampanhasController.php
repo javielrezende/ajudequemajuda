@@ -310,7 +310,7 @@ class MinhasCampanhasController extends Controller
         $registro->users()->sync($ent);
 
 
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+        /*if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
             try{
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
@@ -325,11 +325,14 @@ class MinhasCampanhasController extends Controller
             } catch(Exception $e) {
                 return redirect()->back()->with('status', 'Problemas para carregar a imagem');
             }
-        }
+        }*/
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {
             return redirect()->route('minhas-campanhas.index')->with('status', 'Campanha alterada com sucesso!');
+        }
+        else{
+            return redirect()->route('minhas-campanhas.index')->with('status', 'Aconteceu algum problema, tente novamente!');
         }
     }
 

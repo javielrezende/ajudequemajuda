@@ -13529,9 +13529,7 @@ body .form-control[readonly] {
 
 .sitecampanhas .diveventos .observacoeseventos {
   margin-left: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;

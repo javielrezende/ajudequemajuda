@@ -240,7 +240,7 @@
                 </div>
             </div>
 
-            <div class="container">
+            {{--<div class="container">
                 <div class="row">
                     <div class="form-group col">
                         <label class="add" for="imagem">Alterar imagem do evento</label>
@@ -251,7 +251,7 @@
                 </div>
             </div>
 
-            {{--{{dd($campanha->imagens[0]->caminho)}}--}}
+            --}}{{--{{dd($campanha->imagens[0]->caminho)}}--}}{{--
 
             <div class="col-sm-6">
                 @if(!empty($evento->imagens))
@@ -264,7 +264,7 @@
 
                 @endif
             </div>
-
+--}}
 
             <div class="container">
                 <div class="row justify-content-end">
