@@ -40,7 +40,7 @@
             <a href="{{ url('site/campanhas')  }}">Campanhas</a>
             {{--<a href="{{ url('/campanhas') }}">Campanhas</a>--}}
             <a href="{{ url('site/eventos')  }}">Eventos</a>
-            <a class="fas fa-search"></a>
+            {{--<a class="fas fa-search"></a>--}}
             {{-- <a href="{{ url('/eventos') }}">Eventos</a>--}}
         </div>
         <div class="top-rightsite linkssite">
