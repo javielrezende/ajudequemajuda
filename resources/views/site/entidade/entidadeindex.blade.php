@@ -85,7 +85,7 @@
             <a href="{{url('/minhas-campanhas')}}" class="col-12 text-center add">Ver todos</a>
         @endif
 
-        <p class="row col-md-12 titulosPrincipais">Últimos Eventos</p>
+        {{--<p class="row col-md-12 titulosPrincipais">Últimos Eventos</p>
 
         <div class="row imgeventos">
 
@@ -113,7 +113,7 @@
                     @endif
                 @endforeach
             @endforeach
-        </div>
+        </div>--}}
 
 
         <div class="row final">

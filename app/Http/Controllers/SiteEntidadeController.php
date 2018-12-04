@@ -32,10 +32,10 @@ class SiteEntidadeController extends Controller
             ->where('status', 1)
             ->orderBy('id', 'desc')->paginate(4);
 
-        $campanhasEventos = $entidadeLogada->campanhas()->with('imagens')
+        $campanhasEventos = $entidadeLogada->campanhas()->with('imagens', 'eventos')
             ->orderBy('id', 'desc')->paginate(4);
 
-        //dd($campanhas);
+        //dd($campanhasEventos);
 
 
 
