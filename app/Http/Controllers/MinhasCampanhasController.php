@@ -8,6 +8,8 @@ use App\Item;
 use App\User;
 use App\UserUserCurtida;
 use Carbon\Carbon;
+
+use Dompdf\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -310,6 +312,7 @@ class MinhasCampanhasController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
+            try{
             $imagem = Storage::disk('s3')->putFile('campanhas', $request->imagem, 'public');
 
             $imagem = Storage::disk('s3')->url($imagem);
@@ -319,9 +322,10 @@ class MinhasCampanhasController extends Controller
             $registro->imagens->caminho = $imagem;
 
             $registro->imagens->save();
-
+            } catch(Exception $e) {
+                return redirect()->back()->with('status', 'Problemas para carregar a imagem');
+            }
         }
-
 
 
         if ($alteracao && $alteracao1 && $alteracao2) {
