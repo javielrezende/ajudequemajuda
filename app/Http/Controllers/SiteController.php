@@ -36,7 +36,7 @@ class SiteController extends Controller
             ->orderBy('id', 'desc')
 //            ->get();
             ->paginate(4);
-       // dd($campanhas[0]->users);
+        // dd($campanhas[0]->users);
 
         return view('welcomesite', compact('campanhas'));
     }
@@ -98,8 +98,7 @@ class SiteController extends Controller
         ]);
 
         if ($resultado) {
-            return redirect()->route('aqa.index');
-            //->with('status', 'Usuário Cadastrado!');
+            return redirect()->route('aqa-login')->with('status', 'Obrigado por se cadastrar! Entre no Sistema. :)');
         }
     }
 
@@ -148,8 +147,7 @@ class SiteController extends Controller
 
 
         if ($resultado) {
-            return redirect()->route('aqa.index');
-            //->with('status', 'Entidade Cadastrada!');
+            return redirect()->route('aqa-login')->with('status', 'Obrigado por se cadastrar! Contate o administrador pelo Fale Conosco ou aguarde seu cadastro ser liberado tornar-se visível para os usuários :)');
         }
     }
 
