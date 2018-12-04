@@ -159,8 +159,11 @@ class SiteUsuarioController extends Controller
         $alteracao2 = $usuario->update(['imagem' => $imagem]);
 
 
-        if ($alteracao2 && $alteracao && $alteracao1) {
+        if ($alteracao && $alteracao1) {
             return redirect()->route('usuario-site.show', $usuario->id)->with('status', 'Cadastro alterado com sucesso!');
+        }
+        else {
+            return redirect()->route('usuario-site.show', $usuario->id)->with('status', 'Algo aconteceu, tente novamente!');
         }
     }
 

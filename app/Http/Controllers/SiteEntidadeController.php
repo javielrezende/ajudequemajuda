@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class SiteEntidadeController extends Controller
 {
@@ -157,25 +158,21 @@ class SiteEntidadeController extends Controller
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
 
-            $horaAtual = Carbon::parse()->timestamp;
-            //dd($horaAtual);
-            $nomeImagem = kebab_case($horaAtual) . kebab_case($entidade->endereco->rua);
-            //dd($nomeImagem);
+            $imagem = Storage::disk('s3')->putFile('entidades', $request->imagem, 'public');
 
-            $extensao = $request->imagem->extension();
-            $nomeImagemFinal = "{$nomeImagem}.{$extensao}";
-            $request->imagem->move(public_path('imagens/users'), $nomeImagemFinal);
+            $imagem = Storage::disk('s3')->url($imagem);
+            //$imagem = "imagens/users/" . $nomeImagemFinal;
 
-            $imagem = "imagens/users/" . $nomeImagemFinal;
+
         }
-        //   $alteracao = $usuario->update(['imagem' => $imagem]);
-        //} else {
         $alteracao2 = $entidade->update(['imagem' => $imagem]);
-        //}
 
 
-        if ($alteracao && $alteracao1 && $alteracao2) {
+        if ($alteracao && $alteracao1) {
             return redirect()->route('entidade-site.show', $entidade->id)->with('status', 'Cadastro alterado com sucesso!');
+        }
+        else {
+            return redirect()->route('entidade-site.show', $entidade->id)->with('status', 'Algo aconteceu, tente novamente!');
         }
     }
 

@@ -33,7 +33,8 @@
             @foreach($entidades as $entidade)
             <div class="row diventidades">
                 @if($entidade->imagem)
-                    <img class="row imagemcampanhas" src="/{{$entidade->imagem}}"
+                    {{--{{dd($entidade->imagem)}}--}}
+                    <img class="row imagemcampanhas" src="{{$entidade->imagem}}"
                          alt="Foto de perfil">
                 @else
                     <img class="row imagemcampanhas" src="{{ asset('https://s3-sa-east-1.amazonaws.com/ajudequemajuda/geral/entidades1.jpg') }}"
