@@ -34,7 +34,7 @@
 
                 <form style="display: inline-block"
                       method="post"
-                      action="{{route('minhas-campanhas.destroy', $evento->id)}}"
+                      action="{{route('meus-eventos.destroy', $evento->id)}}"
                       onsubmit="return confirm('Confirma Exclusão?')">
                     {{method_field('delete')}}
                     {{csrf_field()}}

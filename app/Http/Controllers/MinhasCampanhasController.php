@@ -356,6 +356,7 @@ class MinhasCampanhasController extends Controller
 
 
         if ($campanha == null) {
+            //dd('Esta campanha não existe!');
             return redirect()->back()->with('status', 'Esta campanha não existe!');
         }
         //dd($entidadeLogada);
@@ -364,6 +365,7 @@ class MinhasCampanhasController extends Controller
             ->where('campanhas_id', $campanha->id)
             ->first();
         if ($verificarCampanha == null) {
+            //dd('Você não tem esta permissão!');
             return redirect()->back()->with('status', 'Você não tem esta permissão!');
         }
 

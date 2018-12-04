@@ -367,6 +367,8 @@ class MeusEventosController extends Controller
             'status' => 0
         ]);
 
+        //dd('alterado', $registro);
+
         return view('site.evento.meusEventos', compact('entidadeLogada', 'campanhas'))->with('status', 'Evento apagado com sucesso!');
 
     }
