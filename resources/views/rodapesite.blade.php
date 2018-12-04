@@ -5,9 +5,8 @@
         <p>2018. AjudeQuemAjuda - Todos direitos reservados</p>
     </div>
     <div class="faq col-6">
-        <a href="#"><p style="color: #9f9f9f; cursor: text">SOBRE</p></a>
+        <p style="color: #9f9f9f; cursor: text">SOBRE</p>
         <a href="{{ url('faleconosco') }}"><p class="faqcentro">FALE CONOSCO</p></a>
-        <a href=""><p style="color: #9f9f9f; cursor: text">FAQ</p></a>
-
+        <p style="color: #9f9f9f; cursor: text">FAQ</p>
     </div>
 </div>

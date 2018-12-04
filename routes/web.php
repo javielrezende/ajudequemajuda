@@ -156,6 +156,10 @@ Route::group(['prefix' => '/admin', 'middleware' => 'can:admin'], function (){
     Route::resource('/users', 'UserController');
     Route::resource('/campanhas', 'CampanhaController');
     Route::resource('/faleconoscoadmin', 'FaleConoscoController');
+    Route::get('/relatorios', 'RelatorioController@data')->name('data');
+    Route::get('/relatorios/resultado', 'RelatorioController@resultadoAdmin')->name('resultado-admin');
+    Route::get('/lista-entidades-para-liberar', 'EntidadeController@listarEntidadesParaLiberar')->name('lista-entidades-para-liberar');
+    Route::get('/lista-entidades-para-liberar/{id}/liberar-entidade', 'EntidadeController@liberar')->name('liberar');
 });
 /*
 //sem acl para soente adm entrar no admin

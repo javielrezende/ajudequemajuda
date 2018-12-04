@@ -123,8 +123,8 @@
                             <p class="editar">[EDITAR]</p>
                         </div>
                         <select class="form-control" id="campanha" name="campanha" required>
-                            <option value=”{{$evento->campanhas->id}}” disabled hidden
-                                    selected>{{$evento->campanhas->nome}}</option>
+                           {{-- <option value=”{{$evento->campanhas->id}}” disabled hidden
+                                    selected>{{$evento->campanhas->nome}}</option>--}}
                             @foreach($campanhas as $c)
                                 <option value="{{$c->id}}"
                                 @if ((isset($registro) and $registro->campanha_id == $c->id) or
@@ -207,8 +207,6 @@
                             <p class="editar">[EDITAR]</p>
                         </div>
                         <select class="custom-select" name="estado" id="estado" required>
-                            <option disabled hidden selected
-                                    value="{{$evento->enderecos->estado or old('estado')}}">{{$evento->enderecos->estado or old('estado')}}</option>
                             <option value="{{$evento->enderecos->estado or old('estado')}}">Escolha seu estado</option>
                         </select>
                     </div>
@@ -219,8 +217,8 @@
                             <p class="editar">[EDITAR]</p>
                         </div>
                         <select class="custom-select" name="cidade" id="cidade" required>
-                            <option disabled hidden selected
-                                    value="{{$evento->enderecos->cidade or old('cidade')}}">{{$evento->enderecos->cidade or old('cidade')}}</option>
+                            {{--<option disabled hidden selected--}}
+                                    {{--value="{{$evento->enderecos->cidade or old('cidade')}}">{{$evento->enderecos->cidade or old('cidade')}}</option>--}}
                             <option value="{{$evento->enderecos->cidade or old('cidade')}}">Insira sua cidade</option>
                         </select>
                     </div>

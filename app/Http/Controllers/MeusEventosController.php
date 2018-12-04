@@ -252,7 +252,7 @@ class MeusEventosController extends Controller
         $estado = $request['estado'];
         $campanha = $request['campanha'];
 
-        dd($campanha);
+        //dd($cidade);
         //dd($estado);
 
 
