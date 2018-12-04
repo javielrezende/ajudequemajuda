@@ -11800,9 +11800,7 @@ body .form-control[readonly] {
 
 .siteeventos .diveventos .observacoeseventos {
   margin-left: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -11841,7 +11839,7 @@ body .form-control[readonly] {
 
 .siteeventos .diveventos .observacoeseventos .saibamaiseventos {
   font-size: 10px;
-  margin-left: auto;
+  margin-right: auto;
   color: #4D4F5C;
   float: right;
   text-decoration: none;
@@ -12352,9 +12350,9 @@ body .form-control[readonly] {
 }
 
 .sitecampanha .divcampanha .observacoescampanha {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-rows: -webkit-min-content 50px 1fr auto 60px;
+  grid-template-rows: min-content 50px 1fr auto 60px;
   width: 340px;
   margin-left: 40px;
   -webkit-box-orient: vertical;
@@ -12403,11 +12401,9 @@ body .form-control[readonly] {
 }
 
 .sitecampanha .divcampanha .observacoescampanha .descricaocampanha {
-  margin-top: -20px;
   color: #8A8A8A;
   font-size: 12px;
   width: 340px;
-  height: 200px;
 }
 
 .sitecampanha .divcampanha .observacoescampanha .like {

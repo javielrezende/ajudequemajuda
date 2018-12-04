@@ -49,7 +49,7 @@
 
     .observacoeseventos {
       margin-left: 20px;
-      display: flex;
+      display: grid;
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
@@ -81,7 +81,7 @@
       .saibamaiseventos {
         font-size: 10px;
         //margin-top: 5px;
-        margin-left: auto;
+        margin-right: auto;
         color: #4D4F5C;
         //margin-left: 150px;
         float: right;
